@@ -4,7 +4,7 @@
 
 **ARC = Adaptive Reversible Context.** Plugin quản trị ngữ cảnh cho [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness): im lặng trong vùng an toàn, thực thi nén **do mô hình điều khiển và khả nghịch cục bộ** khi dung lượng đầu vào thực tế gần đầy. Thông tin không bao giờ bị mất; gỡ cài đặt không để lại dấu vết.
 
-> **Trạng thái phát hành: 0.2.0-beta.12, bám theo bản chính thức 0.1.0-rc.7.** Cả dự án này và host đều đang ở beta công khai — chưa khuyến nghị dùng cho production. Ma trận kiểm chứng phát hành trực tiếp đầy đủ (mười hạng mục): [`research/results/release-verification-0.2.0-beta.12.json`](research/results/release-verification-0.2.0-beta.12.json).
+> **Trạng thái phát hành: beta công khai, bám theo bản chính thức dsh 0.1.0-rc.7.** Cả dự án này và dsh đều đang ở beta công khai — chưa khuyến nghị dùng cho production. Ma trận kiểm chứng phát hành trực tiếp đầy đủ (mười hạng mục): [`research/results/release-verification-0.2.0-beta.12.json`](research/results/release-verification-0.2.0-beta.12.json).
 
 ## Lợi thế đo được
 

@@ -4,7 +4,7 @@
 
 **ARC = Adaptive Reversible Context.** ปลั๊กอินสำหรับการกำกับดูแลบริบท (context governance) ของ [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness): เงียบในโซนปลอดภัย แล้วทำการบีบอัดแบบ **ขับเคลื่อนโดยโมเดลและย้อนกลับได้ในเครื่อง** เมื่อเข้าใกล้ความจุอินพุตจริง ข้อมูลไม่มีวันสูญหาย และการถอนการติดตั้งไม่ทิ้งสิ่งใดไว้
 
-> **สถานะรีลีส: 0.2.0-beta.12 ตามการเวอร์ชันทางการ 0.1.0-rc.7.** ทั้งโปรเจกต์นี้และโฮสต์อยู่ในช่วงเบต้าสาธารณะ — ยังไม่แนะนำให้ใช้งานจริง เมทริกซ์ตรวจสอบรีลีสแบบไลฟ์ครบสิบรายการ: [`research/results/release-verification-0.2.0-beta.12.json`](research/results/release-verification-0.2.0-beta.12.json)
+> **สถานะรีลีส: เบต้าสาธารณะ ตาม dsh เวอร์ชันทางการ 0.1.0-rc.7.** ทั้งโปรเจกต์นี้และ dsh อยู่ในช่วงเบต้าสาธารณะ — ยังไม่แนะนำให้ใช้งานจริง เมทริกซ์ตรวจสอบรีลีสแบบไลฟ์ครบสิบรายการ: [`research/results/release-verification-0.2.0-beta.12.json`](research/results/release-verification-0.2.0-beta.12.json)
 
 ## ความได้เปรียบที่วัดได้จริง
 

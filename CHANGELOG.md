@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.0-beta.14
+
+- Documentation only: version-less release-status line in all README
+  translations, "dsh" host naming in the Chinese README, and README files
+  refreshed on the npm page. No functional change.
+
 ## 0.2.0-beta.13
 
 - Package metadata only: repository, homepage, and issues URLs now point to

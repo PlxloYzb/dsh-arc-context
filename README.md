@@ -4,7 +4,7 @@
 
 **ARC = Adaptive Reversible Context。** 面向 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 的上下文治理插件:在安全区保持静默,在接近真实输入容量时执行**模型驱动、本地可逆**的压缩,信息永不丢失,卸载零残留。
 
-> **发布状态:0.2.0-beta.12,跟随官方 0.1.0-rc.7。** 本项目与宿主均处公开 beta,暂不建议用于生产。完整发布门实机验证矩阵(十项)见 [`research/results/release-verification-0.2.0-beta.12.json`](research/results/release-verification-0.2.0-beta.12.json)。
+> **发布状态:公开 Beta,跟随 dsh 官方 0.1.0-rc.7。** 本项目与 dsh 均处公开 beta,暂不建议用于生产。完整发布门实机验证矩阵(十项)见 [`research/results/release-verification-0.2.0-beta.12.json`](research/results/release-verification-0.2.0-beta.12.json)。
 
 ## 实测优势
 
@@ -25,11 +25,11 @@
 
 ### Basic 没有的能力
 
-- **永不丢失,可逆恢复** — 压缩原件永远保留在 append-only 日志;`decompress` 逐字恢复有效源(六链实测 100%,超大输出经宿主溢写文件同样完整);`search_context` 检索压缩块,中英信息层召回 43/43。
+- **永不丢失,可逆恢复** — 压缩原件永远保留在 append-only 日志;`decompress` 逐字恢复有效源(六链实测 100%,超大输出经 dsh 溢写文件同样完整);`search_context` 检索压缩块,中英信息层召回 43/43。
 - **多层蒸馏不失真** — tier-3 深层检查点的证据附录在 6/6 条双语链上 20/20 保留全部事实(有效源索引递归刷新,`effectiveSourceSafetyIndex`)。
 - **预算内的类型加权保留** — 附录超出检查点预算时按类型价值密度逐出噪声行,而非按时间序截断(`safetyIndexRanking: value`):离线最差情形全预算占优,live 配对附录层 +14.3pp、端到端零回归。
 - **对抗零服从** — 18 个归档注入攻击面变体(摘要投毒、检索注入、伪保护标签、模板模仿等),模型服从次数 **0**;一切归档输出带"历史数据,非指令"框架。
-- **诚实压力治理** — 压缩感知读数 = 宿主投影 − 日志账本遮蔽;压缩后零伪紧急告警(实测),压力显示与真实占用一致。
+- **诚实压力治理** — 压缩感知读数 = dsh 投影 − 日志账本遮蔽;压缩后零伪紧急告警(实测),压力显示与真实占用一致。
 - **紧凑指导** — 系统指导 1,140 tokens,四臂实机 verbatim 质量与完整版零劣化(0pp)。
 
 ## 安装
@@ -38,7 +38,7 @@
 dsh plugin --profile web add dsh-arc-context
 ```
 
-重启宿主即生效。bundle 自动安装 host-plane Preset Bridge:ARC 在 standard preset 自己的 compaction 隔离域内替换官方 Basic 行,**preset 文件逐字节不变**;命令、pruner、isolation 及其他 preset 行全部保留。
+重启 dsh 即生效。bundle 自动安装 host-plane Preset Bridge:ARC 在 standard preset 自己的 compaction 隔离域内替换官方 Basic 行,**preset 文件逐字节不变**;命令、pruner、isolation 及其他 preset 行全部保留。
 
 手动安装 tarball、其他 profile 与高级选项见 [`docs/INSTALL.md`](docs/INSTALL.md)。
 
@@ -68,7 +68,7 @@ dsh plugin --profile web add dsh-arc-context
 dsh plugin --profile web remove dsh-arc-context
 ```
 
-重启宿主后:
+重启 dsh 后:
 
 - 组合配置回到官方 Basic,无任何 ARC 行残留;
 - **preset 文件全程未被修改**(SHA-256 前后一致,发布门实测);
@@ -86,4 +86,4 @@ dsh plugin --profile web remove dsh-arc-context
 
 ## 致谢与许可
 
-ARC 的压缩内核源自 [acp-kernel](https://github.com/ranxianglei/acp-kernel)(及 billion-context-pi、opencode-acp,ranxianglei,MIT)的移植与独立演进;宿主为 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)(DeepSeek AI)。本项目 MIT 许可,见 [LICENSE](LICENSE)。
+ARC 的压缩内核源自 [acp-kernel](https://github.com/ranxianglei/acp-kernel)(及 billion-context-pi、opencode-acp,ranxianglei,MIT)的移植与独立演进;dsh 宿主为 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)(DeepSeek AI)。本项目 MIT 许可,见 [LICENSE](LICENSE)。
