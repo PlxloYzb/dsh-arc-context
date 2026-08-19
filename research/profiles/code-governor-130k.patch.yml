@@ -1,0 +1,10 @@
+- id: compaction-arc
+  config:
+    modelContextLimit: 130000
+    adaptiveGovernor:
+      enabled: true
+      maxOutputTokens: auto
+      safetyMarginTokens: 32768
+      nudgeAtEffectiveCapacityPct: 0.75
+      emergencyAtEffectiveCapacityPct: 0.90
+      emergencyFallback: true

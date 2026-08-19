@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-08-17T06:41:36.173Z",
+  "runId": "semantic-supersession-seed01-basic",
+  "seed": "semantic-seed-01",
+  "model": "deepseek-v4-flash",
+  "requestHeaders": {
+    "count": 1,
+    "maxTokens": [
+      256000
+    ],
+    "adapterDefaultMaxTokens": 1
+  },
+  "sessionUsage": {
+    "uncachedInputTokens": 67372,
+    "outputTokens": 5797,
+    "cacheReadTokens": 208000,
+    "cacheWriteTokens": 0
+  },
+  "finalContextPressure": {
+    "pressureTokens": 46789,
+    "projectedTokens": 50675,
+    "contextWindow": 1000000
+  },
+  "currentState": {
+    "recalled": 12,
+    "expected": 12,
+    "missing": []
+  },
+  "rationale": {
+    "recalled": 10,
+    "expected": 10,
+    "missing": []
+  },
+  "obsoleteContamination": {
+    "count": 0,
+    "leakedPatterns": []
+  },
+  "toolCalls": {
+    "count": 0,
+    "finalTurnCount": 0
+  },
+  "compactions": [
+    {
+      "provider": "deepseek-official",
+      "model": "deepseek-v4-flash",
+      "shadowedNodes": 5,
+      "shadowedTokenCount": 19296,
+      "summaryChars": 2343,
+      "usage": {
+        "inputTokens": 44836,
+        "outputTokens": 1760,
+        "cacheReadTokens": 1664,
+        "reasoningTokens": 1201
+      }
+    }
+  ],
+  "errors": [],
+  "finalText": "{\n  \"主要上线城市\": \"塔林\",\n  \"执行负责人\": \"Noor Haddad\",\n  \"冻结窗口\": \"周四 04:15 UTC\",\n  \"回滚确认短语\": \"silent harbor\",\n  \"保留期限\": \"45 天\",\n  \"生产消息队列\": \"cedar-lane\",\n  \"每批账户数\": 180,\n  \"失败重试策略\": \"最多重试 4 次，每次间隔 90 秒\",\n  \"受监管租户路径\": \"受监管租户暂时从瓦伦西亚上线；普通租户继续走塔林；例外持续到驻留审计完成\",\n  \"上线审批\": \"财务负责人与 SRE 值班经理双重签批\",\n  \"对外状态页\": \"ivory-status.example\",\n  \"审计归档包\": \"ledger-indigo\",\n  \"变更原因\": [\n    \"主要上线城市：原主要上线城市的供应商居住认证已过期，普通租户改从塔林上线\",\n    \"受监管租户路径：受监管租户的瓦伦西亚例外持续到驻留审计完成\",\n    \"执行负责人：原负责人上线周被调去处理监管问询，改由 Noor Haddad 负责\",\n    \"冻结窗口：改为周四 04:15 UTC，因为该时段支付流量最低\",\n    \"回滚确认短语：原短语已在公开演练录音中泄露，改为 silent harbor\",\n    \"保留期限：监管方签发了临时法律保全令，延长到 45 天\",\n    \"生产消息队列：新生产者已停止向原队列发布，改用 cedar-lane\",\n    \"每批账户数：原批量同时解密会造成内存尖峰，降为 180\",\n    \"失败重试策略：三次重试不足以跨过网关限流周期，改为最多重试 4 次、每次间隔 90 秒\",\n    \"审计归档包：原名称与另一场演练的包冲突，改称 ledger-indigo\"\n  ]\n}"
+}

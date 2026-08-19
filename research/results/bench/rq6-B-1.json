@@ -1,0 +1,2202 @@
+{
+  "schemaVersion": 2,
+  "rq": "RQ6",
+  "arm": "B-1",
+  "guidance": "compact-patch",
+  "seed": 1,
+  "setup": {
+    "host": "isolated verify/arc-live-rc7; dsh web; temporary profile overlay",
+    "model": "opencode-go/deepseek-v4-flash",
+    "configuredWindow": 32768,
+    "primaryLiveTurns": 3,
+    "budget": {
+      "capPerArm": 6,
+      "primaryLiveTurnsPlanned": 3
+    },
+    "nativePromptOverride": true,
+    "experimentOnlyProtectionOverride": {
+      "protectedRecentMessages": 0,
+      "protectedRecentTokens": 1,
+      "productionDefault": {
+        "protectedRecentMessages": 5,
+        "protectedRecentTokens": 5000
+      }
+    }
+  },
+  "sessionId": "session-dc73cde9-1ad6-4f84-b9e5-d0f66aa78a20",
+  "systemTokensAfterPlant": 2270,
+  "plantedFactCount": 82,
+  "plantedRange": {
+    "startSeq": 7,
+    "endSeq": 7
+  },
+  "facts": [
+    {
+      "id": "f0",
+      "category": "paraphrase",
+      "needle": "auth→notify",
+      "keywords": [
+        "auth",
+        "notify",
+        "retries",
+        "compound"
+      ],
+      "statement": "Decision: auth calls notify asynchronously because retries compound under queue pressure.",
+      "question": "Why does auth interact with notify asynchronously, per the recorded decision?",
+      "answer": "retries compound under queue pressure"
+    },
+    {
+      "id": "f2",
+      "category": "numeric",
+      "needle": "BILLING_RETRY_BUDGET = 1020",
+      "question": "State the exact decision value recorded for BILLING_RETRY_BUDGET.",
+      "answer": "BILLING_RETRY_BUDGET = 1020"
+    },
+    {
+      "id": "f3",
+      "category": "verbatim",
+      "needle": "ingest-pipeline#16c43069 services/ingest-pipeline/src/quota/handler.ts:293 EQUOTA_EXCEEDED",
+      "question": "Report the exact failure anchor (service#commit path code) logged for ingest-pipeline in stage 1.",
+      "answer": "ingest-pipeline#16c43069 services/ingest-pipeline/src/quota/handler.ts:293 EQUOTA_EXCEEDED"
+    },
+    {
+      "id": "f4",
+      "category": "paraphrase",
+      "needle": "notify→quota",
+      "keywords": [
+        "notify",
+        "quota",
+        "upstream",
+        "expires"
+      ],
+      "statement": "Decision: notify calls quota asynchronously because the upstream lease expires mid-batch.",
+      "question": "Why does notify interact with quota asynchronously, per the recorded decision?",
+      "answer": "the upstream lease expires mid-batch"
+    },
+    {
+      "id": "f5",
+      "category": "paraphrase",
+      "needle": "index→quota",
+      "keywords": [
+        "index",
+        "quota",
+        "retries",
+        "compound"
+      ],
+      "statement": "Decision: index calls quota asynchronously because retries compound under queue pressure.",
+      "question": "Why does index interact with quota asynchronously, per the recorded decision?",
+      "answer": "retries compound under queue pressure"
+    },
+    {
+      "id": "f6",
+      "category": "verbatim",
+      "needle": "notify-bus#25632b92 services/notify-bus/src/ingest/handler.ts:81 ESCHEMA_drift",
+      "question": "Report the exact failure anchor (service#commit path code) logged for notify-bus in stage 2.",
+      "answer": "notify-bus#25632b92 services/notify-bus/src/ingest/handler.ts:81 ESCHEMA_drift"
+    },
+    {
+      "id": "f7",
+      "category": "crossref",
+      "needle": "XREF-fb64→f2",
+      "refs": [
+        "XREF-fb64",
+        "BILLING_RETRY_BUDGET = 1020"
+      ],
+      "question": "Which earlier record does cross-reference XREF-fb64 point to? Report its anchor.",
+      "answer": "BILLING_RETRY_BUDGET = 1020"
+    },
+    {
+      "id": "f8",
+      "category": "paraphrase",
+      "needle": "retry→quota",
+      "keywords": [
+        "retry",
+        "quota",
+        "doubles"
+      ],
+      "statement": "Decision: retry calls quota asynchronously because the shadow index doubles write cost.",
+      "question": "Why does retry interact with quota asynchronously, per the recorded decision?",
+      "answer": "the shadow index doubles write cost"
+    },
+    {
+      "id": "f9",
+      "category": "crossref",
+      "needle": "XREF-e10d→f7",
+      "refs": [
+        "XREF-e10d",
+        "XREF-fb64→f2"
+      ],
+      "question": "Which earlier record does cross-reference XREF-e10d point to? Report its anchor.",
+      "answer": "XREF-fb64→f2"
+    },
+    {
+      "id": "f10",
+      "category": "verbatim",
+      "needle": "export-worker#8eb2af2f services/export-worker/src/billing/handler.ts:374 ECONN_RESET",
+      "question": "Report the exact failure anchor (service#commit path code) logged for export-worker in stage 3.",
+      "answer": "export-worker#8eb2af2f services/export-worker/src/billing/handler.ts:374 ECONN_RESET"
+    },
+    {
+      "id": "f11",
+      "category": "numeric",
+      "needle": "INGEST_SHARD_COUNT = 2089",
+      "question": "State the exact decision value recorded for INGEST_SHARD_COUNT.",
+      "answer": "INGEST_SHARD_COUNT = 2089"
+    },
+    {
+      "id": "f12",
+      "category": "numeric",
+      "needle": "AUTH_QUEUE_DEPTH = 3500",
+      "question": "State the exact decision value recorded for AUTH_QUEUE_DEPTH.",
+      "answer": "AUTH_QUEUE_DEPTH = 3500"
+    },
+    {
+      "id": "f13",
+      "category": "verbatim",
+      "needle": "auth-gateway#4e42a851 services/auth-gateway/src/billing/handler.ts:98 EQUOTA_EXCEEDED",
+      "question": "Report the exact failure anchor (service#commit path code) logged for auth-gateway in stage 4.",
+      "answer": "auth-gateway#4e42a851 services/auth-gateway/src/billing/handler.ts:98 EQUOTA_EXCEEDED"
+    },
+    {
+      "id": "f14",
+      "category": "paraphrase",
+      "needle": "export→auth",
+      "keywords": [
+        "export",
+        "auth",
+        "doubles"
+      ],
+      "statement": "Decision: export calls auth asynchronously because the shadow index doubles write cost.",
+      "question": "Why does export interact with auth asynchronously, per the recorded decision?",
+      "answer": "the shadow index doubles write cost"
+    },
+    {
+      "id": "f15",
+      "category": "numeric",
+      "needle": "BILLING_SHARD_COUNT = 1039",
+      "question": "State the exact decision value recorded for BILLING_SHARD_COUNT.",
+      "answer": "BILLING_SHARD_COUNT = 1039"
+    },
+    {
+      "id": "f17",
+      "category": "numeric",
+      "needle": "EXPORT_QUEUE_DEPTH = 391",
+      "question": "State the exact decision value recorded for EXPORT_QUEUE_DEPTH.",
+      "answer": "EXPORT_QUEUE_DEPTH = 391"
+    },
+    {
+      "id": "f18",
+      "category": "verbatim",
+      "needle": "export-worker#cc312684 services/export-worker/src/retry/handler.ts:308 ETLS_HANDSHAKE",
+      "question": "Report the exact failure anchor (service#commit path code) logged for export-worker in stage 5.",
+      "answer": "export-worker#cc312684 services/export-worker/src/retry/handler.ts:308 ETLS_HANDSHAKE"
+    },
+    {
+      "id": "f19",
+      "category": "crossref",
+      "needle": "XREF-a364→f11",
+      "refs": [
+        "XREF-a364",
+        "INGEST_SHARD_COUNT = 2089"
+      ],
+      "question": "Which earlier record does cross-reference XREF-a364 point to? Report its anchor.",
+      "answer": "INGEST_SHARD_COUNT = 2089"
+    },
+    {
+      "id": "f20",
+      "category": "verbatim",
+      "needle": "billing-sync#ef2510c6 services/billing-sync/src/billing/handler.ts:167 ETLS_HANDSHAKE",
+      "question": "Report the exact failure anchor (service#commit path code) logged for billing-sync in stage 6.",
+      "answer": "billing-sync#ef2510c6 services/billing-sync/src/billing/handler.ts:167 ETLS_HANDSHAKE"
+    },
+    {
+      "id": "f21",
+      "category": "numeric",
+      "needle": "RETRY_RETRY_BUDGET = 1757",
+      "question": "State the exact decision value recorded for RETRY_RETRY_BUDGET.",
+      "answer": "RETRY_RETRY_BUDGET = 1757"
+    },
+    {
+      "id": "f22",
+      "category": "paraphrase",
+      "needle": "ingest→billing",
+      "keywords": [
+        "ingest",
+        "billing",
+        "doubles"
+      ],
+      "statement": "Decision: ingest calls billing asynchronously because the shadow index doubles write cost.",
+      "question": "Why does ingest interact with billing asynchronously, per the recorded decision?",
+      "answer": "the shadow index doubles write cost"
+    },
+    {
+      "id": "f23",
+      "category": "paraphrase",
+      "needle": "quota→auth",
+      "keywords": [
+        "quota",
+        "auth",
+        "upstream",
+        "expires"
+      ],
+      "statement": "Decision: quota calls auth asynchronously because the upstream lease expires mid-batch.",
+      "question": "Why does quota interact with auth asynchronously, per the recorded decision?",
+      "answer": "the upstream lease expires mid-batch"
+    },
+    {
+      "id": "f24",
+      "category": "paraphrase",
+      "needle": "export→auth",
+      "keywords": [
+        "export",
+        "auth",
+        "dominate"
+      ],
+      "statement": "Decision: export calls auth asynchronously because cold starts dominate the p99 tail.",
+      "question": "Why does export interact with auth asynchronously, per the recorded decision?",
+      "answer": "cold starts dominate the p99 tail"
+    },
+    {
+      "id": "f25",
+      "category": "numeric",
+      "needle": "QUOTA_SHARD_COUNT = 1474",
+      "question": "State the exact decision value recorded for QUOTA_SHARD_COUNT.",
+      "answer": "QUOTA_SHARD_COUNT = 1474"
+    },
+    {
+      "id": "f26",
+      "category": "numeric",
+      "needle": "NOTIFY_BATCH_SIZE = 3784",
+      "question": "State the exact decision value recorded for NOTIFY_BATCH_SIZE.",
+      "answer": "NOTIFY_BATCH_SIZE = 3784"
+    },
+    {
+      "id": "f27",
+      "category": "numeric",
+      "needle": "NOTIFY_SHARD_COUNT = 516",
+      "question": "State the exact decision value recorded for NOTIFY_SHARD_COUNT.",
+      "answer": "NOTIFY_SHARD_COUNT = 516"
+    },
+    {
+      "id": "f28",
+      "category": "verbatim",
+      "needle": "notify-bus#2b4a48e1 services/notify-bus/src/auth/handler.ts:189 ESCHEMA_drift",
+      "question": "Report the exact failure anchor (service#commit path code) logged for notify-bus in stage 8.",
+      "answer": "notify-bus#2b4a48e1 services/notify-bus/src/auth/handler.ts:189 ESCHEMA_drift"
+    },
+    {
+      "id": "f29",
+      "category": "verbatim",
+      "needle": "search-indexer#6c41ff0d services/search-indexer/src/auth/handler.ts:377 ESCHEMA_drift",
+      "question": "Report the exact failure anchor (service#commit path code) logged for search-indexer in stage 8.",
+      "answer": "search-indexer#6c41ff0d services/search-indexer/src/auth/handler.ts:377 ESCHEMA_drift"
+    },
+    {
+      "id": "f30",
+      "category": "numeric",
+      "needle": "INDEX_SHARD_COUNT = 557",
+      "question": "State the exact decision value recorded for INDEX_SHARD_COUNT.",
+      "answer": "INDEX_SHARD_COUNT = 557"
+    },
+    {
+      "id": "f31",
+      "category": "verbatim",
+      "needle": "export-worker#9802932a services/export-worker/src/notify/handler.ts:56 ECONN_RESET",
+      "question": "Report the exact failure anchor (service#commit path code) logged for export-worker in stage 8.",
+      "answer": "export-worker#9802932a services/export-worker/src/notify/handler.ts:56 ECONN_RESET"
+    },
+    {
+      "id": "f32",
+      "category": "verbatim",
+      "needle": "ingest-pipeline#aacaaf0d services/ingest-pipeline/src/retry/handler.ts:62 ETLS_HANDSHAKE",
+      "question": "Report the exact failure anchor (service#commit path code) logged for ingest-pipeline in stage 9.",
+      "answer": "ingest-pipeline#aacaaf0d services/ingest-pipeline/src/retry/handler.ts:62 ETLS_HANDSHAKE"
+    },
+    {
+      "id": "f33",
+      "category": "numeric",
+      "needle": "NOTIFY_TTL_SECONDS = 446",
+      "question": "State the exact decision value recorded for NOTIFY_TTL_SECONDS.",
+      "answer": "NOTIFY_TTL_SECONDS = 446"
+    },
+    {
+      "id": "f34",
+      "category": "verbatim",
+      "needle": "notify-bus#6088ad7c services/notify-bus/src/auth/handler.ts:383 ESCHEMA_drift",
+      "question": "Report the exact failure anchor (service#commit path code) logged for notify-bus in stage 9.",
+      "answer": "notify-bus#6088ad7c services/notify-bus/src/auth/handler.ts:383 ESCHEMA_drift"
+    },
+    {
+      "id": "f35",
+      "category": "verbatim",
+      "needle": "export-worker#c12b0cf5 services/export-worker/src/retry/handler.ts:771 ESCHEMA_drift",
+      "question": "Report the exact failure anchor (service#commit path code) logged for export-worker in stage 9.",
+      "answer": "export-worker#c12b0cf5 services/export-worker/src/retry/handler.ts:771 ESCHEMA_drift"
+    },
+    {
+      "id": "f36",
+      "category": "numeric",
+      "needle": "NOTIFY_RETRY_BUDGET = 846",
+      "question": "State the exact decision value recorded for NOTIFY_RETRY_BUDGET.",
+      "answer": "NOTIFY_RETRY_BUDGET = 846"
+    },
+    {
+      "id": "f37",
+      "category": "verbatim",
+      "needle": "export-worker#a09922f4 services/export-worker/src/auth/handler.ts:466 EQUOTA_EXCEEDED",
+      "question": "Report the exact failure anchor (service#commit path code) logged for export-worker in stage 10.",
+      "answer": "export-worker#a09922f4 services/export-worker/src/auth/handler.ts:466 EQUOTA_EXCEEDED"
+    },
+    {
+      "id": "f40",
+      "category": "paraphrase",
+      "needle": "notify→quota",
+      "keywords": [
+        "notify",
+        "quota",
+        "retries",
+        "compound"
+      ],
+      "statement": "Decision: notify calls quota asynchronously because retries compound under queue pressure.",
+      "question": "Why does notify interact with quota asynchronously, per the recorded decision?",
+      "answer": "retries compound under queue pressure"
+    },
+    {
+      "id": "f41",
+      "category": "numeric",
+      "needle": "QUOTA_SHARD_COUNT = 997",
+      "question": "State the exact decision value recorded for QUOTA_SHARD_COUNT.",
+      "answer": "QUOTA_SHARD_COUNT = 997"
+    },
+    {
+      "id": "f42",
+      "category": "verbatim",
+      "needle": "export-worker#6f8a61ca services/export-worker/src/quota/handler.ts:146 ECONN_RESET",
+      "question": "Report the exact failure anchor (service#commit path code) logged for export-worker in stage 11.",
+      "answer": "export-worker#6f8a61ca services/export-worker/src/quota/handler.ts:146 ECONN_RESET"
+    },
+    {
+      "id": "f43",
+      "category": "paraphrase",
+      "needle": "quota→billing",
+      "keywords": [
+        "quota",
+        "billing",
+        "dominate"
+      ],
+      "statement": "Decision: quota calls billing asynchronously because cold starts dominate the p99 tail.",
+      "question": "Why does quota interact with billing asynchronously, per the recorded decision?",
+      "answer": "cold starts dominate the p99 tail"
+    },
+    {
+      "id": "f44",
+      "category": "paraphrase",
+      "needle": "auth→ingest",
+      "keywords": [
+        "auth",
+        "ingest",
+        "upstream",
+        "expires"
+      ],
+      "statement": "Decision: auth calls ingest asynchronously because the upstream lease expires mid-batch.",
+      "question": "Why does auth interact with ingest asynchronously, per the recorded decision?",
+      "answer": "the upstream lease expires mid-batch"
+    },
+    {
+      "id": "f45",
+      "category": "numeric",
+      "needle": "RETRY_TTL_SECONDS = 1675",
+      "question": "State the exact decision value recorded for RETRY_TTL_SECONDS.",
+      "answer": "RETRY_TTL_SECONDS = 1675"
+    },
+    {
+      "id": "f46",
+      "category": "paraphrase",
+      "needle": "billing→export",
+      "keywords": [
+        "billing",
+        "export",
+        "retries",
+        "compound"
+      ],
+      "statement": "Decision: billing calls export asynchronously because retries compound under queue pressure.",
+      "question": "Why does billing interact with export asynchronously, per the recorded decision?",
+      "answer": "retries compound under queue pressure"
+    },
+    {
+      "id": "f47",
+      "category": "paraphrase",
+      "needle": "index→auth",
+      "keywords": [
+        "index",
+        "auth",
+        "dominate"
+      ],
+      "statement": "Decision: index calls auth asynchronously because cold starts dominate the p99 tail.",
+      "question": "Why does index interact with auth asynchronously, per the recorded decision?",
+      "answer": "cold starts dominate the p99 tail"
+    },
+    {
+      "id": "f48",
+      "category": "crossref",
+      "needle": "XREF-ef93→f22",
+      "refs": [
+        "XREF-ef93",
+        "ingest→billing"
+      ],
+      "question": "Which earlier record does cross-reference XREF-ef93 point to? Report its anchor.",
+      "answer": "ingest→billing"
+    },
+    {
+      "id": "f49",
+      "category": "paraphrase",
+      "needle": "notify→export",
+      "keywords": [
+        "notify",
+        "export",
+        "retries",
+        "compound"
+      ],
+      "statement": "Decision: notify calls export asynchronously because retries compound under queue pressure.",
+      "question": "Why does notify interact with export asynchronously, per the recorded decision?",
+      "answer": "retries compound under queue pressure"
+    },
+    {
+      "id": "f50",
+      "category": "numeric",
+      "needle": "RETRY_BATCH_SIZE = 1846",
+      "question": "State the exact decision value recorded for RETRY_BATCH_SIZE.",
+      "answer": "RETRY_BATCH_SIZE = 1846"
+    },
+    {
+      "id": "f51",
+      "category": "verbatim",
+      "needle": "auth-gateway#87c4ce62 services/auth-gateway/src/notify/handler.ts:504 EQUOTA_EXCEEDED",
+      "question": "Report the exact failure anchor (service#commit path code) logged for auth-gateway in stage 13.",
+      "answer": "auth-gateway#87c4ce62 services/auth-gateway/src/notify/handler.ts:504 EQUOTA_EXCEEDED"
+    },
+    {
+      "id": "f53",
+      "category": "paraphrase",
+      "needle": "auth→notify",
+      "keywords": [
+        "auth",
+        "notify",
+        "dominate"
+      ],
+      "statement": "Decision: auth calls notify asynchronously because cold starts dominate the p99 tail.",
+      "question": "Why does auth interact with notify asynchronously, per the recorded decision?",
+      "answer": "cold starts dominate the p99 tail"
+    },
+    {
+      "id": "f54",
+      "category": "paraphrase",
+      "needle": "billing→auth",
+      "keywords": [
+        "billing",
+        "auth",
+        "dominate"
+      ],
+      "statement": "Decision: billing calls auth asynchronously because cold starts dominate the p99 tail.",
+      "question": "Why does billing interact with auth asynchronously, per the recorded decision?",
+      "answer": "cold starts dominate the p99 tail"
+    },
+    {
+      "id": "f55",
+      "category": "numeric",
+      "needle": "INGEST_SHARD_COUNT = 2403",
+      "question": "State the exact decision value recorded for INGEST_SHARD_COUNT.",
+      "answer": "INGEST_SHARD_COUNT = 2403"
+    },
+    {
+      "id": "f56",
+      "category": "verbatim",
+      "needle": "ingest-pipeline#2c837025 services/ingest-pipeline/src/notify/handler.ts:883 EQUOTA_EXCEEDED",
+      "question": "Report the exact failure anchor (service#commit path code) logged for ingest-pipeline in stage 15.",
+      "answer": "ingest-pipeline#2c837025 services/ingest-pipeline/src/notify/handler.ts:883 EQUOTA_EXCEEDED"
+    },
+    {
+      "id": "f57",
+      "category": "paraphrase",
+      "needle": "notify→ingest",
+      "keywords": [
+        "notify",
+        "ingest",
+        "dominate"
+      ],
+      "statement": "Decision: notify calls ingest asynchronously because cold starts dominate the p99 tail.",
+      "question": "Why does notify interact with ingest asynchronously, per the recorded decision?",
+      "answer": "cold starts dominate the p99 tail"
+    },
+    {
+      "id": "f58",
+      "category": "verbatim",
+      "needle": "search-indexer#a8051afe services/search-indexer/src/index/handler.ts:728 ESTALE_LEASE",
+      "question": "Report the exact failure anchor (service#commit path code) logged for search-indexer in stage 15.",
+      "answer": "search-indexer#a8051afe services/search-indexer/src/index/handler.ts:728 ESTALE_LEASE"
+    },
+    {
+      "id": "f59",
+      "category": "verbatim",
+      "needle": "billing-sync#e05dd6cd services/billing-sync/src/notify/handler.ts:194 ECONN_RESET",
+      "question": "Report the exact failure anchor (service#commit path code) logged for billing-sync in stage 15.",
+      "answer": "billing-sync#e05dd6cd services/billing-sync/src/notify/handler.ts:194 ECONN_RESET"
+    },
+    {
+      "id": "f60",
+      "category": "verbatim",
+      "needle": "search-indexer#7875acd1 services/search-indexer/src/retry/handler.ts:511 EQUOTA_EXCEEDED",
+      "question": "Report the exact failure anchor (service#commit path code) logged for search-indexer in stage 16.",
+      "answer": "search-indexer#7875acd1 services/search-indexer/src/retry/handler.ts:511 EQUOTA_EXCEEDED"
+    },
+    {
+      "id": "f61",
+      "category": "crossref",
+      "needle": "XREF-55d9→f30",
+      "refs": [
+        "XREF-55d9",
+        "INDEX_SHARD_COUNT = 557"
+      ],
+      "question": "Which earlier record does cross-reference XREF-55d9 point to? Report its anchor.",
+      "answer": "INDEX_SHARD_COUNT = 557"
+    },
+    {
+      "id": "f62",
+      "category": "crossref",
+      "needle": "XREF-e6b2→f13",
+      "refs": [
+        "XREF-e6b2",
+        "auth-gateway#4e42a851 services/auth-gateway/src/billing/handler.ts:98 EQUOTA_EXCEEDED"
+      ],
+      "question": "Which earlier record does cross-reference XREF-e6b2 point to? Report its anchor.",
+      "answer": "auth-gateway#4e42a851 services/auth-gateway/src/billing/handler.ts:98 EQUOTA_EXCEEDED"
+    },
+    {
+      "id": "f63",
+      "category": "verbatim",
+      "needle": "billing-sync#b5875bbf services/billing-sync/src/auth/handler.ts:879 EQUOTA_EXCEEDED",
+      "question": "Report the exact failure anchor (service#commit path code) logged for billing-sync in stage 16.",
+      "answer": "billing-sync#b5875bbf services/billing-sync/src/auth/handler.ts:879 EQUOTA_EXCEEDED"
+    },
+    {
+      "id": "f64",
+      "category": "verbatim",
+      "needle": "ingest-pipeline#a685beb1 services/ingest-pipeline/src/ingest/handler.ts:289 ECONN_RESET",
+      "question": "Report the exact failure anchor (service#commit path code) logged for ingest-pipeline in stage 17.",
+      "answer": "ingest-pipeline#a685beb1 services/ingest-pipeline/src/ingest/handler.ts:289 ECONN_RESET"
+    },
+    {
+      "id": "f65",
+      "category": "numeric",
+      "needle": "AUTH_BATCH_SIZE = 1354",
+      "question": "State the exact decision value recorded for AUTH_BATCH_SIZE.",
+      "answer": "AUTH_BATCH_SIZE = 1354"
+    },
+    {
+      "id": "f66",
+      "category": "numeric",
+      "needle": "INGEST_SHARD_COUNT = 941",
+      "question": "State the exact decision value recorded for INGEST_SHARD_COUNT.",
+      "answer": "INGEST_SHARD_COUNT = 941"
+    },
+    {
+      "id": "f67",
+      "category": "verbatim",
+      "needle": "search-indexer#8fc679a1 services/search-indexer/src/export/handler.ts:351 EQUOTA_EXCEEDED",
+      "question": "Report the exact failure anchor (service#commit path code) logged for search-indexer in stage 17.",
+      "answer": "search-indexer#8fc679a1 services/search-indexer/src/export/handler.ts:351 EQUOTA_EXCEEDED"
+    },
+    {
+      "id": "f68",
+      "category": "paraphrase",
+      "needle": "retry→ingest",
+      "keywords": [
+        "retry",
+        "ingest",
+        "retries",
+        "compound"
+      ],
+      "statement": "Decision: retry calls ingest asynchronously because retries compound under queue pressure.",
+      "question": "Why does retry interact with ingest asynchronously, per the recorded decision?",
+      "answer": "retries compound under queue pressure"
+    },
+    {
+      "id": "f69",
+      "category": "crossref",
+      "needle": "XREF-dd76→f68",
+      "refs": [
+        "XREF-dd76",
+        "retry→ingest"
+      ],
+      "question": "Which earlier record does cross-reference XREF-dd76 point to? Report its anchor.",
+      "answer": "retry→ingest"
+    },
+    {
+      "id": "f70",
+      "category": "verbatim",
+      "needle": "export-worker#b03dac0a services/export-worker/src/notify/handler.ts:81 EQUOTA_EXCEEDED",
+      "question": "Report the exact failure anchor (service#commit path code) logged for export-worker in stage 18.",
+      "answer": "export-worker#b03dac0a services/export-worker/src/notify/handler.ts:81 EQUOTA_EXCEEDED"
+    },
+    {
+      "id": "f71",
+      "category": "verbatim",
+      "needle": "notify-bus#1e360aad services/notify-bus/src/retry/handler.ts:102 ETLS_HANDSHAKE",
+      "question": "Report the exact failure anchor (service#commit path code) logged for notify-bus in stage 18.",
+      "answer": "notify-bus#1e360aad services/notify-bus/src/retry/handler.ts:102 ETLS_HANDSHAKE"
+    },
+    {
+      "id": "f72",
+      "category": "paraphrase",
+      "needle": "notify→ingest",
+      "keywords": [
+        "notify",
+        "ingest",
+        "upstream",
+        "expires"
+      ],
+      "statement": "Decision: notify calls ingest asynchronously because the upstream lease expires mid-batch.",
+      "question": "Why does notify interact with ingest asynchronously, per the recorded decision?",
+      "answer": "the upstream lease expires mid-batch"
+    },
+    {
+      "id": "f73",
+      "category": "crossref",
+      "needle": "XREF-ae46→f13",
+      "refs": [
+        "XREF-ae46",
+        "auth-gateway#4e42a851 services/auth-gateway/src/billing/handler.ts:98 EQUOTA_EXCEEDED"
+      ],
+      "question": "Which earlier record does cross-reference XREF-ae46 point to? Report its anchor.",
+      "answer": "auth-gateway#4e42a851 services/auth-gateway/src/billing/handler.ts:98 EQUOTA_EXCEEDED"
+    },
+    {
+      "id": "f75",
+      "category": "verbatim",
+      "needle": "auth-gateway#3682f507 services/auth-gateway/src/billing/handler.ts:336 ECONN_RESET",
+      "question": "Report the exact failure anchor (service#commit path code) logged for auth-gateway in stage 19.",
+      "answer": "auth-gateway#3682f507 services/auth-gateway/src/billing/handler.ts:336 ECONN_RESET"
+    },
+    {
+      "id": "f76",
+      "category": "paraphrase",
+      "needle": "retry→quota",
+      "keywords": [
+        "retry",
+        "quota",
+        "upstream",
+        "expires"
+      ],
+      "statement": "Decision: retry calls quota asynchronously because the upstream lease expires mid-batch.",
+      "question": "Why does retry interact with quota asynchronously, per the recorded decision?",
+      "answer": "the upstream lease expires mid-batch"
+    },
+    {
+      "id": "f77",
+      "category": "paraphrase",
+      "needle": "notify→billing",
+      "keywords": [
+        "notify",
+        "billing",
+        "retries",
+        "compound"
+      ],
+      "statement": "Decision: notify calls billing asynchronously because retries compound under queue pressure.",
+      "question": "Why does notify interact with billing asynchronously, per the recorded decision?",
+      "answer": "retries compound under queue pressure"
+    },
+    {
+      "id": "f78",
+      "category": "verbatim",
+      "needle": "auth-gateway#06da4576 services/auth-gateway/src/notify/handler.ts:448 ESCHEMA_drift",
+      "question": "Report the exact failure anchor (service#commit path code) logged for auth-gateway in stage 20.",
+      "answer": "auth-gateway#06da4576 services/auth-gateway/src/notify/handler.ts:448 ESCHEMA_drift"
+    },
+    {
+      "id": "f79",
+      "category": "paraphrase",
+      "needle": "export→auth",
+      "keywords": [
+        "export",
+        "auth",
+        "dominate"
+      ],
+      "statement": "Decision: export calls auth asynchronously because cold starts dominate the p99 tail.",
+      "question": "Why does export interact with auth asynchronously, per the recorded decision?",
+      "answer": "cold starts dominate the p99 tail"
+    },
+    {
+      "id": "f80",
+      "category": "numeric",
+      "needle": "INDEX_QUEUE_DEPTH = 2885",
+      "question": "State the exact decision value recorded for INDEX_QUEUE_DEPTH.",
+      "answer": "INDEX_QUEUE_DEPTH = 2885"
+    },
+    {
+      "id": "f81",
+      "category": "verbatim",
+      "needle": "export-worker#be2f0729 services/export-worker/src/auth/handler.ts:566 ECONN_RESET",
+      "question": "Report the exact failure anchor (service#commit path code) logged for export-worker in stage 21.",
+      "answer": "export-worker#be2f0729 services/export-worker/src/auth/handler.ts:566 ECONN_RESET"
+    },
+    {
+      "id": "f82",
+      "category": "verbatim",
+      "needle": "ingest-pipeline#749124bd services/ingest-pipeline/src/index/handler.ts:449 ETLS_HANDSHAKE",
+      "question": "Report the exact failure anchor (service#commit path code) logged for ingest-pipeline in stage 21.",
+      "answer": "ingest-pipeline#749124bd services/ingest-pipeline/src/index/handler.ts:449 ETLS_HANDSHAKE"
+    },
+    {
+      "id": "f83",
+      "category": "paraphrase",
+      "needle": "auth→retry",
+      "keywords": [
+        "auth",
+        "retry",
+        "upstream",
+        "expires"
+      ],
+      "statement": "Decision: auth calls retry asynchronously because the upstream lease expires mid-batch.",
+      "question": "Why does auth interact with retry asynchronously, per the recorded decision?",
+      "answer": "the upstream lease expires mid-batch"
+    },
+    {
+      "id": "f84",
+      "category": "verbatim",
+      "needle": "search-indexer#9915ab58 services/search-indexer/src/export/handler.ts:867 ESCHEMA_drift",
+      "question": "Report the exact failure anchor (service#commit path code) logged for search-indexer in stage 22.",
+      "answer": "search-indexer#9915ab58 services/search-indexer/src/export/handler.ts:867 ESCHEMA_drift"
+    },
+    {
+      "id": "f85",
+      "category": "crossref",
+      "needle": "XREF-b5ec→f64",
+      "refs": [
+        "XREF-b5ec",
+        "ingest-pipeline#a685beb1 services/ingest-pipeline/src/ingest/handler.ts:289 ECONN_RESET"
+      ],
+      "question": "Which earlier record does cross-reference XREF-b5ec point to? Report its anchor.",
+      "answer": "ingest-pipeline#a685beb1 services/ingest-pipeline/src/ingest/handler.ts:289 ECONN_RESET"
+    },
+    {
+      "id": "f86",
+      "category": "numeric",
+      "needle": "INGEST_QUEUE_DEPTH = 3844",
+      "question": "State the exact decision value recorded for INGEST_QUEUE_DEPTH.",
+      "answer": "INGEST_QUEUE_DEPTH = 3844"
+    },
+    {
+      "id": "f87",
+      "category": "crossref",
+      "needle": "XREF-d762→f6",
+      "refs": [
+        "XREF-d762",
+        "notify-bus#25632b92 services/notify-bus/src/ingest/handler.ts:81 ESCHEMA_drift"
+      ],
+      "question": "Which earlier record does cross-reference XREF-d762 point to? Report its anchor.",
+      "answer": "notify-bus#25632b92 services/notify-bus/src/ingest/handler.ts:81 ESCHEMA_drift"
+    }
+  ],
+  "compactions": [
+    {
+      "round": 1,
+      "compactionId": "01cf008c-af74-44f2-9a22-a30374a033ed",
+      "summaryChars": 12214,
+      "strict": "82/82",
+      "loose": "82/82",
+      "strictRate": 1,
+      "looseRate": 1,
+      "byCategory": {
+        "paraphrase": {
+          "strict": 23,
+          "loose": 23,
+          "total": 23
+        },
+        "numeric": {
+          "strict": 20,
+          "loose": 20,
+          "total": 20
+        },
+        "verbatim": {
+          "strict": 29,
+          "loose": 29,
+          "total": 29
+        },
+        "crossref": {
+          "strict": 10,
+          "loose": 10,
+          "total": 10
+        }
+      },
+      "perFact": [
+        {
+          "id": "f0",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f2",
+          "category": "numeric",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f3",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f4",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f5",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f6",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f7",
+          "category": "crossref",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f8",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f9",
+          "category": "crossref",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f10",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f11",
+          "category": "numeric",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f12",
+          "category": "numeric",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f13",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f14",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f15",
+          "category": "numeric",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f17",
+          "category": "numeric",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f18",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f19",
+          "category": "crossref",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f20",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f21",
+          "category": "numeric",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f22",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f23",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f24",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f25",
+          "category": "numeric",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f26",
+          "category": "numeric",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f27",
+          "category": "numeric",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f28",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f29",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f30",
+          "category": "numeric",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f31",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f32",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f33",
+          "category": "numeric",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f34",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f35",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f36",
+          "category": "numeric",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f37",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f40",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f41",
+          "category": "numeric",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f42",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f43",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f44",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f45",
+          "category": "numeric",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f46",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f47",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f48",
+          "category": "crossref",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f49",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f50",
+          "category": "numeric",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f51",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f53",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f54",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f55",
+          "category": "numeric",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f56",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f57",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f58",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f59",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f60",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f61",
+          "category": "crossref",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f62",
+          "category": "crossref",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f63",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f64",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f65",
+          "category": "numeric",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f66",
+          "category": "numeric",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f67",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f68",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f69",
+          "category": "crossref",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f70",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f71",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f72",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f73",
+          "category": "crossref",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f75",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f76",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f77",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f78",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f79",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f80",
+          "category": "numeric",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f81",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f82",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f83",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f84",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f85",
+          "category": "crossref",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f86",
+          "category": "numeric",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f87",
+          "category": "crossref",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        }
+      ]
+    }
+  ],
+  "blindRecall": {
+    "strict": "82/82",
+    "loose": "82/82",
+    "strictRate": 1,
+    "looseRate": 1,
+    "perFact": [
+      {
+        "id": "f0",
+        "category": "paraphrase",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "keywords:all"
+      },
+      {
+        "id": "f2",
+        "category": "numeric",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f3",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f4",
+        "category": "paraphrase",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "keywords:all"
+      },
+      {
+        "id": "f5",
+        "category": "paraphrase",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "keywords:all"
+      },
+      {
+        "id": "f6",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f7",
+        "category": "crossref",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f8",
+        "category": "paraphrase",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "keywords:all"
+      },
+      {
+        "id": "f9",
+        "category": "crossref",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f10",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f11",
+        "category": "numeric",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f12",
+        "category": "numeric",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f13",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f14",
+        "category": "paraphrase",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "keywords:all"
+      },
+      {
+        "id": "f15",
+        "category": "numeric",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f17",
+        "category": "numeric",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f18",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f19",
+        "category": "crossref",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f20",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f21",
+        "category": "numeric",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f22",
+        "category": "paraphrase",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "keywords:all"
+      },
+      {
+        "id": "f23",
+        "category": "paraphrase",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "keywords:all"
+      },
+      {
+        "id": "f24",
+        "category": "paraphrase",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "keywords:all"
+      },
+      {
+        "id": "f25",
+        "category": "numeric",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f26",
+        "category": "numeric",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f27",
+        "category": "numeric",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f28",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f29",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f30",
+        "category": "numeric",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f31",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f32",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f33",
+        "category": "numeric",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f34",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f35",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f36",
+        "category": "numeric",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f37",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f40",
+        "category": "paraphrase",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "keywords:all"
+      },
+      {
+        "id": "f41",
+        "category": "numeric",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f42",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f43",
+        "category": "paraphrase",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "keywords:all"
+      },
+      {
+        "id": "f44",
+        "category": "paraphrase",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "keywords:all"
+      },
+      {
+        "id": "f45",
+        "category": "numeric",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f46",
+        "category": "paraphrase",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "keywords:all"
+      },
+      {
+        "id": "f47",
+        "category": "paraphrase",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "keywords:all"
+      },
+      {
+        "id": "f48",
+        "category": "crossref",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f49",
+        "category": "paraphrase",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "keywords:all"
+      },
+      {
+        "id": "f50",
+        "category": "numeric",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f51",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f53",
+        "category": "paraphrase",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "keywords:all"
+      },
+      {
+        "id": "f54",
+        "category": "paraphrase",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "keywords:all"
+      },
+      {
+        "id": "f55",
+        "category": "numeric",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f56",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f57",
+        "category": "paraphrase",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "keywords:all"
+      },
+      {
+        "id": "f58",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f59",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f60",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f61",
+        "category": "crossref",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f62",
+        "category": "crossref",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f63",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f64",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f65",
+        "category": "numeric",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f66",
+        "category": "numeric",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f67",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f68",
+        "category": "paraphrase",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "keywords:all"
+      },
+      {
+        "id": "f69",
+        "category": "crossref",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f70",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f71",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f72",
+        "category": "paraphrase",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "keywords:all"
+      },
+      {
+        "id": "f73",
+        "category": "crossref",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f75",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f76",
+        "category": "paraphrase",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "keywords:all"
+      },
+      {
+        "id": "f77",
+        "category": "paraphrase",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "keywords:all"
+      },
+      {
+        "id": "f78",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f79",
+        "category": "paraphrase",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "keywords:all"
+      },
+      {
+        "id": "f80",
+        "category": "numeric",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f81",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f82",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f83",
+        "category": "paraphrase",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "keywords:all"
+      },
+      {
+        "id": "f84",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f85",
+        "category": "crossref",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f86",
+        "category": "numeric",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f87",
+        "category": "crossref",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      }
+    ]
+  },
+  "rawModelCalls": 4,
+  "perCall": [
+    {
+      "turn": 1,
+      "step": 1,
+      "seq": 66,
+      "uncachedInputTokens": 11547,
+      "cacheReadTokens": 0,
+      "outputTokens": 48
+    },
+    {
+      "turn": 2,
+      "step": 1,
+      "seq": 2548,
+      "uncachedInputTokens": 171,
+      "cacheReadTokens": 11520,
+      "outputTokens": 2511
+    },
+    {
+      "turn": 2,
+      "step": 2,
+      "seq": 2567,
+      "uncachedInputTokens": 12802,
+      "cacheReadTokens": 3072,
+      "outputTokens": 7
+    },
+    {
+      "turn": 3,
+      "step": 1,
+      "seq": 6785,
+      "uncachedInputTokens": 291,
+      "cacheReadTokens": 15872,
+      "outputTokens": 4205
+    }
+  ],
+  "rawTokenTotals": {
+    "uncachedInputTokens": 24811,
+    "cacheReadTokens": 30464,
+    "outputTokens": 6771,
+    "totalPromptTokens": 55275
+  },
+  "verification": {
+    "oneModelWrittenCompaction": true,
+    "noRetrievalTools": true,
+    "withinPerArmCap": true,
+    "blindRecallRescoredFromSettledDurableLog": true
+  }
+}

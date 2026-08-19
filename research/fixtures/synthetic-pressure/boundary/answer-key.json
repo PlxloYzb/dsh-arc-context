@@ -1,0 +1,108 @@
+{
+  "expected": [
+    {
+      "stage": 1,
+      "canaries": [
+        "GOV-BOUNDARY-S01-BEGIN",
+        "GOV-BOUNDARY-S01-MIDDLE",
+        "GOV-BOUNDARY-S01-END"
+      ]
+    },
+    {
+      "stage": 2,
+      "canaries": [
+        "GOV-BOUNDARY-S02-BEGIN",
+        "GOV-BOUNDARY-S02-MIDDLE",
+        "GOV-BOUNDARY-S02-END"
+      ]
+    },
+    {
+      "stage": 3,
+      "canaries": [
+        "GOV-BOUNDARY-S03-BEGIN",
+        "GOV-BOUNDARY-S03-MIDDLE",
+        "GOV-BOUNDARY-S03-END"
+      ]
+    },
+    {
+      "stage": 4,
+      "canaries": [
+        "GOV-BOUNDARY-S04-BEGIN",
+        "GOV-BOUNDARY-S04-MIDDLE",
+        "GOV-BOUNDARY-S04-END"
+      ]
+    },
+    {
+      "stage": 5,
+      "canaries": [
+        "GOV-BOUNDARY-S05-BEGIN",
+        "GOV-BOUNDARY-S05-MIDDLE",
+        "GOV-BOUNDARY-S05-END"
+      ]
+    },
+    {
+      "stage": 6,
+      "canaries": [
+        "GOV-BOUNDARY-S06-BEGIN",
+        "GOV-BOUNDARY-S06-MIDDLE",
+        "GOV-BOUNDARY-S06-END"
+      ]
+    },
+    {
+      "stage": 7,
+      "canaries": [
+        "GOV-BOUNDARY-S07-BEGIN",
+        "GOV-BOUNDARY-S07-MIDDLE",
+        "GOV-BOUNDARY-S07-END"
+      ]
+    },
+    {
+      "stage": 8,
+      "canaries": [
+        "GOV-BOUNDARY-S08-BEGIN",
+        "GOV-BOUNDARY-S08-MIDDLE",
+        "GOV-BOUNDARY-S08-END"
+      ]
+    },
+    {
+      "stage": 9,
+      "canaries": [
+        "GOV-BOUNDARY-S09-BEGIN",
+        "GOV-BOUNDARY-S09-MIDDLE",
+        "GOV-BOUNDARY-S09-END"
+      ]
+    },
+    {
+      "stage": 10,
+      "canaries": [
+        "GOV-BOUNDARY-S10-BEGIN",
+        "GOV-BOUNDARY-S10-MIDDLE",
+        "GOV-BOUNDARY-S10-END"
+      ]
+    },
+    {
+      "stage": 11,
+      "canaries": [
+        "GOV-BOUNDARY-S11-BEGIN",
+        "GOV-BOUNDARY-S11-MIDDLE",
+        "GOV-BOUNDARY-S11-END"
+      ]
+    },
+    {
+      "stage": 12,
+      "canaries": [
+        "GOV-BOUNDARY-S12-BEGIN",
+        "GOV-BOUNDARY-S12-MIDDLE",
+        "GOV-BOUNDARY-S12-END"
+      ]
+    },
+    {
+      "stage": 13,
+      "canaries": [
+        "GOV-BOUNDARY-S13-BEGIN",
+        "GOV-BOUNDARY-S13-MIDDLE",
+        "GOV-BOUNDARY-S13-END"
+      ]
+    }
+  ]
+}

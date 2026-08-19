@@ -1,0 +1,3 @@
+name: Router Standard NoComp(实验C)
+description: 同 router-standard 路由;Basic auto:false 且 /compact 禁用,用于无压缩基线(配合无 ACP Profile)。
+order: 9

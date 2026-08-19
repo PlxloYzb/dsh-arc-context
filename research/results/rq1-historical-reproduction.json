@@ -1,0 +1,401 @@
+{
+  "generatedAt": "2026-08-17T23:45:48.834Z",
+  "question": "RQ1 closure: reproduce the recorded historical paired results on the bench driver within noise (quality within 1 fact; cost deltas direction-consistent and within ±10pp of the recorded values)",
+  "arms": {
+    "code-arc": {
+      "file": "rq1-hist-code-arc-2026-08-17T22-52-59-946Z.json",
+      "quality": {
+        "exactProofs": {
+          "recalled": 24,
+          "expected": 24,
+          "missingKeys": []
+        },
+        "derived": {
+          "recalled": 4,
+          "expected": 4,
+          "missing": []
+        }
+      },
+      "allIn": {
+        "uncachedInputTokens": 174021,
+        "outputTokens": 13898,
+        "cacheReadTokens": 744192,
+        "totalPromptTokens": 918213
+      },
+      "sessionLoop": {
+        "uncachedInputTokens": 174021,
+        "outputTokens": 13898,
+        "cacheReadTokens": 744192,
+        "totalPromptTokens": 918213
+      },
+      "modelCalls": 21,
+      "compactions": [
+        {
+          "provider": "scnet",
+          "model": "GLM-5.2",
+          "shadowedNodes": 16,
+          "shadowedTokenCount": 18442,
+          "summaryChars": 19655,
+          "usage": null
+        },
+        {
+          "provider": "local",
+          "model": "adaptive-governor-extractive-v1",
+          "shadowedNodes": 18,
+          "shadowedTokenCount": 20414,
+          "summaryChars": 16419,
+          "usage": null
+        },
+        {
+          "provider": "local",
+          "model": "adaptive-governor-extractive-v1",
+          "shadowedNodes": 7,
+          "shadowedTokenCount": 17222,
+          "summaryChars": 9043,
+          "usage": null
+        }
+      ],
+      "projectTests": {
+        "passed": true,
+        "tail": "\n> test\n> node --test\n\nTAP version 13\n# Subtest: normalizeBranch\nok 1 - normalizeBranch\n  ---\n  duration_ms: 0.571333\n  type: 'test'\n  ...\n# Subtest: retryDelay\nok 2 - retryDelay\n  ---\n  duration_ms: 0.281458\n  type: 'test'\n  ...\n# Subtest: canDeploy\nok 3 - canDeploy\n  ---\n  duration_ms: 0.054083\n  type: 'test'\n  ...\n# Subtest: redactToken\nok 4 - redactToken\n  ---\n  duration_ms: 0.07525\n  type: 'test'\n  ...\n1..4\n# tests 4\n# suites 0\n# pass 4\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 42.571208\n"
+      },
+      "turnErrors": null
+    },
+    "code-basic": {
+      "file": "rq1-hist-code-basic-2026-08-17T23-40-47-905Z.json",
+      "quality": {
+        "exactProofs": {
+          "recalled": 12,
+          "expected": 24,
+          "missingKeys": [
+            "C1",
+            "D1",
+            "I1",
+            "F1",
+            "T1",
+            "B1",
+            "C2",
+            "D2",
+            "I2",
+            "F2",
+            "T2",
+            "B2"
+          ]
+        },
+        "derived": {
+          "recalled": 0,
+          "expected": 4,
+          "missing": [
+            "X1",
+            "X2",
+            "X3",
+            "X4"
+          ]
+        }
+      },
+      "allIn": {
+        "uncachedInputTokens": 121653,
+        "outputTokens": 19094,
+        "cacheReadTokens": 561152,
+        "totalPromptTokens": 682805
+      },
+      "sessionLoop": {
+        "uncachedInputTokens": 121154,
+        "outputTokens": 14678,
+        "cacheReadTokens": 507392,
+        "totalPromptTokens": 628546
+      },
+      "modelCalls": 15,
+      "compactions": [
+        {
+          "provider": "opencode-go",
+          "model": "deepseek-v4-flash",
+          "shadowedNodes": 21,
+          "shadowedTokenCount": 39694,
+          "summaryChars": 5560,
+          "usage": {
+            "uncachedInputTokens": 499,
+            "outputTokens": 4416,
+            "cacheReadTokens": 53760
+          }
+        }
+      ],
+      "projectTests": {
+        "passed": true,
+        "tail": "\n> test\n> node --test\n\nTAP version 13\n# Subtest: normalizeBranch\nok 1 - normalizeBranch\n  ---\n  duration_ms: 0.439375\n  type: 'test'\n  ...\n# Subtest: retryDelay\nok 2 - retryDelay\n  ---\n  duration_ms: 0.248625\n  type: 'test'\n  ...\n# Subtest: canDeploy\nok 3 - canDeploy\n  ---\n  duration_ms: 0.052666\n  type: 'test'\n  ...\n# Subtest: redactToken\nok 4 - redactToken\n  ---\n  duration_ms: 0.062958\n  type: 'test'\n  ...\n1..4\n# tests 4\n# suites 0\n# pass 4\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 38.4775\n"
+      },
+      "turnErrors": null
+    },
+    "semantic-arc": {
+      "file": "rq1-hist-semantic-arc-2026-08-17T23-36-00-762Z.json",
+      "quality": {
+        "currentState": {
+          "recalled": 12,
+          "expected": 12,
+          "missing": []
+        },
+        "rationale": {
+          "recalled": 10,
+          "expected": 10,
+          "missing": []
+        },
+        "obsoleteContamination": {
+          "count": 0,
+          "leakedPatterns": []
+        }
+      },
+      "allIn": {
+        "uncachedInputTokens": 193372,
+        "outputTokens": 7507,
+        "cacheReadTokens": 47616,
+        "totalPromptTokens": 240988
+      },
+      "sessionLoop": {
+        "uncachedInputTokens": 193372,
+        "outputTokens": 7507,
+        "cacheReadTokens": 47616,
+        "totalPromptTokens": 240988
+      },
+      "modelCalls": 4,
+      "compactions": [
+        {
+          "provider": "local",
+          "model": "adaptive-governor-extractive-v1",
+          "shadowedNodes": 1,
+          "shadowedTokenCount": 9343,
+          "summaryChars": 5107,
+          "usage": null
+        },
+        {
+          "provider": "local",
+          "model": "adaptive-governor-extractive-v1",
+          "shadowedNodes": 4,
+          "shadowedTokenCount": 10038,
+          "summaryChars": 8410,
+          "usage": null
+        }
+      ],
+      "projectTests": null,
+      "turnErrors": null
+    },
+    "semantic-basic": {
+      "file": "rq1-hist-semantic-basic-2026-08-17T23-45-05-348Z.json",
+      "quality": {
+        "currentState": {
+          "recalled": 12,
+          "expected": 12,
+          "missing": []
+        },
+        "rationale": {
+          "recalled": 9,
+          "expected": 10,
+          "missing": [
+            "新生产者已经停止向 north-river 发布"
+          ]
+        },
+        "obsoleteContamination": {
+          "count": 0,
+          "leakedPatterns": []
+        }
+      },
+      "allIn": {
+        "uncachedInputTokens": 253028,
+        "outputTokens": 6044,
+        "cacheReadTokens": 105856,
+        "totalPromptTokens": 358884
+      },
+      "sessionLoop": {
+        "uncachedInputTokens": 196903,
+        "outputTokens": 4479,
+        "cacheReadTokens": 98944,
+        "totalPromptTokens": 295847
+      },
+      "modelCalls": 5,
+      "compactions": [
+        {
+          "provider": "scnet",
+          "model": "GLM-5.2",
+          "shadowedNodes": 4,
+          "shadowedTokenCount": 10260,
+          "summaryChars": 3283,
+          "usage": {
+            "uncachedInputTokens": 31470,
+            "outputTokens": 726,
+            "cacheReadTokens": 0
+          }
+        },
+        {
+          "provider": "scnet",
+          "model": "GLM-5.2",
+          "shadowedNodes": 3,
+          "shadowedTokenCount": 10429,
+          "summaryChars": 3686,
+          "usage": {
+            "uncachedInputTokens": 24655,
+            "outputTokens": 839,
+            "cacheReadTokens": 6912
+          }
+        }
+      ],
+      "projectTests": null,
+      "turnErrors": []
+    }
+  },
+  "verdicts": {
+    "code": {
+      "deltas": {
+        "uncachedPct": 43.05,
+        "outputPct": -27.21,
+        "cacheReadPct": 32.62,
+        "totalPromptPct": 34.48
+      },
+      "recordedDeltas": {
+        "uncachedPct": -47.63,
+        "outputPct": -24.91,
+        "cacheReadPct": -16.86,
+        "totalPromptPct": -22.11
+      },
+      "checks": {
+        "arcExactWithin1": true,
+        "basicExactWithin1": false,
+        "arcDerivedWithin1": true,
+        "basicDerivedWithin1": true,
+        "qualityDirection": true,
+        "uncachedDirection": false,
+        "totalPromptDirection": false,
+        "uncachedWithin10pp": false,
+        "totalPromptWithin10pp": false
+      },
+      "reproduced": false,
+      "failedChecks": [
+        "basicExactWithin1",
+        "uncachedDirection",
+        "totalPromptDirection",
+        "uncachedWithin10pp",
+        "totalPromptWithin10pp"
+      ],
+      "verdict": "direction-flipped"
+    },
+    "semantic": {
+      "deltas": {
+        "uncachedPct": -23.58,
+        "outputPct": 24.21,
+        "cacheReadPct": -55.02,
+        "totalPromptPct": -32.85
+      },
+      "recordedDeltas": {
+        "uncachedPct": -25.57,
+        "outputPct": -22.01,
+        "cacheReadPct": -1.91,
+        "totalPromptPct": -19.66
+      },
+      "checks": {
+        "arcCurrentWithin1": true,
+        "basicCurrentWithin1": true,
+        "arcRationaleWithin1": true,
+        "basicRationaleWithin1": true,
+        "qualityTie": true,
+        "obsoleteZero": true,
+        "uncachedDirection": true,
+        "uncachedWithin10pp": true
+      },
+      "reproduced": true,
+      "failedChecks": [],
+      "verdict": "reproduced-within-noise"
+    }
+  },
+  "differenceLocalization": {
+    "benchVsRecordedGeometry": [
+      "agent preset: bench arms run the official rc.7 `standard` (arc, via bridge) and a byte-identical clone `basic-early` (basic) — the recorded arms ran the legacy router-standard family presets (different system prompts and tool surface)",
+      "code-suite provider: opencode-go/deepseek-v4-flash with a 384000 adapter-default maxTokens (settings.yaml) — the recorded arms ran deepseek-official with a 256000 adapter default; both are adapter-filled defaults (no caller intent), but the reserve number differs",
+      "session-shape variance is model-driven: same fixture bytes and prompts, but flash chose leaner/denser tool paths under the current preset, changing call counts, compaction placements, and summarizer cache luck",
+      "per-arm anomalies are recorded in each bench report (turnErrors, settleOk flags, compaction provider metadata)"
+    ],
+    "perArm": {
+      "code-arc": {
+        "modelCalls": 21,
+        "compactions": 3,
+        "compactionProviders": [
+          "scnet/GLM-5.2",
+          "local/adaptive-governor-extractive-v1",
+          "local/adaptive-governor-extractive-v1"
+        ],
+        "summarizerUsageAllIn": {
+          "uncachedInputTokens": 0,
+          "outputTokens": 0,
+          "cacheReadTokens": 0
+        },
+        "turnErrors": null
+      },
+      "code-basic": {
+        "modelCalls": 15,
+        "compactions": 1,
+        "compactionProviders": [
+          "opencode-go/deepseek-v4-flash"
+        ],
+        "summarizerUsageAllIn": {
+          "uncachedInputTokens": 499,
+          "outputTokens": 4416,
+          "cacheReadTokens": 53760
+        },
+        "turnErrors": null
+      },
+      "semantic-arc": {
+        "modelCalls": 4,
+        "compactions": 2,
+        "compactionProviders": [
+          "local/adaptive-governor-extractive-v1",
+          "local/adaptive-governor-extractive-v1"
+        ],
+        "summarizerUsageAllIn": {
+          "uncachedInputTokens": 0,
+          "outputTokens": 0,
+          "cacheReadTokens": 0
+        },
+        "turnErrors": [
+          {
+            "turn": 3,
+            "code": "TRANSPORT",
+            "message": "Connection error.",
+            "note": "scnet transport blip mid-run; stage-3 minutes text landed on the surface before the error, so the treatment (compaction of the minutes) was unaffected; the arm still scored 12/12 + 10/10"
+          }
+        ]
+      },
+      "semantic-basic": {
+        "modelCalls": 5,
+        "compactions": 2,
+        "compactionProviders": [
+          "scnet/GLM-5.2",
+          "scnet/GLM-5.2"
+        ],
+        "summarizerUsageAllIn": {
+          "uncachedInputTokens": 56125,
+          "outputTokens": 1565,
+          "cacheReadTokens": 6912
+        },
+        "turnErrors": []
+      }
+    },
+    "codePairFlipAnalysis": [
+      "quality: the direction and the ARC ceiling reproduced exactly (24/24 + 4/4, project tests 4/4); Basic collapsed again (12/24 + 0/4) but retained 6 more proofs than the recorded 6/24 - outside the 1-fact noise band",
+      "cost: the flip is dominated by session-shape variance, not by the treatment. The recorded Basic paid 76,070 uncached tokens for TWO summarizer calls (36,093 + 39,977 inputTokens); this Basic fired ONE summarizer call that hit the provider prefix cache almost fully (499 uncached + 53,760 cache-read), i.e. summarizer luck moved ~75K uncached between arms",
+      "the recorded ARC arm spent 121,146 uncached over a 2-local-block session; this ARC arm spent 174,021 over a 3-compaction session that included one model-written compress (19,655-char summary) plus arc_status - more tool turns (21 vs 15 model calls) churn the prefix more under the same window patch",
+      "the recorded pairs ran the legacy router-standard preset family and deepseek-official (256K adapter default); the bench arms run the rc.7 standard preset and opencode-go (384K adapter default) - both defaults are adapter-filled (no caller intent), but the preset system prompt and tool surface differ, which changes flash's tool-loop economy",
+      "conclusion: the recorded code-pair cost conclusion (Governor wins quality AND all three token fields on this fixture) does not transfer to the current host geometry at single-seed scale; the quality conclusion does. RQ1 stays open per the commission rule - no threshold loosening"
+    ]
+  },
+  "rq1Closure": {
+    "reproduced": false,
+    "note": "within-noise definition per the commission: quality within 1 fact of each recorded value, cost delta direction-consistent and within ±10pp of the recorded amplitude"
+  },
+  "budget": {
+    "modelCalls": {
+      "code-arc": 21,
+      "code-basic": 15,
+      "semantic-arc": 4,
+      "semantic-basic": 5
+    },
+    "totalModelCallsThisCommission": 45,
+    "note": "global commission budget <=150 model calls; 10 were spent by task C, 45 by the four task-B arms (21 + 4 + 15 + 5), 55 total - well within"
+  }
+}

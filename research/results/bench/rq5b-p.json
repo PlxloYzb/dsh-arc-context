@@ -1,0 +1,345 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-18T06:07:14.187Z",
+  "arm": "P",
+  "run": null,
+  "sessionId": "session-6f918ee4-f338-4130-8516-2eadebc2354f",
+  "agentPreset": "standard",
+  "setup": {
+    "host": "isolated DSH_HOME web profile; fresh process per arm",
+    "model": "scnet/GLM-5.2",
+    "configuredWindow": 32768,
+    "cleanCwd": "/tmp/rq5b-compliance-p",
+    "seed": 505,
+    "pPlantTurns": 5,
+    "noiseLinesPerPlant": 20,
+    "expectedPatch": "research/profiles/rq5-p.patch.yml",
+    "perSessionCallCap": 15,
+    "targetPressurePct": "40-52",
+    "appliedPatchSha256": "4d4cb4e01496b558f2dc0bc252c64811cdc15d6fdc26ae51e59e6462c472fa6b"
+  },
+  "promptAudit": {
+    "intentionalProactiveInstruction": true,
+    "plants": 5,
+    "noiseLinesPerPlant": 20,
+    "sequenceNumbersWrittenByDriver": false,
+    "instructionSha256": "ddabb56759dd535e441964c29a5b5284603ed8d851a3890be64cc986916a0d98"
+  },
+  "trace": [
+    {
+      "phase": "plant-1",
+      "promptChars": 2018,
+      "promptSha256": "073e4cd9c32fa7f50f01f4cd1b1f1bab846ee38111923826a1223903ecea7522",
+      "modelCalls": 1,
+      "callsAdded": 1,
+      "projectedTokens": 12050,
+      "contextWindow": 1000000,
+      "lastCall": {
+        "uncachedInputTokens": 11961,
+        "cacheReadTokens": 0,
+        "outputTokens": 74
+      }
+    },
+    {
+      "phase": "plant-2",
+      "promptChars": 2025,
+      "promptSha256": "cda1218af1002accf360df29fe682601e13e42da7b0ed963ea4fb60e827fe424",
+      "modelCalls": 2,
+      "callsAdded": 1,
+      "projectedTokens": 12789,
+      "contextWindow": 1000000,
+      "lastCall": {
+        "uncachedInputTokens": 1003,
+        "cacheReadTokens": 11776,
+        "outputTokens": 6
+      }
+    },
+    {
+      "phase": "plant-3",
+      "promptChars": 2036,
+      "promptSha256": "008d841400fe0842a7c9b1ae40e24e87fd60c84549d1741692d993af15ff2af2",
+      "modelCalls": 3,
+      "callsAdded": 1,
+      "projectedTokens": 13531,
+      "contextWindow": 1000000,
+      "lastCall": {
+        "uncachedInputTokens": 977,
+        "cacheReadTokens": 12544,
+        "outputTokens": 6
+      }
+    },
+    {
+      "phase": "plant-4",
+      "promptChars": 1962,
+      "promptSha256": "157f6b7fb327408638097416d3b157e19261d60d9f421983b7ce2d967524517f",
+      "modelCalls": 4,
+      "callsAdded": 1,
+      "projectedTokens": 14277,
+      "contextWindow": 1000000,
+      "lastCall": {
+        "uncachedInputTokens": 827,
+        "cacheReadTokens": 13440,
+        "outputTokens": 6
+      }
+    },
+    {
+      "phase": "plant-5",
+      "promptChars": 1898,
+      "promptSha256": "491162e6afe2c13d31d55176fcc8a9ef746b01eeabaf3340bfa7fc38d3b95c76",
+      "modelCalls": 5,
+      "callsAdded": 1,
+      "projectedTokens": 15201,
+      "contextWindow": 1000000,
+      "lastCall": {
+        "uncachedInputTokens": 772,
+        "cacheReadTokens": 14208,
+        "outputTokens": 204
+      }
+    },
+    {
+      "phase": "arc-status-then-proactive-compress",
+      "promptChars": 340,
+      "promptSha256": "ddabb56759dd535e441964c29a5b5284603ed8d851a3890be64cc986916a0d98",
+      "modelCalls": 7,
+      "callsAdded": 2,
+      "projectedTokens": 20092,
+      "contextWindow": 1000000,
+      "lastCall": {
+        "uncachedInputTokens": 329,
+        "cacheReadTokens": 15104,
+        "outputTokens": 4105
+      }
+    },
+    {
+      "phase": "ordinary-1",
+      "promptChars": 26,
+      "promptSha256": "cdcbf193d9c0b129ffe8ee38b9f236eb1f3431e1ebb8637af0a2d622e7e301a8",
+      "modelCalls": 8,
+      "callsAdded": 1,
+      "projectedTokens": 19560,
+      "contextWindow": 1000000,
+      "lastCall": {
+        "uncachedInputTokens": 4189,
+        "cacheReadTokens": 15360,
+        "outputTokens": 9
+      }
+    },
+    {
+      "phase": "ordinary-2",
+      "promptChars": 26,
+      "promptSha256": "1af845d37d926544dad8f1da4af70ed3ff908e36059ef76fda4fa5c38afcc3a5",
+      "modelCalls": 9,
+      "callsAdded": 1,
+      "projectedTokens": 19581,
+      "contextWindow": 1000000,
+      "lastCall": {
+        "uncachedInputTokens": 114,
+        "cacheReadTokens": 19456,
+        "outputTokens": 9
+      }
+    },
+    {
+      "phase": "blind-recall",
+      "promptChars": 1841,
+      "promptSha256": "e1d3617c5c3fb767d4de14110d2b8203891af5b12c6bdb5bab29e2701fea6414",
+      "modelCalls": 10,
+      "callsAdded": 1,
+      "projectedTokens": 24551,
+      "contextWindow": 1000000,
+      "lastCall": {
+        "uncachedInputTokens": 547,
+        "cacheReadTokens": 19456,
+        "outputTokens": 5107
+      }
+    }
+  ],
+  "facts": {
+    "scorable": 20,
+    "factIds": [
+      "f0",
+      "f2",
+      "f3",
+      "f4",
+      "f5",
+      "f6",
+      "f7",
+      "f9",
+      "f10",
+      "f12",
+      "f13",
+      "f14",
+      "f15",
+      "f16",
+      "f17",
+      "f19",
+      "f20",
+      "f21",
+      "f22",
+      "f23"
+    ]
+  },
+  "nudges": [],
+  "toolCalls": [
+    {
+      "seq": 287,
+      "name": "arc_status",
+      "turn": 6,
+      "step": 1,
+      "argumentsParseable": true,
+      "ranges": []
+    }
+  ],
+  "compressToolCalls": [],
+  "compactions": [],
+  "pProtocol": {
+    "arcStatusCalls": 1,
+    "arcStatusBeforeFirstCompress": false,
+    "firstCompressRanges": [],
+    "driverSuppliedSequenceNumbers": false,
+    "pPlantPressure": 15201,
+    "arcStatusSuggestedRangeTablePresent": false,
+    "arcStatusOutputSha256": "3d2ed830c65a8dfa73130892a17a8a604028f4e9a4a66617bec6867a1b5b6f7e",
+    "failureReason": "arc_status returned only aggregate surface bounds, not a suggested-range table; under the no-handwritten-seq protocol the model had no permitted range to submit to compress."
+  },
+  "summaryAudit": [],
+  "quality": {
+    "answerOnly": {
+      "strict": "12/20",
+      "loose": "20/20",
+      "strictRate": 0.6,
+      "looseRate": 1,
+      "unknownLines": 0
+    },
+    "benchAnswerPlusTool": {
+      "strict": "12/20",
+      "loose": "20/20",
+      "strictRate": 0.6,
+      "looseRate": 1
+    },
+    "queryToolCalls": []
+  },
+  "costLedger": {
+    "uncachedInputTokens": 21123,
+    "outputTokens": 9598,
+    "cacheReadTokens": 136192,
+    "totalPromptTokens": 157315
+  },
+  "perCall": [
+    {
+      "seq": 62,
+      "turn": 1,
+      "step": 1,
+      "uncachedInputTokens": 11961,
+      "cacheReadTokens": 0,
+      "outputTokens": 74,
+      "afterCompaction": false,
+      "spikeVsPrev": null
+    },
+    {
+      "seq": 76,
+      "turn": 2,
+      "step": 1,
+      "uncachedInputTokens": 1003,
+      "cacheReadTokens": 11776,
+      "outputTokens": 6,
+      "afterCompaction": false,
+      "spikeVsPrev": -10958
+    },
+    {
+      "seq": 90,
+      "turn": 3,
+      "step": 1,
+      "uncachedInputTokens": 977,
+      "cacheReadTokens": 12544,
+      "outputTokens": 6,
+      "afterCompaction": false,
+      "spikeVsPrev": -26
+    },
+    {
+      "seq": 104,
+      "turn": 4,
+      "step": 1,
+      "uncachedInputTokens": 827,
+      "cacheReadTokens": 13440,
+      "outputTokens": 6,
+      "afterCompaction": false,
+      "spikeVsPrev": -150
+    },
+    {
+      "seq": 233,
+      "turn": 5,
+      "step": 1,
+      "uncachedInputTokens": 772,
+      "cacheReadTokens": 14208,
+      "outputTokens": 204,
+      "afterCompaction": false,
+      "spikeVsPrev": -55
+    },
+    {
+      "seq": 286,
+      "turn": 6,
+      "step": 1,
+      "uncachedInputTokens": 404,
+      "cacheReadTokens": 14848,
+      "outputTokens": 72,
+      "afterCompaction": false,
+      "spikeVsPrev": -368
+    },
+    {
+      "seq": 2544,
+      "turn": 6,
+      "step": 2,
+      "uncachedInputTokens": 329,
+      "cacheReadTokens": 15104,
+      "outputTokens": 4105,
+      "afterCompaction": false,
+      "spikeVsPrev": -75
+    },
+    {
+      "seq": 2560,
+      "turn": 7,
+      "step": 1,
+      "uncachedInputTokens": 4189,
+      "cacheReadTokens": 15360,
+      "outputTokens": 9,
+      "afterCompaction": false,
+      "spikeVsPrev": 3860
+    },
+    {
+      "seq": 2576,
+      "turn": 8,
+      "step": 1,
+      "uncachedInputTokens": 114,
+      "cacheReadTokens": 19456,
+      "outputTokens": 9,
+      "afterCompaction": false,
+      "spikeVsPrev": -4075
+    },
+    {
+      "seq": 5301,
+      "turn": 9,
+      "step": 1,
+      "uncachedInputTokens": 547,
+      "cacheReadTokens": 19456,
+      "outputTokens": 5107,
+      "afterCompaction": false,
+      "spikeVsPrev": 433
+    }
+  ],
+  "rawEvidence": {
+    "durableLog": "isolated host session session-6f918ee4-f338-4130-8516-2eadebc2354f (not copied into repository)",
+    "nudgeSource": "user/message where source.plugin === arc-nudge",
+    "compressionSource": "tool/call name === compress; arguments parsed offline"
+  },
+  "verification": {
+    "perSessionBudgetWithinCap": true,
+    "nPromptAuditClean": true,
+    "pAtLeastFivePlantTurns": true,
+    "pPressureInTarget": true,
+    "pArcStatusBeforeCompress": false,
+    "pModelCompressionLanded": false,
+    "pArcStatusCalled": true,
+    "pMissingSuggestedRangeTableProven": true,
+    "pSecondFailureLocated": true
+  }
+}

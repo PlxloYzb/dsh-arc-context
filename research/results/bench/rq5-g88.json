@@ -1,0 +1,426 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-18T01:51:46.972Z",
+  "arm": "G88",
+  "sessionId": "session-0c9c9dd4-af64-4195-8313-8131b5fa6797",
+  "agentPreset": "standard",
+  "setup": {
+    "host": "isolated DSH_HOME web profile; fresh process per arm",
+    "model": "scnet/GLM-5.2",
+    "configuredWindow": 32768,
+    "cleanCwd": "/tmp/rq5-compliance-g88",
+    "seed": 505,
+    "noiseLines": 260,
+    "targetProjectedTokens": 25231,
+    "perArmBudget": 15,
+    "expectedPatch": "research/profiles/rq5-g88.patch.yml",
+    "appliedPatchSha256": "0b51352b35aba68fc06bd4c2d6cc9a1c7d5882608e45ac3d1072b7915423c4bc"
+  },
+  "promptAudit": {
+    "forbiddenPattern": "/\\b(?:compress|compression|context|nudge|summar(?:y|ize|ization))\\b|压缩|上下文|提示/iu",
+    "forbiddenMatches": [],
+    "prompts": [
+      {
+        "phase": "plant-1",
+        "chars": 21433,
+        "sha256": "6170a41048f3789f3528cd6846b6eb0bfe4ba4f2011ec9cba6b480f2cfaccc57"
+      },
+      {
+        "phase": "plant-2",
+        "chars": 21433,
+        "sha256": "04f9c1a7f29e5fe48992cd128be906ee33ea242241517bf5f1eef3389dcc187e"
+      },
+      {
+        "phase": "plant-3",
+        "chars": 21520,
+        "sha256": "ae4b6c93af3acf278c25c8380c3b94376da7db1a47143a9e91421b918e7d8f19"
+      },
+      {
+        "phase": "plant-4",
+        "chars": 21418,
+        "sha256": "df81804910d3644dba4b6e171f1e0c7d2061e789ec3461b41cc6640845baf030"
+      },
+      {
+        "phase": "plant-5",
+        "chars": 21363,
+        "sha256": "bdbe72b3322dcfb9c7c66aa26cefb4c5728a93f6711c1e8ca69395b57e786e79"
+      },
+      {
+        "phase": "plant-6",
+        "chars": 21324,
+        "sha256": "c8ffd60ff64ed1b8d3d97ac5266a2e6cc165fb576d91076ca2a1418cbc8a4c3a"
+      },
+      {
+        "phase": "plant-7",
+        "chars": 21319,
+        "sha256": "7bf81a834bf073a4b7b6ca20c7ff1293ee70df257ea12f3bd99733fb2737b806"
+      },
+      {
+        "phase": "ordinary-1",
+        "chars": 21,
+        "sha256": "357b59d83710e7b7c393a70e5b5cbeafeefbfb0aac133b3a49ca04327c788251"
+      },
+      {
+        "phase": "ordinary-2",
+        "chars": 21,
+        "sha256": "7b31dbe4dcce2e4098228b4891ea53e545eccd040028000a263039ee5f569bf9"
+      },
+      {
+        "phase": "ordinary-3",
+        "chars": 21,
+        "sha256": "560767f79bb5c8a7726b36598fe8ee4539eb2cb06c7e6335aa8473e133d4dcb1"
+      },
+      {
+        "phase": "blind-recall",
+        "chars": 1841,
+        "sha256": "e1d3617c5c3fb767d4de14110d2b8203891af5b12c6bdb5bab29e2701fea6414"
+      }
+    ]
+  },
+  "trace": [
+    {
+      "phase": "plant-1",
+      "promptChars": 21433,
+      "promptSha256": "6170a41048f3789f3528cd6846b6eb0bfe4ba4f2011ec9cba6b480f2cfaccc57",
+      "modelCalls": 1,
+      "callsAdded": 1,
+      "projectedTokens": 19406,
+      "contextWindow": 1000000,
+      "lastCall": {
+        "uncachedInputTokens": 196,
+        "cacheReadTokens": 19200,
+        "outputTokens": 5
+      }
+    },
+    {
+      "phase": "plant-2",
+      "promptChars": 21433,
+      "promptSha256": "04f9c1a7f29e5fe48992cd128be906ee33ea242241517bf5f1eef3389dcc187e",
+      "modelCalls": 2,
+      "callsAdded": 1,
+      "projectedTokens": 27615,
+      "contextWindow": 1000000,
+      "lastCall": {
+        "uncachedInputTokens": 8277,
+        "cacheReadTokens": 19328,
+        "outputTokens": 5
+      }
+    },
+    {
+      "phase": "plant-3",
+      "promptChars": 21520,
+      "promptSha256": "ae4b6c93af3acf278c25c8380c3b94376da7db1a47143a9e91421b918e7d8f19",
+      "modelCalls": 3,
+      "callsAdded": 1,
+      "projectedTokens": 29368,
+      "contextWindow": 1000000,
+      "lastCall": {
+        "uncachedInputTokens": 16558,
+        "cacheReadTokens": 12800,
+        "outputTokens": 5
+      }
+    },
+    {
+      "phase": "plant-4",
+      "promptChars": 21418,
+      "promptSha256": "df81804910d3644dba4b6e171f1e0c7d2061e789ec3461b41cc6640845baf030",
+      "modelCalls": 4,
+      "callsAdded": 1,
+      "projectedTokens": 37811,
+      "contextWindow": 1000000,
+      "lastCall": {
+        "uncachedInputTokens": 8617,
+        "cacheReadTokens": 29184,
+        "outputTokens": 5
+      }
+    },
+    {
+      "phase": "ordinary-1",
+      "promptChars": 21,
+      "promptSha256": "357b59d83710e7b7c393a70e5b5cbeafeefbfb0aac133b3a49ca04327c788251",
+      "modelCalls": 5,
+      "callsAdded": 1,
+      "projectedTokens": 31970,
+      "contextWindow": 1000000,
+      "lastCall": {
+        "uncachedInputTokens": 19393,
+        "cacheReadTokens": 12544,
+        "outputTokens": 27
+      }
+    },
+    {
+      "phase": "ordinary-2",
+      "promptChars": 21,
+      "promptSha256": "7b31dbe4dcce2e4098228b4891ea53e545eccd040028000a263039ee5f569bf9",
+      "modelCalls": 6,
+      "callsAdded": 1,
+      "projectedTokens": 32073,
+      "contextWindow": 1000000,
+      "lastCall": {
+        "uncachedInputTokens": 319,
+        "cacheReadTokens": 31744,
+        "outputTokens": 5
+      }
+    },
+    {
+      "phase": "ordinary-3",
+      "promptChars": 21,
+      "promptSha256": "560767f79bb5c8a7726b36598fe8ee4539eb2cb06c7e6335aa8473e133d4dcb1",
+      "modelCalls": 7,
+      "callsAdded": 1,
+      "projectedTokens": 32087,
+      "contextWindow": 1000000,
+      "lastCall": {
+        "uncachedInputTokens": 77,
+        "cacheReadTokens": 32000,
+        "outputTokens": 5
+      }
+    },
+    {
+      "phase": "blind-recall",
+      "promptChars": 1841,
+      "promptSha256": "e1d3617c5c3fb767d4de14110d2b8203891af5b12c6bdb5bab29e2701fea6414",
+      "modelCalls": 8,
+      "callsAdded": 1,
+      "projectedTokens": 34173,
+      "contextWindow": 1000000,
+      "lastCall": {
+        "uncachedInputTokens": 506,
+        "cacheReadTokens": 32000,
+        "outputTokens": 1987
+      }
+    }
+  ],
+  "plantsSent": 4,
+  "queryTurn": 8,
+  "facts": {
+    "scorable": 20,
+    "factIds": [
+      "f0",
+      "f2",
+      "f3",
+      "f4",
+      "f5",
+      "f6",
+      "f7",
+      "f9",
+      "f10",
+      "f12",
+      "f13",
+      "f14",
+      "f15",
+      "f16",
+      "f17",
+      "f19",
+      "f20",
+      "f21",
+      "f22",
+      "f23"
+    ]
+  },
+  "nudges": [
+    {
+      "seq": 59,
+      "tier": "normal",
+      "turn": 4,
+      "textSha256": "d7938fab9fdcf1c86c567a062bb2537313496567971e72525f4ca68f30d92c8e",
+      "displayedPct": 84,
+      "tableRanges": [
+        {
+          "startSeq": 41,
+          "endSeq": 51
+        },
+        {
+          "startSeq": 8,
+          "endSeq": 9
+        }
+      ],
+      "eligibleForThreeTurns": true,
+      "firstCompressSeqWithinWindow": null,
+      "latencyTurns": null,
+      "compliedWithinThreeTurns": false
+    },
+    {
+      "seq": 78,
+      "tier": "normal",
+      "turn": 5,
+      "textSha256": "fab09aef111f4e8fd57ee7d8b5fd23f362a3e2381573e7ba08c082e332aa4397",
+      "displayedPct": 78,
+      "tableRanges": [],
+      "eligibleForThreeTurns": true,
+      "firstCompressSeqWithinWindow": null,
+      "latencyTurns": null,
+      "compliedWithinThreeTurns": false
+    }
+  ],
+  "compressToolCalls": [],
+  "compactions": [
+    {
+      "seq": 40,
+      "compactionId": "64407474-8980-42c5-a725-464223c23288",
+      "shadowedRange": {
+        "start": 7,
+        "end": 7
+      },
+      "shadowedTokenCount": 5367,
+      "provider": "local",
+      "model": "adaptive-governor-extractive-v1",
+      "tier": 1,
+      "mode": "governor-local"
+    },
+    {
+      "seq": 73,
+      "compactionId": "8b8c9f03-6a76-4e0b-b447-f133185e1978",
+      "shadowedRange": {
+        "start": 8,
+        "end": 33
+      },
+      "shadowedTokenCount": 5976,
+      "provider": "local",
+      "model": "adaptive-governor-extractive-v1",
+      "tier": 1,
+      "mode": "governor-local"
+    }
+  ],
+  "governor": {
+    "localArchiveCount": 2,
+    "localArchives": [
+      {
+        "seq": 40,
+        "compactionId": "64407474-8980-42c5-a725-464223c23288",
+        "shadowedRange": {
+          "start": 7,
+          "end": 7
+        },
+        "shadowedTokenCount": 5367,
+        "provider": "local",
+        "model": "adaptive-governor-extractive-v1",
+        "tier": 1,
+        "mode": "governor-local"
+      },
+      {
+        "seq": 73,
+        "compactionId": "8b8c9f03-6a76-4e0b-b447-f133185e1978",
+        "shadowedRange": {
+          "start": 8,
+          "end": 33
+        },
+        "shadowedTokenCount": 5976,
+        "provider": "local",
+        "model": "adaptive-governor-extractive-v1",
+        "tier": 1,
+        "mode": "governor-local"
+      }
+    ],
+    "modelSummaryCount": 0
+  },
+  "quality": {
+    "answerOnly": {
+      "strict": "12/20",
+      "loose": "16/20",
+      "strictRate": 0.6,
+      "looseRate": 0.8,
+      "unknownLines": 8
+    },
+    "benchAnswerPlusTool": {
+      "strict": "12/20",
+      "loose": "16/20",
+      "strictRate": 0.6,
+      "looseRate": 0.8
+    },
+    "queryToolCalls": []
+  },
+  "costLedger": {
+    "uncachedInputTokens": 53943,
+    "outputTokens": 2044,
+    "cacheReadTokens": 188800,
+    "totalPromptTokens": 242743
+  },
+  "perCall": [
+    {
+      "seq": 19,
+      "turn": 1,
+      "step": 1,
+      "uncachedInputTokens": 196,
+      "cacheReadTokens": 19200,
+      "outputTokens": 5,
+      "afterCompaction": false,
+      "spikeVsPrev": null
+    },
+    {
+      "seq": 33,
+      "turn": 2,
+      "step": 1,
+      "uncachedInputTokens": 8277,
+      "cacheReadTokens": 19328,
+      "outputTokens": 5,
+      "afterCompaction": false,
+      "spikeVsPrev": 8081
+    },
+    {
+      "seq": 51,
+      "turn": 3,
+      "step": 1,
+      "uncachedInputTokens": 16558,
+      "cacheReadTokens": 12800,
+      "outputTokens": 5,
+      "afterCompaction": false,
+      "spikeVsPrev": 8281
+    },
+    {
+      "seq": 66,
+      "turn": 4,
+      "step": 1,
+      "uncachedInputTokens": 8617,
+      "cacheReadTokens": 29184,
+      "outputTokens": 5,
+      "afterCompaction": false,
+      "spikeVsPrev": -7941
+    },
+    {
+      "seq": 101,
+      "turn": 5,
+      "step": 1,
+      "uncachedInputTokens": 19393,
+      "cacheReadTokens": 12544,
+      "outputTokens": 27,
+      "afterCompaction": false,
+      "spikeVsPrev": 10776
+    },
+    {
+      "seq": 116,
+      "turn": 6,
+      "step": 1,
+      "uncachedInputTokens": 319,
+      "cacheReadTokens": 31744,
+      "outputTokens": 5,
+      "afterCompaction": false,
+      "spikeVsPrev": -19074
+    },
+    {
+      "seq": 130,
+      "turn": 7,
+      "step": 1,
+      "uncachedInputTokens": 77,
+      "cacheReadTokens": 32000,
+      "outputTokens": 5,
+      "afterCompaction": false,
+      "spikeVsPrev": -242
+    },
+    {
+      "seq": 1212,
+      "turn": 8,
+      "step": 1,
+      "uncachedInputTokens": 506,
+      "cacheReadTokens": 32000,
+      "outputTokens": 1987,
+      "afterCompaction": false,
+      "spikeVsPrev": 429
+    }
+  ],
+  "rawEvidence": {
+    "durableLog": "isolated host session session-0c9c9dd4-af64-4195-8313-8131b5fa6797 (not copied into repository)",
+    "nudgeSource": "user/message where source.plugin === arc-nudge",
+    "compressionSource": "tool/call name === compress; arguments parsed offline"
+  }
+}

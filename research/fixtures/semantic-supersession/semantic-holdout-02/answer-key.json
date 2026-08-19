@@ -1,0 +1,174 @@
+{
+  "seed": "semantic-holdout-02",
+  "expected": [
+    [
+      "launchCountry",
+      "Portugal"
+    ],
+    [
+      "executionOwner",
+      "Tomas Varga"
+    ],
+    [
+      "freezeWindow",
+      "Wednesday 05:45 UTC"
+    ],
+    [
+      "rollbackPhrase",
+      "winter compass"
+    ],
+    [
+      "retention",
+      "38 days"
+    ],
+    [
+      "queue",
+      "marble-path"
+    ],
+    [
+      "batchSize",
+      "72"
+    ],
+    [
+      "retryPolicy",
+      "three retries separated by 75 seconds"
+    ],
+    [
+      "regulatedException",
+      "Canadian regulated tenants continue through Montreal while all other tenants launch from Portugal"
+    ],
+    [
+      "approvals",
+      "privacy lead and on-call SRE"
+    ]
+  ],
+  "reasons": [
+    "weekly usage trough",
+    "litigation hold",
+    "parallel decryption exhausted worker memory",
+    "PIPEDA residency audit remains open",
+    "priority incident during launch week",
+    "public drill transcript",
+    "gateway rate-limit interval"
+  ],
+  "currentCriteria": {
+    "launchCountry": [
+      [
+        "Portugal"
+      ]
+    ],
+    "executionOwner": [
+      [
+        "Tomas Varga"
+      ]
+    ],
+    "freezeWindow": [
+      [
+        "Wednesday"
+      ],
+      [
+        "05:45"
+      ],
+      [
+        "UTC"
+      ]
+    ],
+    "rollbackPhrase": [
+      [
+        "winter compass"
+      ]
+    ],
+    "retention": [
+      [
+        "38"
+      ],
+      [
+        "days"
+      ]
+    ],
+    "queue": [
+      [
+        "marble-path"
+      ]
+    ],
+    "batchSize": [
+      [
+        "72"
+      ]
+    ],
+    "retryPolicy": [
+      [
+        "three retries",
+        "3 retries"
+      ],
+      [
+        "75 seconds",
+        "75-second"
+      ]
+    ],
+    "regulatedException": [
+      [
+        "Canadian"
+      ],
+      [
+        "Montreal"
+      ],
+      [
+        "Portugal"
+      ]
+    ],
+    "approvals": [
+      [
+        "privacy lead"
+      ],
+      [
+        "on-call SRE"
+      ]
+    ]
+  },
+  "reasonCriteria": [
+    [
+      [
+        "weekly usage trough"
+      ]
+    ],
+    [
+      [
+        "litigation hold"
+      ]
+    ],
+    [
+      [
+        "Parallel decryption",
+        "parallel decryption"
+      ],
+      [
+        "exhausted"
+      ],
+      [
+        "worker memory"
+      ]
+    ],
+    [
+      [
+        "PIPEDA residency audit remains open"
+      ]
+    ],
+    [
+      [
+        "priority incident during launch week"
+      ]
+    ],
+    [
+      [
+        "public drill transcript"
+      ]
+    ],
+    [
+      [
+        "gateway rate-limit interval"
+      ]
+    ]
+  ],
+  "obsolete": []
+}

@@ -1,0 +1,23 @@
+{
+  "requestHeaderCount": 1,
+  "maxTokens": [
+    393216
+  ],
+  "adapterDefaultMaxTokens": 0,
+  "usage": {
+    "uncachedInputTokens": 94,
+    "outputTokens": 33,
+    "cacheReadTokens": 4096,
+    "cacheWriteTokens": 0
+  },
+  "pressure": {
+    "pressureTokens": 2108,
+    "projectedTokens": 2119,
+    "contextWindow": 1000000
+  },
+  "errors": [],
+  "assistant": [
+    "LONG-OUTPUT-INTENT-ACK",
+    "FINAL-ACK"
+  ]
+}

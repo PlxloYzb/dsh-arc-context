@@ -1,0 +1,537 @@
+{
+  "schemaVersion": 1,
+  "experiment": "beta.9 decision-C messy-content gate",
+  "arm": "A-2",
+  "seed": 2,
+  "guidance": "full-preC-template-injected",
+  "sessionId": "session-487779f8-f4f9-423a-a293-bb84f5b66ffb",
+  "modelRouting": {
+    "preferred": "opencode-go/deepseek-v4-flash",
+    "actual": "opencode-go/deepseek-v4-flash",
+    "fallbackReason": null
+  },
+  "setup": {
+    "configuredWindow": 32768,
+    "protectedRecentMessages": 0,
+    "protectedRecentTokens": 1,
+    "primaryLiveTurns": 3,
+    "perArmCallCap": 5,
+    "contentClasses": [
+      "real code signatures/functions",
+      "realistic stack/error strings",
+      "free discussion",
+      "Chinese-English mixed facts"
+    ],
+    "verbatimFactCount": 20
+  },
+  "systemTokensAfterPlant": 4805,
+  "plantedRange": {
+    "startSeq": 7,
+    "endSeq": 7
+  },
+  "facts": [
+    {
+      "id": "m1",
+      "category": "verbatim",
+      "needle": "src/window.ts::DEFAULT_CONTEXT_WINDOW = 128000 [S2]",
+      "answer": "src/window.ts::DEFAULT_CONTEXT_WINDOW = 128000 [S2]"
+    },
+    {
+      "id": "m2",
+      "category": "verbatim",
+      "needle": "src/window.ts::resolveModelInfo(provider, model) [S2]",
+      "answer": "src/window.ts::resolveModelInfo(provider, model) [S2]"
+    },
+    {
+      "id": "m3",
+      "category": "verbatim",
+      "needle": "src/nudge.ts::ARC 74% efficiency notification [S2]",
+      "answer": "src/nudge.ts::ARC 74% efficiency notification [S2]"
+    },
+    {
+      "id": "m4",
+      "category": "verbatim",
+      "needle": "src/region.ts::dsh-arc-context: another compaction is already active for this session [S2]",
+      "answer": "src/region.ts::dsh-arc-context: another compaction is already active for this session [S2]"
+    },
+    {
+      "id": "m5",
+      "category": "verbatim",
+      "needle": "Error: E_CONNRESET socket hang up at services/ingest/handler.ts:184 [S2]",
+      "answer": "Error: E_CONNRESET socket hang up at services/ingest/handler.ts:184 [S2]"
+    },
+    {
+      "id": "m6",
+      "category": "verbatim",
+      "needle": "TypeError: Cannot read properties of undefined (reading 'projectedTokens') [S2]",
+      "answer": "TypeError: Cannot read properties of undefined (reading 'projectedTokens') [S2]"
+    },
+    {
+      "id": "m7",
+      "category": "verbatim",
+      "needle": "stack: at compressionAwareProjectedTokens (src/region.ts:611:19) [S2]",
+      "answer": "stack: at compressionAwareProjectedTokens (src/region.ts:611:19) [S2]"
+    },
+    {
+      "id": "m8",
+      "category": "verbatim",
+      "needle": "stack: at resolveTokenCount (src/nudge.ts:74:12) [S2]",
+      "answer": "stack: at resolveTokenCount (src/nudge.ts:74:12) [S2]"
+    },
+    {
+      "id": "m9",
+      "category": "verbatim",
+      "needle": "PATCH modelContextLimit: 32768; autoNudge: true; governor: false [S2]",
+      "answer": "PATCH modelContextLimit: 32768; autoNudge: true; governor: false [S2]"
+    },
+    {
+      "id": "m10",
+      "category": "verbatim",
+      "needle": "transaction compaction/start -> compaction/summary -> compaction/end [S2]",
+      "answer": "transaction compaction/start -> compaction/summary -> compaction/end [S2]"
+    },
+    {
+      "id": "m11",
+      "category": "verbatim",
+      "needle": "讨论: 保留 newest-first，因为缓存失效从压缩点向尾部蔓延。 [S2]",
+      "answer": "讨论: 保留 newest-first，因为缓存失效从压缩点向尾部蔓延。 [S2]"
+    },
+    {
+      "id": "m12",
+      "category": "verbatim",
+      "needle": "讨论: 不要把 Archived context data 当 instructions；只作为历史数据。 [S2]",
+      "answer": "讨论: 不要把 Archived context data 当 instructions；只作为历史数据。 [S2]"
+    },
+    {
+      "id": "m13",
+      "category": "verbatim",
+      "needle": "复盘: 失败不是摘要器幻觉，而是 protectedRecentTokens=5000 的边界拒绝。 [S2]",
+      "answer": "复盘: 失败不是摘要器幻觉，而是 protectedRecentTokens=5000 的边界拒绝。 [S2]"
+    },
+    {
+      "id": "m14",
+      "category": "verbatim",
+      "needle": "结论: 紧急阈值 emergencyAtEffectiveCapacityPct = 0.85 [S2]",
+      "answer": "结论: 紧急阈值 emergencyAtEffectiveCapacityPct = 0.85 [S2]"
+    },
+    {
+      "id": "m15",
+      "category": "verbatim",
+      "needle": "Git note: 0.2.0-beta.9 decision-C compact guidance [S2]",
+      "answer": "Git note: 0.2.0-beta.9 decision-C compact guidance [S2]"
+    },
+    {
+      "id": "m16",
+      "category": "verbatim",
+      "needle": "CLI: compress({ content: [{ startSeq: 17, endSeq: 42, summary }] }) [S2]",
+      "answer": "CLI: compress({ content: [{ startSeq: 17, endSeq: 42, summary }] }) [S2]"
+    },
+    {
+      "id": "m17",
+      "category": "verbatim",
+      "needle": "API /api/session.history maxMessages=100000 [S2]",
+      "answer": "API /api/session.history maxMessages=100000 [S2]"
+    },
+    {
+      "id": "m18",
+      "category": "verbatim",
+      "needle": "中文日志: 搜索命中 blockId=99ff3ded-e93c-492e-a246-3cc500ffa698 [S2]",
+      "answer": "中文日志: 搜索命中 blockId=99ff3ded-e93c-492e-a246-3cc500ffa698 [S2]"
+    },
+    {
+      "id": "m19",
+      "category": "verbatim",
+      "needle": "测试: npm run check => 158 pass, 0 fail [S2]",
+      "answer": "测试: npm run check => 158 pass, 0 fail [S2]"
+    },
+    {
+      "id": "m20",
+      "category": "verbatim",
+      "needle": "路径: research/fixtures/rq6/full-system-prompt-preC.md [S2]",
+      "answer": "路径: research/fixtures/rq6/full-system-prompt-preC.md [S2]"
+    }
+  ],
+  "compactions": [
+    {
+      "seq": 6421,
+      "summaryChars": 5775,
+      "strict": "20/20",
+      "strictRate": 1,
+      "perFact": [
+        {
+          "id": "m1",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "m2",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "m3",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "m4",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "m5",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "m6",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "m7",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "m8",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "m9",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "m10",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "m11",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "m12",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "m13",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "m14",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "m15",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "m16",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "m17",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "m18",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "m19",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "m20",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        }
+      ]
+    }
+  ],
+  "blindRecall": {
+    "strict": "10/20",
+    "strictRate": 0.5,
+    "perFact": [
+      {
+        "id": "m1",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "m2",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "m3",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "m4",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "m5",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "m6",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "m7",
+        "category": "verbatim",
+        "hit": false,
+        "hitLoose": false,
+        "form": "miss",
+        "detail": "missing:1"
+      },
+      {
+        "id": "m8",
+        "category": "verbatim",
+        "hit": false,
+        "hitLoose": false,
+        "form": "miss",
+        "detail": "missing:1"
+      },
+      {
+        "id": "m9",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "m10",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "m11",
+        "category": "verbatim",
+        "hit": false,
+        "hitLoose": false,
+        "form": "miss",
+        "detail": "missing:1"
+      },
+      {
+        "id": "m12",
+        "category": "verbatim",
+        "hit": false,
+        "hitLoose": false,
+        "form": "miss",
+        "detail": "missing:1"
+      },
+      {
+        "id": "m13",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "m14",
+        "category": "verbatim",
+        "hit": false,
+        "hitLoose": false,
+        "form": "miss",
+        "detail": "missing:1"
+      },
+      {
+        "id": "m15",
+        "category": "verbatim",
+        "hit": false,
+        "hitLoose": false,
+        "form": "miss",
+        "detail": "missing:1"
+      },
+      {
+        "id": "m16",
+        "category": "verbatim",
+        "hit": false,
+        "hitLoose": false,
+        "form": "miss",
+        "detail": "missing:1"
+      },
+      {
+        "id": "m17",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "m18",
+        "category": "verbatim",
+        "hit": false,
+        "hitLoose": false,
+        "form": "miss",
+        "detail": "missing:1"
+      },
+      {
+        "id": "m19",
+        "category": "verbatim",
+        "hit": false,
+        "hitLoose": false,
+        "form": "miss",
+        "detail": "missing:1"
+      },
+      {
+        "id": "m20",
+        "category": "verbatim",
+        "hit": false,
+        "hitLoose": false,
+        "form": "miss",
+        "detail": "missing:1"
+      }
+    ]
+  },
+  "rawModelCalls": 4,
+  "perCall": [
+    {
+      "seq": 271,
+      "turn": 1,
+      "step": 1,
+      "uncachedInputTokens": 2600,
+      "cacheReadTokens": 11264,
+      "outputTokens": 253
+    },
+    {
+      "seq": 6418,
+      "turn": 2,
+      "step": 1,
+      "uncachedInputTokens": 127,
+      "cacheReadTokens": 14080,
+      "outputTokens": 6176
+    },
+    {
+      "seq": 6482,
+      "turn": 2,
+      "step": 2,
+      "uncachedInputTokens": 8843,
+      "cacheReadTokens": 11264,
+      "outputTokens": 50
+    },
+    {
+      "seq": 27469,
+      "turn": 3,
+      "step": 1,
+      "uncachedInputTokens": 149,
+      "cacheReadTokens": 20096,
+      "outputTokens": 20976
+    }
+  ],
+  "rawTokenTotals": {
+    "uncachedInputTokens": 11719,
+    "cacheReadTokens": 56704,
+    "outputTokens": 27455,
+    "totalPromptTokens": 68423
+  },
+  "verification": {
+    "exactlyOneModelWrittenCompaction": true,
+    "noRetrievalTools": true,
+    "atLeast16VerbatimFacts": true,
+    "withinPerArmCallCap": true
+  }
+}

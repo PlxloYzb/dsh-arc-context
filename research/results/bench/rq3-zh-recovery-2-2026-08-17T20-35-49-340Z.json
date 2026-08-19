@@ -1,0 +1,400 @@
+{
+  "arm": "zh-recovery-2",
+  "locale": "zh",
+  "queryMode": "recovery",
+  "seed": 2,
+  "sessionId": "session-cfbb443e-afdb-4cf9-9900-c8f6e38f8826",
+  "agentPreset": "standard",
+  "plantPressure": [
+    {
+      "stage": 1,
+      "projectedTokens": 23365,
+      "contextWindow": 1000000
+    },
+    {
+      "stage": 2,
+      "projectedTokens": 30801,
+      "contextWindow": 1000000
+    },
+    {
+      "stage": 3,
+      "projectedTokens": 37618,
+      "contextWindow": 1000000
+    },
+    {
+      "stage": 4,
+      "projectedTokens": 44426,
+      "contextWindow": 1000000
+    }
+  ],
+  "compress": {
+    "instructedRanges": [
+      {
+        "startSeq": 7,
+        "endSeq": 495
+      },
+      {
+        "startSeq": 496,
+        "endSeq": 778
+      },
+      {
+        "startSeq": 779,
+        "endSeq": 794
+      }
+    ],
+    "rangesLanded": 3,
+    "retried": false,
+    "plantTurns": 4,
+    "turnsCompressed": 3,
+    "designShadowedFractionOfPlantTurns": 0.75,
+    "ledgerShadowedTokens": 19970
+  },
+  "compactions": [
+    {
+      "compactionId": "68ca7c42-7c34-4a7b-9272-016076d99923",
+      "shadowedRange": {
+        "start": 7,
+        "end": 489
+      },
+      "shadowedTokenCount": 10697,
+      "tier": 1,
+      "summaryChars": 18846,
+      "summaryHead": "STAGE 1 work-log ingest + confirmation.\n\nUSER INTENT (verbatim, load-bearing): record the work-log entries below VERBATIM into working context; they will be queried one-by-one later; in any reply do N"
+    },
+    {
+      "compactionId": "96cf9ad5-1512-4ac0-8797-39c3e88b50f8",
+      "shadowedRange": {
+        "start": 496,
+        "end": 772
+      },
+      "shadowedTokenCount": 4854,
+      "tier": 1,
+      "summaryChars": 6017,
+      "summaryHead": "STAGE 2 + STAGE 3 work-log ingests + confirmations.\n\nUSER INTENT (both stages, verbatim, load-bearing): record entries VERBATIM into working context; will be queried one-by-one later; never summarize "
+    },
+    {
+      "compactionId": "2db2f0e1-4b41-4158-a24e-b34db19e4250",
+      "shadowedRange": {
+        "start": 779,
+        "end": 788
+      },
+      "shadowedTokenCount": 4419,
+      "tier": 1,
+      "summaryChars": 6096,
+      "summaryHead": "STAGE 4 (final stage, 4/4) work-log ingest + confirmation.\n\nUSER INTENT (verbatim, load-bearing): record entries VERBATIM into working context; will be queried one-by-one later; never summarize them a"
+    }
+  ],
+  "pressure": {
+    "preProjected": 44426,
+    "postProjected": 40603,
+    "dropped": 3823,
+    "droppedFraction": 0.08605321208301445,
+    "ledgerShadowedTokens": 19970
+  },
+  "result": {
+    "recall": "18/21",
+    "recallRate": 0.8571428571428571,
+    "trapLeaks": [
+      "f4",
+      "f5",
+      "f12"
+    ],
+    "unknownLines": 0,
+    "answerOnlyRecall": "8/21",
+    "byCategory": {
+      "paraphrase": {
+        "recalled": 4,
+        "total": 4
+      },
+      "crossref": {
+        "recalled": 3,
+        "total": 6
+      },
+      "verbatim": {
+        "recalled": 4,
+        "total": 4
+      },
+      "numeric": {
+        "recalled": 7,
+        "total": 7
+      }
+    },
+    "bySurfaceCategory": {
+      "shadowed": {
+        "paraphrase": {
+          "recalled": 4,
+          "total": 4
+        },
+        "crossref": {
+          "recalled": 3,
+          "total": 6
+        },
+        "verbatim": {
+          "recalled": 4,
+          "total": 4
+        },
+        "numeric": {
+          "recalled": 4,
+          "total": 4
+        }
+      },
+      "live": {
+        "numeric": {
+          "recalled": 3,
+          "total": 3
+        }
+      }
+    },
+    "perFact": [
+      {
+        "id": "f0",
+        "category": "paraphrase",
+        "hit": true,
+        "detail": "keywords:all",
+        "surface": "shadowed",
+        "firstToolHit": 1
+      },
+      {
+        "id": "f1",
+        "category": "crossref",
+        "hit": false,
+        "detail": "missing:1",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f2",
+        "category": "paraphrase",
+        "hit": true,
+        "detail": "keywords:all",
+        "surface": "shadowed",
+        "firstToolHit": 1
+      },
+      {
+        "id": "f3",
+        "category": "paraphrase",
+        "hit": true,
+        "detail": "keywords:all",
+        "surface": "shadowed",
+        "firstToolHit": 1
+      },
+      {
+        "id": "f6",
+        "category": "verbatim",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": 1
+      },
+      {
+        "id": "f7",
+        "category": "verbatim",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": 1
+      },
+      {
+        "id": "f8",
+        "category": "crossref",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f9",
+        "category": "numeric",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": 2
+      },
+      {
+        "id": "f10",
+        "category": "numeric",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": 2
+      },
+      {
+        "id": "f11",
+        "category": "crossref",
+        "hit": false,
+        "detail": "missing:1",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f13",
+        "category": "crossref",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f14",
+        "category": "crossref",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f15",
+        "category": "verbatim",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": 2
+      },
+      {
+        "id": "f16",
+        "category": "paraphrase",
+        "hit": true,
+        "detail": "keywords:all",
+        "surface": "shadowed",
+        "firstToolHit": 1
+      },
+      {
+        "id": "f17",
+        "category": "numeric",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": 2
+      },
+      {
+        "id": "f18",
+        "category": "numeric",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": 2
+      },
+      {
+        "id": "f19",
+        "category": "verbatim",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": 2
+      },
+      {
+        "id": "f20",
+        "category": "crossref",
+        "hit": false,
+        "detail": "missing:1",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f21",
+        "category": "numeric",
+        "hit": true,
+        "detail": "exact",
+        "surface": "live",
+        "firstToolHit": 3
+      },
+      {
+        "id": "f22",
+        "category": "numeric",
+        "hit": true,
+        "detail": "exact",
+        "surface": "live",
+        "firstToolHit": 3
+      },
+      {
+        "id": "f23",
+        "category": "numeric",
+        "hit": true,
+        "detail": "exact",
+        "surface": "live",
+        "firstToolHit": 3
+      }
+    ],
+    "toolCalls": {
+      "search_context": 0,
+      "decompress": 3,
+      "other": {}
+    },
+    "calls": 11,
+    "ledger": {
+      "uncachedInputTokens": 100271,
+      "outputTokens": 19021,
+      "cacheReadTokens": 362496,
+      "totalPromptTokens": 462767
+    },
+    "perCall": [
+      {
+        "turn": 1,
+        "step": 1,
+        "promptTokens": 22698,
+        "outputTokens": 854
+      },
+      {
+        "turn": 2,
+        "step": 1,
+        "promptTokens": 30307,
+        "outputTokens": 483
+      },
+      {
+        "turn": 3,
+        "step": 1,
+        "promptTokens": 37606,
+        "outputTokens": 10
+      },
+      {
+        "turn": 4,
+        "step": 1,
+        "promptTokens": 44414,
+        "outputTokens": 10
+      },
+      {
+        "turn": 5,
+        "step": 1,
+        "promptTokens": 44525,
+        "outputTokens": 2027
+      },
+      {
+        "turn": 5,
+        "step": 2,
+        "promptTokens": 46662,
+        "outputTokens": 5135
+      },
+      {
+        "turn": 5,
+        "step": 3,
+        "promptTokens": 40201,
+        "outputTokens": 154
+      },
+      {
+        "turn": 6,
+        "step": 1,
+        "promptTokens": 40363,
+        "outputTokens": 180
+      },
+      {
+        "turn": 7,
+        "step": 1,
+        "promptTokens": 40552,
+        "outputTokens": 41
+      },
+      {
+        "turn": 8,
+        "step": 1,
+        "promptTokens": 41121,
+        "outputTokens": 2031
+      },
+      {
+        "turn": 8,
+        "step": 2,
+        "promptTokens": 74318,
+        "outputTokens": 8096
+      }
+    ],
+    "queryPromptTokens": 74318
+  }
+}

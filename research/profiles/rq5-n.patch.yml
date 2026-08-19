@@ -1,0 +1,7 @@
+# RQ5 N (natural): isolated 32K host; advisory ARC nudges only.
+- id: compaction-arc-bridge
+  config:
+    modelContextLimit: 32768
+    autoNudge: true
+    adaptiveGovernor:
+      enabled: false

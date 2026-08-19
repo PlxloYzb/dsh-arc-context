@@ -1,0 +1,351 @@
+{
+  "mode": "live",
+  "seed": 1,
+  "label": "smoke-beta4-v2",
+  "started": "2026-08-17T17:50:38.339Z",
+  "arm": {
+    "stages": 3,
+    "facts": 24,
+    "queryMode": "blind",
+    "noiseLines": 26,
+    "model": "(host default)"
+  },
+  "session": {
+    "sessionId": "session-64caa5eb-c6f3-4a27-af76-7fffcb568149",
+    "agentPreset": "standard"
+  },
+  "result": {
+    "recall": {
+      "perFact": [
+        {
+          "id": "f0",
+          "category": "paraphrase",
+          "hit": true,
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f2",
+          "category": "numeric",
+          "hit": true,
+          "detail": "exact"
+        },
+        {
+          "id": "f3",
+          "category": "verbatim",
+          "hit": true,
+          "detail": "exact"
+        },
+        {
+          "id": "f4",
+          "category": "paraphrase",
+          "hit": true,
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f5",
+          "category": "paraphrase",
+          "hit": true,
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f6",
+          "category": "verbatim",
+          "hit": true,
+          "detail": "exact"
+        },
+        {
+          "id": "f7",
+          "category": "crossref",
+          "hit": true,
+          "detail": "exact"
+        },
+        {
+          "id": "f8",
+          "category": "paraphrase",
+          "hit": true,
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f9",
+          "category": "crossref",
+          "hit": true,
+          "detail": "exact"
+        },
+        {
+          "id": "f10",
+          "category": "verbatim",
+          "hit": true,
+          "detail": "exact"
+        },
+        {
+          "id": "f11",
+          "category": "numeric",
+          "hit": true,
+          "detail": "exact"
+        },
+        {
+          "id": "f12",
+          "category": "numeric",
+          "hit": true,
+          "detail": "exact"
+        },
+        {
+          "id": "f13",
+          "category": "verbatim",
+          "hit": true,
+          "detail": "exact"
+        },
+        {
+          "id": "f14",
+          "category": "paraphrase",
+          "hit": true,
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f15",
+          "category": "numeric",
+          "hit": true,
+          "detail": "exact"
+        },
+        {
+          "id": "f17",
+          "category": "numeric",
+          "hit": true,
+          "detail": "exact"
+        },
+        {
+          "id": "f18",
+          "category": "verbatim",
+          "hit": true,
+          "detail": "exact"
+        },
+        {
+          "id": "f19",
+          "category": "crossref",
+          "hit": true,
+          "detail": "exact"
+        },
+        {
+          "id": "f20",
+          "category": "verbatim",
+          "hit": true,
+          "detail": "exact"
+        },
+        {
+          "id": "f21",
+          "category": "numeric",
+          "hit": true,
+          "detail": "exact"
+        },
+        {
+          "id": "f22",
+          "category": "paraphrase",
+          "hit": true,
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f23",
+          "category": "paraphrase",
+          "hit": true,
+          "detail": "keywords:all"
+        }
+      ],
+      "recalled": 22,
+      "scorable": 22,
+      "score": "22/22",
+      "recallRate": 1,
+      "trapLeaks": [],
+      "unknownLines": 0
+    },
+    "ledger": {
+      "uncachedInputTokens": 3188,
+      "outputTokens": 17125,
+      "cacheReadTokens": 52864,
+      "totalPromptTokens": 56052
+    },
+    "calls": 4,
+    "compactions": 0,
+    "cacheSpikesAfterCompaction": [],
+    "finalPressure": {
+      "pressureTokens": 15347,
+      "projectedTokens": 29914,
+      "contextWindow": 1000000
+    }
+  },
+  "perCall": [
+    {
+      "seq": 112,
+      "turn": 1,
+      "step": 1,
+      "uncachedInputTokens": 35,
+      "cacheReadTokens": 12288,
+      "outputTokens": 172,
+      "afterCompaction": false,
+      "spikeVsPrev": null
+    },
+    {
+      "seq": 179,
+      "turn": 2,
+      "step": 1,
+      "uncachedInputTokens": 1302,
+      "cacheReadTokens": 12288,
+      "outputTokens": 97,
+      "afterCompaction": false,
+      "spikeVsPrev": 1267
+    },
+    {
+      "seq": 245,
+      "turn": 3,
+      "step": 1,
+      "uncachedInputTokens": 1224,
+      "cacheReadTokens": 13568,
+      "outputTokens": 103,
+      "afterCompaction": false,
+      "spikeVsPrev": -78
+    },
+    {
+      "seq": 9371,
+      "turn": 4,
+      "step": 1,
+      "uncachedInputTokens": 627,
+      "cacheReadTokens": 14720,
+      "outputTokens": 16753,
+      "afterCompaction": false,
+      "spikeVsPrev": -597
+    }
+  ],
+  "perFact": [
+    {
+      "id": "f0",
+      "category": "paraphrase",
+      "hit": true,
+      "detail": "keywords:all"
+    },
+    {
+      "id": "f2",
+      "category": "numeric",
+      "hit": true,
+      "detail": "exact"
+    },
+    {
+      "id": "f3",
+      "category": "verbatim",
+      "hit": true,
+      "detail": "exact"
+    },
+    {
+      "id": "f4",
+      "category": "paraphrase",
+      "hit": true,
+      "detail": "keywords:all"
+    },
+    {
+      "id": "f5",
+      "category": "paraphrase",
+      "hit": true,
+      "detail": "keywords:all"
+    },
+    {
+      "id": "f6",
+      "category": "verbatim",
+      "hit": true,
+      "detail": "exact"
+    },
+    {
+      "id": "f7",
+      "category": "crossref",
+      "hit": true,
+      "detail": "exact"
+    },
+    {
+      "id": "f8",
+      "category": "paraphrase",
+      "hit": true,
+      "detail": "keywords:all"
+    },
+    {
+      "id": "f9",
+      "category": "crossref",
+      "hit": true,
+      "detail": "exact"
+    },
+    {
+      "id": "f10",
+      "category": "verbatim",
+      "hit": true,
+      "detail": "exact"
+    },
+    {
+      "id": "f11",
+      "category": "numeric",
+      "hit": true,
+      "detail": "exact"
+    },
+    {
+      "id": "f12",
+      "category": "numeric",
+      "hit": true,
+      "detail": "exact"
+    },
+    {
+      "id": "f13",
+      "category": "verbatim",
+      "hit": true,
+      "detail": "exact"
+    },
+    {
+      "id": "f14",
+      "category": "paraphrase",
+      "hit": true,
+      "detail": "keywords:all"
+    },
+    {
+      "id": "f15",
+      "category": "numeric",
+      "hit": true,
+      "detail": "exact"
+    },
+    {
+      "id": "f17",
+      "category": "numeric",
+      "hit": true,
+      "detail": "exact"
+    },
+    {
+      "id": "f18",
+      "category": "verbatim",
+      "hit": true,
+      "detail": "exact"
+    },
+    {
+      "id": "f19",
+      "category": "crossref",
+      "hit": true,
+      "detail": "exact"
+    },
+    {
+      "id": "f20",
+      "category": "verbatim",
+      "hit": true,
+      "detail": "exact"
+    },
+    {
+      "id": "f21",
+      "category": "numeric",
+      "hit": true,
+      "detail": "exact"
+    },
+    {
+      "id": "f22",
+      "category": "paraphrase",
+      "hit": true,
+      "detail": "keywords:all"
+    },
+    {
+      "id": "f23",
+      "category": "paraphrase",
+      "hit": true,
+      "detail": "keywords:all"
+    }
+  ]
+}

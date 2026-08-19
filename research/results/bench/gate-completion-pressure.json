@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "session-54752c5d-40a8-4ccb-a9e9-b8fe781e4e4e",
+  "method": "post-run durable-log recovery after client wait hang; no additional model calls",
+  "calls": 9,
+  "compactions": [
+    {
+      "seq": 3249,
+      "shadowedTokenCount": 5682,
+      "shadowedRange": {
+        "start": 7,
+        "end": 336
+      }
+    }
+  ],
+  "nudges": [
+    {
+      "seq": 489,
+      "text": "ARC 72% of effective input capacity — an efficiency note, not an overflow warning: consider compressing ranges you have fully consumed. Fresh refs: arc_status.\n\nContext breakdown: 0K system | 0K tool | 0K summaries | 9K code | 1K text\n+7K since last nudge\n\nSurface: 6 nodes, seqs 7..481\nCompressible ranges (newest first — the first line is the cheapest single-range cache rebuild; oldest content is usually safest to compress; refs are surface seqs):\n  - seq 7..7 — 1 messages, ~4524 tokens\nBatch disjoint ranges in one call: compress({ content: [{ startSeq, endSeq, summary }, …] }) — seqs go stale as the surface moves; re-run arc_status before compressing.\n\n💡 Compress all ranges in one call (pass multiple content entries: `content: [{...}, {...}]`).",
+      "emergency": false
+    }
+  ],
+  "statuses": [
+    {
+      "seq": 1657,
+      "text": "{\"turn\":3,\"step\":1,\"message\":{\"source\":{\"kind\":\"tool\",\"callId\":\"toolu_512d0ad90d4c48e1a55520ae\"},\"content\":[{\"type\":\"tool-result\",\"toolCallId\":\"toolu_512d0ad90d4c48e1a55520ae\",\"content\":[{\"type\":\"text\",\"text\":\"ARC status — session session-54752c5d-40a8-4ccb-a9e9-b8fe781e4e4e\\n  ARC backend ownership: ACTIVE\\n  resolved compaction backend: dsh-arc-context\\n  blocks: 0\\n  tokens compressed: 0\\n  estimated context: 26058 / 32768 (80%)\\n  context window: 32768 (configured)\\n  surface: 9 nodes, seqs 7..1655\\n  compressible ranges (newest first — refs are surface seqs):\\n    - seq 7..336 — 4 messages, ~5103 tokens\"}],\"isError\":false}],\"role\":\"user\",\"id\":\"d5d590da-bb8b-4608-901f-00148bff7c8a\"}}"
+    },
+    {
+      "seq": 3455,
+      "text": "{\"turn\":6,\"step\":1,\"message\":{\"source\":{\"kind\":\"tool\",\"callId\":\"toolu_160d2d8cb7fb4bf082b384ec\"},\"content\":[{\"type\":\"tool-result\",\"toolCallId\":\"toolu_160d2d8cb7fb4bf082b384ec\",\"content\":[{\"type\":\"text\",\"text\":\"ARC status — session session-54752c5d-40a8-4ccb-a9e9-b8fe781e4e4e\\n  ARC backend ownership: ACTIVE\\n  resolved compaction backend: dsh-arc-context\\n  blocks: 1\\n  tokens compressed: 5682\\n  estimated context: 19272 / 32768 (59%)\\n  context window: 32768 (configured)\\n  surface: 18 nodes, seqs 3250..3453\\n  - 2df1c8fe: seqs 7..336 (4 msgs) — Work-log recording task, stages 1/4 and 2/4 complete. User instructed: record en\\n  compressible ranges (newest first — refs are surface seqs):\\n    - seq 343..3406 — 12 messages, ~5907 tokens\"}],\"isError\":false}],\"role\":\"user\",\"id\":\"1bf7bec0-7e46-41d3-ac51-c0a45bcacd2a\"}}"
+    }
+  ],
+  "currentProjection": {
+    "pressureTokens": 25137,
+    "projectedTokens": 25277,
+    "contextWindow": 1000000
+  },
+  "assertions": {
+    "oneOrMoreCompactions": true,
+    "zeroPostCompressionEmergencyNudges": true,
+    "withinEightCalls": false
+  }
+}

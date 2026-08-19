@@ -1,0 +1,84 @@
+{
+  "generatedAt": "2026-08-17T10:13:09.473Z",
+  "runId": "code-engineering-holdout-seed02-glm52-arc-v2",
+  "seed": "code-seed-02",
+  "model": "GLM-5.2",
+  "requestHeaders": {
+    "count": 2,
+    "maxTokens": [
+      32768
+    ],
+    "adapterDefaultMaxTokens": 0
+  },
+  "sessionUsage": {
+    "uncachedInputTokens": 201347,
+    "outputTokens": 28726,
+    "cacheReadTokens": 673792,
+    "cacheWriteTokens": 0
+  },
+  "finalContextPressure": {
+    "pressureTokens": 35063,
+    "projectedTokens": 38111,
+    "contextWindow": 1000000
+  },
+  "exactProofs": {
+    "recalled": 24,
+    "expected": 24,
+    "missingKeys": []
+  },
+  "derived": {
+    "recalled": 4,
+    "expected": 4,
+    "missing": []
+  },
+  "projectTests": {
+    "passed": true,
+    "tail": "\n> test\n> node --test\n\nTAP version 13\n# Subtest: normalizeBranch\nok 1 - normalizeBranch\n  ---\n  duration_ms: 0.469042\n  type: 'test'\n  ...\n# Subtest: retryDelay\nok 2 - retryDelay\n  ---\n  duration_ms: 0.282875\n  type: 'test'\n  ...\n# Subtest: canDeploy\nok 3 - canDeploy\n  ---\n  duration_ms: 0.058167\n  type: 'test'\n  ...\n# Subtest: redactToken\nok 4 - redactToken\n  ---\n  duration_ms: 0.07175\n  type: 'test'\n  ...\n1..4\n# tests 4\n# suites 0\n# pass 4\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 40.357416\n"
+  },
+  "toolCalls": {
+    "count": 17,
+    "finalTurnCount": 0,
+    "names": {
+      "bash": 5,
+      "read": 2,
+      "edit": 4,
+      "acp_status": 3,
+      "compress": 3
+    }
+  },
+  "compactions": [
+    {
+      "provider": "scnet",
+      "model": "GLM-5.2",
+      "shadowedNodes": 9,
+      "shadowedTokenCount": 21888,
+      "summaryChars": 18973,
+      "usage": null
+    },
+    {
+      "provider": "scnet",
+      "model": "GLM-5.2",
+      "shadowedNodes": 12,
+      "shadowedTokenCount": 19844,
+      "summaryChars": 25144,
+      "usage": null
+    },
+    {
+      "provider": "local",
+      "model": "adaptive-governor-extractive-v1",
+      "shadowedNodes": 12,
+      "shadowedTokenCount": 20853,
+      "summaryChars": 19655,
+      "usage": null
+    },
+    {
+      "provider": "scnet",
+      "model": "GLM-5.2",
+      "shadowedNodes": 6,
+      "shadowedTokenCount": 21346,
+      "summaryChars": 13891,
+      "usage": null
+    }
+  ],
+  "errors": []
+}

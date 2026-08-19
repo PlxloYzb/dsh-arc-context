@@ -1,0 +1,102 @@
+{
+  "mode": "live",
+  "suite": "semantic",
+  "arm": "arc",
+  "generatedAt": "2026-08-17T23:36:00.762Z",
+  "setup": {
+    "model": {
+      "provider": "scnet",
+      "model": "GLM-5.2",
+      "reasoningEffort": "max"
+    },
+    "agentPreset": "standard",
+    "workspaceBasename": "semantic-arc",
+    "profileState": "ARC 0.2.0-beta.5 installed; governor patch on compaction-arc-bridge",
+    "budgetCap": 15
+  },
+  "sessionId": "session-57c838a9-9fa6-484a-af1d-77466e49c9f5",
+  "stageRecords": [
+    {
+      "stage": 1,
+      "settleOk": true,
+      "modelCalls": 1,
+      "projectedTokens": 34554
+    },
+    {
+      "stage": 2,
+      "settleOk": true,
+      "modelCalls": 2,
+      "projectedTokens": 57871
+    },
+    {
+      "stage": 3,
+      "settleOk": false,
+      "modelCalls": 2,
+      "projectedTokens": 0
+    },
+    {
+      "stage": 4,
+      "settleOk": true,
+      "modelCalls": 3,
+      "projectedTokens": 84693
+    }
+  ],
+  "scoring": {
+    "currentState": {
+      "recalled": 12,
+      "expected": 12,
+      "missing": []
+    },
+    "rationale": {
+      "recalled": 10,
+      "expected": 10,
+      "missing": []
+    },
+    "obsoleteContamination": {
+      "count": 0,
+      "leakedPatterns": []
+    }
+  },
+  "sessionUsage": {
+    "uncachedInputTokens": 193372,
+    "outputTokens": 7507,
+    "cacheReadTokens": 47616,
+    "totalPromptTokens": 240988
+  },
+  "allInUsage": {
+    "uncachedInputTokens": 193372,
+    "outputTokens": 7507,
+    "cacheReadTokens": 47616,
+    "totalPromptTokens": 240988
+  },
+  "compactions": [
+    {
+      "provider": "local",
+      "model": "adaptive-governor-extractive-v1",
+      "shadowedNodes": 1,
+      "shadowedTokenCount": 9343,
+      "summaryChars": 5107,
+      "usage": null
+    },
+    {
+      "provider": "local",
+      "model": "adaptive-governor-extractive-v1",
+      "shadowedNodes": 4,
+      "shadowedTokenCount": 10038,
+      "summaryChars": 8410,
+      "usage": null
+    }
+  ],
+  "requestHeaders": {
+    "count": 1,
+    "maxTokens": [
+      32768
+    ],
+    "adapterDefaultMaxTokens": 0
+  },
+  "modelCalls": 4,
+  "toolCallNames": {},
+  "projectTests": null,
+  "errors": [],
+  "finalTextHead": "```json\n{\n  \"主要上线城市\": \"塔林\",\n  \"执行负责人\": \"Noor Haddad\",\n  \"冻结窗口\": \"星期四 04:15 UTC\",\n  \"回滚确认短语\": \"silent harbor\",\n  \"保留期限\": \"45 天\",\n  \"生产消息队列\": \"cedar-lane\",\n  \"每批账户数\": 180,\n  \"失败重试策略\": \"最多重试 4 次，每次间隔 90 秒\",\n  \"受监管租户路径\": \"暂时仍从瓦伦西亚上线，例外持续到驻留审计完成（普通租户走塔林）\",\n  \"上线审批\": \"财务负责人和 SRE 值班经理双签，缺一不可\",\n  \"对外状态页\": \"ivory-status.example\",\n  \"审计归档包\": \"ledger-indigo\",\n  \"变更原因\": [\n    {\"项目\": \"主要上线城市\", \"原因\": \"瓦伦西亚供应商的驻"
+}

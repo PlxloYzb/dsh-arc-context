@@ -1,0 +1,54 @@
+{
+  "generatedAt": "2026-08-17T06:46:49.699Z",
+  "runId": "semantic-supersession-holdout02-governor-v2",
+  "seed": "semantic-holdout-02",
+  "model": "deepseek-v4-flash",
+  "requestHeaders": {
+    "count": 1,
+    "maxTokens": [
+      32768
+    ],
+    "adapterDefaultMaxTokens": 0
+  },
+  "sessionUsage": {
+    "uncachedInputTokens": 112336,
+    "outputTokens": 2274,
+    "cacheReadTokens": 73088,
+    "cacheWriteTokens": 0
+  },
+  "finalContextPressure": {
+    "pressureTokens": 47894,
+    "projectedTokens": 50384,
+    "contextWindow": 1000000
+  },
+  "currentState": {
+    "recalled": 10,
+    "expected": 10,
+    "missing": []
+  },
+  "rationale": {
+    "recalled": 7,
+    "expected": 7,
+    "missing": []
+  },
+  "obsoleteContamination": {
+    "count": 0,
+    "leakedPatterns": []
+  },
+  "toolCalls": {
+    "count": 0,
+    "finalTurnCount": 0
+  },
+  "compactions": [
+    {
+      "provider": "local",
+      "model": "adaptive-governor-extractive-v1",
+      "shadowedNodes": 2,
+      "shadowedTokenCount": 25958,
+      "summaryChars": 3827,
+      "usage": null
+    }
+  ],
+  "errors": [],
+  "finalText": "{\"launchCountry\":\"Portugal\",\"executionOwner\":\"Tomas Varga\",\"freezeWindow\":\"Wednesday 05:45 UTC\",\"rollbackPhrase\":\"winter compass\",\"retention\":\"38 days\",\"queue\":\"marble-path\",\"batchSize\":72,\"retryPolicy\":\"3 retries, 75 seconds apart\",\"regulatedException\":\"Canadian regulated tenants continue through Montreal while the PIPEDA residency audit remains open; all other tenants launch from Portugal\",\"approvals\":[\"privacy lead\",\"on-call SRE\"],\"changeReasons\":[\"Telemetry shows the weekly usage trough there (freeze window moved to Wednesday 05:45 UTC).\",\"Counsel issued a litigation hold (retention increased to 38 days).\",\"Parallel decryption at 144 exhausted worker memory (batch size reduced to 72 accounts).\",\"PIPEDA residency audit remains open (Canadian regulated tenants continue through Montreal).\",\"Aisha Bell is assigned to an unrelated priority incident during launch week (Tomas Varga replaces her as execution owner).\",\"Glass orchard appeared in a public drill transcript (rollback phrase changed to winter compass).\",\"Two attempts cannot span the gateway rate-limit interval (final failure policy is three retries separated by 75 seconds).\"]}"
+}

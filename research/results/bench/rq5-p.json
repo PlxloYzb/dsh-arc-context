@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-18T01:58:22.126Z",
+  "arm": "P",
+  "sessionId": "session-0e34affd-0750-498f-ba12-b3d00db7fc0e",
+  "agentPreset": "standard",
+  "setup": {
+    "host": "isolated DSH_HOME web profile; fresh process per arm",
+    "model": "scnet/GLM-5.2",
+    "configuredWindow": 32768,
+    "cleanCwd": "/tmp/rq5-compliance-p",
+    "seed": 505,
+    "noiseLines": 260,
+    "targetProjectedTokens": 13107,
+    "perArmBudget": 15,
+    "expectedPatch": "research/profiles/rq5-p.patch.yml",
+    "appliedPatchSha256": "4d4cb4e01496b558f2dc0bc252c64811cdc15d6fdc26ae51e59e6462c472fa6b"
+  },
+  "promptAudit": {
+    "forbiddenPattern": "/\\b(?:compress|compression|context|nudge|summar(?:y|ize|ization))\\b|压缩|上下文|提示/iu",
+    "forbiddenMatches": null,
+    "prompts": [],
+    "note": "P is the intentional proactive-compression comparison and is exempt from the N/G natural-prompt constraint."
+  },
+  "trace": [
+    {
+      "phase": "proactive-plant",
+      "promptChars": 7946,
+      "promptSha256": "197f2761ff528fb794d9a2751028605b36dc9a67a905699e143b8b395aca7b4f",
+      "modelCalls": 1,
+      "callsAdded": 1,
+      "projectedTokens": 14404,
+      "contextWindow": 1000000,
+      "lastCall": {
+        "uncachedInputTokens": 7243,
+        "cacheReadTokens": 6912,
+        "outputTokens": 209
+      }
+    },
+    {
+      "phase": "proactive-compress",
+      "promptChars": 170,
+      "promptSha256": "b4349237bc0bfe9e0c66536cf29147c7d3f435947fd8e64e1be6ebeda0700108",
+      "modelCalls": 4,
+      "callsAdded": 3,
+      "projectedTokens": 24773,
+      "contextWindow": 1000000,
+      "lastCall": {
+        "uncachedInputTokens": 7303,
+        "cacheReadTokens": 15104,
+        "outputTokens": 2261
+      }
+    }
+  ],
+  "completion": {
+    "status": "partial",
+    "promptsCompleted": 2,
+    "plannedPrompts": 4,
+    "reason": "live-call budget halted before a successful P proactive compression and blind-recall query"
+  },
+  "plantsSent": 1,
+  "queryTurn": null,
+  "facts": {
+    "scorable": 20,
+    "factIds": [
+      "f0",
+      "f2",
+      "f3",
+      "f4",
+      "f5",
+      "f6",
+      "f7",
+      "f9",
+      "f10",
+      "f12",
+      "f13",
+      "f14",
+      "f15",
+      "f16",
+      "f17",
+      "f19",
+      "f20",
+      "f21",
+      "f22",
+      "f23"
+    ]
+  },
+  "nudges": [],
+  "compressToolCalls": [
+    {
+      "seq": 4445,
+      "turn": 2,
+      "step": 2,
+      "rangeCount": 1,
+      "ranges": [
+        {
+          "startSeq": 7,
+          "endSeq": 7,
+          "position": "head"
+        }
+      ],
+      "argumentsParseable": true
+    }
+  ],
+  "compactions": [],
+  "governor": {
+    "localArchiveCount": 0,
+    "localArchives": [],
+    "modelSummaryCount": 0
+  },
+  "quality": {
+    "available": false,
+    "reason": "No blind-recall answer exists in this partial session."
+  },
+  "costLedger": {
+    "uncachedInputTokens": 15717,
+    "outputTokens": 10300,
+    "cacheReadTokens": 50432,
+    "totalPromptTokens": 66149
+  },
+  "perCall": [
+    {
+      "seq": 134,
+      "turn": 1,
+      "step": 1,
+      "uncachedInputTokens": 7243,
+      "cacheReadTokens": 6912,
+      "outputTokens": 209,
+      "afterCompaction": false,
+      "spikeVsPrev": null
+    },
+    {
+      "seq": 515,
+      "turn": 2,
+      "step": 1,
+      "uncachedInputTokens": 326,
+      "cacheReadTokens": 14080,
+      "outputTokens": 666,
+      "afterCompaction": false,
+      "spikeVsPrev": -6917
+    },
+    {
+      "seq": 4444,
+      "turn": 2,
+      "step": 2,
+      "uncachedInputTokens": 845,
+      "cacheReadTokens": 14336,
+      "outputTokens": 7164,
+      "afterCompaction": false,
+      "spikeVsPrev": 519
+    },
+    {
+      "seq": 5700,
+      "turn": 2,
+      "step": 3,
+      "uncachedInputTokens": 7303,
+      "cacheReadTokens": 15104,
+      "outputTokens": 2261,
+      "afterCompaction": false,
+      "spikeVsPrev": 6458
+    }
+  ],
+  "rawEvidence": {
+    "durableLog": "isolated host session session-0e34affd-0750-498f-ba12-b3d00db7fc0e (not copied into repository)",
+    "nudgeSource": "user/message where source.plugin === arc-nudge",
+    "compressionSource": "tool/call name === compress; arguments parsed offline"
+  }
+}

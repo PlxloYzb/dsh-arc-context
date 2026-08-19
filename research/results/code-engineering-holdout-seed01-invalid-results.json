@@ -1,0 +1,92 @@
+{
+  "generatedAt": "2026-08-17T05:31:13.234Z",
+  "runId": "code-engineering-holdout-seed01-governor-auto",
+  "seed": "code-seed-01",
+  "model": "deepseek-v4-flash",
+  "sessionUsage": {
+    "uncachedInputTokens": 261241,
+    "outputTokens": 31076,
+    "cacheReadTokens": 1037440,
+    "cacheWriteTokens": 0
+  },
+  "finalContextPressure": {
+    "pressureTokens": 39584,
+    "projectedTokens": 53668,
+    "contextWindow": 1000000
+  },
+  "exactProofs": {
+    "recalled": 21,
+    "expected": 24,
+    "missingKeys": [
+      "D3",
+      "F3",
+      "T3"
+    ]
+  },
+  "derived": {
+    "recalled": 2,
+    "expected": 4,
+    "missing": [
+      "X2",
+      "X4"
+    ]
+  },
+  "projectTests": {
+    "passed": true,
+    "tail": "\n> test\n> node --test\n\nTAP version 13\n# Subtest: normalizeBranch\nok 1 - normalizeBranch\n  ---\n  duration_ms: 0.665417\n  type: 'test'\n  ...\n# Subtest: retryDelay\nok 2 - retryDelay\n  ---\n  duration_ms: 0.437333\n  type: 'test'\n  ...\n# Subtest: canDeploy\nok 3 - canDeploy\n  ---\n  duration_ms: 0.0545\n  type: 'test'\n  ...\n# Subtest: redactToken\nok 4 - redactToken\n  ---\n  duration_ms: 0.066833\n  type: 'test'\n  ...\n1..4\n# tests 4\n# suites 0\n# pass 4\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 37.982417\n"
+  },
+  "toolCalls": {
+    "count": 23,
+    "names": {
+      "bash": 7,
+      "read": 6,
+      "edit": 4,
+      "acp_status": 2,
+      "compress": 2,
+      "grep": 2
+    }
+  },
+  "compactions": [
+    {
+      "provider": "deepseek-official",
+      "model": "deepseek-v4-flash",
+      "shadowedNodes": 1,
+      "shadowedTokenCount": 20275,
+      "summaryChars": 1283,
+      "usage": null
+    },
+    {
+      "provider": "deepseek-official",
+      "model": "deepseek-v4-flash",
+      "shadowedNodes": 6,
+      "shadowedTokenCount": 818,
+      "summaryChars": 1654,
+      "usage": null
+    },
+    {
+      "provider": "deepseek-official",
+      "model": "deepseek-v4-flash",
+      "shadowedNodes": 1,
+      "shadowedTokenCount": 455,
+      "summaryChars": 108,
+      "usage": null
+    },
+    {
+      "provider": "deepseek-official",
+      "model": "deepseek-v4-flash",
+      "shadowedNodes": 11,
+      "shadowedTokenCount": 26644,
+      "summaryChars": 1993,
+      "usage": null
+    },
+    {
+      "provider": "local",
+      "model": "adaptive-governor-extractive-v1",
+      "shadowedNodes": 25,
+      "shadowedTokenCount": 44586,
+      "summaryChars": 12265,
+      "usage": null
+    }
+  ],
+  "errors": []
+}

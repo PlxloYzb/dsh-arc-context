@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "rq": "RQ4b",
+  "generatedAt": "2026-08-18T13:40:00Z",
+  "scope": "mechanism investigation, expansion attempt, and implementation-variant decision; no src/ changes",
+  "mechanism": {
+    "verdict": "Tier-2/3 safety indexes are re-extracted from the directly shadowed, visible parent checkpoint node; they are not an engine-side inheritance of the parent block's original index or source coverage.",
+    "evidence": [
+      {
+        "file": "src/tools.ts",
+        "lines": "279-285",
+        "finding": "A live checkpoint seq is resolved to its kernel block ref, which makes the kernel create a distillation block."
+      },
+      {
+        "file": "src/tools.ts",
+        "lines": "434-463",
+        "finding": "After each model-written summary, ARC calls buildModelSummarySafetyIndex(agent, shadowed) and persists model summary plus appendix as one replacement user message. For tier 2/3, shadowed is the parent checkpoint seq, so the appendix is built from that message rather than an expanded parent source list."
+      },
+      {
+        "file": "src/fallback.ts",
+        "lines": "163-190, 220-228",
+        "finding": "The index projects/extracts each supplied event text into bounded previews, structured matches, distinctive lines, and signals. It has no parent-block argument and no recursive lookup."
+      },
+      {
+        "file": "src/region.ts",
+        "lines": "828-852",
+        "finding": "Recursive parent expansion exists only for recovery (expandShadowedSeqs); the compression path above does not use it."
+      },
+      {
+        "file": "src/tools.ts",
+        "lines": "499-516",
+        "finding": "decompress is the consumer of recursive recovery; it returns expanded originals, confirming that source inheritance is retrieval-only."
+      }
+    ],
+    "modelVisibleSurface": "The next model sees the durable checkpoint user message: its model-authored summary followed by the [ARC MODEL-CHECKPOINT SAFETY INDEX — REVERSIBLE EXTRACTIVE APPENDIX]. It does not receive a separate hidden parent-source/index channel. Because tier 2/3 index construction re-extracts that whole checkpoint text, selected parent-index strings can survive, but this is lossy textual re-extraction, not provenance-preserving inheritance.",
+    "implication": "An index-first implementation must explicitly refresh or carry effective-source evidence across tiers; merely retaining the current appended appendix does not guarantee source-level preservation."
+  },
+  "expansion": {
+    "protocol": "First-round forced model-written tier-1→tier-2→tier-3 protocol reused; zh corpus is buildScript(..., { locale: 'zh' }) shared with RQ3. Experimental control was coreOverrides.protectedRecentMessages=0 and protectedRecentTokens=1 (production defaults 5 and 5000), with autoNudge and Governor disabled. This only made the forced source span eligible; it is not a production recommendation.",
+    "plannedMatrix": [
+      "en-1",
+      "en-2",
+      "en-3",
+      "zh-1",
+      "zh-2",
+      "zh-3"
+    ],
+    "budget": {
+      "capModelCalls": 100,
+      "callsObservedBeforeStop": 27,
+      "forecastForSixCompleteChains": 107,
+      "interruptedOrIncompleteCalls": 11,
+      "reasonStopped": "The live RPC runner was interrupted while sessions continued server-side. One completed chain used 16 calls and two partial sessions had already used 11 calls. Completing the six-chain plan would have required at least 107 calls on the observed path, exceeding the hard cap; the isolated dsh host was stopped."
+    },
+    "observedButNonDecisionGrade": {
+      "completeChains": 1,
+      "localeSeed": "en-1",
+      "curve": {
+        "tier1": {
+          "strict": "20/20",
+          "loose": "20/20",
+          "chars": 20999
+        },
+        "tier2": {
+          "strict": "20/20",
+          "loose": "20/20",
+          "chars": 11674
+        },
+        "tier3": {
+          "strict": "20/20",
+          "loose": "20/20",
+          "chars": 8836
+        }
+      },
+      "carrier": "all 20 loose survivors were both model-summary and index-bearing at every tier",
+      "interpretation": "This operational observation is not pooled with RQ4 and does not satisfy the ≥3 seed × bilingual matrix: the interrupted queue altered timing, and tier-2 decompression's effective-source predicate missed one source event."
+    },
+    "matrixVerdict": "not-established-budget-stopped",
+    "criterion": "The required ≥2/3 seed × both-locale replication is not available. RQ4 index-first therefore remains unapproved for implementation on generalization evidence."
+  },
+  "variantDecision": {
+    "variants": [
+      {
+        "id": "A-visible-parent-index",
+        "design": "At a tier boundary, inject the parent appendix as an explicitly labelled distillation input beside the parent summary.",
+        "expectedEffect": "May reduce model omission if prompt salience rather than visibility is the failure mode.",
+        "risk": "Current checkpoint text already contains the appendix, so this can duplicate tokens without fixing re-extraction loss.",
+        "cost": "low"
+      },
+      {
+        "id": "B-effective-source-index-refresh",
+        "design": "When landing tier 2/3, build the safety appendix from recursively expanded effective parent source seqs, not from the parent checkpoint node alone; retain parent provenance in the ledger.",
+        "expectedEffect": "Preserves the index carrier at source fidelity across layers while keeping model-written summaries unchanged.",
+        "risk": "Larger appendix and bounded-index truncation need a size gate; archive-instruction filtering must remain identical.",
+        "cost": "medium"
+      },
+      {
+        "id": "C-retrieval-index-priority",
+        "design": "Leave distillation unchanged, but rank the safety appendix ahead of model prose for search/retrieval and disclose it as archive data.",
+        "expectedEffect": "Improves recovery access, not model-summary tier retention.",
+        "risk": "Does not address telephone-game loss in the hot checkpoint.",
+        "cost": "low"
+      }
+    ],
+    "recommended": "B-effective-source-index-refresh, conditionally gated by a corrected six-chain rerun.",
+    "reason": "The mechanism rules out hidden inheritance and shows A is largely duplicative; B directly removes the identified re-extraction boundary while preserving the existing model-written-summary and archive-safety contracts.",
+    "expectedBenefitEstimate": "Directional, not yet measured: the first RQ4 pool had tier-3 model-summary strict retention 4/60 (6.7%) and 33/34 loose survivors index-bearing. B is expected to keep the appendix carrier near the observed 90%+ range across tier 3; no justified model-summary strict-retention percentage can be promised until the corrected bilingual matrix is run."
+  },
+  "checks": {
+    "offlineMatrixCalibration": "pass: 3 seeds × en/zh",
+    "npmRunCheck": "pass before live attempt (158 tests, typecheck, build, public evidence verification)",
+    "sourceModified": false,
+    "isolatedHome": "verify/rq4b-index-home",
+    "hostStopped": true
+  }
+}

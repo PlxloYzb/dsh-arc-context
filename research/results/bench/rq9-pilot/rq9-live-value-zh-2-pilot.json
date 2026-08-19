@@ -1,0 +1,469 @@
+{
+  "schemaVersion": 1,
+  "experiment": "RQ9 live paired A/B (facts-last corpus)",
+  "arm": "value-zh-2",
+  "variant": "value",
+  "locale": "zh",
+  "seed": 2,
+  "sessionId": "session-89fecf6b-df6a-42ab-a5d1-8378efd751c0",
+  "modelRouting": {
+    "preferred": "opencode-go/deepseek-v4-flash",
+    "actual": "opencode-go/deepseek-v4-flash",
+    "fallbackUsed": false
+  },
+  "setup": {
+    "plantedFacts": 30,
+    "telemetryLines": 600,
+    "stages": 3,
+    "noiseLinesPerStage": 220,
+    "plantedRange": {
+      "startSeq": 7,
+      "endSeq": 1012
+    }
+  },
+  "checkpoint": {
+    "totalChars": 20289,
+    "modelChars": 3069,
+    "indexChars": 17220,
+    "modelSummary": {
+      "strict": "22/26",
+      "loose": "26/26"
+    },
+    "safetyIndex": {
+      "strict": "15/26",
+      "loose": "20/26",
+      "perFact": [
+        {
+          "id": "f0",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f1",
+          "category": "crossref",
+          "hit": false,
+          "hitLoose": true,
+          "form": "bare",
+          "detail": "missing:1"
+        },
+        {
+          "id": "f2",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f3",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f6",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f7",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f8",
+          "category": "crossref",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f9",
+          "category": "numeric",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f10",
+          "category": "numeric",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f11",
+          "category": "crossref",
+          "hit": false,
+          "hitLoose": true,
+          "form": "bare",
+          "detail": "missing:1"
+        },
+        {
+          "id": "f13",
+          "category": "crossref",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f14",
+          "category": "crossref",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f15",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f16",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all"
+        },
+        {
+          "id": "f17",
+          "category": "numeric",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f18",
+          "category": "numeric",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f19",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact"
+        },
+        {
+          "id": "f20",
+          "category": "crossref",
+          "hit": false,
+          "hitLoose": true,
+          "form": "bare",
+          "detail": "missing:1"
+        },
+        {
+          "id": "f21",
+          "category": "numeric",
+          "hit": false,
+          "hitLoose": false,
+          "form": "miss",
+          "detail": "missing:1"
+        },
+        {
+          "id": "f22",
+          "category": "numeric",
+          "hit": false,
+          "hitLoose": false,
+          "form": "miss",
+          "detail": "missing:1"
+        },
+        {
+          "id": "f23",
+          "category": "numeric",
+          "hit": false,
+          "hitLoose": false,
+          "form": "miss",
+          "detail": "missing:1"
+        },
+        {
+          "id": "f24",
+          "category": "crossref",
+          "hit": false,
+          "hitLoose": true,
+          "form": "bare",
+          "detail": "missing:2"
+        },
+        {
+          "id": "f25",
+          "category": "crossref",
+          "hit": false,
+          "hitLoose": true,
+          "form": "bare",
+          "detail": "missing:1"
+        },
+        {
+          "id": "f26",
+          "category": "verbatim",
+          "hit": false,
+          "hitLoose": false,
+          "form": "miss",
+          "detail": "missing:1"
+        },
+        {
+          "id": "f27",
+          "category": "verbatim",
+          "hit": false,
+          "hitLoose": false,
+          "form": "miss",
+          "detail": "missing:1"
+        },
+        {
+          "id": "f29",
+          "category": "numeric",
+          "hit": false,
+          "hitLoose": false,
+          "form": "miss",
+          "detail": "missing:1"
+        }
+      ]
+    }
+  },
+  "blindRecall": {
+    "strict": "22/26",
+    "loose": "26/26",
+    "perFact": [
+      {
+        "id": "f0",
+        "category": "paraphrase",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "keywords:all"
+      },
+      {
+        "id": "f1",
+        "category": "crossref",
+        "hit": false,
+        "hitLoose": true,
+        "form": "bare",
+        "detail": "missing:1"
+      },
+      {
+        "id": "f2",
+        "category": "paraphrase",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "keywords:all"
+      },
+      {
+        "id": "f3",
+        "category": "paraphrase",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "keywords:all"
+      },
+      {
+        "id": "f6",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f7",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f8",
+        "category": "crossref",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f9",
+        "category": "numeric",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f10",
+        "category": "numeric",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f11",
+        "category": "crossref",
+        "hit": false,
+        "hitLoose": true,
+        "form": "bare",
+        "detail": "missing:1"
+      },
+      {
+        "id": "f13",
+        "category": "crossref",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f14",
+        "category": "crossref",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f15",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f16",
+        "category": "paraphrase",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "keywords:all"
+      },
+      {
+        "id": "f17",
+        "category": "numeric",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f18",
+        "category": "numeric",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f19",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f20",
+        "category": "crossref",
+        "hit": false,
+        "hitLoose": true,
+        "form": "bare",
+        "detail": "missing:1"
+      },
+      {
+        "id": "f21",
+        "category": "numeric",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f22",
+        "category": "numeric",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f23",
+        "category": "numeric",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f24",
+        "category": "crossref",
+        "hit": false,
+        "hitLoose": true,
+        "form": "bare",
+        "detail": "missing:1"
+      },
+      {
+        "id": "f25",
+        "category": "crossref",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f26",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f27",
+        "category": "verbatim",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      },
+      {
+        "id": "f29",
+        "category": "numeric",
+        "hit": true,
+        "hitLoose": true,
+        "form": "full",
+        "detail": "exact"
+      }
+    ],
+    "unknownLines": 0
+  },
+  "rawModelCalls": 8,
+  "verification": {
+    "exactlyOneModelWrittenCompaction": true,
+    "noRetrievalTools": false,
+    "appendixOverBudgetHeuristic": false,
+    "withinCallCap": true
+  }
+}

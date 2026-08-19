@@ -1,0 +1,19 @@
+/**
+ * M4 — the ARC system-prompt section (DSH counterpart of billion-context-pi's
+ * ARC_SYSTEM_PROMPT): the load-bearing compression guidance lives here, ONCE,
+ * instead of being re-sent with every nudge. The nudge itself stays a short,
+ * advisory notice — ARC is model-driven, the model decides whether and when
+ * to compress.
+ *
+ * The text is DEFAULT_PROMPTS.systemPromptTemplate rendered with the kernel's
+ * COMPRESS_PHILOSOPHY and HOW_TO_COMPRESS_RULES; hosts can override the whole
+ * section via `config.prompts.systemPrompt` (see docs/configurable-prompts-design.md).
+ * @module dsh-arc-context/system-prompt
+ */
+
+import { DEFAULT_PROMPTS, renderSystemPrompt } from './prompts.ts'
+
+export const ARC_SYSTEM_PROMPT = renderSystemPrompt(DEFAULT_PROMPTS)
+
+/** System-prompt section order: tool guidance lives in 100–199. */
+export const ARC_SYSTEM_PROMPT_ORDER = 150

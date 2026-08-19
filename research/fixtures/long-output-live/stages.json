@@ -1,0 +1,1 @@
+{"metadata":{"synthetic":true,"domain":"long-output-intent-live","requestedMaxTokens":393216},"stages":[{"id":1,"text":"这是显式长输出意图链路测试。不要调用工具，只回复 LONG-OUTPUT-INTENT-ACK。"}],"finalQuestion":{"control":"不要调用工具，只回复 FINAL-ACK。","acp":"不要调用工具，只回复 FINAL-ACK。","basic":"不要调用工具，只回复 FINAL-ACK。"}}

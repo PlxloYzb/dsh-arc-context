@@ -1,0 +1,214 @@
+{
+  "mode": "live",
+  "generatedAt": "2026-08-17T21:13:05.483Z",
+  "budget": {
+    "cap": 89,
+    "used": 76
+  },
+  "stopped": null,
+  "sessions": [
+    {
+      "arm": "en-blind-2",
+      "recall": "18/21",
+      "calls": 10,
+      "byCategory": {
+        "paraphrase": {
+          "recalled": 4,
+          "total": 4
+        },
+        "crossref": {
+          "recalled": 3,
+          "total": 6
+        },
+        "verbatim": {
+          "recalled": 4,
+          "total": 4
+        },
+        "numeric": {
+          "recalled": 7,
+          "total": 7
+        }
+      },
+      "trapLeaks": 0,
+      "tools": {
+        "search_context": 0,
+        "decompress": 0,
+        "other": {}
+      }
+    },
+    {
+      "arm": "zh-blind-1",
+      "recall": "22/22",
+      "calls": 10,
+      "byCategory": {
+        "paraphrase": {
+          "recalled": 7,
+          "total": 7
+        },
+        "numeric": {
+          "recalled": 6,
+          "total": 6
+        },
+        "verbatim": {
+          "recalled": 6,
+          "total": 6
+        },
+        "crossref": {
+          "recalled": 3,
+          "total": 3
+        }
+      },
+      "trapLeaks": 0,
+      "tools": {
+        "search_context": 0,
+        "decompress": 0,
+        "other": {}
+      }
+    },
+    {
+      "arm": "en-recovery-1",
+      "recall": "22/22",
+      "calls": 13,
+      "byCategory": {
+        "paraphrase": {
+          "recalled": 7,
+          "total": 7
+        },
+        "numeric": {
+          "recalled": 6,
+          "total": 6
+        },
+        "verbatim": {
+          "recalled": 6,
+          "total": 6
+        },
+        "crossref": {
+          "recalled": 3,
+          "total": 3
+        }
+      },
+      "trapLeaks": 2,
+      "tools": {
+        "search_context": 2,
+        "decompress": 3,
+        "other": {}
+      }
+    },
+    {
+      "arm": "zh-recovery-1",
+      "recall": "22/22",
+      "calls": 11,
+      "byCategory": {
+        "paraphrase": {
+          "recalled": 7,
+          "total": 7
+        },
+        "numeric": {
+          "recalled": 6,
+          "total": 6
+        },
+        "verbatim": {
+          "recalled": 6,
+          "total": 6
+        },
+        "crossref": {
+          "recalled": 3,
+          "total": 3
+        }
+      },
+      "trapLeaks": 2,
+      "tools": {
+        "search_context": 0,
+        "decompress": 3,
+        "other": {}
+      }
+    },
+    {
+      "arm": "zh-blind-2",
+      "recall": "18/21",
+      "calls": 10,
+      "byCategory": {
+        "paraphrase": {
+          "recalled": 4,
+          "total": 4
+        },
+        "crossref": {
+          "recalled": 3,
+          "total": 6
+        },
+        "verbatim": {
+          "recalled": 4,
+          "total": 4
+        },
+        "numeric": {
+          "recalled": 7,
+          "total": 7
+        }
+      },
+      "trapLeaks": 0,
+      "tools": {
+        "search_context": 0,
+        "decompress": 0,
+        "other": {}
+      }
+    },
+    {
+      "arm": "en-recovery-2",
+      "recall": "15/21",
+      "calls": 11,
+      "byCategory": {
+        "paraphrase": {
+          "recalled": 4,
+          "total": 4
+        },
+        "crossref": {
+          "recalled": 6,
+          "total": 6
+        },
+        "verbatim": {
+          "recalled": 4,
+          "total": 4
+        },
+        "numeric": {
+          "recalled": 1,
+          "total": 7
+        }
+      },
+      "trapLeaks": 0,
+      "tools": {
+        "search_context": 6,
+        "decompress": 0,
+        "other": {}
+      }
+    },
+    {
+      "arm": "zh-recovery-2",
+      "recall": "18/21",
+      "calls": 11,
+      "byCategory": {
+        "paraphrase": {
+          "recalled": 4,
+          "total": 4
+        },
+        "crossref": {
+          "recalled": 3,
+          "total": 6
+        },
+        "verbatim": {
+          "recalled": 4,
+          "total": 4
+        },
+        "numeric": {
+          "recalled": 7,
+          "total": 7
+        }
+      },
+      "trapLeaks": 3,
+      "tools": {
+        "search_context": 0,
+        "decompress": 3,
+        "other": {}
+      }
+    }
+  ]
+}

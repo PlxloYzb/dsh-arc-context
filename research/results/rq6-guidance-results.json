@@ -1,0 +1,270 @@
+{
+  "schemaVersion": 2,
+  "rq": "RQ6",
+  "status": "answered-compact-guidance-supported",
+  "date": "2026-08-18",
+  "scope": "Full versus compact ARC system guidance; no product source changes.",
+  "v3ControlledCondition": {
+    "protectedRecentMessages": 0,
+    "protectedRecentTokens": 1,
+    "appliedTo": "both A/full and B/compact arms",
+    "purpose": "make a one-turn planted user record eligible for compression",
+    "productionDifference": {
+      "protectedRecentMessages": 5,
+      "protectedRecentTokens": 5000
+    },
+    "notAProductionRecommendation": true
+  },
+  "preflight": {
+    "attempts": [
+      {
+        "kind": "first",
+        "rawModelCalls": 4,
+        "landed": false,
+        "finding": "The user-only planted range was 2,973 chars, below ARC’s unchanged 5,000-character minimum; this was a driver fixture-size error, not a protected-zone rejection."
+      },
+      {
+        "kind": "corrected",
+        "rawModelCalls": 4,
+        "landed": true,
+        "plantedFactCount": 82,
+        "summaryStrict": "78/82",
+        "summaryLoose": "82/82",
+        "verbatim": "29/29"
+      }
+    ],
+    "conclusion": "The narrowed protected zone is effective: a model-authored compression transaction landed with no retrieval tools after the planted fixture exceeded the existing minimum-size gate."
+  },
+  "offlineAssets": {
+    "compactFixture": "research/fixtures/rq6/compact-system-prompt.md",
+    "compactGuidanceTokens": 1140,
+    "fullGuidanceTokens": 3274,
+    "baselineDifferenceTokens": 2134,
+    "liveSystemTokens": {
+      "full": 4784,
+      "compact": 2270,
+      "difference": 2514
+    },
+    "fullPatch": "research/profiles/rq6-full.patch.yml",
+    "compactPatch": "research/profiles/rq6-compact.patch.yml",
+    "nativeOverrideObserved": true
+  },
+  "coreProtocol": {
+    "model": "opencode-go/deepseek-v4-flash",
+    "arms": [
+      {
+        "arm": "A-1",
+        "guidance": "full-default",
+        "seed": 1,
+        "sessionId": "session-8741430b-ea67-48c3-843a-d5f8d17c4385",
+        "systemTokensAfterPlant": 4784,
+        "plantedFactCount": 82,
+        "rawModelCalls": 4,
+        "summary": {
+          "strict": "82/82",
+          "loose": "82/82",
+          "strictRate": 1,
+          "looseRate": 1,
+          "verbatim": {
+            "strict": 29,
+            "loose": 29,
+            "total": 29
+          }
+        },
+        "blindRecall": {
+          "strict": "81/82",
+          "loose": "81/82",
+          "strictRate": 0.9878048780487805,
+          "looseRate": 0.9878048780487805
+        },
+        "rawTokenTotals": {
+          "uncachedInputTokens": 34464,
+          "cacheReadTokens": 83456,
+          "outputTokens": 33486,
+          "totalPromptTokens": 117920
+        },
+        "verification": {
+          "oneModelWrittenCompaction": true,
+          "noRetrievalTools": true,
+          "withinPerArmCap": true,
+          "blindRecallRescoredFromSettledDurableLog": true
+        }
+      },
+      {
+        "arm": "A-2",
+        "guidance": "full-default",
+        "seed": 2,
+        "sessionId": "session-3d588cfc-11ab-4d16-a254-4d7e1ebea307",
+        "systemTokensAfterPlant": 4784,
+        "plantedFactCount": 78,
+        "rawModelCalls": 4,
+        "summary": {
+          "strict": "78/78",
+          "loose": "78/78",
+          "strictRate": 1,
+          "looseRate": 1,
+          "verbatim": {
+            "strict": 19,
+            "loose": 19,
+            "total": 19
+          }
+        },
+        "blindRecall": {
+          "strict": "78/78",
+          "loose": "78/78",
+          "strictRate": 1,
+          "looseRate": 1
+        },
+        "rawTokenTotals": {
+          "uncachedInputTokens": 30139,
+          "cacheReadTokens": 37632,
+          "outputTokens": 6534,
+          "totalPromptTokens": 67771
+        },
+        "verification": {
+          "oneModelWrittenCompaction": true,
+          "noRetrievalTools": true,
+          "withinPerArmCap": true,
+          "blindRecallRescoredFromSettledDurableLog": true
+        }
+      },
+      {
+        "arm": "B-1",
+        "guidance": "compact-patch",
+        "seed": 1,
+        "sessionId": "session-dc73cde9-1ad6-4f84-b9e5-d0f66aa78a20",
+        "systemTokensAfterPlant": 2270,
+        "plantedFactCount": 82,
+        "rawModelCalls": 4,
+        "summary": {
+          "strict": "82/82",
+          "loose": "82/82",
+          "strictRate": 1,
+          "looseRate": 1,
+          "verbatim": {
+            "strict": 29,
+            "loose": 29,
+            "total": 29
+          }
+        },
+        "blindRecall": {
+          "strict": "82/82",
+          "loose": "82/82",
+          "strictRate": 1,
+          "looseRate": 1
+        },
+        "rawTokenTotals": {
+          "uncachedInputTokens": 24811,
+          "cacheReadTokens": 30464,
+          "outputTokens": 6771,
+          "totalPromptTokens": 55275
+        },
+        "verification": {
+          "oneModelWrittenCompaction": true,
+          "noRetrievalTools": true,
+          "withinPerArmCap": true,
+          "blindRecallRescoredFromSettledDurableLog": true
+        }
+      },
+      {
+        "arm": "B-2",
+        "guidance": "compact-patch",
+        "seed": 2,
+        "sessionId": "session-aa8cc107-ba35-44bf-b7ba-2ff5f7ddee17",
+        "systemTokensAfterPlant": 2270,
+        "plantedFactCount": 78,
+        "rawModelCalls": 4,
+        "summary": {
+          "strict": "78/78",
+          "loose": "78/78",
+          "strictRate": 1,
+          "looseRate": 1,
+          "verbatim": {
+            "strict": 19,
+            "loose": 19,
+            "total": 19
+          }
+        },
+        "blindRecall": {
+          "strict": "78/78",
+          "loose": "78/78",
+          "strictRate": 1,
+          "looseRate": 1
+        },
+        "rawTokenTotals": {
+          "uncachedInputTokens": 10101,
+          "cacheReadTokens": 44800,
+          "outputTokens": 4699,
+          "totalPromptTokens": 54901
+        },
+        "verification": {
+          "oneModelWrittenCompaction": true,
+          "noRetrievalTools": true,
+          "withinPerArmCap": true,
+          "blindRecallRescoredFromSettledDurableLog": true
+        }
+      }
+    ],
+    "allArmsLanded": true,
+    "allWithinPerArmCap": true,
+    "coreCalls": 16,
+    "budgetLedger": {
+      "failedPreflightCalls": 4,
+      "correctedPreflightCalls": 4,
+      "coreCalls": 16,
+      "totalCalls": 24,
+      "cap": 30,
+      "withinCap": true
+    }
+  },
+  "quality": {
+    "primary": "verbatim strict retention in model-written compression block",
+    "full": {
+      "strict": "48/48",
+      "rate": 1
+    },
+    "compact": {
+      "strict": "48/48",
+      "rate": 1
+    },
+    "differencePercentagePoints": 0,
+    "allCategoryRetention": "both seeds and both guidance variants were strict/loose 100% for every category"
+  },
+  "blindRecall": {
+    "full": "159/160 (99.375%)",
+    "compact": "160/160 (100%)",
+    "note": "Zero-call rescore from settled durable logs corrected the driver’s premature snapshot; the core comparison remains the compression block."
+  },
+  "tokenLedger": {
+    "fullTotals": {
+      "uncachedInputTokens": 64603,
+      "cacheReadTokens": 121088,
+      "outputTokens": 40020
+    },
+    "compactTotals": {
+      "uncachedInputTokens": 34912,
+      "cacheReadTokens": 75264,
+      "outputTokens": 11470
+    },
+    "caution": "Raw aggregate request usage is descriptive only because long reasoning/output variance dominates this n=2 experiment. The directly controlled system-token delta is the decision-grade cost measure."
+  },
+  "thresholdAnalysis": {
+    "fullQualityPremiumPercentagePoints": 0,
+    "extraLiveSystemTokensPerCall": 2514,
+    "thresholdAdditionalCalls": null,
+    "interpretation": "No positive session length can amortize a zero measured quality premium: compact is strictly cheaper at every call count in this controlled v3 condition."
+  },
+  "criterionComparison": {
+    "branch": "difference-below-5pp",
+    "fullHigherBy10pp": false,
+    "differenceBelow5pp": true,
+    "intermediateThreshold": false,
+    "recommendation": "The complete default guidance should be shrunk in a separately commissioned product change; retain the compact fixture as the candidate baseline. This result does not itself change production defaults."
+  },
+  "environmentRestoration": {
+    "isolatedHomeOnly": true,
+    "realDshHomeTouched": false,
+    "profilePatchRestoredToRQ2Baseline": true,
+    "hostStopped": true
+  }
+}

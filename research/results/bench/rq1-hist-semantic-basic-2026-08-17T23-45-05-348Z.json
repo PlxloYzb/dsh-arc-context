@@ -1,0 +1,113 @@
+{
+  "mode": "live",
+  "suite": "semantic",
+  "arm": "basic",
+  "generatedAt": "2026-08-17T23:45:05.348Z",
+  "setup": {
+    "model": {
+      "provider": "scnet",
+      "model": "GLM-5.2",
+      "reasoningEffort": "max"
+    },
+    "agentPreset": "basic-early",
+    "workspaceBasename": "semantic-basic",
+    "profileState": "ARC removed; basic-early preset (thresholdRatio 0.08, retainRatio 0.016)",
+    "budgetCap": 15
+  },
+  "sessionId": "session-8badfc46-02de-4ace-90b6-878297f4db0f",
+  "stageRecords": [
+    {
+      "stage": 1,
+      "settleOk": true,
+      "modelCalls": 1,
+      "projectedTokens": 31141
+    },
+    {
+      "stage": 2,
+      "settleOk": true,
+      "modelCalls": 2,
+      "projectedTokens": 54400
+    },
+    {
+      "stage": 3,
+      "settleOk": true,
+      "modelCalls": 3,
+      "projectedTokens": 77761
+    },
+    {
+      "stage": 4,
+      "settleOk": true,
+      "modelCalls": 4,
+      "projectedTokens": 78335
+    }
+  ],
+  "scoring": {
+    "currentState": {
+      "recalled": 12,
+      "expected": 12,
+      "missing": []
+    },
+    "rationale": {
+      "recalled": 9,
+      "expected": 10,
+      "missing": [
+        "新生产者已经停止向 north-river 发布"
+      ]
+    },
+    "obsoleteContamination": {
+      "count": 0,
+      "leakedPatterns": []
+    }
+  },
+  "sessionUsage": {
+    "uncachedInputTokens": 196903,
+    "outputTokens": 4479,
+    "cacheReadTokens": 98944,
+    "totalPromptTokens": 295847
+  },
+  "allInUsage": {
+    "uncachedInputTokens": 253028,
+    "outputTokens": 6044,
+    "cacheReadTokens": 105856,
+    "totalPromptTokens": 358884
+  },
+  "compactions": [
+    {
+      "provider": "scnet",
+      "model": "GLM-5.2",
+      "shadowedNodes": 4,
+      "shadowedTokenCount": 10260,
+      "summaryChars": 3283,
+      "usage": {
+        "uncachedInputTokens": 31470,
+        "outputTokens": 726,
+        "cacheReadTokens": 0
+      }
+    },
+    {
+      "provider": "scnet",
+      "model": "GLM-5.2",
+      "shadowedNodes": 3,
+      "shadowedTokenCount": 10429,
+      "summaryChars": 3686,
+      "usage": {
+        "uncachedInputTokens": 24655,
+        "outputTokens": 839,
+        "cacheReadTokens": 6912
+      }
+    }
+  ],
+  "requestHeaders": {
+    "count": 1,
+    "maxTokens": [
+      null
+    ],
+    "adapterDefaultMaxTokens": 0
+  },
+  "modelCalls": 5,
+  "toolCallNames": {},
+  "projectTests": null,
+  "errors": [],
+  "turnErrors": [],
+  "finalTextHead": "```json\n{\n  \"主要上线城市\": \"塔林（Tallinn，普通租户）\",\n  \"执行负责人\": \"Noor Haddad\",\n  \"冻结窗口\": \"周四 04:15 UTC\",\n  \"回滚确认短语\": \"silent harbor\",\n  \"保留期限\": \"45 天\",\n  \"生产消息队列\": \"cedar-lane\",\n  \"每批账户数\": 180,\n  \"失败重试策略\": \"最多重试 4 次，每次间隔 90 秒\",\n  \"受监管租户路径\": \"暂时仍从瓦伦西亚上线，例外持续到驻留审计完成；普通租户继续走塔林\",\n  \"上线审批\": \"双重签名：财务负责人与 SRE 值班经理，缺一不可\",\n  \"对外状态页\": \"ivory-status.example\",\n  \"审计归档包\": \"ledger-indigo\",\n  \"变更原因\": [\n    {\"项目\": \"主要上线城市\","
+}

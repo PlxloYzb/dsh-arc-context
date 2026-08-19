@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "purpose": "RQ4-impl P2 decompression restated criterion \u2014 evidence that oversized decompress results are spilled by the host to a file and remain fully verbatim-recoverable (the inline tool-result preview is head/tail cut by design)",
+  "criterion": "every effective tier-1 source event occurs verbatim in the decompress output: inline tool result OR the host spill file the result references",
+  "method": "maintainer verification 2026-08-19: parse each treatment session log, extract the spill path from the decompress tool result, read the spill file, compare event text prefixes verbatim",
+  "note": "spill files live in the host temp dir and may be cleaned by the OS; this file records the verification as performed",
+  "chains": {
+    "en-1": {
+      "effectiveSeqs": [
+        7,
+        8,
+        9,
+        10,
+        268
+      ],
+      "count": 5,
+      "inlineVerbatim": 4,
+      "spillPath": "/var/folders/fz/d5zdnj3d16s8dx6586w9nvbc0000gn/T/dsh-spill-wQ3ZPs/session-279848cafb09/9db9af660844-decompress.txt",
+      "spillBytes": 66690,
+      "spillVerbatim": 5,
+      "recoverableViaInlineOrSpill": true
+    },
+    "en-2": {
+      "effectiveSeqs": [
+        7,
+        8,
+        9,
+        10,
+        345
+      ],
+      "count": 5,
+      "inlineVerbatim": 4,
+      "spillPath": "/var/folders/fz/d5zdnj3d16s8dx6586w9nvbc0000gn/T/dsh-spill-nfLgVe/session-e69e28ca8163/632524d587ae-decompress.txt",
+      "spillBytes": 65258,
+      "spillVerbatim": 5,
+      "recoverableViaInlineOrSpill": true
+    },
+    "en-3": {
+      "effectiveSeqs": [
+        7,
+        8,
+        9,
+        10,
+        412
+      ],
+      "count": 5,
+      "inlineVerbatim": 4,
+      "spillPath": "/var/folders/fz/d5zdnj3d16s8dx6586w9nvbc0000gn/T/dsh-spill-nfLgVe/session-49f2dad89125/f554ca0fb25c-decompress.txt",
+      "spillBytes": 65508,
+      "spillVerbatim": 5,
+      "recoverableViaInlineOrSpill": true
+    },
+    "zh-2": {
+      "effectiveSeqs": [
+        7,
+        8,
+        9,
+        10,
+        1149
+      ],
+      "count": 5,
+      "inlineVerbatim": 4,
+      "spillPath": "/var/folders/fz/d5zdnj3d16s8dx6586w9nvbc0000gn/T/dsh-spill-nfLgVe/session-f579366c345b/546a95c67b30-decompress.txt",
+      "spillBytes": 64485,
+      "spillVerbatim": 5,
+      "recoverableViaInlineOrSpill": true
+    },
+    "zh-3": {
+      "effectiveSeqs": [
+        7,
+        8,
+        9,
+        10,
+        554,
+        556,
+        834
+      ],
+      "count": 7,
+      "inlineVerbatim": 6,
+      "spillPath": "/var/folders/fz/d5zdnj3d16s8dx6586w9nvbc0000gn/T/dsh-spill-nfLgVe/session-f7c7ac4d212f/f1e3263b630d-decompress.txt",
+      "spillBytes": 63623,
+      "spillVerbatim": 7,
+      "recoverableViaInlineOrSpill": true
+    },
+    "zh-1": {
+      "effectiveSeqs": [
+        7,
+        8,
+        9,
+        10,
+        205
+      ],
+      "count": 5,
+      "inlineVerbatim": 4,
+      "spillPath": "/var/folders/fz/d5zdnj3d16s8dx6586w9nvbc0000gn/T/dsh-spill-nfLgVe/session-51ecb8112f5a/1307a420d280-decompress.txt",
+      "spillBytes": 63856,
+      "spillVerbatim": 5,
+      "recoverableViaInlineOrSpill": true
+    }
+  }
+}

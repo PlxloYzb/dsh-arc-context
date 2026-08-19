@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-18",
+  "integration": "in-realm row swap via official Include patch semantics (dsh-arc-context/bridge)",
+  "targetHost": "@deepseek-ai/dsh 0.1.0-rc.7 (published npm line; no host patches)",
+  "mechanism": {
+    "mount": "bundle patch layer inserts the dsh-arc-context/bridge host row (dsh.bundle.patch)",
+    "enginePublication": "ctx.loader.builtins['dsh-arc-context'] = engine class (same registry app-boot uses for cordis:group), effect-owned removal",
+    "takeoverTrigger": "public agent/created event -> standingMountFor(agent.ctx) from @deepseek-ai/dsh-agent-presets",
+    "takeoverPatches": [
+      "{ id: compaction-basic, name: '@deepseek-ai/dsh-compaction-basic', disabled: true }",
+      "{ id: compaction, insert: [{ id: compaction-arc, name: 'cordis:dsh-arc-context' }] }"
+    ],
+    "applyPath": "live Include config object mutated in place (identity preserved for the harness-base record), fiber.update(config, true) re-reads the composition, re-applies patches, reconciles transactionally",
+    "ordering": "two sequential Include updates (retire Basic, then mount ARC into the vacated realm) — a single group update force-restarts unchanged sibling rows, so retire+mount in one update races Basic's re-construction against the engine's realm registration",
+    "reversibility": "effect-owned two-phase rollback (withdraw engine row, then re-enable Basic); restart without the package mounts the untouched original; preset files stay byte-identical throughout"
+  },
+  "deterministicGate": {
+    "command": "npm test",
+    "framework": "node --import tsx --test tests/*.test.ts",
+    "passed": 137,
+    "failed": 0,
+    "bridgeIntegrationTests": 6,
+    "bridgeIntegrationAgainst": "published @deepseek-ai/cordis-plugin-loader@1.0.2 + cordis-plugin-include@1.0.6 + cordis-plugin-group@1.0.1 (real Loader/Include/Group, temp preset YAML mirroring the official standard compaction group)",
+    "bridgeCoverage": [
+      "takeover swaps Basic for ARC inside the preset isolate realm and a sibling consumer rebinds",
+      "rollback restores the official Basic row and the original Include config shape; preset file byte-identical",
+      "repeat takeover of the same mount is idempotent (no duplicate ARC row)",
+      "name guards leave a non-Basic compaction backend untouched",
+      "a preset already selecting ARC natively is left untouched",
+      "bridge apply registers the engine builtin and retracts it on fiber disposal"
+    ]
+  },
+  "historicalEngineEvidence": "engine-quality results (governor, extraction holdouts, 384K live runs) carry over from 0.1.0-beta.1 unchanged — the engine module is untouched by the integration rewrite",
+  "liveWebTakeover": {
+    "date": "2026-08-18",
+    "environment": {
+      "isolatedHome": "verify/arc-live-rc7 (fresh copy of settings+credentials only; separate sessions/ and profiles/ trees; process env DSH_HOME verified)",
+      "host": "@deepseek-ai/dsh 0.1.0-rc.7 (published npm line, unmodified)",
+      "model": "scnet/GLM-5.2 via anthropic-messages (real API turns)"
+    },
+    "install": {
+      "command": "dsh plugin --profile web add dsh-arc-context-0.2.0-beta.2.tgz",
+      "bundleRowComposed": "compaction-arc-bridge present in dsh --profile web --dump-config with governor config"
+    },
+    "takeover": {
+      "sessionCreated": "agentPreset standard",
+      "acpStatusToolResult": {
+        "backendOwnership": "ACTIVE",
+        "resolvedCompactionBackend": "dsh-arc-context",
+        "contextWindow": "1000000 auto-detected from scnet/GLM-5.2"
+      },
+      "bridgeLogWarnings": 0
+    },
+    "modelAuthoredCompress": {
+      "toolCall": "compress startSeq 7 endSeq 1000 with structured model-written summary",
+      "durableEvents": [
+        "compaction/start seq 3391",
+        "compaction/summary seq 3392",
+        "compaction/end seq 3394"
+      ],
+      "result": "Compressed 1 block(s), ~863 tokens reclaimed; excluded 9 protected message(s)",
+      "postCompressStatus": "blocks 1, tokens compressed 3772, surface 16 nodes starting at the checkpoint seq",
+      "protectedZoneGuard": "an earlier over-eager compress (7..370) was correctly rejected as entirely within the protected zone"
+    },
+    "recoveryTools": {
+      "search_context": "answered a query against shadowed content (scored match, honest about loose relevance)",
+      "decompress": "returned block 0ba849fb content on demand"
+    },
+    "slashCommandRouting": "raw session.prompt carries /x to the model by design in this carrier; slash interception lives in the web UI client (ui-commands), not the RPC — not an ARC defect",
+    "uninstall": {
+      "command": "dsh plugin --profile web remove dsh-arc-context",
+      "bridgeRowAfterRemove": 0,
+      "oldArcSessionReadableUnderBasic": "history ok, 4141 events including compaction transactions",
+      "newSessionAfterRestart": "agentPreset standard mounts cleanly (Basic restored); model reports exactly NO ACP TOOLS and no compact/compress tools"
+    },
+    "reinstallCycle": "add -> row present -> remove -> row absent; both directions clean",
+    "presetFileIntegrity": {
+      "standardPresetSha256": "4edeb70bf995a0324f234e2adf8db6b394c3d26e1bcb76821976950fb0237bc9",
+      "identicalAcross": "install, takeover, compress/decompress traffic, uninstall, reinstall",
+      "userPresetWrites": "none (no .agent-presets files created in the isolated home)"
+    },
+    "presetLessHost": {
+      "profile": "headless (no agent-presets service; root-plane compaction)",
+      "beforeBeta2": "bridge inject waiting for agentPresets failed the whole boot (bug found by this live run)",
+      "afterBeta2": "bridge activates with inject [loader], logs one info line, leaves the root-plane backend untouched; real GLM-5.2 headless turn completed through Basic"
+    },
+    "auditCommand": "isolated home reports no user presets; real ~/.dsh/.agent-presets reports anchored-standard and router-standard both PASS (bridge-replaceable)"
+  }
+}

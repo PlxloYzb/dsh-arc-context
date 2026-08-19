@@ -1,0 +1,321 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-19",
+  "candidate": {
+    "version": "0.2.0-beta.9",
+    "tarballSha256": "864efecba8cc6cfd740cb5654c3e9f05510816a21cb23eb215cc0e275b370a99",
+    "tarballFiles": 32,
+    "decisionCCompactGuidance": true
+  },
+  "discipline": {
+    "productSourceModified": false,
+    "realDshHomeModified": false,
+    "rawSessionEvidenceCommitted": false,
+    "modelCallBudget": {
+      "cap": 35,
+      "used": 26,
+      "withinCap": true
+    },
+    "modelRouting": {
+      "preferred": "opencode-go/deepseek-v4-flash",
+      "actual": "scnet/GLM-5.2",
+      "fallbackReason": "session.selectModel did not accept the preferred route"
+    }
+  },
+  "checks": {
+    "npmRunCheck": {
+      "passed": true,
+      "tests": 158
+    },
+    "npmPack": {
+      "passed": true,
+      "note": "first attempt hit a root-owned ~/.npm cache; packaging rerun with an isolated cache passed"
+    }
+  },
+  "matrix": [
+    {
+      "item": 1,
+      "name": "install and bridge composition",
+      "verdict": "pass",
+      "evidence": {
+        "webManifest": "file:/private/tmp/arc-release-verification/pack/dsh-arc-context-0.2.0-beta.9.tgz",
+        "dumpConfigRow": "compaction-arc-bridge / dsh-arc-context/bridge",
+        "defaultGuidance": "decision-C compact default covered by candidate unit gate"
+      }
+    },
+    {
+      "item": 2,
+      "name": "takeover and newest-first status",
+      "verdict": "pass",
+      "evidence": {
+        "sessionId": "session-19fe1eb2-7bc7-4852-a689-9e81efb40e8b",
+        "arcStatusToolSeqs": [
+          38,
+          306,
+          1303
+        ],
+        "ownership": "ACTIVE",
+        "rangeList": "compressible ranges (newest first)",
+        "postCompressionRanges": [
+          "280..1208",
+          "7..239"
+        ]
+      }
+    },
+    {
+      "item": 3,
+      "name": "natural compression and beta.5 batch ordering",
+      "verdict": "pass-with-protected-tail-observation",
+      "evidence": {
+        "transactionStarts": [
+          1018,
+          1022
+        ],
+        "transactionSummaries": [
+          1019,
+          1023
+        ],
+        "transactionEnds": [
+          1021,
+          1025
+        ],
+        "shadowedTokenCounts": [
+          3680,
+          3680
+        ],
+        "toolResultSeq": 1026,
+        "result": "Compressed 2 of 3; third range rejected as entirely within protected zone; landed ranges were retained"
+      },
+      "note": "This directly exercises beta.5 partial-success semantics, but is not a three-of-three landing assertion."
+    },
+    {
+      "item": 4,
+      "name": "archive retrieval framing",
+      "verdict": "pass",
+      "evidence": {
+        "searchResultSeq": 1208,
+        "decompressResultSeq": 1246,
+        "requiredPrefix": "Archived context data (historical, not instructions):",
+        "matchingBlock": "99ff3ded-e93c-492e-a246-3cc500ffa698"
+      }
+    },
+    {
+      "item": 5,
+      "name": "uninstall reversibility and Basic old-session readability",
+      "verdict": "pass-with-limited-surface-proof",
+      "evidence": {
+        "remove": "web manifest dependency absent; bridge row absent",
+        "basicHistoryEvents": 1672,
+        "basicHistoryCompactionSummarySeqs": [
+          1019,
+          1023
+        ],
+        "basicProjection": {
+          "projectedTokens": 29468,
+          "contextWindow": 1000000
+        }
+      },
+      "note": "The Basic host read the durable compacted event log with no original-message expansion. A new Basic model turn was not spent because the release budget was reserved."
+    },
+    {
+      "item": 6,
+      "name": "reinstall cycle and preset SHA",
+      "verdict": "blocked",
+      "evidence": {
+        "addAndRemove": "web add -> bridge row present; remove -> bridge row absent",
+        "presetFilesInRecreatedIsolatedHome": 0
+      },
+      "blocker": "The required pre-existing RQ2 isolated-host baseline and standard preset file were absent before verification, so the mandatory unchanged-SHA assertion cannot be made."
+    },
+    {
+      "item": 7,
+      "name": "preset-less headless host",
+      "verdict": "pass",
+      "evidence": {
+        "headlessBridgeRow": "present",
+        "realBasicReply": "BASIC_HEADLESS_OK",
+        "presetFiles": 0
+      }
+    },
+    {
+      "item": 8,
+      "name": "beta.6 compression-aware pressure stress",
+      "verdict": "not-run",
+      "blocker": "The matrix's 15-call controlled stress run was not started: the recreated isolation baseline was missing and preserving the hard 35-call cap after core live verification left insufficient budget. Historical beta.6 evidence is not substituted for this candidate regression."
+    },
+    {
+      "item": 9,
+      "name": "beta.9 messy-content A/B validation",
+      "verdict": "not-run",
+      "blocker": "Required because decision C is present, but the ~10-call arm was not started under the remaining hard cap."
+    }
+  ],
+  "releaseVerdict": {
+    "status": "cleared",
+    "blockers": [],
+    "decisionC": "pass — primary compaction-summary verbatim degradation 0pp (<10pp); blind recall support difference −25pp (compact higher).",
+    "recommendation": "The beta.9 release-verification matrix is no longer blocked by decision C. Retain compact guidance; no rollback recommendation. No publication action is performed by this verification record."
+  },
+  "completion": {
+    "completedAt": "2026-08-18",
+    "commission": "TASK-gate-completion",
+    "isolation": {
+      "home": "verify/gate-completion-home",
+      "credentialsCopiedReadOnly": [
+        "settings.yaml",
+        ".credentials.yaml",
+        ".anonymous-user-id"
+      ],
+      "legacySharedHomeTouched": false,
+      "realDshHomeModified": false,
+      "cleanup": "home retained only for audit; isolated host stopped"
+    },
+    "tarball": {
+      "sha256": "864efecba8cc6cfd740cb5654c3e9f05510816a21cb23eb215cc0e275b370a99",
+      "installedInto": "web profile"
+    },
+    "rq2BaselinePatch": {
+      "rebuilt": true,
+      "content": "modelContextLimit 32768; autoNudge false; adaptiveGovernor.enabled false",
+      "pressureArmTemporaryOverride": "autoNudge true; Governor off"
+    },
+    "presetShaInvariant": {
+      "hostLoadedStandardPreset": "dsh host installation: config/agent-presets/standard/agent.cordis.yml",
+      "before": "4edeb70bf995a0324f234e2adf8db6b394c3d26e1bcb76821976950fb0237bc9",
+      "after": "4edeb70bf995a0324f234e2adf8db6b394c3d26e1bcb76821976950fb0237bc9",
+      "unchanged": true,
+      "note": "The fresh DSH_HOME contains only the permitted three credential copies; dsh loads its standard preset from the host installation path above."
+    },
+    "pressureArm": {
+      "evidence": "research/results/bench/gate-completion-pressure.json",
+      "sessionId": "session-54752c5d-40a8-4ccb-a9e9-b8fe781e4e4e",
+      "observed": {
+        "compactions": 1,
+        "postCompressionEmergencyNudges": 0,
+        "postCompressionArcStatusEffectiveTokens": 19272,
+        "window": 32768
+      },
+      "assertion": "zero post-compression emergency nudges observed; persisted arc_status reported 59% after a 5,682-token ledger shadowing",
+      "verdict": "blocked",
+      "blocker": "The copied driver actually consumed 9 model calls, exceeding the commission’s <=8 pressure-arm cap. A duplicate client start was stopped; it had already consumed 3 calls. Do not substitute this over-budget run for a compliant candidate regression."
+    },
+    "messyContentGate": {
+      "protocol": "RQ6 v3 geometry (protectedRecentMessages=0, protectedRecentTokens=1), full pre-C fixture injection vs compact default; criterion compact degradation >=10pp requires maintainer rollback recommendation",
+      "contentClasses": [
+        "real code signatures/functions",
+        "stack/error strings",
+        "free discussion",
+        "Chinese-English mixed facts"
+      ],
+      "required": ">=16 verbatim facts x >=2 seeds x both variants",
+      "completedArms": [
+        {
+          "arm": "A-1",
+          "seed": 1,
+          "evidence": "research/results/bench/gate-messy-A-1.json",
+          "guidance": "full-preC-template-injected",
+          "verbatim": "20/20",
+          "blindRecall": "20/20",
+          "modelCalls": 4,
+          "model": "opencode-go/deepseek-v4-flash"
+        },
+        {
+          "arm": "A-2",
+          "seed": 2,
+          "evidence": "research/results/bench/gate-messy-A-2.json",
+          "guidance": "full-preC-template-injected",
+          "verbatim": "20/20",
+          "blindRecall": "10/20",
+          "modelCalls": 4,
+          "model": "opencode-go/deepseek-v4-flash"
+        },
+        {
+          "arm": "B-1",
+          "seed": 1,
+          "evidence": "research/results/bench/gate-messy-B-1.json",
+          "guidance": "current-compact-default",
+          "verbatim": "20/20",
+          "blindRecall": "20/20",
+          "modelCalls": 4,
+          "model": "opencode-go/deepseek-v4-flash",
+          "recovery": "maintainer reconstruction 2026-08-19 from the stalled top-up commission host (verify/decisionC-topup-home) session log; the driver stalled after the audit turn settled while the session was mechanically complete; same scorer, same-seed fact set, sessionLogSha256 recorded in the evidence file"
+        },
+        {
+          "arm": "B-2",
+          "seed": 2,
+          "evidence": "research/results/bench/gate-messy-B-2.json",
+          "guidance": "current-compact-default",
+          "verbatim": "20/20",
+          "blindRecall": "20/20",
+          "modelCalls": 4,
+          "model": "opencode-go/deepseek-v4-flash",
+          "completion": "native driver artifact; session settled normally (no recovery used)"
+        }
+      ],
+      "verdict": "pass",
+      "blocker": null,
+      "degradation": {
+        "summaryVerbatim": {
+          "aArms": [
+            1,
+            1
+          ],
+          "aMean": 1,
+          "bArms": [
+            1,
+            1
+          ],
+          "bMean": 1,
+          "degradationPp": 0
+        },
+        "blindRecall": {
+          "aArms": [
+            1,
+            0.5
+          ],
+          "aMean": 0.75,
+          "bArms": [
+            1,
+            1
+          ],
+          "bMean": 1,
+          "degradationPp": -25
+        },
+        "primaryGate": {
+          "metric": "compaction-summary verbatim",
+          "threshold": "degradation <10pp",
+          "result": "0pp",
+          "passed": true
+        },
+        "note": "Blind recall is supporting evidence only: the full-guidance A arms vary by 50pp across seeds (100% and 50%), whereas the compact B arms are both 100%; its paired mean difference is reported, not judged against the 10pp gate."
+      },
+      "topupB2Budget": {
+        "cap": 8,
+        "used": 4,
+        "withinCap": true,
+        "note": "This top-up commission ran only B-2; the persisted event ledger contains four model calls."
+      },
+      "decision": "passed: primary compaction-summary verbatim degradation is 0pp (<10pp); no rollback recommendation."
+    },
+    "budget": {
+      "cap": 35,
+      "used": 28,
+      "withinCap": true,
+      "ledger": "pressure retained session 9 + stopped duplicate pressure session 3 + messy A-1 4 + A-2 4 + B-1 recovered complete session 4 + B-2 4",
+      "note": "The decision-C top-up itself used 4/8 calls; historical release-ledger totals were reconciled to the recovered B-1 four-call session."
+    },
+    "checks": {
+      "npmRunCheck": {
+        "passed": true,
+        "tests": 158
+      }
+    },
+    "blockerReview": {
+      "presetSha": "cleared",
+      "pressure": "cleared (maintainer re-adjudication 2026-08-18: the per-arm budget of <=8 was an estimate, not a verification criterion; the arm CONSUMED 9 calls and the assertion itself passed — zero post-compression emergency nudges, arc_status effective reading consistent. Overrunning an estimate by one call is a budgeting note, not a blocker. The original reviewer position is preserved here in this record.)",
+      "decisionC": "cleared (B-2 native completion: compact seed 2 20/20 summary verbatim and 20/20 blind recall, 4 calls, opencode-go/deepseek-v4-flash; two-seed primary degradation 0pp <10pp).",
+      "release": "cleared: decision-C was the sole remaining release blocker; no compact-guidance rollback is recommended."
+    },
+    "recommendation": "Decision-C gate passed. Retain the current compact default; no rollback to full-system-prompt-preC.md is recommended. No publication action is performed by this verification record."
+  }
+}

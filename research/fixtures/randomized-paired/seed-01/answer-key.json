@@ -1,0 +1,202 @@
+{
+  "seed": "seed-01",
+  "expected": [
+    {
+      "key": "S1_FACT_01",
+      "value": "0825D-1524A-0F4E9"
+    },
+    {
+      "key": "S1_FACT_02",
+      "value": "1B766-2DEB3-E7598"
+    },
+    {
+      "key": "S1_FACT_03",
+      "value": "E35B9-64BF5-BD23A"
+    },
+    {
+      "key": "S1_FACT_04",
+      "value": "04B38-36EAC-A4B1F"
+    },
+    {
+      "key": "S1_FACT_05",
+      "value": "661FA-959C4-273DC"
+    },
+    {
+      "key": "S1_FACT_06",
+      "value": "F3F20-7741B-5CE66"
+    },
+    {
+      "key": "S1_FACT_07",
+      "value": "6F05A-15D5E-72FCA"
+    },
+    {
+      "key": "S1_FACT_08",
+      "value": "1A8A8-84795-6268F"
+    },
+    {
+      "key": "S1_FACT_09",
+      "value": "468AC-28B00-2CBC9"
+    },
+    {
+      "key": "S1_FACT_10",
+      "value": "BE1B6-54CFC-C57C8"
+    },
+    {
+      "key": "S1_FACT_11",
+      "value": "1D072-BE476-7E217"
+    },
+    {
+      "key": "S1_FACT_12",
+      "value": "D5280-8CF4F-59134"
+    },
+    {
+      "key": "S2_FACT_01",
+      "value": "3A778-DD245-24B45"
+    },
+    {
+      "key": "S2_FACT_02",
+      "value": "DCA27-12CEC-94335"
+    },
+    {
+      "key": "S2_FACT_03",
+      "value": "9C182-1AB75-B149D"
+    },
+    {
+      "key": "S2_FACT_04",
+      "value": "117B3-D1E39-F42DB"
+    },
+    {
+      "key": "S2_FACT_05",
+      "value": "821FD-54D8A-E6022"
+    },
+    {
+      "key": "S2_FACT_06",
+      "value": "15D36-CA0C2-B2487"
+    },
+    {
+      "key": "S2_FACT_07",
+      "value": "B22BD-7E138-04B32"
+    },
+    {
+      "key": "S2_FACT_08",
+      "value": "9D231-D9E33-809E4"
+    },
+    {
+      "key": "S2_FACT_09",
+      "value": "D2CE4-9AEC0-81E9D"
+    },
+    {
+      "key": "S2_FACT_10",
+      "value": "773D1-30421-C3154"
+    },
+    {
+      "key": "S2_FACT_11",
+      "value": "C8BC9-6158B-D8432"
+    },
+    {
+      "key": "S2_FACT_12",
+      "value": "9B649-57684-6437C"
+    },
+    {
+      "key": "S3_FACT_01",
+      "value": "496FA-A78F9-AC33D"
+    },
+    {
+      "key": "S3_FACT_02",
+      "value": "889F8-019FC-70277"
+    },
+    {
+      "key": "S3_FACT_03",
+      "value": "78D71-12E29-25F55"
+    },
+    {
+      "key": "S3_FACT_04",
+      "value": "D10B5-1D7E6-2FC21"
+    },
+    {
+      "key": "S3_FACT_05",
+      "value": "12948-E3BF1-57835"
+    },
+    {
+      "key": "S3_FACT_06",
+      "value": "3EC20-CBB8C-DB33B"
+    },
+    {
+      "key": "S3_FACT_07",
+      "value": "3CF92-DC99D-C7CF7"
+    },
+    {
+      "key": "S3_FACT_08",
+      "value": "CD6FF-A6AA7-2D2C2"
+    },
+    {
+      "key": "S3_FACT_09",
+      "value": "2EF5A-084D4-B870C"
+    },
+    {
+      "key": "S3_FACT_10",
+      "value": "5E7C6-4BD8F-4B9A0"
+    },
+    {
+      "key": "S3_FACT_11",
+      "value": "DBCA2-3A849-380A7"
+    },
+    {
+      "key": "S3_FACT_12",
+      "value": "96DF0-324F4-E7C88"
+    },
+    {
+      "key": "S4_FACT_01",
+      "value": "1AB76-5C1F1-DD858"
+    },
+    {
+      "key": "S4_FACT_02",
+      "value": "F8C7C-E4292-4036C"
+    },
+    {
+      "key": "S4_FACT_03",
+      "value": "C5B15-CA8A0-DD0EF"
+    },
+    {
+      "key": "S4_FACT_04",
+      "value": "30C5D-8EE7A-3D351"
+    },
+    {
+      "key": "S4_FACT_05",
+      "value": "784D7-7154C-28C4F"
+    },
+    {
+      "key": "S4_FACT_06",
+      "value": "BE88F-8F5AC-6B280"
+    },
+    {
+      "key": "S4_FACT_07",
+      "value": "18945-3FFB3-6CC60"
+    },
+    {
+      "key": "S4_FACT_08",
+      "value": "B9021-4AB1A-F27CD"
+    },
+    {
+      "key": "S4_FACT_09",
+      "value": "75DDD-168E5-C879F"
+    },
+    {
+      "key": "S4_FACT_10",
+      "value": "36ABE-85EED-A3A1D"
+    },
+    {
+      "key": "S4_FACT_11",
+      "value": "78266-F112F-008D3"
+    },
+    {
+      "key": "S4_FACT_12",
+      "value": "9C459-F9BB3-F1C1D"
+    }
+  ],
+  "derived": {
+    "D1": "0825D-1524A-0F4E9.9C459-F9BB3-F1C1D",
+    "D2": "9C182-1AB75-B149D/5E7C6-4BD8F-4B9A0",
+    "D3": "1A8A8-84795-6268F:78D71-12E29-25F55:BE88F-8F5AC-6B280"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-08-16T21:07:17.642Z",
+  "evidenceRule": "allInUsage = DSH session tokenUsage + provider-returned compaction/summary usage; no price conversion",
+  "runs": [
+    {
+      "runId": "holdout-random-seed02-governor",
+      "seed": "seed-02",
+      "preset": "router-standard-acp",
+      "model": "deepseek-v4-flash",
+      "sessionUsage": {
+        "uncachedInputTokens": 163721,
+        "outputTokens": 3515,
+        "cacheReadTokens": 340736,
+        "cacheWriteTokens": 0
+      },
+      "auxiliaryCompactionUsage": {
+        "uncachedInputTokens": 0,
+        "outputTokens": 0,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 0
+      },
+      "allInUsage": {
+        "uncachedInputTokens": 163721,
+        "outputTokens": 3515,
+        "cacheReadTokens": 340736,
+        "cacheWriteTokens": 0
+      },
+      "allInCacheReadFraction": 0.6754510295228334,
+      "finalContextPressure": {
+        "pressureTokens": 63882,
+        "projectedTokens": 65222,
+        "contextWindow": 1000000
+      },
+      "exactFacts": {
+        "recalled": 48,
+        "expected": 48,
+        "missingKeys": []
+      },
+      "derived": {
+        "recalled": 3,
+        "expected": 3,
+        "missing": []
+      },
+      "compactions": [
+        {
+          "compactionId": "62eed856-e54d-41bf-a381-e6cf64fb179b",
+          "provider": "local",
+          "model": "adaptive-governor-extractive-v1",
+          "shadowedNodes": 6,
+          "shadowedTokenCount": 40953,
+          "summaryChars": 3451,
+          "usage": null,
+          "llmStreamCall": null
+        }
+      ],
+      "errors": []
+    }
+  ]
+}

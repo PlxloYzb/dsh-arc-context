@@ -1,0 +1,80 @@
+{
+  "generatedAt": "2026-08-17T06:41:36.123Z",
+  "runId": "semantic-supersession-seed01-governor",
+  "seed": "semantic-seed-01",
+  "model": "deepseek-v4-flash",
+  "requestHeaders": {
+    "count": 1,
+    "maxTokens": [
+      32768
+    ],
+    "adapterDefaultMaxTokens": 0
+  },
+  "sessionUsage": {
+    "uncachedInputTokens": 94124,
+    "outputTokens": 4423,
+    "cacheReadTokens": 141568,
+    "cacheWriteTokens": 0
+  },
+  "finalContextPressure": {
+    "pressureTokens": 27575,
+    "projectedTokens": 30446,
+    "contextWindow": 1000000
+  },
+  "currentState": {
+    "recalled": 3,
+    "expected": 12,
+    "missing": [
+      "主要上线城市",
+      "冻结窗口",
+      "保留期限",
+      "生产消息队列",
+      "每批账户数",
+      "受监管租户路径",
+      "上线审批",
+      "对外状态页",
+      "审计归档包"
+    ]
+  },
+  "rationale": {
+    "recalled": 3,
+    "expected": 10,
+    "missing": [
+      "瓦伦西亚供应商的驻留认证已经过期",
+      "支付流量在这个时段最低",
+      "监管方签发了临时法律保全令",
+      "新生产者已经停止向 north-river 发布",
+      "240 个账户同时解密会造成内存尖峰",
+      "持续到驻留审计完成",
+      "旧名称与另一场演练的包发生冲突"
+    ]
+  },
+  "obsoleteContamination": {
+    "count": 0,
+    "leakedPatterns": []
+  },
+  "toolCalls": {
+    "count": 0,
+    "finalTurnCount": 0
+  },
+  "compactions": [
+    {
+      "provider": "local",
+      "model": "adaptive-governor-extractive-v1",
+      "shadowedNodes": 2,
+      "shadowedTokenCount": 9806,
+      "summaryChars": 1122,
+      "usage": null
+    },
+    {
+      "provider": "local",
+      "model": "adaptive-governor-extractive-v1",
+      "shadowedNodes": 4,
+      "shadowedTokenCount": 18671,
+      "summaryChars": 1127,
+      "usage": null
+    }
+  ],
+  "errors": [],
+  "finalText": "{\"主要上线城市\":null,\"执行负责人\":\"Noor Haddad\",\"冻结窗口\":null,\"回滚确认短语\":\"silent harbor\",\"保留期限\":null,\"生产消息队列\":null,\"每批账户数\":null,\"失败重试策略\":\"最多重试 4 次，每次间隔 90 秒\",\"受监管租户路径\":null,\"上线审批\":null,\"对外状态页\":null,\"审计归档包\":null,\"变更原因\":[\"执行负责人因 Mira Chen 在上线周被调去处理监管问询而更换\",\"回滚确认短语因原短语在公开演练录音中泄露而更换\",\"失败重试策略因三次重试不足以跨过网关限流周期而改为最多重试 4 次、每次间隔 90 秒\"]}"
+}

@@ -1,0 +1,21 @@
+# dsh Web bundle patch: mount the host-plane ARC preset bridge.
+#
+# This is what makes the package installable via `dsh plugin --profile web add
+# dsh-arc-context` (declared in package.json as `dsh.bundle.patch`). The
+# bridge registers the ARC engine as a loader builtin and, on every
+# agent/created, swaps the mounted preset's official compaction-basic row for
+# the ARC engine row inside the same isolate realm — through official
+# Include patch semantics, with zero file writes. The preset file, isolation
+# map, /compact command, and pruner stay intact; uninstall (or a restart
+# without the package) remounts the untouched original composition.
+- insert:
+    - id: compaction-arc-bridge
+      name: 'dsh-arc-context/bridge'
+      config:
+        adaptiveGovernor:
+          enabled: true
+          maxOutputTokens: auto
+          safetyMarginTokens: 32768
+          nudgeAtEffectiveCapacityPct: 0.75
+          emergencyAtEffectiveCapacityPct: 0.90
+          emergencyFallback: true

@@ -1,0 +1,424 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-17T18:44:09.445Z",
+  "question": "RQ2 cache economics: does compression placement/batching change the cache-write spike, and what is the break-even horizon?",
+  "setup": {
+    "url": "http://127.0.0.1:8933",
+    "seed": 11,
+    "targetPlantTokens": 24000,
+    "arcConfig": "modelContextLimit 32768, autoNudge false, governor disabled (profile user patch)"
+  },
+  "arms": {
+    "batch2": {
+      "name": "batch2",
+      "mode": "batch2",
+      "sessionId": "session-0d11c7c3-83e7-4b9e-b30d-34a91c5cf493",
+      "plantTurns": 4,
+      "prePressure": {
+        "pressureTokens": 26632,
+        "projectedTokens": 26671,
+        "contextWindow": 1000000
+      },
+      "postPressure": {
+        "pressureTokens": 30436,
+        "projectedTokens": 30478,
+        "contextWindow": 1000000
+      },
+      "surfaceTurns": 3,
+      "third": 1,
+      "calls": [
+        {
+          "seq": 98,
+          "turn": 1,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 125,
+            "cacheReadTokens": 14848,
+            "outputTokens": 142
+          },
+          "prevSeq": 97
+        },
+        {
+          "seq": 202,
+          "turn": 2,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 4039,
+            "cacheReadTokens": 14848,
+            "outputTokens": 163
+          },
+          "prevSeq": 201
+        },
+        {
+          "seq": 234,
+          "turn": 3,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 4000,
+            "cacheReadTokens": 18816,
+            "outputTokens": 33
+          },
+          "prevSeq": 233
+        },
+        {
+          "seq": 266,
+          "turn": 4,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 3848,
+            "cacheReadTokens": 22784,
+            "outputTokens": 33
+          },
+          "prevSeq": 265
+        },
+        {
+          "seq": 280,
+          "turn": 5,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 50,
+            "cacheReadTokens": 26624,
+            "outputTokens": 5
+          },
+          "prevSeq": 279
+        },
+        {
+          "seq": 3288,
+          "turn": 6,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 204,
+            "cacheReadTokens": 26624,
+            "outputTokens": 5469
+          },
+          "prevSeq": 3287
+        },
+        {
+          "seq": 3663,
+          "turn": 6,
+          "step": 2,
+          "usage": {
+            "uncachedInputTokens": 19228,
+            "cacheReadTokens": 10496,
+            "outputTokens": 646
+          },
+          "prevSeq": 3662
+        },
+        {
+          "seq": 3677,
+          "turn": 7,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 682,
+            "cacheReadTokens": 29696,
+            "outputTokens": 5
+          },
+          "prevSeq": 3676
+        },
+        {
+          "seq": 3710,
+          "turn": 8,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 184,
+            "cacheReadTokens": 30208,
+            "outputTokens": 35
+          },
+          "prevSeq": 3709
+        },
+        {
+          "seq": 3743,
+          "turn": 9,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 228,
+            "cacheReadTokens": 30208,
+            "outputTokens": 35
+          },
+          "prevSeq": 3742
+        }
+      ],
+      "compactions": [
+        {
+          "compactionId": "f2e35c36-6be4-490a-8bf7-1f446750ebcd",
+          "afterSeq": 3293,
+          "turn": 6,
+          "shadowedTokenCount": 3113
+        },
+        {
+          "compactionId": "7e9dc765-a878-439b-a111-ec05da87b4cb",
+          "afterSeq": 3297,
+          "turn": 6,
+          "shadowedTokenCount": 2528
+        }
+      ],
+      "compressCalls": [
+        {
+          "seq": 3289,
+          "turn": 6
+        }
+      ]
+    },
+    "sequent2": {
+      "name": "sequent2",
+      "mode": "sequent2",
+      "sessionId": "session-49f4d397-2a0d-47ca-9bab-c71499cbd76a",
+      "plantTurns": 4,
+      "prePressure": {
+        "pressureTokens": 26404,
+        "projectedTokens": 26415,
+        "contextWindow": 1000000
+      },
+      "postPressure": {
+        "pressureTokens": 33672,
+        "projectedTokens": 33681,
+        "contextWindow": 1000000
+      },
+      "surfaceTurns": 3,
+      "third": 1,
+      "calls": [
+        {
+          "seq": 51,
+          "turn": 1,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 125,
+            "cacheReadTokens": 14848,
+            "outputTokens": 61
+          },
+          "prevSeq": 50
+        },
+        {
+          "seq": 87,
+          "turn": 2,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 3958,
+            "cacheReadTokens": 14848,
+            "outputTokens": 41
+          },
+          "prevSeq": 86
+        },
+        {
+          "seq": 102,
+          "turn": 3,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 3925,
+            "cacheReadTokens": 18688,
+            "outputTokens": 8
+          },
+          "prevSeq": 101
+        },
+        {
+          "seq": 117,
+          "turn": 4,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 3876,
+            "cacheReadTokens": 22528,
+            "outputTokens": 8
+          },
+          "prevSeq": 116
+        },
+        {
+          "seq": 131,
+          "turn": 5,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 53,
+            "cacheReadTokens": 26368,
+            "outputTokens": 5
+          },
+          "prevSeq": 130
+        },
+        {
+          "seq": 2182,
+          "turn": 6,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 159,
+            "cacheReadTokens": 26368,
+            "outputTokens": 3684
+          },
+          "prevSeq": 2181
+        },
+        {
+          "seq": 3335,
+          "turn": 6,
+          "step": 2,
+          "usage": {
+            "uncachedInputTokens": 3951,
+            "cacheReadTokens": 26368,
+            "outputTokens": 2085
+          },
+          "prevSeq": 3334
+        },
+        {
+          "seq": 3385,
+          "turn": 6,
+          "step": 3,
+          "usage": {
+            "uncachedInputTokens": 21005,
+            "cacheReadTokens": 10496,
+            "outputTokens": 57
+          },
+          "prevSeq": 3384
+        },
+        {
+          "seq": 3399,
+          "turn": 7,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 78,
+            "cacheReadTokens": 31488,
+            "outputTokens": 5
+          },
+          "prevSeq": 3398
+        },
+        {
+          "seq": 3413,
+          "turn": 8,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 92,
+            "cacheReadTokens": 31488,
+            "outputTokens": 5
+          },
+          "prevSeq": 3412
+        },
+        {
+          "seq": 3691,
+          "turn": 9,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 198,
+            "cacheReadTokens": 31488,
+            "outputTokens": 475
+          },
+          "prevSeq": 3690
+        },
+        {
+          "seq": 5140,
+          "turn": 9,
+          "step": 2,
+          "usage": {
+            "uncachedInputTokens": 820,
+            "cacheReadTokens": 31488,
+            "outputTokens": 2604
+          },
+          "prevSeq": 5139
+        },
+        {
+          "seq": 5266,
+          "turn": 9,
+          "step": 3,
+          "usage": {
+            "uncachedInputTokens": 19893,
+            "cacheReadTokens": 13568,
+            "outputTokens": 203
+          },
+          "prevSeq": 5265
+        },
+        {
+          "seq": 5280,
+          "turn": 10,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 264,
+            "cacheReadTokens": 33408,
+            "outputTokens": 5
+          },
+          "prevSeq": 5279
+        }
+      ],
+      "compactions": [
+        {
+          "compactionId": "039bf982-749c-4f9d-87a6-14ef4430068c",
+          "afterSeq": 3340,
+          "turn": 6,
+          "shadowedTokenCount": 3011
+        },
+        {
+          "compactionId": "7ced055c-ea4f-4522-855d-c771adf04b61",
+          "afterSeq": 5145,
+          "turn": 9,
+          "shadowedTokenCount": 2400
+        }
+      ],
+      "compressCalls": [
+        {
+          "seq": 3336,
+          "turn": 6
+        },
+        {
+          "seq": 5141,
+          "turn": 9
+        }
+      ]
+    }
+  },
+  "analysis": {
+    "batch2": {
+      "calls": 10,
+      "compressCalls": 1,
+      "compactions": 2,
+      "steadyStateUncached": 286,
+      "spikes": [
+        {
+          "compactionId": "f2e35c36",
+          "before": 204,
+          "after": 19228,
+          "spike": 19024,
+          "shadowedTokenCount": 3113
+        },
+        {
+          "compactionId": "7e9dc765",
+          "before": 204,
+          "after": 19228,
+          "spike": 19024,
+          "shadowedTokenCount": 2528
+        }
+      ],
+      "totalSpikeTokens": 38048,
+      "totals": {
+        "uncachedInputTokens": 32588,
+        "cacheReadTokens": 225152,
+        "outputTokens": 6566
+      }
+    },
+    "sequent2": {
+      "calls": 14,
+      "compressCalls": 2,
+      "compactions": 2,
+      "steadyStateUncached": 121.75,
+      "spikes": [
+        {
+          "compactionId": "039bf982",
+          "before": 3951,
+          "after": 21005,
+          "spike": 17054,
+          "shadowedTokenCount": 3011
+        },
+        {
+          "compactionId": "7ced055c",
+          "before": 820,
+          "after": 19893,
+          "spike": 19073,
+          "shadowedTokenCount": 2400
+        }
+      ],
+      "totalSpikeTokens": 36127,
+      "totals": {
+        "uncachedInputTokens": 58397,
+        "cacheReadTokens": 333440,
+        "outputTokens": 9246
+      }
+    }
+  },
+  "comparisons": {
+    "positional": null,
+    "batching": null,
+    "breakEven": null
+  }
+}

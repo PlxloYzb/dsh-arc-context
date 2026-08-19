@@ -1,0 +1,13 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: false
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      billion-context-dsh:
+        specifier: link:<user-home>/workspace/dsh-extensions/profile-bundles/billion-context-dsh
+        version: link:../../../workspace/dsh-extensions/profile-bundles/billion-context-dsh

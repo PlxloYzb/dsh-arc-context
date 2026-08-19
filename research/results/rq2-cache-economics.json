@@ -1,0 +1,895 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-17T18:29:04.329Z",
+  "question": "RQ2 cache economics: does compression placement/batching change the cache-write spike, and what is the break-even horizon?",
+  "setup": {
+    "url": "http://127.0.0.1:8933",
+    "seed": 11,
+    "targetPlantTokens": 24000,
+    "arcConfig": "modelContextLimit 32768, autoNudge false, governor disabled (profile user patch)"
+  },
+  "arms": {
+    "baseline": {
+      "name": "baseline",
+      "mode": "baseline",
+      "sessionId": "session-1bfd901d-222d-4647-9928-2e1f5f5b5dc3",
+      "plantTurns": 4,
+      "prePressure": {
+        "pressureTokens": 26485,
+        "projectedTokens": 26496,
+        "contextWindow": 1000000
+      },
+      "postPressure": {
+        "pressureTokens": 26570,
+        "projectedTokens": 26595,
+        "contextWindow": 1000000
+      },
+      "surfaceTurns": 3,
+      "third": 1,
+      "calls": [
+        {
+          "seq": 104,
+          "turn": 1,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 4349,
+            "cacheReadTokens": 10624,
+            "outputTokens": 136
+          },
+          "prevSeq": 103
+        },
+        {
+          "seq": 144,
+          "turn": 2,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 4033,
+            "cacheReadTokens": 14848,
+            "outputTokens": 47
+          },
+          "prevSeq": 143
+        },
+        {
+          "seq": 159,
+          "turn": 3,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 4006,
+            "cacheReadTokens": 18688,
+            "outputTokens": 8
+          },
+          "prevSeq": 158
+        },
+        {
+          "seq": 174,
+          "turn": 4,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 3957,
+            "cacheReadTokens": 22528,
+            "outputTokens": 8
+          },
+          "prevSeq": 173
+        },
+        {
+          "seq": 188,
+          "turn": 5,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 134,
+            "cacheReadTokens": 26368,
+            "outputTokens": 5
+          },
+          "prevSeq": 187
+        },
+        {
+          "seq": 211,
+          "turn": 6,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 148,
+            "cacheReadTokens": 26368,
+            "outputTokens": 18
+          },
+          "prevSeq": 210
+        },
+        {
+          "seq": 235,
+          "turn": 7,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 47,
+            "cacheReadTokens": 26496,
+            "outputTokens": 18
+          },
+          "prevSeq": 234
+        },
+        {
+          "seq": 259,
+          "turn": 8,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 74,
+            "cacheReadTokens": 26496,
+            "outputTokens": 18
+          },
+          "prevSeq": 258
+        }
+      ],
+      "compactions": [],
+      "compressCalls": []
+    },
+    "head": {
+      "name": "head",
+      "mode": "head",
+      "sessionId": "session-7c1929b2-4d60-45be-9a63-08dab8e58c05",
+      "plantTurns": 4,
+      "prePressure": {
+        "pressureTokens": 26397,
+        "projectedTokens": 26408,
+        "contextWindow": 1000000
+      },
+      "postPressure": {
+        "pressureTokens": 32674,
+        "projectedTokens": 32683,
+        "contextWindow": 1000000
+      },
+      "surfaceTurns": 3,
+      "third": 1,
+      "calls": [
+        {
+          "seq": 66,
+          "turn": 1,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 125,
+            "cacheReadTokens": 14848,
+            "outputTokens": 86
+          },
+          "prevSeq": 65
+        },
+        {
+          "seq": 81,
+          "turn": 2,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 3855,
+            "cacheReadTokens": 14976,
+            "outputTokens": 8
+          },
+          "prevSeq": 80
+        },
+        {
+          "seq": 96,
+          "turn": 3,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 3790,
+            "cacheReadTokens": 18816,
+            "outputTokens": 8
+          },
+          "prevSeq": 95
+        },
+        {
+          "seq": 111,
+          "turn": 4,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 3869,
+            "cacheReadTokens": 22528,
+            "outputTokens": 8
+          },
+          "prevSeq": 110
+        },
+        {
+          "seq": 125,
+          "turn": 5,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 46,
+            "cacheReadTokens": 26368,
+            "outputTokens": 5
+          },
+          "prevSeq": 124
+        },
+        {
+          "seq": 2230,
+          "turn": 6,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 133,
+            "cacheReadTokens": 26368,
+            "outputTokens": 3800
+          },
+          "prevSeq": 2229
+        },
+        {
+          "seq": 3460,
+          "turn": 6,
+          "step": 2,
+          "usage": {
+            "uncachedInputTokens": 4044,
+            "cacheReadTokens": 26368,
+            "outputTokens": 2226
+          },
+          "prevSeq": 3459
+        },
+        {
+          "seq": 3474,
+          "turn": 7,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 2438,
+            "cacheReadTokens": 30208,
+            "outputTokens": 5
+          },
+          "prevSeq": 3473
+        },
+        {
+          "seq": 3488,
+          "turn": 8,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 20,
+            "cacheReadTokens": 32640,
+            "outputTokens": 5
+          },
+          "prevSeq": 3487
+        },
+        {
+          "seq": 3502,
+          "turn": 9,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 34,
+            "cacheReadTokens": 32640,
+            "outputTokens": 5
+          },
+          "prevSeq": 3501
+        }
+      ],
+      "compactions": [],
+      "compressCalls": []
+    },
+    "middle": {
+      "name": "middle",
+      "mode": "middle",
+      "sessionId": "session-9aa12e82-2649-48ba-886b-0d9d34c8a3c7",
+      "plantTurns": 4,
+      "prePressure": {
+        "pressureTokens": 26418,
+        "projectedTokens": 26447,
+        "contextWindow": 1000000
+      },
+      "postPressure": {
+        "pressureTokens": 28717,
+        "projectedTokens": 28742,
+        "contextWindow": 1000000
+      },
+      "surfaceTurns": 3,
+      "third": 1,
+      "calls": [
+        {
+          "seq": 60,
+          "turn": 1,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 125,
+            "cacheReadTokens": 14848,
+            "outputTokens": 75
+          },
+          "prevSeq": 59
+        },
+        {
+          "seq": 87,
+          "turn": 2,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 3972,
+            "cacheReadTokens": 14848,
+            "outputTokens": 25
+          },
+          "prevSeq": 86
+        },
+        {
+          "seq": 114,
+          "turn": 3,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 3923,
+            "cacheReadTokens": 18688,
+            "outputTokens": 25
+          },
+          "prevSeq": 113
+        },
+        {
+          "seq": 141,
+          "turn": 4,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 3890,
+            "cacheReadTokens": 22528,
+            "outputTokens": 25
+          },
+          "prevSeq": 140
+        },
+        {
+          "seq": 155,
+          "turn": 5,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 83,
+            "cacheReadTokens": 26368,
+            "outputTokens": 5
+          },
+          "prevSeq": 154
+        },
+        {
+          "seq": 1833,
+          "turn": 6,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 170,
+            "cacheReadTokens": 26368,
+            "outputTokens": 3006
+          },
+          "prevSeq": 1832
+        },
+        {
+          "seq": 2014,
+          "turn": 6,
+          "step": 2,
+          "usage": {
+            "uncachedInputTokens": 3287,
+            "cacheReadTokens": 26368,
+            "outputTokens": 313
+          },
+          "prevSeq": 2013
+        },
+        {
+          "seq": 2087,
+          "turn": 6,
+          "step": 3,
+          "usage": {
+            "uncachedInputTokens": 13584,
+            "cacheReadTokens": 14976,
+            "outputTokens": 108
+          },
+          "prevSeq": 2086
+        },
+        {
+          "seq": 2111,
+          "turn": 7,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 132,
+            "cacheReadTokens": 28544,
+            "outputTokens": 18
+          },
+          "prevSeq": 2110
+        },
+        {
+          "seq": 2125,
+          "turn": 8,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 31,
+            "cacheReadTokens": 28672,
+            "outputTokens": 5
+          },
+          "prevSeq": 2124
+        },
+        {
+          "seq": 2149,
+          "turn": 9,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 45,
+            "cacheReadTokens": 28672,
+            "outputTokens": 18
+          },
+          "prevSeq": 2148
+        }
+      ],
+      "compactions": [
+        {
+          "compactionId": "1cabbbe7-24b6-4b83-9250-56500dcfcdc3",
+          "afterSeq": 2019,
+          "turn": 6,
+          "shadowedTokenCount": null
+        }
+      ],
+      "compressCalls": [
+        {
+          "seq": 2015,
+          "turn": 6
+        }
+      ]
+    },
+    "batch": {
+      "name": "batch",
+      "mode": "batch",
+      "sessionId": "session-ab6741eb-3469-4279-bafe-d70abc0dcef7",
+      "plantTurns": 4,
+      "prePressure": {
+        "pressureTokens": 26320,
+        "projectedTokens": 26331,
+        "contextWindow": 1000000
+      },
+      "postPressure": {
+        "pressureTokens": 30116,
+        "projectedTokens": 30125,
+        "contextWindow": 1000000
+      },
+      "surfaceTurns": 3,
+      "third": 1,
+      "calls": [
+        {
+          "seq": 20,
+          "turn": 1,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 125,
+            "cacheReadTokens": 14848,
+            "outputTokens": 8
+          },
+          "prevSeq": 19
+        },
+        {
+          "seq": 35,
+          "turn": 2,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 3906,
+            "cacheReadTokens": 14848,
+            "outputTokens": 8
+          },
+          "prevSeq": 34
+        },
+        {
+          "seq": 50,
+          "turn": 3,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 3841,
+            "cacheReadTokens": 18688,
+            "outputTokens": 8
+          },
+          "prevSeq": 49
+        },
+        {
+          "seq": 65,
+          "turn": 4,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 3792,
+            "cacheReadTokens": 22528,
+            "outputTokens": 8
+          },
+          "prevSeq": 64
+        },
+        {
+          "seq": 79,
+          "turn": 5,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 225,
+            "cacheReadTokens": 26112,
+            "outputTokens": 5
+          },
+          "prevSeq": 78
+        },
+        {
+          "seq": 1020,
+          "turn": 6,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 293,
+            "cacheReadTokens": 26240,
+            "outputTokens": 1689
+          },
+          "prevSeq": 1019
+        },
+        {
+          "seq": 1319,
+          "turn": 6,
+          "step": 2,
+          "usage": {
+            "uncachedInputTokens": 1780,
+            "cacheReadTokens": 26496,
+            "outputTokens": 526
+          },
+          "prevSeq": 1318
+        },
+        {
+          "seq": 1964,
+          "turn": 6,
+          "step": 3,
+          "usage": {
+            "uncachedInputTokens": 747,
+            "cacheReadTokens": 28160,
+            "outputTokens": 1148
+          },
+          "prevSeq": 1963
+        },
+        {
+          "seq": 1994,
+          "turn": 7,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 1263,
+            "cacheReadTokens": 28800,
+            "outputTokens": 31
+          },
+          "prevSeq": 1993
+        },
+        {
+          "seq": 2008,
+          "turn": 8,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 150,
+            "cacheReadTokens": 29952,
+            "outputTokens": 5
+          },
+          "prevSeq": 2007
+        },
+        {
+          "seq": 2022,
+          "turn": 9,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 36,
+            "cacheReadTokens": 30080,
+            "outputTokens": 5
+          },
+          "prevSeq": 2021
+        }
+      ],
+      "compactions": [],
+      "compressCalls": [
+        {
+          "seq": 1021,
+          "turn": 6
+        }
+      ]
+    },
+    "sequent": {
+      "name": "sequent",
+      "mode": "sequent",
+      "sessionId": "session-ebb59ca6-0bd7-45de-ae86-bd4e0142bd27",
+      "plantTurns": 4,
+      "prePressure": {
+        "pressureTokens": 26320,
+        "projectedTokens": 26331,
+        "contextWindow": 1000000
+      },
+      "postPressure": {
+        "pressureTokens": 26547,
+        "projectedTokens": 26572,
+        "contextWindow": 1000000
+      },
+      "surfaceTurns": 3,
+      "third": 1,
+      "calls": [
+        {
+          "seq": 20,
+          "turn": 1,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 125,
+            "cacheReadTokens": 14848,
+            "outputTokens": 8
+          },
+          "prevSeq": 19
+        },
+        {
+          "seq": 35,
+          "turn": 2,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 66,
+            "cacheReadTokens": 18688,
+            "outputTokens": 8
+          },
+          "prevSeq": 34
+        },
+        {
+          "seq": 50,
+          "turn": 3,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 1,
+            "cacheReadTokens": 22528,
+            "outputTokens": 8
+          },
+          "prevSeq": 49
+        },
+        {
+          "seq": 65,
+          "turn": 4,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 80,
+            "cacheReadTokens": 26240,
+            "outputTokens": 8
+          },
+          "prevSeq": 64
+        },
+        {
+          "seq": 79,
+          "turn": 5,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 97,
+            "cacheReadTokens": 26240,
+            "outputTokens": 5
+          },
+          "prevSeq": 78
+        },
+        {
+          "seq": 1874,
+          "turn": 6,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 57,
+            "cacheReadTokens": 26368,
+            "outputTokens": 3258
+          },
+          "prevSeq": 1873
+        },
+        {
+          "seq": 1940,
+          "turn": 6,
+          "step": 2,
+          "usage": {
+            "uncachedInputTokens": 18343,
+            "cacheReadTokens": 10496,
+            "outputTokens": 91
+          },
+          "prevSeq": 1939
+        },
+        {
+          "seq": 1954,
+          "turn": 7,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 266,
+            "cacheReadTokens": 28672,
+            "outputTokens": 5
+          },
+          "prevSeq": 1953
+        },
+        {
+          "seq": 1968,
+          "turn": 8,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 24,
+            "cacheReadTokens": 28928,
+            "outputTokens": 5
+          },
+          "prevSeq": 1967
+        },
+        {
+          "seq": 2027,
+          "turn": 9,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 112,
+            "cacheReadTokens": 28928,
+            "outputTokens": 88
+          },
+          "prevSeq": 2026
+        },
+        {
+          "seq": 2041,
+          "turn": 9,
+          "step": 2,
+          "usage": {
+            "uncachedInputTokens": 14148,
+            "cacheReadTokens": 13568,
+            "outputTokens": 4
+          },
+          "prevSeq": 2040
+        },
+        {
+          "seq": 2055,
+          "turn": 10,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 81,
+            "cacheReadTokens": 27648,
+            "outputTokens": 5
+          },
+          "prevSeq": 2054
+        },
+        {
+          "seq": 2079,
+          "turn": 11,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 95,
+            "cacheReadTokens": 27648,
+            "outputTokens": 19
+          },
+          "prevSeq": 2078
+        },
+        {
+          "seq": 2140,
+          "turn": 12,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 197,
+            "cacheReadTokens": 27648,
+            "outputTokens": 88
+          },
+          "prevSeq": 2139
+        },
+        {
+          "seq": 2154,
+          "turn": 12,
+          "step": 2,
+          "usage": {
+            "uncachedInputTokens": 10662,
+            "cacheReadTokens": 15872,
+            "outputTokens": 4
+          },
+          "prevSeq": 2153
+        },
+        {
+          "seq": 2177,
+          "turn": 13,
+          "step": 1,
+          "usage": {
+            "uncachedInputTokens": 179,
+            "cacheReadTokens": 26368,
+            "outputTokens": 18
+          },
+          "prevSeq": 2176
+        }
+      ],
+      "compactions": [
+        {
+          "compactionId": "a1b4cced-5cb4-4f53-8b8b-f4e96d9fc8a7",
+          "afterSeq": 1879,
+          "turn": 6,
+          "shadowedTokenCount": null
+        },
+        {
+          "compactionId": "74343b78-4516-4920-bb8a-5a8cc89d6fce",
+          "afterSeq": 2032,
+          "turn": 9,
+          "shadowedTokenCount": null
+        },
+        {
+          "compactionId": "4c959a19-8158-4c3d-95f4-3948962c450c",
+          "afterSeq": 2145,
+          "turn": 12,
+          "shadowedTokenCount": null
+        }
+      ],
+      "compressCalls": [
+        {
+          "seq": 1875,
+          "turn": 6
+        },
+        {
+          "seq": 2028,
+          "turn": 9
+        },
+        {
+          "seq": 2141,
+          "turn": 12
+        }
+      ]
+    }
+  },
+  "analysis": {
+    "baseline": {
+      "calls": 8,
+      "compressCalls": 0,
+      "compactions": 0,
+      "steadyStateUncached": 100.75,
+      "spikes": [],
+      "totalSpikeTokens": 0,
+      "totals": {
+        "uncachedInputTokens": 16748,
+        "cacheReadTokens": 172416,
+        "outputTokens": 258
+      }
+    },
+    "head": {
+      "calls": 10,
+      "compressCalls": 0,
+      "compactions": 0,
+      "steadyStateUncached": 1634,
+      "spikes": [],
+      "totalSpikeTokens": 0,
+      "totals": {
+        "uncachedInputTokens": 18354,
+        "cacheReadTokens": 245760,
+        "outputTokens": 6156
+      }
+    },
+    "middle": {
+      "calls": 11,
+      "compressCalls": 1,
+      "compactions": 1,
+      "steadyStateUncached": 72.75,
+      "spikes": [
+        {
+          "compactionId": "1cabbbe7",
+          "before": 3287,
+          "after": 13584,
+          "spike": 10297,
+          "shadowedTokenCount": null
+        }
+      ],
+      "totalSpikeTokens": 10297,
+      "totals": {
+        "uncachedInputTokens": 29242,
+        "cacheReadTokens": 250880,
+        "outputTokens": 3623
+      }
+    },
+    "batch": {
+      "calls": 11,
+      "compressCalls": 1,
+      "compactions": 0,
+      "steadyStateUncached": 418.5,
+      "spikes": [],
+      "totalSpikeTokens": 0,
+      "totals": {
+        "uncachedInputTokens": 16158,
+        "cacheReadTokens": 266752,
+        "outputTokens": 3441
+      }
+    },
+    "sequent": {
+      "calls": 16,
+      "compressCalls": 3,
+      "compactions": 3,
+      "steadyStateUncached": 94.75,
+      "spikes": [
+        {
+          "compactionId": "a1b4cced",
+          "before": 57,
+          "after": 18343,
+          "spike": 18286,
+          "shadowedTokenCount": null
+        },
+        {
+          "compactionId": "74343b78",
+          "before": 112,
+          "after": 14148,
+          "spike": 14036,
+          "shadowedTokenCount": null
+        },
+        {
+          "compactionId": "4c959a19",
+          "before": 197,
+          "after": 10662,
+          "spike": 10465,
+          "shadowedTokenCount": null
+        }
+      ],
+      "totalSpikeTokens": 42787,
+      "totals": {
+        "uncachedInputTokens": 44533,
+        "cacheReadTokens": 370688,
+        "outputTokens": 3622
+      }
+    }
+  },
+  "comparisons": {
+    "positional": null,
+    "batching": {
+      "batchTotalSpike": 0,
+      "sequentTotalSpike": 42787,
+      "batchCompactions": 0,
+      "sequentCompactions": 3
+    },
+    "breakEven": null
+  }
+}

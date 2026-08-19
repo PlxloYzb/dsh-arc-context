@@ -1,0 +1,184 @@
+import { test } from 'node:test'
+import assert from 'node:assert/strict'
+import { Context } from '@deepseek-ai/cordis'
+import { createCore, defaultConfig, type CompressionCore } from 'acp-kernel'
+import { Session } from '@deepseek-ai/dsh-session'
+import type { Agent } from '@deepseek-ai/dsh-agent'
+import { kernelConfigFor, type KernelConfigInput } from '../src/config.ts'
+import { defaultCountTokens } from 'acp-kernel'
+import { buildNudge } from '../src/nudge.ts'
+import { ArcStateStore } from '../src/state.ts'
+import { Config, resolveArcConfig } from '../src/index.ts'
+import { buildTextSession, appendTurn, appendUser } from './helpers.ts'
+
+test('config: defaults equal the kernel (and billion-context-pi) defaults', () => {
+  const input: KernelConfigInput = { modelContextLimit: 128000 }
+  const config = kernelConfigFor(input)
+  const kernel = defaultConfig(128000)
+  assert.equal(config.nudge.minContextLimitPct, kernel.nudge.minContextLimitPct)
+  assert.equal(config.nudge.maxContextLimitPct, kernel.nudge.maxContextLimitPct)
+  assert.equal(config.nudge.emergencyThresholdPct, kernel.nudge.emergencyThresholdPct)
+  assert.equal(config.nudge.growthRatio, kernel.nudge.growthRatio)
+  // These are the values billion-context-pi ships (kernel defaults, unmodified).
+  assert.equal(config.nudge.minContextLimitPct, 0.45)
+  assert.equal(config.nudge.maxContextLimitPct, 0.75)
+  assert.equal(config.nudge.emergencyThresholdPct, 0.95)
+})
+
+test('config: explicit nudge thresholds override without dropping other defaults', () => {
+  const config = kernelConfigFor({
+    modelContextLimit: 128000,
+    nudgeMinContextLimitPct: 0.2,
+    nudgeEmergencyThresholdPct: 0.6,
+  })
+  assert.equal(config.nudge.minContextLimitPct, 0.2)
+  assert.equal(config.nudge.emergencyThresholdPct, 0.6)
+  // Unspecified knobs keep their kernel defaults (merged, not replaced).
+  assert.equal(config.nudge.maxContextLimitPct, 0.75)
+  assert.equal(config.nudge.growthRatio, 0.05)
+  assert.equal(config.nudge.frequency, 5)
+})
+
+test('config: coreOverrides pass through (billion-context-pi escape hatch)', () => {
+  const config = kernelConfigFor({
+    modelContextLimit: 128000,
+    coreOverrides: { preserveRecentMessages: 3 },
+  })
+  assert.equal(config.preserveRecentMessages, 3)
+})
+
+test('config: adapter thresholds do not discard nested core nudge overrides', () => {
+  const baseNudge = defaultConfig(128000).nudge
+  const config = kernelConfigFor({
+    modelContextLimit: 128000,
+    nudgeMaxContextLimitPct: 0.7,
+    coreOverrides: {
+      nudge: { ...baseNudge, growthFloor: 120000, growthCap: 120000 },
+    },
+  })
+  assert.equal(config.nudge.maxContextLimitPct, 0.7, 'adapter-level pressure line wins')
+  assert.equal(config.nudge.growthFloor, 120000, 'advanced growth policy survives the merge')
+  assert.equal(config.nudge.growthCap, 120000)
+})
+
+function fakeAgent(session: import('@deepseek-ai/dsh-session').Session): Agent {
+  return {
+    id: session.id,
+    session,
+    options: { provider: 'test-provider', model: 'test-model' },
+    ctx: new Context(),
+  } as unknown as Agent
+}
+
+function envOf(extra: Partial<KernelConfigInput>) {
+  return {
+    kernel: createCore({}) as CompressionCore,
+    store: new ArcStateStore(),
+    modelContextLimit: 128000,
+    ...extra,
+  }
+}
+
+/** 12 large messages ≈ 60K estimated tokens, compressible content well over the kernel threshold. */
+function bigSession(): Session {
+  const session = Session.create('big-session')
+  appendTurn(session, 1)
+  const text = 'JWT access tokens with fifteen minute expiry and refresh tokens stored in Redis with thirty day TTL. '.repeat(600)
+  for (let index = 0; index < 12; index += 1) {
+    appendUser(session, `${text} [msg ${index}]`)
+  }
+  return session
+}
+
+test('config: a lowered over-limit threshold triggers the nudge', () => {
+  // bigSession ≈ 182K estimated tokens against a 300K limit ≈ 61% usage:
+  // below the default 75% over-limit line — the ordinary path is growth-gated
+  // (fresh state, growth 0 < floor), so nothing fires by default. Lowering
+  // the over-limit threshold to 50% forces the nudge regardless of growth.
+  const session = bigSession()
+  const lastNudgeTurn = new Map<string, number>()
+  const agent = fakeAgent(session)
+
+  const withDefaults = buildNudge(agent, envOf({ modelContextLimit: 300000 }), lastNudgeTurn)
+  assert.equal(withDefaults, null, '61% usage is growth-gated below the default 75% line')
+
+  const withLowMax = buildNudge(
+    agent,
+    envOf({ modelContextLimit: 300000, nudgeMaxContextLimitPct: 0.5 }),
+    lastNudgeTurn,
+  )
+  assert.ok(withLowMax !== null, 'lowering the over-limit threshold to 50% forces the nudge')
+  assert.equal(withLowMax!.emergency, false)
+})
+
+test('config: engine defaults lower the nudge thresholds to 0.70/0.85', () => {
+  // The engine ships 0.70/0.85 (down from the kernel/billion-context-pi
+  // 0.75/0.95) so the forced nudge fires before the host's compaction-basic
+  // 80% line and the model keeps room to act. Explicit values win.
+  const defaults = resolveArcConfig({})
+  assert.equal(defaults.nudgeMaxContextLimitPct, 0.7)
+  assert.equal(defaults.nudgeEmergencyThresholdPct, 0.85)
+
+  const explicit = resolveArcConfig({ nudgeMaxContextLimitPct: 0.6, nudgeEmergencyThresholdPct: 0.9 })
+  assert.equal(explicit.nudgeMaxContextLimitPct, 0.6)
+  assert.equal(explicit.nudgeEmergencyThresholdPct, 0.9)
+})
+
+test('config: token estimation is CJK-aware (1 char/token) not 4-char flat', () => {
+  // The kernel's defaultCountTokens counts CJK at 1 char per token and
+  // everything else at 4 chars per token — the fix for the flat estimate.
+  assert.equal(defaultCountTokens('中'.repeat(100)), 100, '100 CJK chars = 100 tokens')
+  assert.equal(defaultCountTokens('a'.repeat(100)), 25, '100 ascii chars = 25 tokens')
+  assert.equal(defaultCountTokens('中'.repeat(50) + 'a'.repeat(40)), 60, 'mixed CJK+ascii')
+})
+
+test('config: Schemastery fills the zero-configuration product defaults', () => {
+  const config = Config({})
+  assert.equal(config.autoModelContextLimit, true)
+  assert.equal(config.autoTools, true)
+  assert.equal(config.autoCommand, true)
+  assert.equal(config.autoNudge, true)
+  assert.deepEqual(config.adaptiveGovernor, {
+    enabled: false,
+    maxOutputTokens: 'auto',
+    safetyMarginTokens: 32768,
+    nudgeAtEffectiveCapacityPct: 0.75,
+    emergencyAtEffectiveCapacityPct: 0.9,
+    emergencyFallback: true,
+  })
+})
+
+test('config: Schemastery accepts advanced numeric/auto governor settings', () => {
+  const config = Config({
+    modelContextLimit: 1_000_000,
+    adaptiveGovernor: { enabled: true, maxOutputTokens: 131072 },
+  })
+  assert.equal(config.modelContextLimit, 1_000_000)
+  assert.equal(config.adaptiveGovernor?.maxOutputTokens, 131072)
+  assert.equal(resolveArcConfig(config).autoModelContextLimit, true)
+})
+
+test('config: Schemastery rejects invalid public values before plugin construction', () => {
+  assert.throws(() => Config({ modelContextLimit: 0 }), /expected number >= 1/)
+  assert.throws(() => Config({ adaptiveGovernor: { maxOutputTokens: 'unbounded' as never } }), /expected/)
+  assert.throws(() => Config({ adaptiveGovernor: { emergencyAtEffectiveCapacityPct: 1 } }), /expected number <=/)
+})
+
+test('kernel tuning knobs reach the kernel config as first-class fields', () => {
+  const tuned = kernelConfigFor({
+    modelContextLimit: 128000,
+    protectedRecentMessages: 8,
+    protectedRecentTokens: 9000,
+    minCompressChars: 3000,
+    nudgeCadenceTurns: 2,
+  })
+  assert.equal(tuned.preserveRecentMessages, 8)
+  assert.equal(tuned.preserveRecentTokens, 9000)
+  assert.equal(tuned.compress.minCompressRange, 3000)
+  assert.equal(tuned.nudge.frequency, 2)
+  // omitted knobs keep the kernel defaults
+  const stock = kernelConfigFor({ modelContextLimit: 128000 })
+  assert.equal(stock.preserveRecentMessages, 5)
+  assert.equal(stock.compress.minCompressRange, 5000)
+  assert.equal(stock.nudge.frequency, 5)
+})

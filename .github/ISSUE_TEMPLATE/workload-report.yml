@@ -1,0 +1,35 @@
+name: Workload evidence
+description: Report an ARC versus Basic or ARC canary result
+title: "[evidence] "
+labels: [evidence]
+body:
+  - type: markdown
+    attributes:
+      value: Share synthetic or fully redacted data only. State invalid runs and counterexamples explicitly.
+  - type: input
+    id: workload
+    attributes:
+      label: Workload class
+      placeholder: code engineering, free-form decisions, long output, etc.
+    validations:
+      required: true
+  - type: textarea
+    id: controls
+    attributes:
+      label: Controls
+      description: Same seed/model/tools/config differences and quality rubric.
+    validations:
+      required: true
+  - type: textarea
+    id: quality
+    attributes:
+      label: Quality result
+    validations:
+      required: true
+  - type: textarea
+    id: usage
+    attributes:
+      label: Raw API usage
+      description: Uncached input, output, and cache read. Include Basic summary usage in all-in totals.
+    validations:
+      required: true

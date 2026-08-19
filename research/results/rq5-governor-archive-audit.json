@@ -1,0 +1,312 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-18T06:34:10.553Z",
+  "question": "RQ5b: does each persistent Governor-local archive retain the planted facts from its shadowed source nodes?",
+  "methodology": {
+    "source": "four existing Governor-local compaction/summary events in the first RQ5 durable session logs; offline only, zero model calls",
+    "sessions": [
+      {
+        "arm": "G80",
+        "sessionId": "session-83698664-c219-49e1-8df6-9e77a5f0ee9b"
+      },
+      {
+        "arm": "G88",
+        "sessionId": "session-0c9c9dd4-af64-4195-8313-8131b5fa6797"
+      }
+    ],
+    "seed": 505,
+    "scorer": "RQ1 bench scorer form-contract v2, applied to archive checkpoint text; strict full-form = verbatim, loose-only = paraphrase, neither = lost",
+    "rawLogsCopiedIntoRepository": false
+  },
+  "archives": [
+    {
+      "arm": "G80",
+      "sessionId": "session-83698664-c219-49e1-8df6-9e77a5f0ee9b",
+      "checkpointSeq": 78,
+      "compactionId": "7be8a4bf-651c-4827-ae3d-31fc13b9bf63",
+      "shadowedRange": {
+        "start": 7,
+        "end": 7
+      },
+      "shadowedSeqs": [
+        7
+      ],
+      "shadowedTokenCount": 5367,
+      "summaryChars": 4894,
+      "plantedFactIds": [
+        "f0",
+        "f2",
+        "f3"
+      ],
+      "score": {
+        "strict": "3/3",
+        "loose": "3/3",
+        "strictRate": 1,
+        "looseRate": 1
+      },
+      "perFact": [
+        {
+          "id": "f0",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact",
+          "retention": "verbatim"
+        },
+        {
+          "id": "f2",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact",
+          "retention": "verbatim"
+        },
+        {
+          "id": "f3",
+          "category": "crossref",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact",
+          "retention": "verbatim"
+        }
+      ],
+      "retention": {
+        "verbatim": 3,
+        "paraphrase": 0,
+        "lost": 0
+      }
+    },
+    {
+      "arm": "G80",
+      "sessionId": "session-83698664-c219-49e1-8df6-9e77a5f0ee9b",
+      "checkpointSeq": 141,
+      "compactionId": "dec149e4-b623-4b63-be1a-47d48d8e4462",
+      "shadowedRange": {
+        "start": 8,
+        "end": 71
+      },
+      "shadowedSeqs": [
+        8,
+        9,
+        57,
+        64,
+        71
+      ],
+      "shadowedTokenCount": 6050,
+      "summaryChars": 7867,
+      "plantedFactIds": [
+        "f4",
+        "f5",
+        "f6"
+      ],
+      "score": {
+        "strict": "3/3",
+        "loose": "3/3",
+        "strictRate": 1,
+        "looseRate": 1
+      },
+      "perFact": [
+        {
+          "id": "f4",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact",
+          "retention": "verbatim"
+        },
+        {
+          "id": "f5",
+          "category": "numeric",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact",
+          "retention": "verbatim"
+        },
+        {
+          "id": "f6",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact",
+          "retention": "verbatim"
+        }
+      ],
+      "retention": {
+        "verbatim": 3,
+        "paraphrase": 0,
+        "lost": 0
+      }
+    },
+    {
+      "arm": "G88",
+      "sessionId": "session-0c9c9dd4-af64-4195-8313-8131b5fa6797",
+      "checkpointSeq": 40,
+      "compactionId": "64407474-8980-42c5-a725-464223c23288",
+      "shadowedRange": {
+        "start": 7,
+        "end": 7
+      },
+      "shadowedSeqs": [
+        7
+      ],
+      "shadowedTokenCount": 5367,
+      "summaryChars": 4894,
+      "plantedFactIds": [
+        "f0",
+        "f2",
+        "f3"
+      ],
+      "score": {
+        "strict": "3/3",
+        "loose": "3/3",
+        "strictRate": 1,
+        "looseRate": 1
+      },
+      "perFact": [
+        {
+          "id": "f0",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact",
+          "retention": "verbatim"
+        },
+        {
+          "id": "f2",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact",
+          "retention": "verbatim"
+        },
+        {
+          "id": "f3",
+          "category": "crossref",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact",
+          "retention": "verbatim"
+        }
+      ],
+      "retention": {
+        "verbatim": 3,
+        "paraphrase": 0,
+        "lost": 0
+      }
+    },
+    {
+      "arm": "G88",
+      "sessionId": "session-0c9c9dd4-af64-4195-8313-8131b5fa6797",
+      "checkpointSeq": 73,
+      "compactionId": "8b8c9f03-6a76-4e0b-b447-f133185e1978",
+      "shadowedRange": {
+        "start": 8,
+        "end": 33
+      },
+      "shadowedSeqs": [
+        8,
+        9,
+        19,
+        26,
+        33
+      ],
+      "shadowedTokenCount": 5976,
+      "summaryChars": 7867,
+      "plantedFactIds": [
+        "f4",
+        "f5",
+        "f6"
+      ],
+      "score": {
+        "strict": "3/3",
+        "loose": "3/3",
+        "strictRate": 1,
+        "looseRate": 1
+      },
+      "perFact": [
+        {
+          "id": "f4",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact",
+          "retention": "verbatim"
+        },
+        {
+          "id": "f5",
+          "category": "numeric",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact",
+          "retention": "verbatim"
+        },
+        {
+          "id": "f6",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact",
+          "retention": "verbatim"
+        }
+      ],
+      "retention": {
+        "verbatim": 3,
+        "paraphrase": 0,
+        "lost": 0
+      }
+    }
+  ],
+  "totals": {
+    "facts": 12,
+    "verbatim": 12,
+    "paraphrase": 0,
+    "lost": 0,
+    "strictRate": 1,
+    "looseRate": 1
+  },
+  "categoryDistribution": {
+    "crossref": {
+      "total": 2,
+      "verbatim": 2,
+      "paraphrase": 0,
+      "lost": 0,
+      "strictRate": 1,
+      "looseRate": 1
+    },
+    "numeric": {
+      "total": 2,
+      "verbatim": 2,
+      "paraphrase": 0,
+      "lost": 0,
+      "strictRate": 1,
+      "looseRate": 1
+    },
+    "verbatim": {
+      "total": 8,
+      "verbatim": 8,
+      "paraphrase": 0,
+      "lost": 0,
+      "strictRate": 1,
+      "looseRate": 1
+    }
+  },
+  "verification": {
+    "expectedArchiveCount": 4,
+    "archiveCount": 4,
+    "allArchivesHavePlantedFacts": true,
+    "allArchiveScoresPerfect": true,
+    "zeroModelCalls": true
+  }
+}

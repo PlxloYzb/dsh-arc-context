@@ -1,0 +1,9 @@
+# Isolated live-validation profile for Adaptive Reversible Context Governor.
+- id: compaction-acp
+  config:
+    adaptiveGovernor:
+      enabled: true
+      maxOutputTokens: 32768
+      safetyMarginTokens: 32768
+      nudgeAtEffectiveCapacityPct: 0.75
+      emergencyAtEffectiveCapacityPct: 0.90

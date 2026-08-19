@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "rq": "RQ4",
+  "generatedAt": "2026-08-18T15:28:44.824Z",
+  "completion": {
+    "requestedChains": 6,
+    "completeChains": 0,
+    "partial": true,
+    "stopped": null
+  },
+  "costLedger": {
+    "cap": 110,
+    "used": 0,
+    "withinCap": true
+  },
+  "methodology": {
+    "modelWrittenSummaries": true,
+    "tierTargets": "live parent checkpoint nodes",
+    "sourceFractionTier1": "first 2 of 3 planted turns",
+    "modelPreference": {
+      "provider": "opencode-go",
+      "model": "deepseek-v4-flash",
+      "reasoningEffort": "max"
+    },
+    "fallback": {
+      "provider": "scnet",
+      "model": "GLM-5.2",
+      "reasoningEffort": "max"
+    }
+  },
+  "chains": [
+    {
+      "arm": "en-1",
+      "error": "fetch failed"
+    },
+    {
+      "arm": "en-2",
+      "error": "fetch failed"
+    },
+    {
+      "arm": "en-3",
+      "error": "fetch failed"
+    },
+    {
+      "arm": "zh-1",
+      "error": "fetch failed"
+    },
+    {
+      "arm": "zh-2",
+      "error": "fetch failed"
+    },
+    {
+      "arm": "zh-3",
+      "error": "fetch failed"
+    }
+  ],
+  "curves": {
+    "tiers": [
+      {
+        "tier": 1,
+        "strict": "0/0",
+        "loose": "0/0",
+        "strictRate": null,
+        "looseRate": null,
+        "carrier": {
+          "modelOnly": 0,
+          "indexOnly": 0,
+          "both": 0,
+          "survivors": 0,
+          "shares": null
+        }
+      },
+      {
+        "tier": 2,
+        "strict": "0/0",
+        "loose": "0/0",
+        "strictRate": null,
+        "looseRate": null,
+        "carrier": {
+          "modelOnly": 0,
+          "indexOnly": 0,
+          "both": 0,
+          "survivors": 0,
+          "shares": null
+        }
+      },
+      {
+        "tier": 3,
+        "strict": "0/0",
+        "loose": "0/0",
+        "strictRate": null,
+        "looseRate": null,
+        "carrier": {
+          "modelOnly": 0,
+          "indexOnly": 0,
+          "both": 0,
+          "survivors": 0,
+          "shares": null
+        }
+      }
+    ],
+    "blockSize": []
+  },
+  "decompression": {
+    "perChain": [],
+    "allTier2RecoverTier1": false
+  },
+  "criterionComparison": {
+    "tier3AtTier1": true,
+    "monotonicLoose": true,
+    "indexMajority": false,
+    "branch": "close-mechanism-intact",
+    "verdict": "close-mechanism-intact"
+  }
+}

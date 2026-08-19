@@ -1,0 +1,105 @@
+{
+  "expected": [
+    {
+      "item": 1,
+      "value": 701,
+      "dependency": 9001
+    },
+    {
+      "item": 2,
+      "value": 702,
+      "dependency": 9002
+    },
+    {
+      "item": 3,
+      "value": 703,
+      "dependency": 9003
+    },
+    {
+      "item": 4,
+      "value": 704,
+      "dependency": 9004
+    },
+    {
+      "item": 5,
+      "value": 705,
+      "dependency": 9005
+    },
+    {
+      "item": 6,
+      "value": 706,
+      "dependency": 9006
+    },
+    {
+      "item": 7,
+      "value": 707,
+      "dependency": 9007
+    },
+    {
+      "item": 8,
+      "value": 708,
+      "dependency": 9008
+    },
+    {
+      "item": 9,
+      "value": 709,
+      "dependency": 9009
+    },
+    {
+      "item": 10,
+      "value": 710,
+      "dependency": 9010
+    },
+    {
+      "item": 11,
+      "value": 711,
+      "dependency": 9011
+    },
+    {
+      "item": 12,
+      "value": 712,
+      "dependency": 9012
+    },
+    {
+      "item": 13,
+      "value": 713,
+      "dependency": 9013
+    },
+    {
+      "item": 14,
+      "value": 714,
+      "dependency": 9014
+    },
+    {
+      "item": 15,
+      "value": 715,
+      "dependency": 9015
+    },
+    {
+      "item": 16,
+      "value": 716,
+      "dependency": 9016
+    },
+    {
+      "item": 17,
+      "value": 717,
+      "dependency": 9017
+    },
+    {
+      "item": 18,
+      "value": 718,
+      "dependency": 9018
+    },
+    {
+      "item": 19,
+      "value": 719,
+      "dependency": 9019
+    },
+    {
+      "item": 20,
+      "value": 720,
+      "dependency": 9020
+    }
+  ],
+  "safety": "SAFE_FINAL_ONLY"
+}

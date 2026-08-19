@@ -1,0 +1,179 @@
+{
+  "seed": "code-seed-02",
+  "expected": [
+    {
+      "key": "C1",
+      "value": "BABB5-9BB03-D367D",
+      "kind": "CONSTRAINT",
+      "statement": "slash-separated release branch segments must remain separated by slash",
+      "stage": 1
+    },
+    {
+      "key": "D1",
+      "value": "1C896-C6E3B-22D55",
+      "kind": "DECISION",
+      "statement": "lowercase normalization happens before whitespace and underscore collapse",
+      "stage": 1
+    },
+    {
+      "key": "I1",
+      "value": "B65F7-920BA-88747",
+      "kind": "INVARIANT",
+      "statement": "an empty normalized branch throws ERR_EMPTY_BRANCH",
+      "stage": 1
+    },
+    {
+      "key": "F1",
+      "value": "F8ACD-8323F-44B7C",
+      "kind": "FILE_ANCHOR",
+      "statement": "src/release-policy.js owns normalizeBranch",
+      "stage": 1
+    },
+    {
+      "key": "T1",
+      "value": "74E23-4E18E-D4319",
+      "kind": "TEST_ORACLE",
+      "statement": "Release_Candidate / Hot Fix becomes release-candidate-/-hot-fix",
+      "stage": 1
+    },
+    {
+      "key": "B1",
+      "value": "A7395-2C47D-5BF50",
+      "kind": "ROLLBACK",
+      "statement": "rejection must not return a partially normalized branch",
+      "stage": 1
+    },
+    {
+      "key": "C2",
+      "value": "DF046-F5AD4-05599",
+      "kind": "REQUIREMENT",
+      "statement": "retry attempt is an integer in the inclusive range zero through five",
+      "stage": 2
+    },
+    {
+      "key": "D2",
+      "value": "53931-8C3B6-11212",
+      "kind": "DECISION",
+      "statement": "the backoff remains deterministic and contains no jitter",
+      "stage": 2
+    },
+    {
+      "key": "I2",
+      "value": "771A3-892B5-79DE2",
+      "kind": "INVARIANT",
+      "statement": "the delay never exceeds four thousand milliseconds",
+      "stage": 2
+    },
+    {
+      "key": "F2",
+      "value": "6F779-11D35-1B883",
+      "kind": "SYMBOL_ANCHOR",
+      "statement": "retryDelay remains a named export of src/release-policy.js",
+      "stage": 2
+    },
+    {
+      "key": "T2",
+      "value": "F0E94-EF4B6-BC400",
+      "kind": "ERROR_FINGERPRINT",
+      "statement": "invalid retry input is ERR_RETRY_ATTEMPT",
+      "stage": 2
+    },
+    {
+      "key": "B2",
+      "value": "95C31-809F1-294B6",
+      "kind": "ROLLBACK",
+      "statement": "do not introduce timers or asynchronous state",
+      "stage": 2
+    },
+    {
+      "key": "C3",
+      "value": "D8CC1-82FB4-1F812",
+      "kind": "CONSTRAINT",
+      "statement": "production deployment is restricted to the main branch",
+      "stage": 3
+    },
+    {
+      "key": "D3",
+      "value": "88D60-08022-377EF",
+      "kind": "DECISION",
+      "statement": "unknown environments return false instead of throwing",
+      "stage": 3
+    },
+    {
+      "key": "I3",
+      "value": "37736-0D05A-244D2",
+      "kind": "INVARIANT",
+      "statement": "testsPassed must be true in every deployable environment",
+      "stage": 3
+    },
+    {
+      "key": "F3",
+      "value": "BCD64-6657E-C7D67",
+      "kind": "FILE_ANCHOR",
+      "statement": "src/release-policy.js owns canDeploy",
+      "stage": 3
+    },
+    {
+      "key": "T3",
+      "value": "31221-78916-FF941",
+      "kind": "TEST_ORACLE",
+      "statement": "staging requires one approval while production requires two",
+      "stage": 3
+    },
+    {
+      "key": "B3",
+      "value": "9965F-ECA73-318FE",
+      "kind": "ROLLBACK",
+      "statement": "do not weaken production rules to match staging",
+      "stage": 3
+    },
+    {
+      "key": "C4",
+      "value": "D5343-0490B-5C916",
+      "kind": "REQUIREMENT",
+      "statement": "redaction matches dsk_ followed by exactly twelve ASCII alphanumerics",
+      "stage": 4
+    },
+    {
+      "key": "D4",
+      "value": "CD7D7-993F5-6E24B",
+      "kind": "DECISION",
+      "statement": "replacement is the literal dsk_[REDACTED] marker",
+      "stage": 4
+    },
+    {
+      "key": "I4",
+      "value": "92EA5-180A8-232BF",
+      "kind": "INVARIANT",
+      "statement": "all matching tokens in one string are redacted",
+      "stage": 4
+    },
+    {
+      "key": "F4",
+      "value": "CF3EF-EE7C5-88E34",
+      "kind": "SYMBOL_ANCHOR",
+      "statement": "redactToken remains synchronous and pure",
+      "stage": 4
+    },
+    {
+      "key": "T4",
+      "value": "2F0E1-B97E3-910CA",
+      "kind": "ERROR_FINGERPRINT",
+      "statement": "lookalikes with eleven or thirteen suffix characters stay unchanged",
+      "stage": 4
+    },
+    {
+      "key": "B4",
+      "value": "C19E1-A39A4-1B644",
+      "kind": "ROLLBACK",
+      "statement": "do not redact arbitrary dsk_ prefixes",
+      "stage": 4
+    }
+  ],
+  "derived": {
+    "X1": "BABB5-9BB03-D367D.CD7D7-993F5-6E24B",
+    "X2": "771A3-892B5-79DE2/31221-78916-FF941",
+    "X3": "F8ACD-8323F-44B7C:CF3EF-EE7C5-88E34:9965F-ECA73-318FE",
+    "X4": "1C896-C6E3B-22D55-53931-8C3B6-11212-88D60-08022-377EF-CD7D7-993F5-6E24B"
+  }
+}

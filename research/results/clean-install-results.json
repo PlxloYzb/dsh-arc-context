@@ -1,0 +1,39 @@
+{
+  "generatedAt": "2026-08-17T10:19:02.624Z",
+  "supersededBy": "reversible-install-results.json",
+  "candidateCommit": "85182c6",
+  "tarball": {
+    "name": "dsh-arc-context-0.1.0-beta.1.tgz",
+    "sha256": "0822fe2b99407e7870ef0e084db9993ca8d7a42f913f23c190cc8457d8d7fb70"
+  },
+  "freshDshHome": true,
+  "profiles": {
+    "web": {
+      "install": true,
+      "boot": true,
+      "rootBasicDisabled": true,
+      "arcGovernorEnabled": true
+    },
+    "headless": {
+      "install": true,
+      "rootBasicDisabled": true,
+      "arcGovernorEnabled": true
+    }
+  },
+  "presets": {
+    "audit": {
+      "anchoredStandard": "PASS",
+      "routerStandard": "PASS"
+    },
+    "sessionCreate": {
+      "anchoredStandard": true,
+      "routerStandard": true
+    }
+  },
+  "runtimePeerResolution": "PASS",
+  "userActionAfterPluginAdd": "none",
+  "uninstallBoundary": {
+    "headless": "built-in Basic becomes active again",
+    "web": "Historical defect for this candidate; fixed and revalidated in reversible-install-results.json"
+  }
+}

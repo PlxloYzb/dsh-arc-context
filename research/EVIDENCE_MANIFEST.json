@@ -1,0 +1,289 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-18",
+  "model": "deepseek-v4-flash",
+  "costFields": [
+    "uncachedInputTokens",
+    "outputTokens",
+    "cacheReadTokens"
+  ],
+  "rawMuxIncluded": false,
+  "rawMuxPolicy": "Publish separately after path and system-prompt sanitization.",
+  "runs": [
+    {
+      "id": "synthetic-safe-governor-01",
+      "status": "valid",
+      "result": "results/live-synthetic-results.json"
+    },
+    {
+      "id": "synthetic-boundary-governor-01",
+      "status": "valid",
+      "result": "results/live-synthetic-results.json"
+    },
+    {
+      "id": "synthetic-fallback-governor-01",
+      "status": "valid",
+      "result": "results/live-synthetic-results.json"
+    },
+    {
+      "id": "paired-random-seed01-governor",
+      "status": "counterexample",
+      "result": "results/randomized-paired-seed01-results.json"
+    },
+    {
+      "id": "paired-random-seed01-governor-v2",
+      "status": "valid",
+      "result": "results/randomized-paired-seed01-results.json"
+    },
+    {
+      "id": "paired-random-seed01-basic",
+      "status": "valid",
+      "result": "results/randomized-paired-seed01-results.json"
+    },
+    {
+      "id": "holdout-random-seed02-governor",
+      "status": "valid-holdout",
+      "result": "results/randomized-holdout-seed02-results.json"
+    },
+    {
+      "id": "code-engineering-holdout-seed01-governor-auto",
+      "status": "invalid-fixture",
+      "result": "results/code-engineering-holdout-seed01-invalid-results.json"
+    },
+    {
+      "id": "code-engineering-holdout-seed02-governor-auto",
+      "status": "valid",
+      "result": "results/code-engineering-holdout-seed02-results.json"
+    },
+    {
+      "id": "code-engineering-holdout-seed02-basic",
+      "status": "valid",
+      "result": "results/code-engineering-holdout-seed02-basic-results.json"
+    },
+    {
+      "id": "semantic-supersession-seed01-governor-invalid-token-accounting",
+      "status": "invalid-runtime",
+      "result": null
+    },
+    {
+      "id": "semantic-supersession-seed01-governor",
+      "status": "counterexample",
+      "result": "results/semantic-supersession-seed01-governor-results.json"
+    },
+    {
+      "id": "semantic-supersession-seed01-basic",
+      "status": "valid",
+      "result": "results/semantic-supersession-seed01-basic-results.json"
+    },
+    {
+      "id": "semantic-supersession-seed01-governor-v2",
+      "status": "valid",
+      "result": "results/semantic-supersession-seed01-governor-v2-results.json"
+    },
+    {
+      "id": "semantic-supersession-holdout02-governor-v2",
+      "status": "valid-holdout",
+      "result": "results/semantic-supersession-holdout02-governor-v2-results.json"
+    },
+    {
+      "id": "governor-explicit-output-384k-live",
+      "status": "invalid-runtime",
+      "result": "results/governor-explicit-output-384k-live-results.json"
+    },
+    {
+      "id": "governor-explicit-output-384k-live-v2",
+      "status": "valid",
+      "result": "results/governor-explicit-output-384k-live-v2-results.json"
+    },
+    {
+      "id": "arc-repeated-injection-v1",
+      "status": "counterexample",
+      "result": "results/repeated-injection-results.json"
+    },
+    {
+      "id": "arc-repeated-injection-v2",
+      "status": "valid",
+      "result": "results/repeated-injection-results.json"
+    },
+    {
+      "id": "glm52-arc-adapter-smoke",
+      "status": "valid",
+      "result": "results/glm52-adapter-smoke-results.json"
+    },
+    {
+      "id": "glm52-arc-explicit-output-128k",
+      "status": "valid",
+      "result": "results/glm52-adapter-smoke-results.json"
+    },
+    {
+      "id": "semantic-supersession-seed01-glm52-arc",
+      "status": "counterexample",
+      "result": "results/semantic-supersession-seed01-glm52-arc-results.json"
+    },
+    {
+      "id": "semantic-supersession-seed01-glm52-arc-v2",
+      "status": "valid",
+      "result": "results/semantic-supersession-seed01-glm52-arc-v2-results.json"
+    },
+    {
+      "id": "semantic-supersession-seed01-glm52-basic",
+      "status": "valid",
+      "result": "results/semantic-supersession-seed01-glm52-basic-results.json"
+    },
+    {
+      "id": "semantic-supersession-seed01-deepseek-v3",
+      "status": "valid",
+      "result": "results/semantic-supersession-seed01-deepseek-v3-results.json"
+    },
+    {
+      "id": "code-engineering-holdout-seed02-glm52-arc",
+      "status": "counterexample",
+      "result": "results/code-engineering-holdout-seed02-glm52-arc-results.json"
+    },
+    {
+      "id": "code-engineering-holdout-seed02-glm52-arc-v2",
+      "status": "valid",
+      "result": "results/code-engineering-holdout-seed02-glm52-arc-v2-results.json"
+    },
+    {
+      "id": "clean-install-final-tarball",
+      "status": "valid",
+      "result": "results/clean-install-results.json"
+    },
+    {
+      "id": "preset-bridge-deterministic-gate-0.2.0-beta.2",
+      "status": "valid",
+      "result": "results/preset-bridge-results.json"
+    },
+    {
+      "id": "uninstall-resume-under-basic-0.2.0-beta.2",
+      "status": "valid",
+      "result": "results/uninstall-resume-results.json"
+    },
+    {
+      "id": "rq1-bench-calibration-and-smoke",
+      "status": "valid",
+      "result": "results/bench/smoke-beta4-v2-seed1-2026-08-17T17-50-38-339Z.json"
+    },
+    {
+      "id": "rq2-cache-economics-five-arms",
+      "status": "valid",
+      "result": "results/rq2-cache-economics-final.json"
+    },
+    {
+      "id": "rq3-rq8-recall-matrix-8-sessions",
+      "status": "valid",
+      "result": "results/rq3-recall-results.json"
+    },
+    {
+      "id": "rq1-closure-scorer-form-contract-v2-rescore",
+      "status": "valid",
+      "result": "results/rq3-recall-results.json"
+    },
+    {
+      "id": "rq1-closure-projection-subtraction-autoNudge",
+      "status": "valid",
+      "result": "results/projection-subtraction-results.json"
+    },
+    {
+      "id": "rq1-closure-historical-code-arc",
+      "status": "valid",
+      "result": "results/bench/rq1-hist-code-arc-2026-08-17T22-52-59-946Z.json"
+    },
+    {
+      "id": "rq1-closure-historical-code-basic",
+      "status": "valid",
+      "result": "results/bench/rq1-hist-code-basic-2026-08-17T23-40-47-905Z.json"
+    },
+    {
+      "id": "rq1-closure-historical-semantic-arc",
+      "status": "valid-with-anomaly",
+      "result": "results/bench/rq1-hist-semantic-arc-2026-08-17T23-36-00-762Z.json"
+    },
+    {
+      "id": "rq1-closure-historical-semantic-basic",
+      "status": "valid",
+      "result": "results/bench/rq1-hist-semantic-basic-2026-08-17T23-45-05-348Z.json"
+    },
+    {
+      "id": "rq1-closure-historical-reproduction-verdicts",
+      "status": "valid",
+      "result": "results/rq1-historical-reproduction.json"
+    },
+    {
+      "id": "nudge-overpressure-fix-beta6-live-verification",
+      "status": "valid-with-true-pressure-emergencies",
+      "result": "results/nudge-overpressure-fix-verification.json"
+    },
+    {
+      "id": "rq7-adversarial-pre-oss-beta7-live",
+      "status": "valid",
+      "result": "results/rq7-adversarial-results.json"
+    },
+    {
+      "id": "rq5-nudge-compliance-four-arm-budget-capped",
+      "status": "partial-budget-capped",
+      "result": "results/rq5-compliance-results.json"
+    },
+    {
+      "id": "rq5b-governor-archive-quality-offline",
+      "status": "valid-zero-call",
+      "result": "results/rq5-governor-archive-audit.json"
+    },
+    {
+      "id": "rq5b-compliance-quality-completion",
+      "status": "valid-constrained-p-protocol-blocked",
+      "result": "results/rq5-compliance-results.json"
+    },
+    {
+      "id": "rq4-forced-distillation-three-chain-budget-overrun",
+      "status": "partial-budget-overrun-not-decision-grade",
+      "result": "results/rq4-distillation-results.json"
+    },
+    {
+      "id": "rq4-tier2-decompression-reassessment",
+      "status": "valid-zero-call-p2-measurement-correction",
+      "result": "results/rq4-distillation-results.json"
+    },
+    {
+      "id": "rq6-guidance-payload-v3",
+      "status": "answered-compact-guidance-supported",
+      "result": "results/rq6-guidance-results.json"
+    },
+    {
+      "id": "release-verification-0.2.0-beta.9",
+      "status": "release-verification-matrix-cleared-decisionC-pass",
+      "result": "results/release-verification-0.2.0-beta.9.json"
+    },
+    {
+      "id": "rq4b-index-mechanism-and-budget-stopped-expansion",
+      "status": "valid-mechanism-expansion-stopped-under-cap",
+      "result": "results/rq4b-index-charter.json"
+    },
+    {
+      "id": "rq4-impl-variant-b-paired-matrix",
+      "status": "valid-p1-p2-pass",
+      "result": "results/rq4-impl-results.json"
+    },
+    {
+      "id": "rq4-impl-decompress-spill-verification",
+      "status": "valid-restated-criterion",
+      "result": "results/bench/rq4-impl-decompress-spill-verification.json"
+    },
+    {
+      "id": "rq9-type-weighting-offline-and-live",
+      "status": "valid-offline-primary-live-corroborated",
+      "result": "results/rq9-type-weighting-results.json"
+    },
+    {
+      "id": "release-gate-beta12-pressure",
+      "status": "valid",
+      "result": "results/bench/release-gate-beta12-pressure.json"
+    },
+    {
+      "id": "release-verification-0.2.0-beta.12",
+      "status": "valid-all-items-cleared",
+      "result": "results/release-verification-0.2.0-beta.12.json"
+    }
+  ]
+}

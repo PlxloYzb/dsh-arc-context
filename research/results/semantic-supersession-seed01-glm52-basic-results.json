@@ -1,0 +1,69 @@
+{
+  "generatedAt": "2026-08-17T10:13:26.156Z",
+  "runId": "semantic-supersession-seed01-glm52-basic",
+  "seed": "semantic-seed-01",
+  "model": "GLM-5.2",
+  "requestHeaders": {
+    "count": 1,
+    "maxTokens": [
+      null
+    ],
+    "adapterDefaultMaxTokens": 0
+  },
+  "sessionUsage": {
+    "uncachedInputTokens": 190733,
+    "outputTokens": 9867,
+    "cacheReadTokens": 78976,
+    "cacheWriteTokens": 0
+  },
+  "finalContextPressure": {
+    "pressureTokens": 50573,
+    "projectedTokens": 57136,
+    "contextWindow": 1000000
+  },
+  "currentState": {
+    "recalled": 12,
+    "expected": 12,
+    "missing": []
+  },
+  "rationale": {
+    "recalled": 10,
+    "expected": 10,
+    "missing": []
+  },
+  "obsoleteContamination": {
+    "count": 0,
+    "leakedPatterns": []
+  },
+  "toolCalls": {
+    "count": 0,
+    "finalTurnCount": 0
+  },
+  "compactions": [
+    {
+      "provider": "scnet",
+      "model": "GLM-5.2",
+      "shadowedNodes": 3,
+      "shadowedTokenCount": 10246,
+      "summaryChars": 2180,
+      "usage": {
+        "inputTokens": 25921,
+        "outputTokens": 521
+      }
+    },
+    {
+      "provider": "scnet",
+      "model": "GLM-5.2",
+      "shadowedNodes": 3,
+      "shadowedTokenCount": 10498,
+      "summaryChars": 2715,
+      "usage": {
+        "inputTokens": 24665,
+        "outputTokens": 671,
+        "cacheReadTokens": 1408
+      }
+    }
+  ],
+  "errors": [],
+  "finalText": "```json\n{\n  \"主要上线城市\": \"塔林\",\n  \"执行负责人\": \"Noor Haddad\",\n  \"冻结窗口\": \"周四 04:15 UTC\",\n  \"回滚确认短语\": \"silent harbor\",\n  \"保留期限\": \"45天\",\n  \"生产消息队列\": \"cedar-lane\",\n  \"每批账户数\": 180,\n  \"失败重试策略\": \"最多重试4次，每次间隔90秒\",\n  \"受监管租户路径\": \"瓦伦西亚\",\n  \"上线审批\": \"财务负责人与SRE值班经理双重签字，两者缺一不可方可启动\",\n  \"对外状态页\": \"ivory-status.example\",\n  \"审计归档包\": \"ledger-indigo\",\n  \"变更原因\": [\n    \"主要上线城市：瓦伦西亚供应商驻留认证过期，旧城市不再用于普通租户，改为塔林\",\n    \"执行负责人：Mira Chen 在上线周被调去处理监管问询，改由 Noor Haddad 担任\",\n    \"冻结窗口：该时段支付流量最低，改为周四 04:15 UTC\",\n    \"回滚确认短语：amber violin 在公开演练录音中泄露，改为 silent harbor\",\n    \"保留期限：监管方签发临时法律保全令，延长至45天\",\n    \"生产消息队列：新生产者已停止向 north-river 发布，迁移脚本仅监听当前名称，改为 cedar-lane\",\n    \"每批账户数：240个账户同时解密会造成内存尖峰，降为180\",\n    \"失败重试策略：三次重试不足以跨过网关限流周期，改为最多重试4次、每次间隔90秒\",\n    \"受监管租户路径：受监管租户暂时仍从瓦伦西亚上线，例外持续到驻留审计完成\",\n    \"审计归档包：旧名称与另一场演练的包发生冲突，改称 ledger-indigo\"\n  ]\n}\n```"
+}

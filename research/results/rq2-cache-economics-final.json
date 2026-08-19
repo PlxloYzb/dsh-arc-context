@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-18",
+  "question": "RQ2: cache economics of compression — invalidation model, placement, batching, break-even",
+  "setup": {
+    "host": "isolated DSH 0.1.0-rc.7 web profile, ARC 0.2.0-beta.4, scnet/GLM-5.2",
+    "arcConfig": "modelContextLimit 32768, autoNudge false, governor disabled (profile user patch)",
+    "plantVolume": "~26K projected tokens per arm, 4 plant turns + settle turns",
+    "rounds": "round1 baseline/head/middle/batch/sequent; round2 head/batch (neutral summary text); round3 batch2/sequent2 controls"
+  },
+  "invalidateModel": {
+    "finding": "Prefix caching invalidates from the FIRST CHANGED MESSAGE, not from the shadowed content: the summary node lands at the compression point and the entire tail after it re-enters uncached input on the next call.",
+    "evidence": {
+      "headCompress": {
+        "spikeTokens": 21282,
+        "shadowedTokens": 3034,
+        "interpretation": "compressing the OLDEST turn re-caches nearly the whole session tail"
+      },
+      "middleCompress": {
+        "spikeTokens": 10297,
+        "shadowedTokens": 2376,
+        "interpretation": "compressing a MIDDLE turn re-caches only the tail after it"
+      },
+      "noCompressionSteadyState": {
+        "uncachedPerCall": 100.8,
+        "interpretation": "prefix caching otherwise absorbs growth: ~101 uncached tokens per call (mean of the last four pre-compression calls)"
+      }
+    },
+    "hypothesisVerdict": "HYPOTHESIS (a) FALSIFIED IN DIRECTION: oldest-first placement MAXIMIZES re-cache cost; the cache-optimal placement is the newest compressible range (just outside the protected zone). Semantic oldest-first preference and cache cost are in tension."
+  },
+  "batching": {
+    "finding": "One batched compress call produces ONE invalidation event; sequential compressions pay the tail re-write repeatedly.",
+    "evidence": {
+      "batch2OneCallTwoRanges": {
+        "spikeTokensTotal": 19502,
+        "compactions": 2,
+        "shadowedTokens": [
+          3113,
+          2528
+        ]
+      },
+      "sequent2TwoCalls": {
+        "spikeTokensTotal": 36127,
+        "compactions": 2,
+        "shadowedTokens": [
+          3011,
+          2400
+        ]
+      }
+    },
+    "hypothesisVerdict": "HYPOTHESIS (b) CONFIRMED: batch2 paid ~19502 tokens of spike vs 36127 sequential (85% more) for identical shadowed volume."
+  },
+  "breakEven": {
+    "model": "H_calls = spike / (shadowed - summary) where (shadowed - summary) tokens stop riding every subsequent prompt. Raw-token horizon and price-parameterized horizon (cacheWritePrice/cacheReadPrice as multiples of base input price) both reported.",
+    "head": {
+      "spike": 21282,
+      "shadowed": 3034,
+      "rawHorizonCalls": 7.0
+    },
+    "middle": {
+      "spike": 10297,
+      "shadowed": 2376,
+      "rawHorizonCalls": 4.3
+    },
+    "priceExample": "at Anthropic-like pricing (write=1.25x, read=0.1x of base input): head horizon = 21282*1.25 / (3034*0.1) ~= 88 subsequent calls; middle ~= 42. Sessions shorter than the horizon LOSE money on compression under aggressive prefix caching; uncached-input providers (no prefix cache) break even in ~7 and ~3.4 raw calls respectively.",
+    "hypothesisVerdict": "HYPOTHESIS (c) CONFIRMED with a sharp edge: break-even is placement-dependent and can exceed realistic session length under cheap cache-read pricing — the nudge economy must weigh expected remaining session length, not just pressure."
+  },
+  "engineFinding": {
+    "id": "batch-multi-range-protected-zone-rejection",
+    "observed": "A single compress call with three disjoint ranges (each valid against the original surface, together covering all compressible turns) is rejected with \"Range is entirely within the protected zone: m00007, m00008\" — deterministic across two runs. The same three ranges compressed one-per-turn all succeed.",
+    "suspectedMechanism": "later batch entries appear validated against the intermediate (post-earlier-entry) surface, where the last-5 protection window has shifted onto them",
+    "status": "reproduced live twice; offline unit reproduction pending; kernel is pinned so an ARC-level pre-validation or sequential application may be the fix — decide after the agenda review",
+    "impact": "the copy already encourages batching; users following it near the protected boundary hit a confusing failure",
+    "offlineRepro": "attempted with uniform fixtures (tests/batch-compress-boundary.test.ts): batch PASSES offline — the live rejection needs an additional ingredient (snapshot-message mix, message-size asymmetry, or turn-6 instruction context). Kernel-source inspection of the protected-zone batch validation is the follow-up."
+  },
+  "modelBehaviorFinding": {
+    "observed": "GLM-5.2 refused to execute an instructed compress whose provided summary asserted \"no anomalies\" it could not verify — correct judgment, experiment-side fix (neutral summary labels). Bench templates must not embed factual claims."
+  }
+}

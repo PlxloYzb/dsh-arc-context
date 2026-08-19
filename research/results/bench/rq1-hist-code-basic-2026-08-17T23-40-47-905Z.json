@@ -1,0 +1,120 @@
+{
+  "mode": "live",
+  "suite": "code",
+  "arm": "basic",
+  "generatedAt": "2026-08-17T23:40:47.905Z",
+  "setup": {
+    "model": {
+      "provider": "opencode-go",
+      "model": "deepseek-v4-flash",
+      "reasoningEffort": "max"
+    },
+    "agentPreset": "basic-early",
+    "workspaceBasename": "code-basic",
+    "profileState": "ARC removed; basic-early preset (thresholdRatio 0.08, retainRatio 0.016)",
+    "budgetCap": 45
+  },
+  "sessionId": "session-9e18c282-78f7-4edf-abe5-771a50a7836b",
+  "stageRecords": [
+    {
+      "stage": 1,
+      "settleOk": true,
+      "modelCalls": 5,
+      "projectedTokens": 34960
+    },
+    {
+      "stage": 2,
+      "settleOk": true,
+      "modelCalls": 8,
+      "projectedTokens": 53779
+    },
+    {
+      "stage": 3,
+      "settleOk": true,
+      "modelCalls": 11,
+      "projectedTokens": 28905
+    },
+    {
+      "stage": 4,
+      "settleOk": true,
+      "modelCalls": 14,
+      "projectedTokens": 47474
+    }
+  ],
+  "scoring": {
+    "exactProofs": {
+      "recalled": 12,
+      "expected": 24,
+      "missingKeys": [
+        "C1",
+        "D1",
+        "I1",
+        "F1",
+        "T1",
+        "B1",
+        "C2",
+        "D2",
+        "I2",
+        "F2",
+        "T2",
+        "B2"
+      ]
+    },
+    "derived": {
+      "recalled": 0,
+      "expected": 4,
+      "missing": [
+        "X1",
+        "X2",
+        "X3",
+        "X4"
+      ]
+    }
+  },
+  "sessionUsage": {
+    "uncachedInputTokens": 121154,
+    "outputTokens": 14678,
+    "cacheReadTokens": 507392,
+    "totalPromptTokens": 628546
+  },
+  "allInUsage": {
+    "uncachedInputTokens": 121653,
+    "outputTokens": 19094,
+    "cacheReadTokens": 561152,
+    "totalPromptTokens": 682805
+  },
+  "compactions": [
+    {
+      "provider": "opencode-go",
+      "model": "deepseek-v4-flash",
+      "shadowedNodes": 21,
+      "shadowedTokenCount": 39694,
+      "summaryChars": 5560,
+      "usage": {
+        "uncachedInputTokens": 499,
+        "outputTokens": 4416,
+        "cacheReadTokens": 53760
+      }
+    }
+  ],
+  "requestHeaders": {
+    "count": 1,
+    "maxTokens": [
+      384000
+    ],
+    "adapterDefaultMaxTokens": 1
+  },
+  "modelCalls": 15,
+  "toolCallNames": {
+    "bash": 5,
+    "glob": 1,
+    "read": 3,
+    "edit": 4
+  },
+  "projectTests": {
+    "passed": true,
+    "tail": "\n> test\n> node --test\n\nTAP version 13\n# Subtest: normalizeBranch\nok 1 - normalizeBranch\n  ---\n  duration_ms: 0.439375\n  type: 'test'\n  ...\n# Subtest: retryDelay\nok 2 - retryDelay\n  ---\n  duration_ms: 0.248625\n  type: 'test'\n  ...\n# Subtest: canDeploy\nok 3 - canDeploy\n  ---\n  duration_ms: 0.052666\n  type: 'test'\n  ...\n# Subtest: redactToken\nok 4 - redactToken\n  ---\n  duration_ms: 0.062958\n  type: 'test'\n  ...\n1..4\n# tests 4\n# suites 0\n# pass 4\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 38.4775\n"
+  },
+  "errors": [],
+  "finalTextHead": "```json\n{\n  \"proofs\": {\n    \"C1\": null,\n    \"D1\": null,\n    \"I1\": null,\n    \"F1\": null,\n    \"T1\": null,\n    \"B1\": null,\n    \"C2\": null,\n    \"D2\": null,\n    \"I2\": null,\n    \"F2\": null,\n    \"T2\": null,\n    \"B2\": null,\n    \"C3\": \"D8CC1-82FB4-1F812\",\n    \"D3\": \"88D60-08022-377EF\",\n    \"I3\": \"37736-0D05A-244D2\",\n    \"F3\": \"BCD64-6657E-C7D67\",\n    \"T3\": \"31221-78916-FF941\",\n    \"B3\": \"9965F-ECA73-318FE\""
+}

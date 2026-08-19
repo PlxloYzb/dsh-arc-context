@@ -1,0 +1,390 @@
+{
+  "arm": "zh-blind-2",
+  "locale": "zh",
+  "queryMode": "blind",
+  "seed": 2,
+  "sessionId": "session-e8285751-58d5-4223-a3ff-37ea9ae611d8",
+  "agentPreset": "standard",
+  "plantPressure": [
+    {
+      "stage": 1,
+      "projectedTokens": 24653,
+      "contextWindow": 1000000
+    },
+    {
+      "stage": 2,
+      "projectedTokens": 32185,
+      "contextWindow": 1000000
+    },
+    {
+      "stage": 3,
+      "projectedTokens": 39380,
+      "contextWindow": 1000000
+    },
+    {
+      "stage": 4,
+      "projectedTokens": 46775,
+      "contextWindow": 1000000
+    }
+  ],
+  "compress": {
+    "instructedRanges": [
+      {
+        "startSeq": 7,
+        "endSeq": 1271
+      },
+      {
+        "startSeq": 1272,
+        "endSeq": 1619
+      },
+      {
+        "startSeq": 1620,
+        "endSeq": 1823
+      }
+    ],
+    "rangesLanded": 3,
+    "retried": false,
+    "plantTurns": 4,
+    "turnsCompressed": 3,
+    "designShadowedFractionOfPlantTurns": 0.75,
+    "ledgerShadowedTokens": 21415
+  },
+  "compactions": [
+    {
+      "compactionId": "d446c2c8-ba14-44e9-b2cb-938fc92b42fa",
+      "shadowedRange": {
+        "start": 7,
+        "end": 1265
+      },
+      "shadowedTokenCount": 11985,
+      "tier": 1,
+      "summaryChars": 18775,
+      "summaryHead": "Setup + Stage 1 work-log. SETUP: AGENTS.md is highest-priority spec for dsh-arc-context (Adaptive Reversible Context for DeepSeek Harness, a CompactionEngine backend). Runtime context: workspace-write"
+    },
+    {
+      "compactionId": "61d6d29b-5556-453d-b0a8-a281a0f2e323",
+      "shadowedRange": {
+        "start": 1272,
+        "end": 1613
+      },
+      "shadowedTokenCount": 4811,
+      "tier": 1,
+      "summaryChars": 6190,
+      "summaryHead": "Stage 2 + Stage 3 work-logs.\nSTAGE 2 ENTRIES (verbatim):\n[f8] XREF-85ee→f7\n[f9] INGEST_BATCH_SIZE = 3902\n[f10] INDEX_SHARD_COUNT = 3554\n[f11] XREF-3a9b→f3\n[f13] XREF-c666→f1\n[f14] XREF-f41b→f7\n(f12 ne"
+    },
+    {
+      "compactionId": "81aa2d82-4e18-4042-a144-24a94c2a8ebb",
+      "shadowedRange": {
+        "start": 1620,
+        "end": 1817
+      },
+      "shadowedTokenCount": 4619,
+      "tier": 1,
+      "summaryChars": 6354,
+      "summaryHead": "Stage 4 work-log.\nSTAGE 4 ENTRIES (verbatim):\n[f21] EXPORT_QUEUE_DEPTH = 1530\n[f22] QUOTA_QUEUE_DEPTH = 1388\n[f23] RETRY_QUEUE_DEPTH = 2209\nNOTE: [f21] EXPORT_QUEUE_DEPTH = 1530 conflicts with [f17] E"
+    }
+  ],
+  "pressure": {
+    "preProjected": 46775,
+    "postProjected": 48140,
+    "dropped": -1365,
+    "droppedFraction": -0.029182255478353823,
+    "ledgerShadowedTokens": 21415
+  },
+  "result": {
+    "recall": "18/21",
+    "recallRate": 0.8571428571428571,
+    "trapLeaks": [],
+    "unknownLines": 0,
+    "answerOnlyRecall": "18/21",
+    "byCategory": {
+      "paraphrase": {
+        "recalled": 4,
+        "total": 4
+      },
+      "crossref": {
+        "recalled": 3,
+        "total": 6
+      },
+      "verbatim": {
+        "recalled": 4,
+        "total": 4
+      },
+      "numeric": {
+        "recalled": 7,
+        "total": 7
+      }
+    },
+    "bySurfaceCategory": {
+      "shadowed": {
+        "paraphrase": {
+          "recalled": 4,
+          "total": 4
+        },
+        "crossref": {
+          "recalled": 3,
+          "total": 6
+        },
+        "verbatim": {
+          "recalled": 4,
+          "total": 4
+        },
+        "numeric": {
+          "recalled": 4,
+          "total": 4
+        }
+      },
+      "live": {
+        "numeric": {
+          "recalled": 3,
+          "total": 3
+        }
+      }
+    },
+    "perFact": [
+      {
+        "id": "f0",
+        "category": "paraphrase",
+        "hit": true,
+        "detail": "keywords:all",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f1",
+        "category": "crossref",
+        "hit": false,
+        "detail": "missing:1",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f2",
+        "category": "paraphrase",
+        "hit": true,
+        "detail": "keywords:all",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f3",
+        "category": "paraphrase",
+        "hit": true,
+        "detail": "keywords:all",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f6",
+        "category": "verbatim",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f7",
+        "category": "verbatim",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f8",
+        "category": "crossref",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f9",
+        "category": "numeric",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f10",
+        "category": "numeric",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f11",
+        "category": "crossref",
+        "hit": false,
+        "detail": "missing:1",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f13",
+        "category": "crossref",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f14",
+        "category": "crossref",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f15",
+        "category": "verbatim",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f16",
+        "category": "paraphrase",
+        "hit": true,
+        "detail": "keywords:all",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f17",
+        "category": "numeric",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f18",
+        "category": "numeric",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f19",
+        "category": "verbatim",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f20",
+        "category": "crossref",
+        "hit": false,
+        "detail": "missing:1",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f21",
+        "category": "numeric",
+        "hit": true,
+        "detail": "exact",
+        "surface": "live",
+        "firstToolHit": null
+      },
+      {
+        "id": "f22",
+        "category": "numeric",
+        "hit": true,
+        "detail": "exact",
+        "surface": "live",
+        "firstToolHit": null
+      },
+      {
+        "id": "f23",
+        "category": "numeric",
+        "hit": true,
+        "detail": "exact",
+        "surface": "live",
+        "firstToolHit": null
+      }
+    ],
+    "toolCalls": {
+      "search_context": 0,
+      "decompress": 0,
+      "other": {}
+    },
+    "calls": 10,
+    "ledger": {
+      "uncachedInputTokens": 74803,
+      "outputTokens": 21971,
+      "cacheReadTokens": 352256,
+      "totalPromptTokens": 427059
+    },
+    "perCall": [
+      {
+        "turn": 1,
+        "step": 1,
+        "promptTokens": 22698,
+        "outputTokens": 2279
+      },
+      {
+        "turn": 2,
+        "step": 1,
+        "promptTokens": 31734,
+        "outputTokens": 617
+      },
+      {
+        "turn": 3,
+        "step": 1,
+        "promptTokens": 39168,
+        "outputTokens": 361
+      },
+      {
+        "turn": 4,
+        "step": 1,
+        "promptTokens": 46326,
+        "outputTokens": 584
+      },
+      {
+        "turn": 5,
+        "step": 1,
+        "promptTokens": 47010,
+        "outputTokens": 1068
+      },
+      {
+        "turn": 5,
+        "step": 2,
+        "promptTokens": 48188,
+        "outputTokens": 12017
+      },
+      {
+        "turn": 5,
+        "step": 3,
+        "promptTokens": 47362,
+        "outputTokens": 472
+      },
+      {
+        "turn": 6,
+        "step": 1,
+        "promptTokens": 47845,
+        "outputTokens": 217
+      },
+      {
+        "turn": 7,
+        "step": 1,
+        "promptTokens": 48071,
+        "outputTokens": 55
+      },
+      {
+        "turn": 8,
+        "step": 1,
+        "promptTokens": 48657,
+        "outputTokens": 4301
+      }
+    ],
+    "queryPromptTokens": 48657
+  }
+}

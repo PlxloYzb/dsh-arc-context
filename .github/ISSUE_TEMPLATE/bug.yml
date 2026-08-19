@@ -1,0 +1,39 @@
+name: Bug report
+description: Report an ARC runtime, compatibility, or recovery defect
+title: "[bug] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Do not paste credentials or private session content. Redact logs first.
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: dsh-arc-context, DeepSeek Harness, Node.js, provider/model
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Context backend before the issue
+      options: [ARC bundle, ARC manual config, Basic migrated to ARC, ARC rolled back to Basic]
+    validations:
+      required: true
+  - type: textarea
+    id: config
+    attributes:
+      label: Redacted ARC configuration
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and observed behavior
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Redacted evidence
+      description: Include raw uncached input/output/cache read fields, error kind, and compaction event metadata when available.

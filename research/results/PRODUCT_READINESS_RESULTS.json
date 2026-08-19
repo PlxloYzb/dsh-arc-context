@@ -1,0 +1,178 @@
+{
+  "generatedAt": "2026-08-17",
+  "scope": "deepseek-v4-flash Adaptive Context Governor release-candidate evidence",
+  "costFields": [
+    "uncachedInputTokens",
+    "outputTokens",
+    "cacheReadTokens"
+  ],
+  "codeEngineeringPairedSeed02": {
+    "governor": {
+      "quality": {
+        "projectTests": "4/4",
+        "exact": "24/24",
+        "derived": "4/4"
+      },
+      "usage": {
+        "uncachedInputTokens": 121146,
+        "outputTokens": 23234,
+        "cacheReadTokens": 934656
+      },
+      "totalPromptTokens": 1055802,
+      "compactions": {
+        "count": 2,
+        "kind": "local-reversible",
+        "auxiliaryLlmCalls": 0
+      }
+    },
+    "basicAllIn": {
+      "quality": {
+        "projectTests": "4/4",
+        "exact": "6/24",
+        "derived": "0/4"
+      },
+      "usage": {
+        "uncachedInputTokens": 231315,
+        "outputTokens": 30940,
+        "cacheReadTokens": 1124224
+      },
+      "totalPromptTokens": 1355539,
+      "compactions": {
+        "count": 2,
+        "kind": "model-summary"
+      }
+    },
+    "governorRelativeToBasicPct": {
+      "uncachedInputTokens": -47.63,
+      "outputTokens": -24.91,
+      "cacheReadTokens": -16.86,
+      "totalPromptTokens": -22.11
+    }
+  },
+  "semanticSupersessionPairedSeed01": {
+    "governorV1Counterexample": {
+      "quality": {
+        "current": "3/12",
+        "rationale": "3/10",
+        "obsoleteLeakage": 0
+      },
+      "usage": {
+        "uncachedInputTokens": 94124,
+        "outputTokens": 4423,
+        "cacheReadTokens": 141568
+      }
+    },
+    "basicAllIn": {
+      "quality": {
+        "current": "12/12",
+        "rationale": "10/10",
+        "obsoleteLeakage": 0
+      },
+      "usage": {
+        "uncachedInputTokens": 112208,
+        "outputTokens": 7557,
+        "cacheReadTokens": 209664
+      },
+      "totalPromptTokens": 321872
+    },
+    "governorV2": {
+      "quality": {
+        "current": "12/12",
+        "rationale": "10/10",
+        "obsoleteLeakage": 0
+      },
+      "usage": {
+        "uncachedInputTokens": 26970,
+        "outputTokens": 3564,
+        "cacheReadTokens": 210432
+      },
+      "totalPromptTokens": 237402,
+      "compactions": {
+        "count": 2,
+        "kind": "local-reversible",
+        "auxiliaryLlmCalls": 0
+      }
+    },
+    "governorV2RelativeToBasicPct": {
+      "uncachedInputTokens": -75.96,
+      "outputTokens": -52.84,
+      "cacheReadTokens": 0.37,
+      "totalPromptTokens": -26.24
+    }
+  },
+  "semanticIndependentHoldout02": {
+    "quality": {
+      "current": "10/10",
+      "rationale": "7/7",
+      "obsoleteLeakage": 0
+    },
+    "usage": {
+      "uncachedInputTokens": 112336,
+      "outputTokens": 2274,
+      "cacheReadTokens": 73088
+    },
+    "errors": 0,
+    "sequentialStopSatisfied": true
+  },
+  "liveOutputIntent384K": {
+    "requestedMaxTokens": 393216,
+    "adapterDefault": false,
+    "providerAnchoredContextWindow": 1000000,
+    "usage": {
+      "uncachedInputTokens": 94,
+      "outputTokens": 33,
+      "cacheReadTokens": 4096
+    },
+    "errors": 0,
+    "claimBoundary": "Request-cap preservation and provider acceptance; not generation of a 384K response body."
+  },
+  "deterministicReleaseGate": {
+    "typecheck": "pass",
+    "tests": {
+        "passed": 134,
+      "failed": 0
+    },
+    "build": "pass",
+    "soakSessions": 100,
+    "covered": [
+      "request-field noninterference",
+      "disabled-mode noninterference",
+      "cancellation without durable writes",
+      "concurrent session isolation",
+      "restart durability",
+      "tool-call/result pair integrity",
+      "Basic-to-Governor migration",
+      "Governor-to-Basic rollback",
+      "same-realm backend conflict rejection",
+      "host-token-meter compatible shadow pricing",
+      "provider projection overrides stale advisory probe",
+      "preset audit and legacy-backup restore",
+      "runtime backend ownership",
+      "anchored-standard branded Basic resolver substitution",
+      "router-standard branded Basic resolver substitution",
+      "Schemastery public config validation",
+      "same-template rare-line ranking",
+      "archived prompt-injection redaction",
+      "model checkpoint exact safety appendix",
+      "final tarball clean install in fresh DSH_HOME",
+      "effect-scoped Loader Resolver and original-realm provider substitution",
+      "complete compactNow/compactRegion and native /compact compatibility",
+      "web uninstall restores preset-local Basic without a command",
+      "web/headless boot and composition",
+      "zero-command maintained-preset mount",
+      "ScNet GLM-5.2 adapter/semantic/code validation"
+    ]
+  },
+  "releaseDecision": {
+    "status": "blocked-awaiting-official-loader-resolver-seam",
+    "testedProductionChoice": "Governor preferred; Resolver creates ARC instead of Basic in the same original realm",
+    "stableGa": false,
+    "nextEvidence": "Public opt-in canary telemetry and workload-driven bug reports, not a larger paid synthetic matrix.",
+    "presetIntegration": "standard, anchored-standard, and router-standard verified ACTIVE with ARC inside the original isolated preset realm",
+    "publishAuthorized": false,
+    "crossProvider": "DeepSeek Flash and ScNet GLM-5.2 validated",
+    "cleanInstall": "PASS on a locally patched host; official-host release gate remains open",
+    "userPostInstallAction": "none",
+    "knownUninstallBoundary": "Web add/remove lifecycle passes with Resolver; Headless is outside the current bundle claim. Publication waits for the official Loader seam."
+  }
+}

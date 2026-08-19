@@ -1,0 +1,14 @@
+# RQ5 G80: 32K host, Governor's usable input budget is 28,672 tokens
+# (2,048 output reserve + 2,048 safety margin).  The listed 75%/80% lines
+# are therefore relative to the Governor's documented effective capacity.
+- id: compaction-arc-bridge
+  config:
+    modelContextLimit: 32768
+    autoNudge: true
+    adaptiveGovernor:
+      enabled: true
+      maxOutputTokens: 2048
+      safetyMarginTokens: 2048
+      nudgeAtEffectiveCapacityPct: 0.75
+      emergencyAtEffectiveCapacityPct: 0.80
+      emergencyFallback: true

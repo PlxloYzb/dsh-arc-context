@@ -1,0 +1,257 @@
+{
+  "arm": "en-1",
+  "locale": "en",
+  "seed": 1,
+  "sessionId": "session-a40a903b-81a2-47e7-bed6-c607808cb8de",
+  "agentPreset": "standard",
+  "resumed": {
+    "addedSteps": [],
+    "note": "measured only; nothing was missing"
+  },
+  "model": {
+    "requested": {
+      "provider": "opencode-go",
+      "model": "deepseek-v4-flash",
+      "reasoningEffort": "max"
+    },
+    "selected": "opencode-go/deepseek-v4-flash",
+    "fallbackUsed": null
+  },
+  "design": {
+    "plantedFacts": 30,
+    "scoredFacts": 20,
+    "categories": [
+      "crossref",
+      "numeric",
+      "paraphrase",
+      "trap",
+      "verbatim"
+    ],
+    "tier1Source": {
+      "start": 7,
+      "end": 275
+    },
+    "ordinaryRounds": 2
+  },
+  "tiers": [
+    {
+      "tier": 1,
+      "blockId": "97ea336c-4bd9-4168-970a-034a344a5a4e",
+      "checkpointSeq": 2800,
+      "range": {
+        "start": 7,
+        "end": 275
+      },
+      "shadowedTokenCount": 12013,
+      "chars": {
+        "total": 20953,
+        "model": 3366,
+        "safetyIndex": 17587
+      },
+      "strict": {
+        "model": "20/20",
+        "safetyIndex": "20/20"
+      },
+      "loose": {
+        "model": "20/20",
+        "safetyIndex": "20/20"
+      },
+      "survival": {
+        "strictRate": 1,
+        "looseRate": 1,
+        "strict": "20/20",
+        "loose": "20/20"
+      },
+      "carrier": {
+        "survivors": 20,
+        "modelOnly": [],
+        "indexOnly": [],
+        "both": [
+          "f0",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6",
+          "f7",
+          "f8",
+          "f9",
+          "f10",
+          "f11",
+          "f12",
+          "f13",
+          "f14",
+          "f15",
+          "f17",
+          "f18",
+          "f19",
+          "f20",
+          "f21"
+        ],
+        "lost": [],
+        "shares": {
+          "modelOnly": 0,
+          "indexOnly": 0,
+          "both": 1,
+          "indexBearing": 1
+        }
+      }
+    },
+    {
+      "tier": 2,
+      "blockId": "2b874a70-f552-4e98-ab0b-7380c9999fba",
+      "checkpointSeq": 4128,
+      "range": {
+        "start": 2800,
+        "end": 2800
+      },
+      "shadowedTokenCount": 5247,
+      "chars": {
+        "total": 21585,
+        "model": 3998,
+        "safetyIndex": 17587
+      },
+      "strict": {
+        "model": "20/20",
+        "safetyIndex": "20/20"
+      },
+      "loose": {
+        "model": "20/20",
+        "safetyIndex": "20/20"
+      },
+      "survival": {
+        "strictRate": 1,
+        "looseRate": 1,
+        "strict": "20/20",
+        "loose": "20/20"
+      },
+      "carrier": {
+        "survivors": 20,
+        "modelOnly": [],
+        "indexOnly": [],
+        "both": [
+          "f0",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6",
+          "f7",
+          "f8",
+          "f9",
+          "f10",
+          "f11",
+          "f12",
+          "f13",
+          "f14",
+          "f15",
+          "f17",
+          "f18",
+          "f19",
+          "f20",
+          "f21"
+        ],
+        "lost": [],
+        "shares": {
+          "modelOnly": 0,
+          "indexOnly": 0,
+          "both": 1,
+          "indexBearing": 1
+        }
+      }
+    },
+    {
+      "tier": 3,
+      "blockId": "d38d9087-0d05-427f-9c3c-e36c889b62d0",
+      "checkpointSeq": 4821,
+      "range": {
+        "start": 4128,
+        "end": 4128
+      },
+      "shadowedTokenCount": 5405,
+      "chars": {
+        "total": 21514,
+        "model": 3927,
+        "safetyIndex": 17587
+      },
+      "strict": {
+        "model": "20/20",
+        "safetyIndex": "20/20"
+      },
+      "loose": {
+        "model": "20/20",
+        "safetyIndex": "20/20"
+      },
+      "survival": {
+        "strictRate": 1,
+        "looseRate": 1,
+        "strict": "20/20",
+        "loose": "20/20"
+      },
+      "carrier": {
+        "survivors": 20,
+        "modelOnly": [],
+        "indexOnly": [],
+        "both": [
+          "f0",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6",
+          "f7",
+          "f8",
+          "f9",
+          "f10",
+          "f11",
+          "f12",
+          "f13",
+          "f14",
+          "f15",
+          "f17",
+          "f18",
+          "f19",
+          "f20",
+          "f21"
+        ],
+        "lost": [],
+        "shares": {
+          "modelOnly": 0,
+          "indexOnly": 0,
+          "both": 1,
+          "indexBearing": 1
+        }
+      }
+    }
+  ],
+  "decompress": {
+    "tier2BlockId": "2b874a70-f552-4e98-ab0b-7380c9999fba",
+    "calls": 1,
+    "archiveFramed": true,
+    "tier1TextRecovered": false,
+    "sourceIdentityRecovered": false,
+    "result": "fail-or-truncated",
+    "reAssessed": {
+      "criterion": "all effective tier-1 source events with renderable text occur verbatim in tier-2 decompression output",
+      "effectiveSourceSeqs": [
+        7,
+        8,
+        9,
+        10,
+        268
+      ],
+      "missingEffectiveSourceSeqs": [
+        7,
+        8
+      ],
+      "result": "fail-or-truncated"
+    }
+  },
+  "calls": 16,
+  "ledger": {
+    "uncachedInputTokens": 139567,
+    "outputTokens": 14262,
+    "cacheReadTokens": 402432,
+    "totalPromptTokens": 541999
+  }
+}

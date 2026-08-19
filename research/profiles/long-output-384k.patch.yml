@@ -1,0 +1,15 @@
+- id: compaction-acp
+  config:
+    adaptiveGovernor:
+      enabled: true
+      maxOutputTokens: auto
+      safetyMarginTokens: 32768
+      nudgeAtEffectiveCapacityPct: 0.75
+      emergencyAtEffectiveCapacityPct: 0.90
+      emergencyFallback: true
+
+- insert:
+    - id: long-output-intent-test
+      name: ./research/profiles/long-output-intent-plugin.mjs
+      config:
+        maxTokens: 393216

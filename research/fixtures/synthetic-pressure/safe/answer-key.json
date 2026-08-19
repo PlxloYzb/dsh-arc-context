@@ -1,0 +1,84 @@
+{
+  "expected": [
+    {
+      "stage": 1,
+      "canaries": [
+        "GOV-SAFE-S01-BEGIN",
+        "GOV-SAFE-S01-MIDDLE",
+        "GOV-SAFE-S01-END"
+      ]
+    },
+    {
+      "stage": 2,
+      "canaries": [
+        "GOV-SAFE-S02-BEGIN",
+        "GOV-SAFE-S02-MIDDLE",
+        "GOV-SAFE-S02-END"
+      ]
+    },
+    {
+      "stage": 3,
+      "canaries": [
+        "GOV-SAFE-S03-BEGIN",
+        "GOV-SAFE-S03-MIDDLE",
+        "GOV-SAFE-S03-END"
+      ]
+    },
+    {
+      "stage": 4,
+      "canaries": [
+        "GOV-SAFE-S04-BEGIN",
+        "GOV-SAFE-S04-MIDDLE",
+        "GOV-SAFE-S04-END"
+      ]
+    },
+    {
+      "stage": 5,
+      "canaries": [
+        "GOV-SAFE-S05-BEGIN",
+        "GOV-SAFE-S05-MIDDLE",
+        "GOV-SAFE-S05-END"
+      ]
+    },
+    {
+      "stage": 6,
+      "canaries": [
+        "GOV-SAFE-S06-BEGIN",
+        "GOV-SAFE-S06-MIDDLE",
+        "GOV-SAFE-S06-END"
+      ]
+    },
+    {
+      "stage": 7,
+      "canaries": [
+        "GOV-SAFE-S07-BEGIN",
+        "GOV-SAFE-S07-MIDDLE",
+        "GOV-SAFE-S07-END"
+      ]
+    },
+    {
+      "stage": 8,
+      "canaries": [
+        "GOV-SAFE-S08-BEGIN",
+        "GOV-SAFE-S08-MIDDLE",
+        "GOV-SAFE-S08-END"
+      ]
+    },
+    {
+      "stage": 9,
+      "canaries": [
+        "GOV-SAFE-S09-BEGIN",
+        "GOV-SAFE-S09-MIDDLE",
+        "GOV-SAFE-S09-END"
+      ]
+    },
+    {
+      "stage": 10,
+      "canaries": [
+        "GOV-SAFE-S10-BEGIN",
+        "GOV-SAFE-S10-MIDDLE",
+        "GOV-SAFE-S10-END"
+      ]
+    }
+  ]
+}

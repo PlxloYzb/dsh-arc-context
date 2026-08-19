@@ -1,0 +1,124 @@
+{
+  "expected": [
+    {
+      "stage": 1,
+      "canaries": [
+        "GOV-FALLBACK-S01-BEGIN",
+        "GOV-FALLBACK-S01-MIDDLE",
+        "GOV-FALLBACK-S01-END"
+      ]
+    },
+    {
+      "stage": 2,
+      "canaries": [
+        "GOV-FALLBACK-S02-BEGIN",
+        "GOV-FALLBACK-S02-MIDDLE",
+        "GOV-FALLBACK-S02-END"
+      ]
+    },
+    {
+      "stage": 3,
+      "canaries": [
+        "GOV-FALLBACK-S03-BEGIN",
+        "GOV-FALLBACK-S03-MIDDLE",
+        "GOV-FALLBACK-S03-END"
+      ]
+    },
+    {
+      "stage": 4,
+      "canaries": [
+        "GOV-FALLBACK-S04-BEGIN",
+        "GOV-FALLBACK-S04-MIDDLE",
+        "GOV-FALLBACK-S04-END"
+      ]
+    },
+    {
+      "stage": 5,
+      "canaries": [
+        "GOV-FALLBACK-S05-BEGIN",
+        "GOV-FALLBACK-S05-MIDDLE",
+        "GOV-FALLBACK-S05-END"
+      ]
+    },
+    {
+      "stage": 6,
+      "canaries": [
+        "GOV-FALLBACK-S06-BEGIN",
+        "GOV-FALLBACK-S06-MIDDLE",
+        "GOV-FALLBACK-S06-END"
+      ]
+    },
+    {
+      "stage": 7,
+      "canaries": [
+        "GOV-FALLBACK-S07-BEGIN",
+        "GOV-FALLBACK-S07-MIDDLE",
+        "GOV-FALLBACK-S07-END"
+      ]
+    },
+    {
+      "stage": 8,
+      "canaries": [
+        "GOV-FALLBACK-S08-BEGIN",
+        "GOV-FALLBACK-S08-MIDDLE",
+        "GOV-FALLBACK-S08-END"
+      ]
+    },
+    {
+      "stage": 9,
+      "canaries": [
+        "GOV-FALLBACK-S09-BEGIN",
+        "GOV-FALLBACK-S09-MIDDLE",
+        "GOV-FALLBACK-S09-END"
+      ]
+    },
+    {
+      "stage": 10,
+      "canaries": [
+        "GOV-FALLBACK-S10-BEGIN",
+        "GOV-FALLBACK-S10-MIDDLE",
+        "GOV-FALLBACK-S10-END"
+      ]
+    },
+    {
+      "stage": 11,
+      "canaries": [
+        "GOV-FALLBACK-S11-BEGIN",
+        "GOV-FALLBACK-S11-MIDDLE",
+        "GOV-FALLBACK-S11-END"
+      ]
+    },
+    {
+      "stage": 12,
+      "canaries": [
+        "GOV-FALLBACK-S12-BEGIN",
+        "GOV-FALLBACK-S12-MIDDLE",
+        "GOV-FALLBACK-S12-END"
+      ]
+    },
+    {
+      "stage": 13,
+      "canaries": [
+        "GOV-FALLBACK-S13-BEGIN",
+        "GOV-FALLBACK-S13-MIDDLE",
+        "GOV-FALLBACK-S13-END"
+      ]
+    },
+    {
+      "stage": 14,
+      "canaries": [
+        "GOV-FALLBACK-S14-BEGIN",
+        "GOV-FALLBACK-S14-MIDDLE",
+        "GOV-FALLBACK-S14-END"
+      ]
+    },
+    {
+      "stage": 15,
+      "canaries": [
+        "GOV-FALLBACK-S15-BEGIN",
+        "GOV-FALLBACK-S15-MIDDLE",
+        "GOV-FALLBACK-S15-END"
+      ]
+    }
+  ]
+}

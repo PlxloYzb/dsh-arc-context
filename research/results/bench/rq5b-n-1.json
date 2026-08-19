@@ -1,0 +1,445 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-18T06:21:17.972Z",
+  "arm": "N",
+  "run": 1,
+  "sessionId": "session-e573f341-e626-4238-a30e-647dc1f1c18f",
+  "setup": {
+    "host": "isolated DSH_HOME web profile; fresh process per arm",
+    "model": "scnet/GLM-5.2",
+    "configuredWindow": 32768,
+    "seed": 505,
+    "noiseLines": 260,
+    "expectedPatch": "research/profiles/rq5-n.patch.yml",
+    "perSessionCallCap": 10,
+    "appliedPatchSha256": "49db50a1ef9363f9a06e414736f72bbeea230d375f6250d4f4a9e98674b6eb80"
+  },
+  "promptAudit": {
+    "forbiddenPattern": "/\\b(?:compress|compression|context|nudge|summar(?:y|ize|ization))\\b|压缩|上下文|提示/iu",
+    "forbiddenMatches": [],
+    "prompts": [
+      {
+        "phase": "plant-1",
+        "chars": 21433,
+        "sha256": "6170a41048f3789f3528cd6846b6eb0bfe4ba4f2011ec9cba6b480f2cfaccc57"
+      },
+      {
+        "phase": "plant-2",
+        "chars": 21433,
+        "sha256": "04f9c1a7f29e5fe48992cd128be906ee33ea242241517bf5f1eef3389dcc187e"
+      },
+      {
+        "phase": "plant-3",
+        "chars": 21520,
+        "sha256": "ae4b6c93af3acf278c25c8380c3b94376da7db1a47143a9e91421b918e7d8f19"
+      },
+      {
+        "phase": "plant-4",
+        "chars": 21418,
+        "sha256": "df81804910d3644dba4b6e171f1e0c7d2061e789ec3461b41cc6640845baf030"
+      },
+      {
+        "phase": "ordinary-1",
+        "chars": 21,
+        "sha256": "357b59d83710e7b7c393a70e5b5cbeafeefbfb0aac133b3a49ca04327c788251"
+      },
+      {
+        "phase": "ordinary-2",
+        "chars": 21,
+        "sha256": "7b31dbe4dcce2e4098228b4891ea53e545eccd040028000a263039ee5f569bf9"
+      },
+      {
+        "phase": "ordinary-3",
+        "chars": 21,
+        "sha256": "560767f79bb5c8a7726b36598fe8ee4539eb2cb06c7e6335aa8473e133d4dcb1"
+      },
+      {
+        "phase": "blind-recall",
+        "chars": 1818,
+        "sha256": "83798e55c62c705217bb4ee2b820bb95162e6cb8e46ad5bebc48f9491e70b45c"
+      }
+    ],
+    "sameNaturalDriverAsFirstRun": true
+  },
+  "completion": {
+    "status": "partial-cancelled-stalled-stream",
+    "reason": "The plant-4 provider stream made no durable progress for more than ten minutes; it was cancelled without a new model call. Earlier durable nudge/compress events are retained."
+  },
+  "trace": [],
+  "facts": {
+    "scorable": 20,
+    "factIds": [
+      "f0",
+      "f2",
+      "f3",
+      "f4",
+      "f5",
+      "f6",
+      "f7",
+      "f9",
+      "f10",
+      "f12",
+      "f13",
+      "f14",
+      "f15",
+      "f16",
+      "f17",
+      "f19",
+      "f20",
+      "f21",
+      "f22",
+      "f23"
+    ]
+  },
+  "nudges": [
+    {
+      "seq": 64,
+      "tier": "normal",
+      "turn": 3,
+      "textSha256": "f939b398b88450ff16b9d24bb934b1829fdc69b50decb15ba49bf08fd9fbea39",
+      "displayedPct": 84,
+      "tableRanges": [
+        {
+          "startSeq": 7,
+          "endSeq": 56
+        },
+        {
+          "startSeq": 7,
+          "endSeq": 7
+        }
+      ],
+      "eligibleForThreeTurns": true,
+      "firstCompressSeqWithinWindow": 2547,
+      "latencyTurns": 0,
+      "compliedWithinThreeTurns": true
+    },
+    {
+      "seq": 1548,
+      "tier": "emergency",
+      "turn": 3,
+      "textSha256": "40687da52b1cdf3c5815b36de4402bd67a86a66d29e0b4632d8a4fe75f06103a",
+      "displayedPct": 100,
+      "tableRanges": [
+        {
+          "startSeq": 7,
+          "endSeq": 1545
+        },
+        {
+          "startSeq": 7,
+          "endSeq": 49
+        }
+      ],
+      "eligibleForThreeTurns": true,
+      "firstCompressSeqWithinWindow": 2547,
+      "latencyTurns": 0,
+      "compliedWithinThreeTurns": true
+    },
+    {
+      "seq": 2902,
+      "tier": "normal",
+      "turn": 5,
+      "textSha256": "b186e0eea49403555500a144756db6c18ebdda71324ca6b04136b67a5fe9db7d",
+      "displayedPct": 80,
+      "tableRanges": [
+        {
+          "startSeq": 2550,
+          "endSeq": 2894
+        },
+        {
+          "startSeq": 56,
+          "endSeq": 2552
+        }
+      ],
+      "eligibleForThreeTurns": false,
+      "firstCompressSeqWithinWindow": null,
+      "latencyTurns": null,
+      "compliedWithinThreeTurns": false
+    },
+    {
+      "seq": 4612,
+      "tier": "emergency",
+      "turn": null,
+      "textSha256": "9af091032dda0f7f39d7d88609d10d8f1f215b1a461f0677ef9b8d45328cdc8b",
+      "displayedPct": 91,
+      "tableRanges": [
+        {
+          "startSeq": 2550,
+          "endSeq": 4604
+        },
+        {
+          "startSeq": 56,
+          "endSeq": 2894
+        }
+      ],
+      "eligibleForThreeTurns": false,
+      "firstCompressSeqWithinWindow": null,
+      "latencyTurns": null,
+      "compliedWithinThreeTurns": false
+    },
+    {
+      "seq": 4620,
+      "tier": "emergency",
+      "turn": null,
+      "textSha256": "23fe31408ef3ea8bf40e53a6df76a0f9880a13d6f89807482858e52c97b96500",
+      "displayedPct": 91,
+      "tableRanges": [
+        {
+          "startSeq": 2550,
+          "endSeq": 4612
+        },
+        {
+          "startSeq": 56,
+          "endSeq": 2902
+        }
+      ],
+      "eligibleForThreeTurns": false,
+      "firstCompressSeqWithinWindow": null,
+      "latencyTurns": null,
+      "compliedWithinThreeTurns": false
+    }
+  ],
+  "toolCalls": [
+    {
+      "seq": 1544,
+      "name": "arc_status",
+      "turn": 3,
+      "step": 1,
+      "argumentsParseable": true,
+      "ranges": []
+    },
+    {
+      "seq": 2547,
+      "name": "compress",
+      "turn": 3,
+      "step": 2,
+      "argumentsParseable": true,
+      "ranges": [
+        {
+          "startSeq": 7,
+          "endSeq": 49,
+          "position": "head"
+        }
+      ]
+    },
+    {
+      "seq": 3370,
+      "name": "arc_status",
+      "turn": 5,
+      "step": 1,
+      "argumentsParseable": true,
+      "ranges": []
+    }
+  ],
+  "compressToolCalls": [
+    {
+      "seq": 2547,
+      "name": "compress",
+      "turn": 3,
+      "step": 2,
+      "argumentsParseable": true,
+      "ranges": [
+        {
+          "startSeq": 7,
+          "endSeq": 49,
+          "position": "head"
+        }
+      ]
+    }
+  ],
+  "compactions": [
+    {
+      "seq": 2549,
+      "compactionId": "153c687c-d8ba-427b-a61c-671d70f9d6c1",
+      "shadowedRange": {
+        "start": 7,
+        "end": 49
+      },
+      "shadowedSeqs": [
+        7,
+        8,
+        9,
+        42,
+        49
+      ],
+      "shadowedTokenCount": 11379,
+      "provider": "scnet",
+      "model": "GLM-5.2"
+    }
+  ],
+  "summaryAudit": [
+    {
+      "seq": 2549,
+      "compactionId": "153c687c-d8ba-427b-a61c-671d70f9d6c1",
+      "plantedFactIds": [
+        "f0",
+        "f2",
+        "f3",
+        "f4",
+        "f5",
+        "f6"
+      ],
+      "strict": "6/6",
+      "loose": "6/6",
+      "strictRate": 1,
+      "looseRate": 1,
+      "perFact": [
+        {
+          "id": "f0",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact",
+          "retention": "verbatim"
+        },
+        {
+          "id": "f2",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact",
+          "retention": "verbatim"
+        },
+        {
+          "id": "f3",
+          "category": "crossref",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact",
+          "retention": "verbatim"
+        },
+        {
+          "id": "f4",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact",
+          "retention": "verbatim"
+        },
+        {
+          "id": "f5",
+          "category": "numeric",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact",
+          "retention": "verbatim"
+        },
+        {
+          "id": "f6",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact",
+          "retention": "verbatim"
+        }
+      ]
+    }
+  ],
+  "quality": {
+    "available": false,
+    "reason": "No blind-recall turn: stalled provider stream was cancelled after its durable nudge/compress evidence landed."
+  },
+  "costLedger": {
+    "uncachedInputTokens": 61040,
+    "outputTokens": 8170,
+    "cacheReadTokens": 204416,
+    "totalPromptTokens": 265456
+  },
+  "perCall": [
+    {
+      "seq": 42,
+      "turn": 1,
+      "step": 1,
+      "uncachedInputTokens": 12488,
+      "cacheReadTokens": 6912,
+      "outputTokens": 42,
+      "afterCompaction": false,
+      "spikeVsPrev": null
+    },
+    {
+      "seq": 56,
+      "turn": 2,
+      "step": 1,
+      "uncachedInputTokens": 8318,
+      "cacheReadTokens": 19328,
+      "outputTokens": 5,
+      "afterCompaction": false,
+      "spikeVsPrev": -4170
+    },
+    {
+      "seq": 1543,
+      "turn": 3,
+      "step": 1,
+      "uncachedInputTokens": 8660,
+      "cacheReadTokens": 27392,
+      "outputTokens": 2674,
+      "afterCompaction": false,
+      "spikeVsPrev": 342
+    },
+    {
+      "seq": 2546,
+      "turn": 3,
+      "step": 2,
+      "uncachedInputTokens": 3077,
+      "cacheReadTokens": 35968,
+      "outputTokens": 1826,
+      "afterCompaction": false,
+      "spikeVsPrev": -5583
+    },
+    {
+      "seq": 2727,
+      "turn": 3,
+      "step": 3,
+      "uncachedInputTokens": 18310,
+      "cacheReadTokens": 10624,
+      "outputTokens": 297,
+      "afterCompaction": false,
+      "spikeVsPrev": 15233
+    },
+    {
+      "seq": 2894,
+      "turn": 4,
+      "step": 1,
+      "uncachedInputTokens": 8521,
+      "cacheReadTokens": 28928,
+      "outputTokens": 286,
+      "afterCompaction": false,
+      "spikeVsPrev": -9789
+    },
+    {
+      "seq": 3369,
+      "turn": 5,
+      "step": 1,
+      "uncachedInputTokens": 593,
+      "cacheReadTokens": 37376,
+      "outputTokens": 832,
+      "afterCompaction": false,
+      "spikeVsPrev": -7928
+    },
+    {
+      "seq": 4604,
+      "turn": 5,
+      "step": 2,
+      "uncachedInputTokens": 1073,
+      "cacheReadTokens": 37888,
+      "outputTokens": 2208,
+      "afterCompaction": false,
+      "spikeVsPrev": 480
+    }
+  ],
+  "rawEvidence": {
+    "durableLog": "isolated host session session-e573f341-e626-4238-a30e-647dc1f1c18f (not copied into repository)",
+    "nudgeSource": "user/message where source.plugin === arc-nudge",
+    "compressionSource": "tool/call name === compress; arguments parsed offline"
+  },
+  "verification": {
+    "perSessionBudgetWithinCap": true,
+    "nPromptAuditClean": true,
+    "recoveredWithoutModelCalls": true
+  }
+}

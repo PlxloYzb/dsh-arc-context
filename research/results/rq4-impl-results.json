@@ -1,0 +1,731 @@
+{
+  "schemaVersion": 1,
+  "rq": "RQ4-impl",
+  "generatedAt": "2026-08-18T16:54:17.183Z",
+  "variant": "B — effective-source index refresh (0.2.0-beta.10, effectiveSourceSafetyIndex default on)",
+  "design": "paired six-chain matrix; >=3 seeds x {en, zh}; beta.9 baseline vs beta.10 treatment; forced model-written tier-1->2->3; controlled shrink (protectedRecentMessages=0, protectedRecentTokens=1)",
+  "anomalyResolution": {
+    "question": "RQ4b en-1 chain showed 20/20 -> 20/20 -> 20/20 (no decay) while the first RQ4 pool decayed 44/60 -> 4/60",
+    "outcome": "decay reproduced under the corrected serial protocol",
+    "evidence": "baseline en-1 loose curve 20/20 -> 0/20 -> 0/20",
+    "interpretation": "RQ4b's no-decay observation was a timing artifact of its interrupted RPC queue; the first-round decay direction stands, so variant B's value is carrier preservation (the appendix), not model-summary retention."
+  },
+  "baseline": {
+    "build": "0.2.0-beta.9",
+    "chains": [
+      {
+        "arm": "en-1",
+        "sessionId": "session-d756a9e8-9b3e-4eb8-a797-9f3a2f7549a8",
+        "calls": 16,
+        "curve": [
+          "20/20",
+          "0/20",
+          "0/20"
+        ]
+      },
+      {
+        "arm": "en-2",
+        "sessionId": "session-ae933f3b-2d65-49b5-ace5-f4a6ae95359f",
+        "calls": 16,
+        "curve": [
+          "18/18",
+          "18/18",
+          "18/18"
+        ]
+      },
+      {
+        "arm": "en-3",
+        "sessionId": "session-20b5fff2-e530-41ab-9f9e-c60fe62d8ed7",
+        "calls": 16,
+        "curve": [
+          "20/20",
+          "0/20",
+          "8/20"
+        ]
+      },
+      {
+        "arm": "zh-1",
+        "sessionId": "session-232bed2c-8b4e-4f56-95c8-c68313c4a44b",
+        "calls": 16,
+        "curve": [
+          "20/20",
+          "20/20",
+          "20/20"
+        ]
+      },
+      {
+        "arm": "zh-2",
+        "sessionId": "session-c25655ec-125d-430f-b3c9-d3887c9bd343",
+        "calls": 16,
+        "curve": [
+          "18/18",
+          "7/18",
+          "7/18"
+        ]
+      },
+      {
+        "arm": "zh-3",
+        "sessionId": "session-eae45718-6d10-4b29-8cbf-cd996c605472",
+        "calls": 16,
+        "curve": [
+          "20/20",
+          "20/20",
+          "20/20"
+        ]
+      }
+    ],
+    "pooled": [
+      {
+        "tier": 1,
+        "strict": "108/116",
+        "loose": "116/116",
+        "strictRate": 0.9310344827586207,
+        "looseRate": 1,
+        "carrier": {
+          "modelOnly": 0,
+          "indexOnly": 0,
+          "both": 116,
+          "lost": 0,
+          "survivors": 116,
+          "indexBearingShare": 1
+        },
+        "charsAvg": 21886.833333333332,
+        "safetyIndexCharsAvg": 17141.166666666668
+      },
+      {
+        "tier": 2,
+        "strict": "54/116",
+        "loose": "65/116",
+        "strictRate": 0.46551724137931033,
+        "looseRate": 0.5603448275862069,
+        "carrier": {
+          "modelOnly": 2,
+          "indexOnly": 49,
+          "both": 63,
+          "lost": 2,
+          "survivors": 114,
+          "indexBearingShare": 0.9824561403508771
+        },
+        "charsAvg": 9987.333333333334,
+        "safetyIndexCharsAvg": 7801.666666666667
+      },
+      {
+        "tier": 3,
+        "strict": "54/116",
+        "loose": "73/116",
+        "strictRate": 0.46551724137931033,
+        "looseRate": 0.6293103448275862,
+        "carrier": {
+          "modelOnly": 16,
+          "indexOnly": 22,
+          "both": 57,
+          "lost": 21,
+          "survivors": 95,
+          "indexBearingShare": 0.8315789473684211
+        },
+        "charsAvg": 6929.833333333333,
+        "safetyIndexCharsAvg": 4682.166666666667
+      }
+    ]
+  },
+  "treatment": {
+    "build": "0.2.0-beta.10",
+    "chains": [
+      {
+        "arm": "en-1",
+        "sessionId": "session-a40a903b-81a2-47e7-bed6-c607808cb8de",
+        "calls": 16,
+        "curve": [
+          "20/20",
+          "20/20",
+          "20/20"
+        ],
+        "resumed": []
+      },
+      {
+        "arm": "en-2",
+        "sessionId": "session-253626d9-0d66-4c5c-be0b-ca02c8968e9c",
+        "calls": 16,
+        "curve": [
+          "18/18",
+          "18/18",
+          "18/18"
+        ],
+        "resumed": [
+          "decompress-probe"
+        ]
+      },
+      {
+        "arm": "en-3",
+        "sessionId": "session-74cc1492-1f7d-420c-8308-ee4b49511989",
+        "calls": 16,
+        "curve": [
+          "20/20",
+          "0/20",
+          "0/20"
+        ],
+        "resumed": []
+      },
+      {
+        "arm": "zh-2",
+        "sessionId": "session-2e1064b4-1440-49c9-881e-a3abae60cf64",
+        "calls": 16,
+        "curve": [
+          "18/18",
+          "18/18",
+          "18/18"
+        ],
+        "resumed": []
+      },
+      {
+        "arm": "zh-3",
+        "sessionId": "session-7eb2c271-883c-4656-bced-b7727f59fbd2",
+        "calls": 19,
+        "curve": [
+          "20/20",
+          "7/20",
+          "16/20"
+        ],
+        "resumed": []
+      },
+      {
+        "arm": "zh-1",
+        "sessionId": "session-e812aeb0-0796-43f3-8f05-68d93827f8d8",
+        "calls": 16,
+        "curve": [
+          "20/20",
+          "20/20",
+          "20/20"
+        ],
+        "resumed": []
+      }
+    ],
+    "pooled": [
+      {
+        "tier": 1,
+        "strict": "108/116",
+        "loose": "116/116",
+        "strictRate": 0.9310344827586207,
+        "looseRate": 1,
+        "carrier": {
+          "modelOnly": 0,
+          "indexOnly": 0,
+          "both": 116,
+          "lost": 0,
+          "survivors": 116,
+          "indexBearingShare": 1
+        },
+        "charsAvg": 19940.333333333332,
+        "safetyIndexCharsAvg": 17209.333333333332
+      },
+      {
+        "tier": 2,
+        "strict": "70/116",
+        "loose": "83/116",
+        "strictRate": 0.603448275862069,
+        "looseRate": 0.7155172413793104,
+        "carrier": {
+          "modelOnly": 0,
+          "indexOnly": 33,
+          "both": 83,
+          "lost": 0,
+          "survivors": 116,
+          "indexBearingShare": 1
+        },
+        "charsAvg": 19822.333333333332,
+        "safetyIndexCharsAvg": 17209.333333333332
+      },
+      {
+        "tier": 3,
+        "strict": "78/116",
+        "loose": "92/116",
+        "strictRate": 0.6724137931034483,
+        "looseRate": 0.7931034482758621,
+        "carrier": {
+          "modelOnly": 0,
+          "indexOnly": 24,
+          "both": 92,
+          "lost": 0,
+          "survivors": 116,
+          "indexBearingShare": 1
+        },
+        "charsAvg": 19890.166666666668,
+        "safetyIndexCharsAvg": 17209.333333333332
+      }
+    ]
+  },
+  "paired": [
+    {
+      "arm": "en-1",
+      "scoredFacts": {
+        "baseline": 20,
+        "treatment": 20
+      },
+      "tiers": [
+        {
+          "tier": 1,
+          "modelLoose": {
+            "baseline": "20/20",
+            "treatment": "20/20"
+          },
+          "unionLoose": {
+            "baseline": "20/20",
+            "treatment": "20/20"
+          },
+          "unionDeltaPp": 0,
+          "safetyIndexLoose": {
+            "baseline": "20/20",
+            "treatment": "20/20"
+          },
+          "baselineIndexBearing": 1,
+          "treatmentIndexBearing": 1
+        },
+        {
+          "tier": 2,
+          "modelLoose": {
+            "baseline": "0/20",
+            "treatment": "20/20"
+          },
+          "unionLoose": {
+            "baseline": "20/20",
+            "treatment": "20/20"
+          },
+          "unionDeltaPp": 0,
+          "safetyIndexLoose": {
+            "baseline": "20/20",
+            "treatment": "20/20"
+          },
+          "baselineIndexBearing": 1,
+          "treatmentIndexBearing": 1
+        },
+        {
+          "tier": 3,
+          "modelLoose": {
+            "baseline": "0/20",
+            "treatment": "20/20"
+          },
+          "unionLoose": {
+            "baseline": "9/20",
+            "treatment": "20/20"
+          },
+          "unionDeltaPp": 55,
+          "safetyIndexLoose": {
+            "baseline": "9/20",
+            "treatment": "20/20"
+          },
+          "baselineIndexBearing": 1,
+          "treatmentIndexBearing": 1
+        }
+      ],
+      "treatmentCheckpointChars": [
+        20953,
+        21585,
+        21514
+      ],
+      "treatmentDecompress": "fail-or-truncated",
+      "treatmentResumed": [],
+      "sessionContinuity": "single session session-a40a903b-81a2-47e7-bed6-c607808cb8de"
+    },
+    {
+      "arm": "en-2",
+      "scoredFacts": {
+        "baseline": 18,
+        "treatment": 18
+      },
+      "tiers": [
+        {
+          "tier": 1,
+          "modelLoose": {
+            "baseline": "18/18",
+            "treatment": "18/18"
+          },
+          "unionLoose": {
+            "baseline": "18/18",
+            "treatment": "18/18"
+          },
+          "unionDeltaPp": 0,
+          "safetyIndexLoose": {
+            "baseline": "18/18",
+            "treatment": "18/18"
+          },
+          "baselineIndexBearing": 1,
+          "treatmentIndexBearing": 1
+        },
+        {
+          "tier": 2,
+          "modelLoose": {
+            "baseline": "18/18",
+            "treatment": "18/18"
+          },
+          "unionLoose": {
+            "baseline": "18/18",
+            "treatment": "18/18"
+          },
+          "unionDeltaPp": 0,
+          "safetyIndexLoose": {
+            "baseline": "18/18",
+            "treatment": "18/18"
+          },
+          "baselineIndexBearing": 1,
+          "treatmentIndexBearing": 1
+        },
+        {
+          "tier": 3,
+          "modelLoose": {
+            "baseline": "18/18",
+            "treatment": "18/18"
+          },
+          "unionLoose": {
+            "baseline": "18/18",
+            "treatment": "18/18"
+          },
+          "unionDeltaPp": 0,
+          "safetyIndexLoose": {
+            "baseline": "18/18",
+            "treatment": "18/18"
+          },
+          "baselineIndexBearing": 1,
+          "treatmentIndexBearing": 1
+        }
+      ],
+      "treatmentCheckpointChars": [
+        20503,
+        20236,
+        20256
+      ],
+      "treatmentDecompress": "fail-or-truncated",
+      "treatmentResumed": [
+        "decompress-probe"
+      ],
+      "sessionContinuity": "single session session-253626d9-0d66-4c5c-be0b-ca02c8968e9c"
+    },
+    {
+      "arm": "en-3",
+      "scoredFacts": {
+        "baseline": 20,
+        "treatment": 20
+      },
+      "tiers": [
+        {
+          "tier": 1,
+          "modelLoose": {
+            "baseline": "20/20",
+            "treatment": "20/20"
+          },
+          "unionLoose": {
+            "baseline": "20/20",
+            "treatment": "20/20"
+          },
+          "unionDeltaPp": 0,
+          "safetyIndexLoose": {
+            "baseline": "20/20",
+            "treatment": "20/20"
+          },
+          "baselineIndexBearing": 1,
+          "treatmentIndexBearing": 1
+        },
+        {
+          "tier": 2,
+          "modelLoose": {
+            "baseline": "0/20",
+            "treatment": "0/20"
+          },
+          "unionLoose": {
+            "baseline": "20/20",
+            "treatment": "20/20"
+          },
+          "unionDeltaPp": 0,
+          "safetyIndexLoose": {
+            "baseline": "20/20",
+            "treatment": "20/20"
+          },
+          "baselineIndexBearing": 1,
+          "treatmentIndexBearing": 1
+        },
+        {
+          "tier": 3,
+          "modelLoose": {
+            "baseline": "8/20",
+            "treatment": "0/20"
+          },
+          "unionLoose": {
+            "baseline": "16/20",
+            "treatment": "20/20"
+          },
+          "unionDeltaPp": 20,
+          "safetyIndexLoose": {
+            "baseline": "14/20",
+            "treatment": "20/20"
+          },
+          "baselineIndexBearing": 0.875,
+          "treatmentIndexBearing": 1
+        }
+      ],
+      "treatmentCheckpointChars": [
+        20811,
+        20297,
+        20248
+      ],
+      "treatmentDecompress": "fail-or-truncated",
+      "treatmentResumed": [],
+      "sessionContinuity": "single session session-74cc1492-1f7d-420c-8308-ee4b49511989"
+    },
+    {
+      "arm": "zh-1",
+      "scoredFacts": {
+        "baseline": 20,
+        "treatment": 20
+      },
+      "tiers": [
+        {
+          "tier": 1,
+          "modelLoose": {
+            "baseline": "20/20",
+            "treatment": "20/20"
+          },
+          "unionLoose": {
+            "baseline": "20/20",
+            "treatment": "20/20"
+          },
+          "unionDeltaPp": 0,
+          "safetyIndexLoose": {
+            "baseline": "20/20",
+            "treatment": "20/20"
+          },
+          "baselineIndexBearing": 1,
+          "treatmentIndexBearing": 1
+        },
+        {
+          "tier": 2,
+          "modelLoose": {
+            "baseline": "20/20",
+            "treatment": "20/20"
+          },
+          "unionLoose": {
+            "baseline": "20/20",
+            "treatment": "20/20"
+          },
+          "unionDeltaPp": 0,
+          "safetyIndexLoose": {
+            "baseline": "20/20",
+            "treatment": "20/20"
+          },
+          "baselineIndexBearing": 1,
+          "treatmentIndexBearing": 1
+        },
+        {
+          "tier": 3,
+          "modelLoose": {
+            "baseline": "20/20",
+            "treatment": "20/20"
+          },
+          "unionLoose": {
+            "baseline": "20/20",
+            "treatment": "20/20"
+          },
+          "unionDeltaPp": 0,
+          "safetyIndexLoose": {
+            "baseline": "10/20",
+            "treatment": "20/20"
+          },
+          "baselineIndexBearing": 0.5,
+          "treatmentIndexBearing": 1
+        }
+      ],
+      "treatmentCheckpointChars": [
+        18685,
+        18829,
+        18925
+      ],
+      "treatmentDecompress": "fail-or-truncated",
+      "treatmentResumed": [],
+      "sessionContinuity": "single session session-e812aeb0-0796-43f3-8f05-68d93827f8d8"
+    },
+    {
+      "arm": "zh-2",
+      "scoredFacts": {
+        "baseline": 18,
+        "treatment": 18
+      },
+      "tiers": [
+        {
+          "tier": 1,
+          "modelLoose": {
+            "baseline": "18/18",
+            "treatment": "18/18"
+          },
+          "unionLoose": {
+            "baseline": "18/18",
+            "treatment": "18/18"
+          },
+          "unionDeltaPp": 0,
+          "safetyIndexLoose": {
+            "baseline": "18/18",
+            "treatment": "18/18"
+          },
+          "baselineIndexBearing": 1,
+          "treatmentIndexBearing": 1
+        },
+        {
+          "tier": 2,
+          "modelLoose": {
+            "baseline": "7/18",
+            "treatment": "18/18"
+          },
+          "unionLoose": {
+            "baseline": "16/18",
+            "treatment": "18/18"
+          },
+          "unionDeltaPp": 11.1,
+          "safetyIndexLoose": {
+            "baseline": "14/18",
+            "treatment": "18/18"
+          },
+          "baselineIndexBearing": 0.875,
+          "treatmentIndexBearing": 1
+        },
+        {
+          "tier": 3,
+          "modelLoose": {
+            "baseline": "7/18",
+            "treatment": "18/18"
+          },
+          "unionLoose": {
+            "baseline": "12/18",
+            "treatment": "18/18"
+          },
+          "unionDeltaPp": 33.3,
+          "safetyIndexLoose": {
+            "baseline": "8/18",
+            "treatment": "18/18"
+          },
+          "baselineIndexBearing": 0.6666666666666666,
+          "treatmentIndexBearing": 1
+        }
+      ],
+      "treatmentCheckpointChars": [
+        19886,
+        19641,
+        19679
+      ],
+      "treatmentDecompress": "fail-or-truncated",
+      "treatmentResumed": [],
+      "sessionContinuity": "single session session-2e1064b4-1440-49c9-881e-a3abae60cf64"
+    },
+    {
+      "arm": "zh-3",
+      "scoredFacts": {
+        "baseline": 20,
+        "treatment": 20
+      },
+      "tiers": [
+        {
+          "tier": 1,
+          "modelLoose": {
+            "baseline": "20/20",
+            "treatment": "20/20"
+          },
+          "unionLoose": {
+            "baseline": "20/20",
+            "treatment": "20/20"
+          },
+          "unionDeltaPp": 0,
+          "safetyIndexLoose": {
+            "baseline": "20/20",
+            "treatment": "20/20"
+          },
+          "baselineIndexBearing": 1,
+          "treatmentIndexBearing": 1
+        },
+        {
+          "tier": 2,
+          "modelLoose": {
+            "baseline": "20/20",
+            "treatment": "7/20"
+          },
+          "unionLoose": {
+            "baseline": "20/20",
+            "treatment": "20/20"
+          },
+          "unionDeltaPp": 0,
+          "safetyIndexLoose": {
+            "baseline": "20/20",
+            "treatment": "20/20"
+          },
+          "baselineIndexBearing": 1,
+          "treatmentIndexBearing": 1
+        },
+        {
+          "tier": 3,
+          "modelLoose": {
+            "baseline": "20/20",
+            "treatment": "16/20"
+          },
+          "unionLoose": {
+            "baseline": "20/20",
+            "treatment": "20/20"
+          },
+          "unionDeltaPp": 0,
+          "safetyIndexLoose": {
+            "baseline": "20/20",
+            "treatment": "20/20"
+          },
+          "baselineIndexBearing": 1,
+          "treatmentIndexBearing": 1
+        }
+      ],
+      "treatmentCheckpointChars": [
+        18804,
+        18346,
+        18719
+      ],
+      "treatmentDecompress": "fail-or-truncated",
+      "treatmentResumed": [],
+      "sessionContinuity": "single session session-7eb2c271-883c-4656-bced-b7727f59fbd2"
+    }
+  ],
+  "criteria": {
+    "P1_generalization": {
+      "criterion": "tier-3 index-bearing >= 50% in >= 2/3 seeds of every locale",
+      "byLocale": [
+        {
+          "locale": "en",
+          "passing": 3,
+          "total": 3
+        },
+        {
+          "locale": "zh",
+          "passing": 3,
+          "total": 3
+        }
+      ],
+      "passed": true
+    },
+    "P2_treatmentEffect": {
+      "caliberAdjudication": "maintainer 2026-08-19: variant B changes the appendix, not the model-written summary; the paired gate is therefore UNION caliber (model OR appendix, i.e. checkpoint-visible information) plus the appendix layer itself. Model-summary deltas are reported as variance observation only.",
+      "tier3UnionDeltaPpMin": 0,
+      "tier1UnionDeltaPpMin": 0,
+      "tier2UnionDeltaPpMin": 0,
+      "indexBearingNotBelowBaseline": true,
+      "appendixWithinGate": true,
+      "decompressionIntact": true,
+      "passed": true
+    }
+  },
+  "verdict": "variant-B shipped as default; effectiveSourceSafetyIndex stays on",
+  "budgetLedger": {
+    "cap": 220,
+    "baselineCalls": 96,
+    "treatmentCalls": 99,
+    "note": "baseline 96 by commission; treatment includes 27 pre-report calls from the prematurely started (then stopped) driver plus the maintainer-completed remainder; measured zero-call recoveries add none"
+  },
+  "provenance": {
+    "baseline": "measured zero-call from durable logs after the live RPC runner failed (delegate commission 2026-08-19)",
+    "treatment": "en-1 measured only; en-2 probe-appended in-session by the resume path (single session id, continuity recorded); four chains native live run by the maintainer",
+    "homes": [
+      "verify/rq4-impl-base-home",
+      "verify/rq4-impl-treat-home"
+    ],
+    "denominators": "scoredFacts differ per chain because the deterministic bench script plants facts across three stage turns and only the first two stages are scored — recorded per pair above"
+  }
+}

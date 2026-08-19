@@ -1,0 +1,313 @@
+import { test } from 'node:test'
+import assert from 'node:assert/strict'
+import { Session } from '@deepseek-ai/dsh-session'
+import { createUserMessage } from '@deepseek-ai/dsh-llm'
+import { ArcStateStore } from '../src/state.ts'
+import {
+  AlreadyCompressedRangeError,
+  assertNoActiveCompaction,
+  findOpenTurn,
+  rebuildBlockLedger,
+  resolveSurfaceRange,
+  runCompactionTransaction,
+  shadowedSeqsOf,
+} from '../src/region.ts'
+import { appendTurn, appendToolCall, appendToolResult, appendMultiToolCall, appendUser, appendAssistant, buildTextSession, longText } from './helpers.ts'
+
+test('M2: ArcStateStore initialises one state per session', () => {
+  const store = new ArcStateStore()
+  const session = Session.create('s1')
+  const first = store.stateFor(session)
+  assert.equal(store.stateFor(session), first, 'same session returns the cached state')
+  const other = Session.create('s2')
+  assert.notEqual(store.stateFor(other), first, 'different session gets its own state')
+  store.delete(session)
+  assert.notEqual(store.stateFor(session), first, 'delete drops the cache')
+})
+
+test('M5: findOpenTurn / assertNoActiveCompaction track the durable lock', () => {
+  const session = Session.create('s')
+  assert.equal(findOpenTurn(session.events), null)
+  appendTurn(session, 1)
+  assert.equal(findOpenTurn(session.events), 1)
+  session.append('turn/end', { turn: 1, reason: { kind: 'completed' } })
+  assert.equal(findOpenTurn(session.events), null)
+  assertNoActiveCompaction(session.events)
+})
+
+test('M5: runCompactionTransaction lands the four events and shadows the range', () => {
+  const session = buildTextSession(6)
+  const { compactionId, seqs } = runCompactionTransaction(session, {
+    start: 1,
+    end: 4,
+    shadowedSeqs: [1, 2, 3, 4],
+    summary: [{ type: 'text', text: 'Auth system summary with enough detail.' }],
+    shadowedTokenCount: 4321,
+    provider: 'test-provider',
+    model: 'test-model',
+  })
+  assert.ok(compactionId.length > 0)
+  assert.equal(seqs.length, 4)
+
+  const types = session.events.slice(-4).map((event) => event.type)
+  assert.deepEqual(types, ['compaction/start', 'compaction/summary', 'user/message', 'compaction/end'])
+
+  // Surface: the shadowed seqs are gone, the summary node is on the surface.
+  for (const seq of [1, 2, 3, 4]) assert.ok(!session.surface.nodes.includes(seq))
+  assert.ok(session.surface.nodes.includes(seqs[2]!), 'the replacement node joins the surface')
+
+  // The summary node carries the checkpoint source.
+  const replaceEvent = session.events[seqs[2]!]!
+  assert.equal(replaceEvent.type, 'user/message')
+  const source = (replaceEvent.data as { source?: { plugin?: string } }).source
+  assert.equal(source?.plugin, 'compact')
+
+  // Derived messages shrank: 6 messages → 2 surviving + 1 summary = 3.
+  assert.equal(session.deriveMessages().length, 3)
+
+  // The durable log still holds every original event (decompress can recover).
+  assert.equal(session.events.length, 6 + 1 /*turn*/ + 4)
+})
+
+test('M5: the block ledger rebuilds from the log without kernel state', () => {
+  const session = buildTextSession(8)
+  runCompactionTransaction(session, {
+    start: 1,
+    end: 4,
+    shadowedSeqs: [1, 2, 3, 4],
+    summary: [{ type: 'text', text: 'First block summary with plenty of detail.' }],
+    shadowedTokenCount: 1000,
+    provider: 'p',
+    model: 'm',
+  })
+  runCompactionTransaction(session, {
+    start: 6,
+    end: 8,
+    shadowedSeqs: [6, 7, 8],
+    summary: [{ type: 'text', text: 'Second block summary with plenty of detail.' }],
+    shadowedTokenCount: 2000,
+    provider: 'p',
+    model: 'm',
+  })
+  const ledger = rebuildBlockLedger(session.events)
+  assert.equal(ledger.length, 2)
+  assert.deepEqual(ledger[0]!.shadowedSeqs, [1, 2, 3, 4])
+  assert.equal(ledger[1]!.shadowedTokenCount, 2000)
+  assert.equal(ledger[1]!.start, 6)
+})
+
+test('M5: resolveSurfaceRange rejects missing, reversed, and pair-broken ranges', () => {
+  const session = buildTextSession(6)
+  assert.deepEqual(resolveSurfaceRange(session, 1, 4), { start: 1, end: 4 })
+  assert.throws(() => resolveSurfaceRange(session, 99, 100), /not in the current surface/)
+  assert.throws(
+    () => resolveSurfaceRange(session, 99, 100),
+    /consult arc_status for the current surface range/,
+    'missing-boundary error should point the model at arc_status',
+  )
+  assert.throws(() => resolveSurfaceRange(session, 4, 1), /reversed range/)
+  assert.deepEqual(shadowedSeqsOf(session, 1, 3), [1, 2, 3])
+})
+
+test('M5: resolveSurfaceRange recovers stale edges to the live remainder', () => {
+  const session = buildTextSession(6)
+  runCompactionTransaction(session, {
+    start: 1,
+    end: 4,
+    shadowedSeqs: [1, 2, 3, 4],
+    summary: [{ type: 'text', text: 'First block summary with plenty of detail.' }],
+    shadowedTokenCount: 1000,
+    provider: 'p',
+    model: 'm',
+  })
+  // Surface is [checkpoint, 5, 6]: seqs 1..4 were shadowed by the block.
+  // A stale range whose start was shadowed (the classic old-nudge reuse) snaps
+  // to the still-live content of the requested span.
+  assert.deepEqual(resolveSurfaceRange(session, 3, 6), { start: 5, end: 6, recovered: true })
+  // A fully live range keeps the current behavior (no recovery flag).
+  assert.deepEqual(resolveSurfaceRange(session, 5, 6), { start: 5, end: 6 })
+})
+
+test('M5: a fully shadowed span throws AlreadyCompressedRangeError with the covering blocks', () => {
+  const session = buildTextSession(6)
+  runCompactionTransaction(session, {
+    start: 1,
+    end: 4,
+    shadowedSeqs: [1, 2, 3, 4],
+    summary: [{ type: 'text', text: 'First block summary with plenty of detail.' }],
+    shadowedTokenCount: 1000,
+    provider: 'p',
+    model: 'm',
+  })
+  assert.throws(
+    () => resolveSurfaceRange(session, 1, 4),
+    (error: unknown) => error instanceof AlreadyCompressedRangeError
+      && error.start === 1
+      && error.end === 4
+      && error.coveringBlockIds.length === 1
+      && error.coveringBlockIds[0] === rebuildBlockLedger(session.events)[0]!.blockId,
+    're-compressing an already compressed span reports the covering block',
+  )
+})
+
+test('M5: recovery never folds block checkpoint nodes (distillation stays explicit)', () => {
+  const session = buildTextSession(12)
+  runCompactionTransaction(session, {
+    start: 1,
+    end: 5,
+    shadowedSeqs: [1, 2, 3, 4, 5],
+    summary: [{ type: 'text', text: 'First block summary with plenty of detail.' }],
+    shadowedTokenCount: 1000,
+    provider: 'p',
+    model: 'm',
+  })
+  runCompactionTransaction(session, {
+    start: 6,
+    end: 10,
+    shadowedSeqs: [6, 7, 8, 9, 10],
+    summary: [{ type: 'text', text: 'Second block summary with plenty of detail.' }],
+    shadowedTokenCount: 1000,
+    provider: 'p',
+    model: 'm',
+  })
+  // Surface: [c1, c2, 11, 12] — the requested span 3..9 holds only shadowed
+  // content (its live nodes would be the two checkpoints, which are never
+  // folded on a stale reference): already compressed, both blocks reported.
+  assert.throws(
+    () => resolveSurfaceRange(session, 3, 9),
+    (error: unknown) => error instanceof AlreadyCompressedRangeError
+      && error.coveringBlockIds.length === 2,
+    'a span whose only live nodes are checkpoints is already compressed, not distilled',
+  )
+  // A stale span covering both blocks AND the live tail compresses only the tail.
+  assert.deepEqual(resolveSurfaceRange(session, 3, 12), { start: 11, end: 12, recovered: true })
+
+  // Now a gap between the blocks: block2 shadows 8..10, leaving 6..7 live.
+  const gapped = buildTextSession(12)
+  runCompactionTransaction(gapped, {
+    start: 1,
+    end: 5,
+    shadowedSeqs: [1, 2, 3, 4, 5],
+    summary: [{ type: 'text', text: 'First block summary with plenty of detail.' }],
+    shadowedTokenCount: 1000,
+    provider: 'p',
+    model: 'm',
+  })
+  runCompactionTransaction(gapped, {
+    start: 8,
+    end: 10,
+    shadowedSeqs: [8, 9, 10],
+    summary: [{ type: 'text', text: 'Second block summary with plenty of detail.' }],
+    shadowedTokenCount: 1000,
+    provider: 'p',
+    model: 'm',
+  })
+  // Surface: [c1, c2, 6, 7, 11, 12]. A stale span 3..9 covers both blocks and
+  // the live middle — only the middle is compressed, neither block is touched.
+  assert.deepEqual(resolveSurfaceRange(gapped, 3, 9), { start: 6, end: 7, recovered: true })
+})
+
+test('M5: a second active compaction is rejected', () => {
+  const session = buildTextSession(4)
+  session.append('compaction/start', { compactionId: 'c1', turn: 1 })
+  assert.throws(() => assertNoActiveCompaction(session.events), /already active/)
+})
+
+test('M5: tool-call ranges are auto-adjusted to balanced edges', () => {
+  const session = Session.create('pair')
+  appendTurn(session, 1)
+  appendUser(session, longText('q', 0))
+  appendToolCall(session, 'calling', 'call_1')
+  appendToolResult(session, 'result text', 'call_1')
+  appendUser(session, longText('q2', 1))
+  // surface: [1 user, 2 tool-call, 3 tool/result, 4 user]
+  // A range whose end sits inside the pair (…, tool-call) nudges the end back
+  // to the nearest balanced cut.
+  assert.deepEqual(resolveSurfaceRange(session, 1, 2), { start: 1, end: 1 })
+  // A complete call/result pair is balanced and unchanged.
+  assert.deepEqual(resolveSurfaceRange(session, 2, 3), { start: 2, end: 3 })
+  assert.deepEqual(resolveSurfaceRange(session, 1, 3), { start: 1, end: 3 })
+  // A lone tool message (2 or 3 alone) expands outward to its balanced pair.
+  assert.deepEqual(resolveSurfaceRange(session, 2, 2), { start: 2, end: 3 }, 'lone tool-call expands to include its result')
+  assert.deepEqual(resolveSurfaceRange(session, 3, 3), { start: 2, end: 3 }, 'lone tool-result expands to include its call')
+  // A range that can neither shrink nor expand still fails with guidance.
+  assert.throws(() => resolveSurfaceRange(session, 99, 100), /not in the current surface/)
+})
+
+test('M5: multi-tool-call boundaries are shifted to plain-ref cuts', () => {
+  const session = Session.create('multi')
+  appendTurn(session, 1)
+  appendUser(session, longText('msg', 0))                     // seq 1
+  appendMultiToolCall(session, 'plan', ['c1', 'c2'], 1, 1)   // seq 2 (2 calls: no bare ref)
+  appendToolResult(session, longText('res', 0), 'c1', 1, 1)  // seq 3
+  appendToolResult(session, longText('res', 1), 'c2', 1, 1)  // seq 4
+  appendUser(session, longText('msg', 1))                     // seq 5
+  // surface: [1 user, 2 multi-call, 3 res, 4 res, 5 user]
+  // An edge on the multi-call message (2) is NOT a valid boundary: it has no
+  // bare-seq ref. The start shrinks inward to the nearest clean cut (5); the
+  // request collapses to a single plain-ref message rather than crossing the
+  // unresolved multi-call round.
+  assert.deepEqual(resolveSurfaceRange(session, 2, 5), { start: 5, end: 5 })
+  assert.deepEqual(resolveSurfaceRange(session, 3, 5), { start: 5, end: 5 })
+  // A lone multi-call message cannot shrink at all, so it EXPANDS outward to
+  // the smallest clean enclosing pair — the whole call/result round (1..4).
+  assert.deepEqual(resolveSurfaceRange(session, 2, 2), { start: 1, end: 4 })
+  // A clean text range that merely CONTAINS the multi-call round is unchanged.
+  assert.deepEqual(resolveSurfaceRange(session, 1, 5), { start: 1, end: 5 })
+})
+
+test('M5: pass-2 expansion must not cross a checkpoint into value-reversed seqs', () => {
+  const session = Session.create('nonmono')
+  appendTurn(session, 1)
+  appendUser(session, longText('q0', 0))                           // seq 1
+  appendMultiToolCall(session, 'plan', ['c1', 'c2', 'c3', 'c4'])   // seq 2 (4 calls: no bare ref)
+  appendToolResult(session, longText('res', 0), 'c1')              // seq 3
+  appendToolResult(session, longText('res', 1), 'c2')              // seq 4
+  appendToolResult(session, longText('res', 2), 'c3')              // seq 5
+  appendToolResult(session, longText('res', 3), 'c4')              // seq 6
+  appendUser(session, longText('q1', 1))                           // seq 7
+  // nodes: [1, 2, 3, 4, 5, 6, 7]
+  // A later compaction replaces node 1 with a summary checkpoint at seq 8.
+  session.append('user/message', createUserMessage({
+    content: [{ type: 'text', text: longText('summary', 0) }],
+    source: { kind: 'user', plugin: 'compact' },
+  }), { surfaceOp: { op: 'replace', start: 1, end: 1 }, sourceEventSeqs: [1] })
+  // nodes: [8, 2, 3, 4, 5, 6, 7] — NON-monotonic: the newer checkpoint seq 8
+  // sits ahead of the older residual nodes 2..7 (the live production shape
+  // behind the '110295..106762' reversed nudge range).
+  // The whole multi-call round 2..6 has no clean inward cut, so pass-2 expands
+  // the start toward the checkpoint; the resulting span 8..6 is value-reversed
+  // and must be rejected instead of being shadowed.
+  assert.throws(() => resolveSurfaceRange(session, 2, 6), /balanced range|reversed/)
+  // The residual round alone (3..6) collapses too and must not cross the
+  // checkpoint either.
+  assert.throws(() => resolveSurfaceRange(session, 3, 6), /balanced range|reversed/)
+  // A span that does not touch the unresolved round still resolves cleanly:
+  // the trailing user message is a plain-ref boundary on both sides.
+  assert.deepEqual(resolveSurfaceRange(session, 6, 7), { start: 7, end: 7 })
+})
+
+test('M5: ledger backfills shadowedTokenCount for legacy blocks written as 0', () => {
+  const session = buildTextSession(6)
+  // A legacy block: compaction/summary with shadowedTokenCount 0 (pre-fix).
+  session.append('compaction/start', { compactionId: 'legacy-1', turn: 1 })
+  session.append('compaction/summary', {
+    compactionId: 'legacy-1',
+    summary: [{ type: 'text', text: 'legacy summary with enough detail' }],
+    shadowedRange: { start: 1, end: 3 },
+    shadowedSeqs: [1, 2, 3],
+    shadowedTokenCount: 0,
+    provider: 'p',
+    model: 'm',
+  })
+  session.append('user/message', {
+    id: 'legacy-repl',
+    role: 'user',
+    content: [{ type: 'text', text: 'legacy summary' }],
+    source: { kind: 'plugin', plugin: 'compact', compactionId: 'legacy-1' },
+  } as never, { surfaceOp: { op: 'replace', start: 1, end: 3 }, sourceEventSeqs: [1, 2, 3] })
+  session.append('compaction/end', { compactionId: 'legacy-1', turn: 1 })
+  const ledger = rebuildBlockLedger(session.events)
+  assert.equal(ledger.length, 1)
+  assert.ok(ledger[0]!.shadowedTokenCount > 0, 'legacy 0 is backfilled from shadowed originals')
+})

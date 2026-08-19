@@ -1,0 +1,116 @@
+{
+  "mode": "live",
+  "suite": "code",
+  "arm": "arc",
+  "generatedAt": "2026-08-17T22:52:59.946Z",
+  "setup": {
+    "model": {
+      "provider": "opencode-go",
+      "model": "deepseek-v4-flash",
+      "reasoningEffort": "max"
+    },
+    "agentPreset": "standard",
+    "workspaceBasename": "code-arc",
+    "profileState": "ARC 0.2.0-beta.5 installed; governor patch on compaction-arc-bridge",
+    "budgetCap": 45
+  },
+  "sessionId": "session-c98f90db-7915-49d4-bdb8-d71b4a788959",
+  "stageRecords": [
+    {
+      "stage": 1,
+      "settleOk": true,
+      "modelCalls": 8,
+      "projectedTokens": 35665
+    },
+    {
+      "stage": 2,
+      "settleOk": true,
+      "modelCalls": 14,
+      "projectedTokens": 41960
+    },
+    {
+      "stage": 3,
+      "settleOk": true,
+      "modelCalls": 17,
+      "projectedTokens": 42770
+    },
+    {
+      "stage": 4,
+      "settleOk": true,
+      "modelCalls": 20,
+      "projectedTokens": 47390
+    }
+  ],
+  "scoring": {
+    "exactProofs": {
+      "recalled": 24,
+      "expected": 24,
+      "missingKeys": []
+    },
+    "derived": {
+      "recalled": 4,
+      "expected": 4,
+      "missing": []
+    }
+  },
+  "sessionUsage": {
+    "uncachedInputTokens": 174021,
+    "outputTokens": 13898,
+    "cacheReadTokens": 744192,
+    "totalPromptTokens": 918213
+  },
+  "allInUsage": {
+    "uncachedInputTokens": 174021,
+    "outputTokens": 13898,
+    "cacheReadTokens": 744192,
+    "totalPromptTokens": 918213
+  },
+  "compactions": [
+    {
+      "provider": "scnet",
+      "model": "GLM-5.2",
+      "shadowedNodes": 16,
+      "shadowedTokenCount": 18442,
+      "summaryChars": 19655,
+      "usage": null
+    },
+    {
+      "provider": "local",
+      "model": "adaptive-governor-extractive-v1",
+      "shadowedNodes": 18,
+      "shadowedTokenCount": 20414,
+      "summaryChars": 16419,
+      "usage": null
+    },
+    {
+      "provider": "local",
+      "model": "adaptive-governor-extractive-v1",
+      "shadowedNodes": 7,
+      "shadowedTokenCount": 17222,
+      "summaryChars": 9043,
+      "usage": null
+    }
+  ],
+  "requestHeaders": {
+    "count": 1,
+    "maxTokens": [
+      32768
+    ],
+    "adapterDefaultMaxTokens": 0
+  },
+  "modelCalls": 21,
+  "toolCallNames": {
+    "bash": 6,
+    "read": 4,
+    "glob": 2,
+    "edit": 5,
+    "arc_status": 1,
+    "compress": 1
+  },
+  "projectTests": {
+    "passed": true,
+    "tail": "\n> test\n> node --test\n\nTAP version 13\n# Subtest: normalizeBranch\nok 1 - normalizeBranch\n  ---\n  duration_ms: 0.571333\n  type: 'test'\n  ...\n# Subtest: retryDelay\nok 2 - retryDelay\n  ---\n  duration_ms: 0.281458\n  type: 'test'\n  ...\n# Subtest: canDeploy\nok 3 - canDeploy\n  ---\n  duration_ms: 0.054083\n  type: 'test'\n  ...\n# Subtest: redactToken\nok 4 - redactToken\n  ---\n  duration_ms: 0.07525\n  type: 'test'\n  ...\n1..4\n# tests 4\n# suites 0\n# pass 4\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 42.571208\n"
+  },
+  "errors": [],
+  "finalTextHead": "{\"proofs\":{\"C1\":\"BABB5-9BB03-D367D\",\"D1\":\"1C896-C6E3B-22D55\",\"I1\":\"B65F7-920BA-88747\",\"F1\":\"F8ACD-8323F-44B7C\",\"T1\":\"74E23-4E18E-D4319\",\"B1\":\"A7395-2C47D-5BF50\",\"C2\":\"DF046-F5AD4-05599\",\"D2\":\"53931-8C3B6-11212\",\"I2\":\"771A3-892B5-79DE2\",\"F2\":\"6F779-11D35-1B883\",\"T2\":\"F0E94-EF4B6-BC400\",\"B2\":\"95C31-809F1-294B6\",\"C3\":\"D8CC1-82FB4-1F812\",\"D3\":\"88D60-08022-377EF\",\"I3\":\"37736-0D05A-244D2\",\"F3\":\"BCD64-66"
+}

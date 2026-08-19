@@ -1,0 +1,62 @@
+{
+  "generatedAt": "2026-08-17T09:47:20.707Z",
+  "runId": "semantic-supersession-seed01-glm52-arc-v2",
+  "seed": "semantic-seed-01",
+  "model": "GLM-5.2",
+  "requestHeaders": {
+    "count": 1,
+    "maxTokens": [
+      32768
+    ],
+    "adapterDefaultMaxTokens": 0
+  },
+  "sessionUsage": {
+    "uncachedInputTokens": 179616,
+    "outputTokens": 8625,
+    "cacheReadTokens": 78848,
+    "cacheWriteTokens": 0
+  },
+  "finalContextPressure": {
+    "pressureTokens": 38163,
+    "projectedTokens": 42768,
+    "contextWindow": 1000000
+  },
+  "currentState": {
+    "recalled": 12,
+    "expected": 12,
+    "missing": []
+  },
+  "rationale": {
+    "recalled": 10,
+    "expected": 10,
+    "missing": []
+  },
+  "obsoleteContamination": {
+    "count": 0,
+    "leakedPatterns": []
+  },
+  "toolCalls": {
+    "count": 0,
+    "finalTurnCount": 0
+  },
+  "compactions": [
+    {
+      "provider": "local",
+      "model": "adaptive-governor-extractive-v1",
+      "shadowedNodes": 2,
+      "shadowedTokenCount": 9806,
+      "summaryChars": 7021,
+      "usage": null
+    },
+    {
+      "provider": "local",
+      "model": "adaptive-governor-extractive-v1",
+      "shadowedNodes": 4,
+      "shadowedTokenCount": 18742,
+      "summaryChars": 10582,
+      "usage": null
+    }
+  ],
+  "errors": [],
+  "finalText": "```json\n{\n  \"主要上线城市\": \"塔林\",\n  \"执行负责人\": \"Noor Haddad\",\n  \"冻结窗口\": \"星期四 04:15 UTC\",\n  \"回滚确认短语\": \"silent harbor\",\n  \"保留期限\": \"45 天\",\n  \"生产消息队列\": \"cedar-lane\",\n  \"每批账户数\": 180,\n  \"失败重试策略\": \"最多重试 4 次，每次间隔 90 秒\",\n  \"受监管租户路径\": \"受监管租户暂从瓦伦西亚上线（临时例外，持续到驻留审计完成），普通租户走塔林\",\n  \"上线审批\": \"财务负责人和 SRE 值班经理双签，少一方都不能开始\",\n  \"对外状态页\": \"ivory-status.example\",\n  \"审计归档包\": \"ledger-indigo\",\n  \"变更原因\": [\n    \"主要上线城市改为塔林：瓦伦西亚供应商的驻留认证已经过期\",\n    \"执行负责人换成 Noor Haddad：Mira Chen 在上线周被调去处理监管问询\",\n    \"冻结窗口改到星期四 04:15 UTC：支付流量在这个时段最低\",\n    \"回滚确认短语换成 silent harbor：amber violin 在公开演练录音中已经泄露\",\n    \"保留期限延长到 45 天：监管方签发了临时法律保全令\",\n    \"生产消息队列迁移为 cedar-lane：新生产者已经停止向 north-river 发布\",\n    \"每批账户数降为 180：240 个账户同时解密会造成内存尖峰\",\n    \"失败重试策略改为最多重试 4 次、每次间隔 90 秒：三次重试不足以跨过网关限流周期\",\n    \"受监管租户暂从瓦伦西亚上线：例外持续到驻留审计完成\",\n    \"审计归档包改称 ledger-indigo：旧名称与另一场演练的包发生冲突\"\n  ]\n}\n```"
+}

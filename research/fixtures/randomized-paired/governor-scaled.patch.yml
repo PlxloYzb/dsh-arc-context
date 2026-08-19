@@ -1,0 +1,10 @@
+- id: compaction-acp
+  config:
+    modelContextLimit: 160000
+    adaptiveGovernor:
+      enabled: true
+      maxOutputTokens: 32768
+      safetyMarginTokens: 32768
+      nudgeAtEffectiveCapacityPct: 0.75
+      emergencyAtEffectiveCapacityPct: 0.90
+      emergencyFallback: true

@@ -1,0 +1,8 @@
+{
+  "name": "synthetic-release-policy-holdout",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}

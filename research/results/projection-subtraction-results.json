@@ -1,0 +1,443 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-17T22:41:40.335Z",
+  "question": "RQ1-closure task C: does the nudge pressure source (sessionProjections.contextPressure.projectedTokens) consume shadowedTokenCount after compression? (RQ3 finding rq3-f1 corrective test; autoNudge was OFF in RQ3 so the nudge path post-compression was never exercised)",
+  "setup": {
+    "host": "isolated DSH_HOME web profile, ARC 0.2.0-beta.5 via bridge",
+    "patch": "compaction-arc--bridge row: modelContextLimit 32768, autoNudge true, adaptiveGovernor.enabled false",
+    "model": "scnet/GLM-5.2 (host default)",
+    "cwd": "clean /tmp workspace (no AGENTS.md — fixed prompt overhead minimized so the 70% line discriminates)",
+    "windowMath": {
+      "modelContextLimit": 32768,
+      "forcedNudgeLine": 22937.6,
+      "emergencyLine": 27852.8
+    },
+    "phases": "2 plant turns -> instructed batch compress of front 1 plant range(s) -> 2 settle -> arc_status -> DONE",
+    "budget": {
+      "cap": 13,
+      "used": 10
+    }
+  },
+  "timeline": [
+    {
+      "phase": "plant-1",
+      "modelCalls": 1,
+      "projectedTokens": 18527,
+      "pressureTokens": 18009,
+      "projectionContextWindow": 1000000,
+      "projectionPctOfPatchWindow": 0.5654,
+      "realPromptTokens": 18009,
+      "lastCall": "plant-1"
+    },
+    {
+      "phase": "plant-2",
+      "modelCalls": 2,
+      "projectedTokens": 25510,
+      "pressureTokens": 25330,
+      "projectionContextWindow": 1000000,
+      "projectionPctOfPatchWindow": 0.7785,
+      "realPromptTokens": 25330,
+      "lastCall": "plant-2"
+    },
+    {
+      "phase": "compress-instructed",
+      "modelCalls": 5,
+      "projectedTokens": 29451,
+      "pressureTokens": 26933,
+      "projectionContextWindow": 1000000,
+      "projectionPctOfPatchWindow": 0.8988,
+      "realPromptTokens": 26933,
+      "lastCall": "compress-instructed"
+    },
+    {
+      "phase": "settle-1",
+      "modelCalls": 6,
+      "projectedTokens": 29532,
+      "pressureTokens": 29395,
+      "projectionContextWindow": 1000000,
+      "projectionPctOfPatchWindow": 0.9012,
+      "realPromptTokens": 29395,
+      "lastCall": "settle-1"
+    },
+    {
+      "phase": "settle-2",
+      "modelCalls": 7,
+      "projectedTokens": 29762,
+      "pressureTokens": 29655,
+      "projectionContextWindow": 1000000,
+      "projectionPctOfPatchWindow": 0.9083,
+      "realPromptTokens": 29655,
+      "lastCall": "settle-2"
+    },
+    {
+      "phase": "arc-status",
+      "modelCalls": 9,
+      "projectedTokens": 30696,
+      "pressureTokens": 30205,
+      "projectionContextWindow": 1000000,
+      "projectionPctOfPatchWindow": 0.9368,
+      "realPromptTokens": 30205,
+      "lastCall": "arc-status"
+    },
+    {
+      "phase": "final-observe",
+      "modelCalls": 10,
+      "projectedTokens": 31008,
+      "pressureTokens": 30892,
+      "projectionContextWindow": 1000000,
+      "projectionPctOfPatchWindow": 0.9463,
+      "realPromptTokens": 30892,
+      "lastCall": "final-observe"
+    }
+  ],
+  "compression": {
+    "instructedRanges": [
+      {
+        "startSeq": 7,
+        "endSeq": 305
+      }
+    ],
+    "ledgerShadowedTokens": 5638,
+    "compactions": [
+      {
+        "shadowedRange": {
+          "start": 7,
+          "end": 299
+        },
+        "shadowedTokenCount": 5638,
+        "tier": 1,
+        "provider": "scnet",
+        "model": "GLM-5.2"
+      }
+    ],
+    "preCompressProjected": 25510,
+    "postCompressProjected": 30696
+  },
+  "perCallPromptTokens": [
+    {
+      "seq": 299,
+      "turn": 1,
+      "step": 1,
+      "promptTokens": 18009
+    },
+    {
+      "seq": 409,
+      "turn": 2,
+      "step": 1,
+      "promptTokens": 25330
+    },
+    {
+      "seq": 1483,
+      "turn": 3,
+      "step": 1,
+      "promptTokens": 25778
+    },
+    {
+      "seq": 3781,
+      "turn": 3,
+      "step": 2,
+      "promptTokens": 26782
+    },
+    {
+      "seq": 5081,
+      "turn": 3,
+      "step": 3,
+      "promptTokens": 26933
+    },
+    {
+      "seq": 5167,
+      "turn": 4,
+      "step": 1,
+      "promptTokens": 29395
+    },
+    {
+      "seq": 5237,
+      "turn": 5,
+      "step": 1,
+      "promptTokens": 29655
+    },
+    {
+      "seq": 5268,
+      "turn": 6,
+      "step": 1,
+      "promptTokens": 29896
+    },
+    {
+      "seq": 5583,
+      "turn": 6,
+      "step": 2,
+      "promptTokens": 30205
+    },
+    {
+      "seq": 5651,
+      "turn": 7,
+      "step": 1,
+      "promptTokens": 30892
+    }
+  ],
+  "nudges": {
+    "mux": [
+      {
+        "eventType": "user/message",
+        "seq": 417,
+        "textHead": "5e3cb3\",\"event\":{\"type\":\"user/message\",\"seq\":417,\"time\":1787006047855,\"data\":{\"content\":[{\"type\":\"text\",\"text\":\"ARC 78% of effective input capacity — an efficiency note, not an overflow warning: consider compressing ranges you have fully consumed. Fresh refs: arc_status.\\n\\nContext breakdown: 0K system | 0K tool | 0K summaries | 9K code | 1K text\\n+7K since last nudge\\n\\nSurface: 6 nodes, seqs 7..409\\nCompressible ranges (top 1 suggestions — compress any consumed span; refs are surface seqs):\\n "
+      },
+      {
+        "eventType": "user/message",
+        "seq": 3791,
+        "textHead": "\",\"event\":{\"type\":\"user/message\",\"seq\":3791,\"time\":1787006439371,\"data\":{\"content\":[{\"type\":\"text\",\"text\":\"⚠️ ARC 86% — compress now; prioritize consumed tool outputs. Fresh refs: arc_status.\\n\\nContext breakdown: 0K system | 0K tool | 1K summaries | 12K code | 0K text\\nTier 2: 1 tier-1 block(s) distillable (637 tokens) — compress their summary node(s) [seqs 3785] to reclaim the original messages.\\n\\n💡 Compress all ranges in one call (pass multiple content entries: `content: [{...}, {...}]`).\"}"
+      },
+      {
+        "eventType": "assistant/chunk",
+        "seq": 4981,
+        "textHead": "y COMPRESSED. The user did NOT ask me to do further tier-2 compression.\\n\\nLet me also consider: the nudge says \\\"86% — compress now; prioritize consumed tool outputs.\\\" The tool outputs that are consumed would be... my arc_status call result, the compress call result. These are small. The \\\"12K code\\\" in the breakdown is puzzling — what code? Maybe the telemetry was counted as code? Or maybe the runtime context messages.\\n\\nActually, looking at the context breakdown: \\\"0K system | 0K tool | 1K "
+      },
+      {
+        "eventType": "assistant/message",
+        "seq": 5081,
+        "textHead": "y COMPRESSED. The user did NOT ask me to do further tier-2 compression.\\n\\nLet me also consider: the nudge says \\\"86% — compress now; prioritize consumed tool outputs.\\\" The tool outputs that are consumed would be... my arc_status call result, the compress call result. These are small. The \\\"12K code\\\" in the breakdown is puzzling — what code? Maybe the telemetry was counted as code? Or maybe the runtime context messages.\\n\\nActually, looking at the context breakdown: \\\"0K system | 0K tool | 1K "
+      },
+      {
+        "eventType": "user/message",
+        "seq": 5089,
+        "textHead": "\",\"event\":{\"type\":\"user/message\",\"seq\":5089,\"time\":1787006471897,\"data\":{\"content\":[{\"type\":\"text\",\"text\":\"⚠️ ARC 90% — compress now; prioritize consumed tool outputs. Fresh refs: arc_status.\\n\\nContext breakdown: 0K system | 0K tool | 1K summaries | 12K code | 1K text\\n+1K since last nudge\\nTier 2: 1 tier-1 block(s) distillable (637 tokens) — compress their summary node(s) [seqs 3785] to reclaim the original messages.\\n\\n💡 Compress all ranges in one call (pass multiple content entries: `conten"
+      },
+      {
+        "eventType": "user/message",
+        "seq": 5175,
+        "textHead": "\",\"event\":{\"type\":\"user/message\",\"seq\":5175,\"time\":1787006477985,\"data\":{\"content\":[{\"type\":\"text\",\"text\":\"⚠️ ARC 90% — compress now; prioritize consumed tool outputs. Fresh refs: arc_status.\\n\\nContext breakdown: 0K system | 0K tool | 1K summaries | 12K code | 1K text\\n+0K since last nudge\\nTier 2: 1 tier-1 block(s) distillable (637 tokens) — compress their summary node(s) [seqs 3785] to reclaim the original messages.\\n\\n💡 Compress all ranges in one call (pass multiple content entries: `conten"
+      },
+      {
+        "eventType": "user/message",
+        "seq": 5245,
+        "textHead": "\",\"event\":{\"type\":\"user/message\",\"seq\":5245,\"time\":1787006484062,\"data\":{\"content\":[{\"type\":\"text\",\"text\":\"⚠️ ARC 91% — compress now; prioritize consumed tool outputs. Fresh refs: arc_status.\\n\\nContext breakdown: 0K system | 0K tool | 1K summaries | 12K code | 1K text\\n+0K since last nudge\\nTier 2: 1 tier-1 block(s) distillable (637 tokens) — compress their summary node(s) [seqs 3785] to reclaim the original messages.\\n\\n💡 Compress all ranges in one call (pass multiple content entries: `conten"
+      },
+      {
+        "eventType": "user/message",
+        "seq": 5273,
+        "textHead": "\",\"event\":{\"type\":\"user/message\",\"seq\":5273,\"time\":1787006487337,\"data\":{\"content\":[{\"type\":\"text\",\"text\":\"⚠️ ARC 92% — compress now; prioritize consumed tool outputs. Fresh refs: arc_status.\\n\\nContext breakdown: 0K system | 0K tool | 1K summaries | 12K code | 1K text\\n+0K since last nudge\\nTier 2: 1 tier-1 block(s) distillable (637 tokens) — compress their summary node(s) [seqs 3785] to reclaim the original messages.\\n\\n💡 Compress all ranges in one call (pass multiple content entries: `conten"
+      },
+      {
+        "eventType": "user/message",
+        "seq": 5591,
+        "textHead": "\",\"event\":{\"type\":\"user/message\",\"seq\":5591,\"time\":1787006496261,\"data\":{\"content\":[{\"type\":\"text\",\"text\":\"⚠️ ARC 94% — compress now; prioritize consumed tool outputs. Fresh refs: arc_status.\\n\\nContext breakdown: 0K system | 0K tool | 1K summaries | 12K code | 2K text\\n+1K since last nudge\\nTier 2: 1 tier-1 block(s) distillable (637 tokens) — compress their summary node(s) [seqs 3785] to reclaim the original messages.\\n\\n💡 Compress all ranges in one call (pass multiple content entries: `conten"
+      }
+    ],
+    "log": [
+      {
+        "eventType": "user/message",
+        "seq": 417,
+        "source": {
+          "kind": "plugin",
+          "plugin": "arc-nudge"
+        },
+        "textHead": "ARC 78% of effective input capacity — an efficiency note, not an overflow warning: consider compressing ranges you have fully consumed. Fresh refs: arc_status.\n\nContext breakdown: 0K system | 0K tool | 0K summaries | 9K code | 1K text\n+7K since last nudge\n\nSurface: 6 nodes, seqs 7..409\nCompressible ranges (top 1 suggestions — compress any consumed span; refs are surface seqs):\n  - seq 7..7 — 1 messages, ~4524 tokens\nBatch disjoint ranges in one call: compress({ content: [{ startSeq, endSeq, summ"
+      },
+      {
+        "eventType": "user/message",
+        "seq": 3791,
+        "source": {
+          "kind": "plugin",
+          "plugin": "arc-nudge"
+        },
+        "textHead": "⚠️ ARC 86% — compress now; prioritize consumed tool outputs. Fresh refs: arc_status.\n\nContext breakdown: 0K system | 0K tool | 1K summaries | 12K code | 0K text\nTier 2: 1 tier-1 block(s) distillable (637 tokens) — compress their summary node(s) [seqs 3785] to reclaim the original messages.\n\n💡 Compress all ranges in one call (pass multiple content entries: `content: [{...}, {...}]`)."
+      },
+      {
+        "eventType": "user/message",
+        "seq": 5089,
+        "source": {
+          "kind": "plugin",
+          "plugin": "arc-nudge"
+        },
+        "textHead": "⚠️ ARC 90% — compress now; prioritize consumed tool outputs. Fresh refs: arc_status.\n\nContext breakdown: 0K system | 0K tool | 1K summaries | 12K code | 1K text\n+1K since last nudge\nTier 2: 1 tier-1 block(s) distillable (637 tokens) — compress their summary node(s) [seqs 3785] to reclaim the original messages.\n\n💡 Compress all ranges in one call (pass multiple content entries: `content: [{...}, {...}]`)."
+      },
+      {
+        "eventType": "user/message",
+        "seq": 5175,
+        "source": {
+          "kind": "plugin",
+          "plugin": "arc-nudge"
+        },
+        "textHead": "⚠️ ARC 90% — compress now; prioritize consumed tool outputs. Fresh refs: arc_status.\n\nContext breakdown: 0K system | 0K tool | 1K summaries | 12K code | 1K text\n+0K since last nudge\nTier 2: 1 tier-1 block(s) distillable (637 tokens) — compress their summary node(s) [seqs 3785] to reclaim the original messages.\n\n💡 Compress all ranges in one call (pass multiple content entries: `content: [{...}, {...}]`)."
+      },
+      {
+        "eventType": "user/message",
+        "seq": 5245,
+        "source": {
+          "kind": "plugin",
+          "plugin": "arc-nudge"
+        },
+        "textHead": "⚠️ ARC 91% — compress now; prioritize consumed tool outputs. Fresh refs: arc_status.\n\nContext breakdown: 0K system | 0K tool | 1K summaries | 12K code | 1K text\n+0K since last nudge\nTier 2: 1 tier-1 block(s) distillable (637 tokens) — compress their summary node(s) [seqs 3785] to reclaim the original messages.\n\n💡 Compress all ranges in one call (pass multiple content entries: `content: [{...}, {...}]`)."
+      },
+      {
+        "eventType": "user/message",
+        "seq": 5273,
+        "source": {
+          "kind": "plugin",
+          "plugin": "arc-nudge"
+        },
+        "textHead": "⚠️ ARC 92% — compress now; prioritize consumed tool outputs. Fresh refs: arc_status.\n\nContext breakdown: 0K system | 0K tool | 1K summaries | 12K code | 1K text\n+0K since last nudge\nTier 2: 1 tier-1 block(s) distillable (637 tokens) — compress their summary node(s) [seqs 3785] to reclaim the original messages.\n\n💡 Compress all ranges in one call (pass multiple content entries: `content: [{...}, {...}]`)."
+      },
+      {
+        "eventType": "user/message",
+        "seq": 5591,
+        "source": {
+          "kind": "plugin",
+          "plugin": "arc-nudge"
+        },
+        "textHead": "⚠️ ARC 94% — compress now; prioritize consumed tool outputs. Fresh refs: arc_status.\n\nContext breakdown: 0K system | 0K tool | 1K summaries | 12K code | 2K text\n+1K since last nudge\nTier 2: 1 tier-1 block(s) distillable (637 tokens) — compress their summary node(s) [seqs 3785] to reclaim the original messages.\n\n💡 Compress all ranges in one call (pass multiple content entries: `content: [{...}, {...}]`)."
+      }
+    ],
+    "note": "mux frames are the live request-scoped evidence (the injected nudge user message is not guaranteed durable); the log scan covers durable inbox splices"
+  },
+  "arcStatusOutput": "ARC status — session session-4d23c24f-cbc7-4757-861a-be307e5e3cb3\n  ARC backend ownership: ACTIVE\n  resolved compaction backend: dsh-arc-context\n  blocks: 1\n  tokens compressed: 5638\n  estimated context: 29939 / 32768 (91%)\n  context window: 32768 (configured)\n  surface: 22 nodes, seqs 3785..5268\n  - 7082335f: seqs 7..299 (4 msgs) — WORK-LOG EXPERIMENT (4 stages). User goal: a context-management experiment deliv",
+  "judgment": {
+    "aProjectionDroppedAfterCompression": 5186,
+    "aVerdict": "projection did NOT drop: +5,186 tokens while the durable ledger shadowed 5,638 (rq3-f1 reproduced under autoNudge)",
+    "bNudgePressureSource": {
+      "answer": "the host contextPressure projection path (rule-2 chain: sessionProjections.contextPressure.projectedTokens preferred)",
+      "evidence": [
+        "pre-compression nudge (seq 417) read 78% -> basis 25,559 tokens; host projection at that point was 25,510 (delta 49)",
+        "arc_status estimated context 29,939/32,768 (91%) tracks the projection scale, not surface-minus-shadowed",
+        "post-compression readings kept RISING (86%->94%) with the projection instead of dropping by the 5,638 shadowed tokens"
+      ],
+      "postCompressionNudges": 6,
+      "postCompressionEmergencyArtifacts": 6,
+      "wouldNotFireAtAllUnderConservativeCorrection": 1
+    },
+    "cClassification": "nudge-overpressure product defect (evidence complete; fix deferred to a separate commission - no src/ changes in this one)",
+    "cReasoning": "conservative compression-aware counterfactual (reading basis - ledger shadowed; ignores the summary text that also re-enters, so the true correction is larger): the 86% emergency nudge falls to 68.8% (below the 70% forced line - no nudge at all) and the 90-94% emergency nudges fall to 72.8-76.8% (normal tier). All six post-compression emergency firings are artifacts of the non-subtracting projection. Aggravating: ARC nudges are DURABLE user messages (source.plugin arc-nudge), so each artifact nudge permanently adds transcript noise - six of them accumulated on the surface in this session alone.",
+    "rule2Wording": "AGENTS rule 2 (and the resolveTokenCount docstring \"Provider-anchored; reacts to compaction\") is falsified for this host surface: the preferred projection does NOT react to compaction. Wording should state that the preferred source is host-projection-anchored but NOT compression-aware, and that ARC-side subtraction of the ledger shadowed total is required for post-compression pressure.",
+    "scopeNotes": [
+      "window 32,768 with ~13.5K fixed overhead (web Standard preset: system prompt + tools + runtime snapshot + skill catalog) leaves little room below the 70% line; the counterfactual is computed on the reading basis, not the real prompt, because the real prompt was itself inflated by the accumulated artifact nudges",
+      "autoNudge was OFF in RQ2/RQ3, so this path was never exercised there; the RQ3 smoke observation (projection rising after compression) is the same mechanism seen from the outside",
+      "zero-cost offline re-derivation: research/scripts/rq1c-nudge-audit.mjs"
+    ]
+  },
+  "sessionId": "session-4d23c24f-cbc7-4757-861a-be307e5e3cb3",
+  "postCompressionNudgeAudit": {
+    "derivedFrom": "durable session log (offline zstd re-read; zero additional model calls)",
+    "correctionModel": "conservative compression-aware counterfactual: nudge basis − ledger shadowedTokenCount at nudge time (ignores the summary text that also re-enters the surface, so the true correction is larger; any decision flip under the conservative correction is definitive)",
+    "windowMath": {
+      "modelContextLimit": 32768,
+      "forcedPct": 70,
+      "emergencyPct": 85
+    },
+    "nudges": [
+      {
+        "seq": 417,
+        "pct": 78,
+        "tier": "normal",
+        "basisTokens": 25559,
+        "ledgerShadowedSoFar": 0,
+        "postCompression": false,
+        "compressionAwareTokens": 25559,
+        "conservativeAwarePct": 78,
+        "awareTier": "normal-forced",
+        "overpressureArtifact": false
+      },
+      {
+        "seq": 3791,
+        "pct": 86,
+        "tier": "emergency",
+        "basisTokens": 28180,
+        "ledgerShadowedSoFar": 5638,
+        "postCompression": true,
+        "compressionAwareTokens": 22542,
+        "conservativeAwarePct": 68.8,
+        "awareTier": "below-forced-line (no nudge)",
+        "overpressureArtifact": true
+      },
+      {
+        "seq": 5089,
+        "pct": 90,
+        "tier": "emergency",
+        "basisTokens": 29491,
+        "ledgerShadowedSoFar": 5638,
+        "postCompression": true,
+        "compressionAwareTokens": 23853,
+        "conservativeAwarePct": 72.8,
+        "awareTier": "normal-forced",
+        "overpressureArtifact": true
+      },
+      {
+        "seq": 5175,
+        "pct": 90,
+        "tier": "emergency",
+        "basisTokens": 29491,
+        "ledgerShadowedSoFar": 5638,
+        "postCompression": true,
+        "compressionAwareTokens": 23853,
+        "conservativeAwarePct": 72.8,
+        "awareTier": "normal-forced",
+        "overpressureArtifact": true
+      },
+      {
+        "seq": 5245,
+        "pct": 91,
+        "tier": "emergency",
+        "basisTokens": 29819,
+        "ledgerShadowedSoFar": 5638,
+        "postCompression": true,
+        "compressionAwareTokens": 24181,
+        "conservativeAwarePct": 73.8,
+        "awareTier": "normal-forced",
+        "overpressureArtifact": true
+      },
+      {
+        "seq": 5273,
+        "pct": 92,
+        "tier": "emergency",
+        "basisTokens": 30147,
+        "ledgerShadowedSoFar": 5638,
+        "postCompression": true,
+        "compressionAwareTokens": 24509,
+        "conservativeAwarePct": 74.8,
+        "awareTier": "normal-forced",
+        "overpressureArtifact": true
+      },
+      {
+        "seq": 5591,
+        "pct": 94,
+        "tier": "emergency",
+        "basisTokens": 30802,
+        "ledgerShadowedSoFar": 5638,
+        "postCompression": true,
+        "compressionAwareTokens": 25164,
+        "conservativeAwarePct": 76.8,
+        "awareTier": "normal-forced",
+        "overpressureArtifact": true
+      }
+    ],
+    "readingSourcePins": {
+      "preCompressionBasisMatchesHostProjection": [
+        {
+          "seq": 417,
+          "pct": 78,
+          "basisTokens": 25559,
+          "hostProjectedTokens": 25510,
+          "matchDelta": -49
+        }
+      ],
+      "arcStatusEstimate": [
+        29939,
+        32768,
+        91
+      ],
+      "note": "the nudge percentage basis and arc_status estimate both track the host contextPressure projection scale; neither reflects the 5,638 shadowed tokens (rule-2 chain: sessionProjections preferred)"
+    },
+    "summary": {
+      "preCompressionNudges": 1,
+      "postCompressionNudges": 6,
+      "postCompressionEmergencyArtifacts": 6,
+      "wouldNotFireAtAll": 1
+    },
+    "releaseCounterfactual": {
+      "reader": "ARC 0.2.0-beta.6 effective projectedTokens = max(0, host projection − log-rebuilt ledger shadowedTokenCount)",
+      "postCompressionEmergencyNudgesWithFix": 0,
+      "preventedEmergencyArtifacts": 6,
+      "postCompressionNudgesSuppressedWithFix": 1,
+      "postCompressionNormalNudgesWithFix": 5
+    }
+  }
+}

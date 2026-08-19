@@ -1,0 +1,57 @@
+{
+  "generatedAt": "2026-08-17T10:13:46.656Z",
+  "provider": "scnet",
+  "model": "GLM-5.2",
+  "defaultSmoke": {
+    "runId": "glm52-arc-adapter-smoke",
+    "headers": [
+      {
+        "provider": "scnet",
+        "model": "GLM-5.2",
+        "maxTokens": 32768,
+        "adapterDefault": false
+      },
+      {
+        "provider": "scnet",
+        "model": "GLM-5.2",
+        "maxTokens": 32768,
+        "adapterDefault": false
+      }
+    ],
+    "usage": {
+      "uncachedInputTokens": 10381,
+      "outputTokens": 176,
+      "cacheReadTokens": 16000,
+      "cacheWriteTokens": 0
+    },
+    "pressure": {
+      "pressureTokens": 8308,
+      "projectedTokens": 8381,
+      "contextWindow": 1000000
+    },
+    "errors": []
+  },
+  "explicit128K": {
+    "runId": "glm52-arc-explicit-output-128k",
+    "headers": [
+      {
+        "provider": "scnet",
+        "model": "GLM-5.2",
+        "maxTokens": 131072,
+        "adapterDefault": false
+      }
+    ],
+    "usage": {
+      "uncachedInputTokens": 610,
+      "outputTokens": 15,
+      "cacheReadTokens": 3072,
+      "cacheWriteTokens": 0
+    },
+    "pressure": {
+      "pressureTokens": 1852,
+      "projectedTokens": 1863,
+      "contextWindow": 1000000
+    },
+    "errors": []
+  }
+}

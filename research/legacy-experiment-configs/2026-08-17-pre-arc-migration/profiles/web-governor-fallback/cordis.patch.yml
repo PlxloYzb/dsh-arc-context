@@ -1,0 +1,11 @@
+# Isolated live validation of the model-free emergency fuse.
+- id: compaction-acp
+  config:
+    autoNudge: false
+    adaptiveGovernor:
+      enabled: true
+      maxOutputTokens: 32768
+      safetyMarginTokens: 32768
+      nudgeAtEffectiveCapacityPct: 0.75
+      emergencyAtEffectiveCapacityPct: 0.90
+      emergencyFallback: true

@@ -1,0 +1,69 @@
+{
+  "generatedAt": "2026-08-17T05:39:15.063Z",
+  "runId": "code-engineering-holdout-seed02-governor-auto",
+  "seed": "code-seed-02",
+  "model": "deepseek-v4-flash",
+  "requestHeaders": {
+    "count": 2,
+    "maxTokens": [
+      32768
+    ],
+    "adapterDefaultMaxTokens": 0
+  },
+  "sessionUsage": {
+    "uncachedInputTokens": 121146,
+    "outputTokens": 23234,
+    "cacheReadTokens": 934656,
+    "cacheWriteTokens": 0
+  },
+  "finalContextPressure": {
+    "pressureTokens": 25601,
+    "projectedTokens": 26599,
+    "contextWindow": 1000000
+  },
+  "exactProofs": {
+    "recalled": 24,
+    "expected": 24,
+    "missingKeys": []
+  },
+  "derived": {
+    "recalled": 4,
+    "expected": 4,
+    "missing": []
+  },
+  "projectTests": {
+    "passed": true,
+    "tail": "\n> test\n> node --test\n\nTAP version 13\n# Subtest: normalizeBranch\nok 1 - normalizeBranch\n  ---\n  duration_ms: 0.444708\n  type: 'test'\n  ...\n# Subtest: retryDelay\nok 2 - retryDelay\n  ---\n  duration_ms: 0.249709\n  type: 'test'\n  ...\n# Subtest: canDeploy\nok 3 - canDeploy\n  ---\n  duration_ms: 0.054333\n  type: 'test'\n  ...\n# Subtest: redactToken\nok 4 - redactToken\n  ---\n  duration_ms: 0.073542\n  type: 'test'\n  ...\n1..4\n# tests 4\n# suites 0\n# pass 4\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 41.769583\n"
+  },
+  "toolCalls": {
+    "count": 32,
+    "finalTurnCount": 0,
+    "names": {
+      "bash": 12,
+      "read": 9,
+      "edit": 5,
+      "web_search": 1,
+      "acp_status": 3,
+      "compress": 2
+    }
+  },
+  "compactions": [
+    {
+      "provider": "local",
+      "model": "adaptive-governor-extractive-v1",
+      "shadowedNodes": 26,
+      "shadowedTokenCount": 33960,
+      "summaryChars": 13855,
+      "usage": null
+    },
+    {
+      "provider": "local",
+      "model": "adaptive-governor-extractive-v1",
+      "shadowedNodes": 29,
+      "shadowedTokenCount": 36065,
+      "summaryChars": 16374,
+      "usage": null
+    }
+  ],
+  "errors": []
+}

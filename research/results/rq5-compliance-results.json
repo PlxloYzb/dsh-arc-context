@@ -1,0 +1,1143 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-18T01:59:15.166Z",
+  "question": "RQ5: nudge compliance, latency, pressured-summary quality, Governor timing, and RQ2 decision-two behavior.",
+  "methodology": {
+    "arms": {
+      "N": {
+        "patch": "research/profiles/rq5-n.patch.yml",
+        "mode": "natural advisory nudge; Governor off"
+      },
+      "G80": {
+        "patch": "research/profiles/rq5-g80.patch.yml",
+        "mode": "Governor on; 75% normal / 80% fallback over 28,672-token effective capacity"
+      },
+      "G88": {
+        "patch": "research/profiles/rq5-g88.patch.yml",
+        "mode": "Governor on; 75% normal / 88% fallback over 28,672-token effective capacity"
+      },
+      "P": {
+        "patch": "research/profiles/rq5-p.patch.yml",
+        "mode": "automatic nudge off; instructed low-pressure proactive compression"
+      }
+    },
+    "complianceDefinition": "An eligible arc-nudge is compliant when a model compress tool call appears in its current response or either of the next two model turns.",
+    "contaminationGuard": "N/G prompt text is SHA-256 recorded and mechanically rejected if it contains compress/compression/context/nudge/summary variants or 压缩/上下文/提示.",
+    "rawEvidence": "Metrics are derived offline from the durable session history; no nudge-observation prompt or extra model call is issued."
+  },
+  "arms": {
+    "N": {
+      "sessionId": "session-2d933301-ecfc-49b1-8f5d-e702776ecb12",
+      "setup": {
+        "host": "isolated DSH_HOME web profile; fresh process per arm",
+        "model": "scnet/GLM-5.2",
+        "configuredWindow": 32768,
+        "cleanCwd": "/tmp/rq5-compliance-n",
+        "seed": 505,
+        "noiseLines": 260,
+        "targetProjectedTokens": 25231,
+        "perArmBudget": 15,
+        "expectedPatch": "research/profiles/rq5-n.patch.yml",
+        "appliedPatchSha256": "49db50a1ef9363f9a06e414736f72bbeea230d375f6250d4f4a9e98674b6eb80"
+      },
+      "promptAudit": {
+        "forbiddenPattern": "/\\b(?:compress|compression|context|nudge|summar(?:y|ize|ization))\\b|压缩|上下文|提示/iu",
+        "forbiddenMatches": [],
+        "prompts": [
+          {
+            "phase": "plant-1",
+            "chars": 21433,
+            "sha256": "6170a41048f3789f3528cd6846b6eb0bfe4ba4f2011ec9cba6b480f2cfaccc57"
+          },
+          {
+            "phase": "plant-2",
+            "chars": 21433,
+            "sha256": "04f9c1a7f29e5fe48992cd128be906ee33ea242241517bf5f1eef3389dcc187e"
+          },
+          {
+            "phase": "plant-3",
+            "chars": 21520,
+            "sha256": "ae4b6c93af3acf278c25c8380c3b94376da7db1a47143a9e91421b918e7d8f19"
+          },
+          {
+            "phase": "plant-4",
+            "chars": 21418,
+            "sha256": "df81804910d3644dba4b6e171f1e0c7d2061e789ec3461b41cc6640845baf030"
+          },
+          {
+            "phase": "plant-5",
+            "chars": 21363,
+            "sha256": "bdbe72b3322dcfb9c7c66aa26cefb4c5728a93f6711c1e8ca69395b57e786e79"
+          },
+          {
+            "phase": "plant-6",
+            "chars": 21324,
+            "sha256": "c8ffd60ff64ed1b8d3d97ac5266a2e6cc165fb576d91076ca2a1418cbc8a4c3a"
+          },
+          {
+            "phase": "plant-7",
+            "chars": 21319,
+            "sha256": "7bf81a834bf073a4b7b6ca20c7ff1293ee70df257ea12f3bd99733fb2737b806"
+          },
+          {
+            "phase": "ordinary-1",
+            "chars": 21,
+            "sha256": "357b59d83710e7b7c393a70e5b5cbeafeefbfb0aac133b3a49ca04327c788251"
+          },
+          {
+            "phase": "ordinary-2",
+            "chars": 21,
+            "sha256": "7b31dbe4dcce2e4098228b4891ea53e545eccd040028000a263039ee5f569bf9"
+          },
+          {
+            "phase": "ordinary-3",
+            "chars": 21,
+            "sha256": "560767f79bb5c8a7726b36598fe8ee4539eb2cb06c7e6335aa8473e133d4dcb1"
+          },
+          {
+            "phase": "blind-recall",
+            "chars": 1818,
+            "sha256": "83798e55c62c705217bb4ee2b820bb95162e6cb8e46ad5bebc48f9491e70b45c"
+          }
+        ]
+      },
+      "calls": 10,
+      "nudgeCount": 3,
+      "compactionCount": 1,
+      "localArchiveCount": 0,
+      "quality": {
+        "answerOnly": {
+          "strict": "6/20",
+          "loose": "11/20",
+          "strictRate": 0.3,
+          "looseRate": 0.55,
+          "unknownLines": 8
+        },
+        "benchAnswerPlusTool": {
+          "strict": "6/20",
+          "loose": "11/20",
+          "strictRate": 0.3,
+          "looseRate": 0.55
+        },
+        "queryToolCalls": []
+      },
+      "costLedger": {
+        "uncachedInputTokens": 65569,
+        "outputTokens": 5334,
+        "cacheReadTokens": 252800,
+        "totalPromptTokens": 318369
+      },
+      "report": "results/bench/rq5-n.json"
+    },
+    "G80": {
+      "sessionId": "session-83698664-c219-49e1-8df6-9e77a5f0ee9b",
+      "setup": {
+        "host": "isolated DSH_HOME web profile; fresh process per arm",
+        "model": "scnet/GLM-5.2",
+        "configuredWindow": 32768,
+        "cleanCwd": "/tmp/rq5-compliance-g80",
+        "seed": 505,
+        "noiseLines": 260,
+        "targetProjectedTokens": 25231,
+        "perArmBudget": 15,
+        "expectedPatch": "research/profiles/rq5-g80.patch.yml",
+        "appliedPatchSha256": "0006e8ffa1ff63ac8c28a3443512a0f6333e570776a008fb7cb4443c731082a2"
+      },
+      "promptAudit": {
+        "forbiddenPattern": "/\\b(?:compress|compression|context|nudge|summar(?:y|ize|ization))\\b|压缩|上下文|提示/iu",
+        "forbiddenMatches": [],
+        "prompts": [
+          {
+            "phase": "plant-1",
+            "chars": 21433,
+            "sha256": "6170a41048f3789f3528cd6846b6eb0bfe4ba4f2011ec9cba6b480f2cfaccc57"
+          },
+          {
+            "phase": "plant-2",
+            "chars": 21433,
+            "sha256": "04f9c1a7f29e5fe48992cd128be906ee33ea242241517bf5f1eef3389dcc187e"
+          },
+          {
+            "phase": "plant-3",
+            "chars": 21520,
+            "sha256": "ae4b6c93af3acf278c25c8380c3b94376da7db1a47143a9e91421b918e7d8f19"
+          },
+          {
+            "phase": "plant-4",
+            "chars": 21418,
+            "sha256": "df81804910d3644dba4b6e171f1e0c7d2061e789ec3461b41cc6640845baf030"
+          },
+          {
+            "phase": "plant-5",
+            "chars": 21363,
+            "sha256": "bdbe72b3322dcfb9c7c66aa26cefb4c5728a93f6711c1e8ca69395b57e786e79"
+          },
+          {
+            "phase": "plant-6",
+            "chars": 21324,
+            "sha256": "c8ffd60ff64ed1b8d3d97ac5266a2e6cc165fb576d91076ca2a1418cbc8a4c3a"
+          },
+          {
+            "phase": "plant-7",
+            "chars": 21319,
+            "sha256": "7bf81a834bf073a4b7b6ca20c7ff1293ee70df257ea12f3bd99733fb2737b806"
+          },
+          {
+            "phase": "ordinary-1",
+            "chars": 21,
+            "sha256": "357b59d83710e7b7c393a70e5b5cbeafeefbfb0aac133b3a49ca04327c788251"
+          },
+          {
+            "phase": "ordinary-2",
+            "chars": 21,
+            "sha256": "7b31dbe4dcce2e4098228b4891ea53e545eccd040028000a263039ee5f569bf9"
+          },
+          {
+            "phase": "ordinary-3",
+            "chars": 21,
+            "sha256": "560767f79bb5c8a7726b36598fe8ee4539eb2cb06c7e6335aa8473e133d4dcb1"
+          },
+          {
+            "phase": "blind-recall",
+            "chars": 1818,
+            "sha256": "83798e55c62c705217bb4ee2b820bb95162e6cb8e46ad5bebc48f9491e70b45c"
+          }
+        ]
+      },
+      "calls": 8,
+      "nudgeCount": 2,
+      "compactionCount": 2,
+      "localArchiveCount": 2,
+      "quality": {
+        "answerOnly": {
+          "strict": "7/20",
+          "loose": "11/20",
+          "strictRate": 0.35,
+          "looseRate": 0.55,
+          "unknownLines": 8
+        },
+        "benchAnswerPlusTool": {
+          "strict": "7/20",
+          "loose": "11/20",
+          "strictRate": 0.35,
+          "looseRate": 0.55
+        },
+        "queryToolCalls": []
+      },
+      "costLedger": {
+        "uncachedInputTokens": 54301,
+        "outputTokens": 2291,
+        "cacheReadTokens": 189056,
+        "totalPromptTokens": 243357
+      },
+      "report": "results/bench/rq5-g80.json"
+    },
+    "G88": {
+      "sessionId": "session-0c9c9dd4-af64-4195-8313-8131b5fa6797",
+      "setup": {
+        "host": "isolated DSH_HOME web profile; fresh process per arm",
+        "model": "scnet/GLM-5.2",
+        "configuredWindow": 32768,
+        "cleanCwd": "/tmp/rq5-compliance-g88",
+        "seed": 505,
+        "noiseLines": 260,
+        "targetProjectedTokens": 25231,
+        "perArmBudget": 15,
+        "expectedPatch": "research/profiles/rq5-g88.patch.yml",
+        "appliedPatchSha256": "0b51352b35aba68fc06bd4c2d6cc9a1c7d5882608e45ac3d1072b7915423c4bc"
+      },
+      "promptAudit": {
+        "forbiddenPattern": "/\\b(?:compress|compression|context|nudge|summar(?:y|ize|ization))\\b|压缩|上下文|提示/iu",
+        "forbiddenMatches": [],
+        "prompts": [
+          {
+            "phase": "plant-1",
+            "chars": 21433,
+            "sha256": "6170a41048f3789f3528cd6846b6eb0bfe4ba4f2011ec9cba6b480f2cfaccc57"
+          },
+          {
+            "phase": "plant-2",
+            "chars": 21433,
+            "sha256": "04f9c1a7f29e5fe48992cd128be906ee33ea242241517bf5f1eef3389dcc187e"
+          },
+          {
+            "phase": "plant-3",
+            "chars": 21520,
+            "sha256": "ae4b6c93af3acf278c25c8380c3b94376da7db1a47143a9e91421b918e7d8f19"
+          },
+          {
+            "phase": "plant-4",
+            "chars": 21418,
+            "sha256": "df81804910d3644dba4b6e171f1e0c7d2061e789ec3461b41cc6640845baf030"
+          },
+          {
+            "phase": "plant-5",
+            "chars": 21363,
+            "sha256": "bdbe72b3322dcfb9c7c66aa26cefb4c5728a93f6711c1e8ca69395b57e786e79"
+          },
+          {
+            "phase": "plant-6",
+            "chars": 21324,
+            "sha256": "c8ffd60ff64ed1b8d3d97ac5266a2e6cc165fb576d91076ca2a1418cbc8a4c3a"
+          },
+          {
+            "phase": "plant-7",
+            "chars": 21319,
+            "sha256": "7bf81a834bf073a4b7b6ca20c7ff1293ee70df257ea12f3bd99733fb2737b806"
+          },
+          {
+            "phase": "ordinary-1",
+            "chars": 21,
+            "sha256": "357b59d83710e7b7c393a70e5b5cbeafeefbfb0aac133b3a49ca04327c788251"
+          },
+          {
+            "phase": "ordinary-2",
+            "chars": 21,
+            "sha256": "7b31dbe4dcce2e4098228b4891ea53e545eccd040028000a263039ee5f569bf9"
+          },
+          {
+            "phase": "ordinary-3",
+            "chars": 21,
+            "sha256": "560767f79bb5c8a7726b36598fe8ee4539eb2cb06c7e6335aa8473e133d4dcb1"
+          },
+          {
+            "phase": "blind-recall",
+            "chars": 1841,
+            "sha256": "e1d3617c5c3fb767d4de14110d2b8203891af5b12c6bdb5bab29e2701fea6414"
+          }
+        ]
+      },
+      "calls": 8,
+      "nudgeCount": 2,
+      "compactionCount": 2,
+      "localArchiveCount": 2,
+      "quality": {
+        "answerOnly": {
+          "strict": "12/20",
+          "loose": "16/20",
+          "strictRate": 0.6,
+          "looseRate": 0.8,
+          "unknownLines": 8
+        },
+        "benchAnswerPlusTool": {
+          "strict": "12/20",
+          "loose": "16/20",
+          "strictRate": 0.6,
+          "looseRate": 0.8
+        },
+        "queryToolCalls": []
+      },
+      "costLedger": {
+        "uncachedInputTokens": 53943,
+        "outputTokens": 2044,
+        "cacheReadTokens": 188800,
+        "totalPromptTokens": 242743
+      },
+      "report": "results/bench/rq5-g88.json"
+    },
+    "P": {
+      "sessionId": "session-0e34affd-0750-498f-ba12-b3d00db7fc0e",
+      "setup": {
+        "host": "isolated DSH_HOME web profile; fresh process per arm",
+        "model": "scnet/GLM-5.2",
+        "configuredWindow": 32768,
+        "cleanCwd": "/tmp/rq5-compliance-p",
+        "seed": 505,
+        "noiseLines": 260,
+        "targetProjectedTokens": 13107,
+        "perArmBudget": 15,
+        "expectedPatch": "research/profiles/rq5-p.patch.yml",
+        "appliedPatchSha256": "4d4cb4e01496b558f2dc0bc252c64811cdc15d6fdc26ae51e59e6462c472fa6b"
+      },
+      "promptAudit": {
+        "forbiddenPattern": "/\\b(?:compress|compression|context|nudge|summar(?:y|ize|ization))\\b|压缩|上下文|提示/iu",
+        "forbiddenMatches": null,
+        "prompts": [],
+        "note": "P is the intentional proactive-compression comparison and is exempt from the N/G natural-prompt constraint."
+      },
+      "calls": 4,
+      "nudgeCount": 0,
+      "compactionCount": 0,
+      "localArchiveCount": 0,
+      "quality": {
+        "available": false,
+        "reason": "No blind-recall answer exists in this partial session."
+      },
+      "costLedger": {
+        "uncachedInputTokens": 15717,
+        "outputTokens": 10300,
+        "cacheReadTokens": 50432,
+        "totalPromptTokens": 66149
+      },
+      "report": "results/bench/rq5-p.json"
+    }
+  },
+  "compliance": {
+    "normal": {
+      "eligible": 4,
+      "complied": 1,
+      "rate": 0.25,
+      "records": [
+        {
+          "arm": "N",
+          "seq": 91,
+          "tier": "normal",
+          "turn": 3,
+          "textSha256": "143fe3618f2f5c42ccc296128406bf2c2df2898a2f214f3938d921de6aa432d3",
+          "displayedPct": 85,
+          "tableRanges": [
+            {
+              "startSeq": 7,
+              "endSeq": 83
+            },
+            {
+              "startSeq": 7,
+              "endSeq": 7
+            }
+          ],
+          "eligibleForThreeTurns": true,
+          "firstCompressSeqWithinWindow": 1232,
+          "latencyTurns": 1,
+          "compliedWithinThreeTurns": true
+        },
+        {
+          "arm": "G80",
+          "seq": 146,
+          "tier": "normal",
+          "turn": 5,
+          "textSha256": "fab09aef111f4e8fd57ee7d8b5fd23f362a3e2381573e7ba08c082e332aa4397",
+          "displayedPct": 78,
+          "tableRanges": [],
+          "eligibleForThreeTurns": true,
+          "firstCompressSeqWithinWindow": null,
+          "latencyTurns": null,
+          "compliedWithinThreeTurns": false
+        },
+        {
+          "arm": "G88",
+          "seq": 59,
+          "tier": "normal",
+          "turn": 4,
+          "textSha256": "d7938fab9fdcf1c86c567a062bb2537313496567971e72525f4ca68f30d92c8e",
+          "displayedPct": 84,
+          "tableRanges": [
+            {
+              "startSeq": 41,
+              "endSeq": 51
+            },
+            {
+              "startSeq": 8,
+              "endSeq": 9
+            }
+          ],
+          "eligibleForThreeTurns": true,
+          "firstCompressSeqWithinWindow": null,
+          "latencyTurns": null,
+          "compliedWithinThreeTurns": false
+        },
+        {
+          "arm": "G88",
+          "seq": 78,
+          "tier": "normal",
+          "turn": 5,
+          "textSha256": "fab09aef111f4e8fd57ee7d8b5fd23f362a3e2381573e7ba08c082e332aa4397",
+          "displayedPct": 78,
+          "tableRanges": [],
+          "eligibleForThreeTurns": true,
+          "firstCompressSeqWithinWindow": null,
+          "latencyTurns": null,
+          "compliedWithinThreeTurns": false
+        }
+      ]
+    },
+    "emergency": {
+      "eligible": 3,
+      "complied": 2,
+      "rate": 0.6666666666666666,
+      "records": [
+        {
+          "arm": "N",
+          "seq": 391,
+          "tier": "emergency",
+          "turn": 4,
+          "textSha256": "95a230ef39ab686f6010e20b90ae1a3c5b1a5663e2214dd0d75072cc572ae9e6",
+          "displayedPct": 100,
+          "tableRanges": [
+            {
+              "startSeq": 7,
+              "endSeq": 383
+            },
+            {
+              "startSeq": 7,
+              "endSeq": 69
+            }
+          ],
+          "eligibleForThreeTurns": true,
+          "firstCompressSeqWithinWindow": 1232,
+          "latencyTurns": 0,
+          "compliedWithinThreeTurns": true
+        },
+        {
+          "arm": "N",
+          "seq": 592,
+          "tier": "emergency",
+          "turn": 4,
+          "textSha256": "0064f32db27f2d3e487165c2cbe48dac779c3fe99c0c3a1cc69b8adeae428bc8",
+          "displayedPct": 100,
+          "tableRanges": [
+            {
+              "startSeq": 7,
+              "endSeq": 589
+            },
+            {
+              "startSeq": 7,
+              "endSeq": 91
+            }
+          ],
+          "eligibleForThreeTurns": true,
+          "firstCompressSeqWithinWindow": 1232,
+          "latencyTurns": 0,
+          "compliedWithinThreeTurns": true
+        },
+        {
+          "arm": "G80",
+          "seq": 97,
+          "tier": "emergency",
+          "turn": 4,
+          "textSha256": "76ad19a922662c215570a274b51f3f949faee9761365aef0607c51e58b886a21",
+          "displayedPct": 84,
+          "tableRanges": [
+            {
+              "startSeq": 79,
+              "endSeq": 89
+            },
+            {
+              "startSeq": 8,
+              "endSeq": 9
+            }
+          ],
+          "eligibleForThreeTurns": true,
+          "firstCompressSeqWithinWindow": null,
+          "latencyTurns": null,
+          "compliedWithinThreeTurns": false
+        }
+      ]
+    }
+  },
+  "latency": {
+    "samples": [
+      1,
+      0,
+      0
+    ],
+    "distribution": {
+      "0": 2,
+      "1": 1
+    },
+    "medianTurns": 0
+  },
+  "quality": {
+    "scorer": "RQ1 bench scorer form-contract v2; strict answer-only plus loose information-level and answer+tool duals.",
+    "pressuredModelSummaries": {
+      "sampleArms": [
+        {
+          "arm": "N",
+          "strictRate": 0.3,
+          "looseRate": 0.55
+        }
+      ],
+      "meanStrictRate": 0.3,
+      "meanLooseRate": 0.55
+    },
+    "allNudgeGovernorArms": [
+      {
+        "arm": "N",
+        "strictRate": 0.3,
+        "looseRate": 0.55
+      },
+      {
+        "arm": "G80",
+        "strictRate": 0.35,
+        "looseRate": 0.55
+      },
+      {
+        "arm": "G88",
+        "strictRate": 0.6,
+        "looseRate": 0.8
+      }
+    ],
+    "proactiveP": null,
+    "comparison": "Model-summary quality versus P is not estimable from this sample."
+  },
+  "decisionTwo": {
+    "unit": "model compress tool call in N/G only; Governor-local blocks and P-instructed calls excluded",
+    "totalSpontaneousCalls": 1,
+    "rangeCounts": [
+      1
+    ],
+    "batchCalls": 0,
+    "partialCalls": 1,
+    "positions": {
+      "head": 1
+    },
+    "calls": [
+      {
+        "arm": "N",
+        "seq": 1232,
+        "turn": 4,
+        "step": 2,
+        "rangeCount": 1,
+        "ranges": [
+          {
+            "startSeq": 7,
+            "endSeq": 91,
+            "position": "head"
+          }
+        ],
+        "argumentsParseable": true
+      }
+    ],
+    "verdict": "underdetermined-low-n",
+    "recommendation": "Fewer than three spontaneous model compress calls were observed; retain the existing oldest-first table and collect another RQ5 sample before changing range ordering."
+  },
+  "governorComparison": {
+    "G80": {
+      "earlyArchiveTriggerCount": 2,
+      "firstLocalArchive": {
+        "seq": 78,
+        "compactionId": "7be8a4bf-651c-4827-ae3d-31fc13b9bf63",
+        "shadowedRange": {
+          "start": 7,
+          "end": 7
+        },
+        "shadowedTokenCount": 5367,
+        "provider": "local",
+        "model": "adaptive-governor-extractive-v1",
+        "tier": 1,
+        "mode": "governor-local"
+      },
+      "modelSummaryCount": 0,
+      "quality": {
+        "strict": "7/20",
+        "loose": "11/20",
+        "strictRate": 0.35,
+        "looseRate": 0.55,
+        "unknownLines": 8
+      },
+      "cost": {
+        "uncachedInputTokens": 54301,
+        "outputTokens": 2291,
+        "cacheReadTokens": 189056,
+        "totalPromptTokens": 243357
+      }
+    },
+    "G88": {
+      "earlyArchiveTriggerCount": 2,
+      "firstLocalArchive": {
+        "seq": 40,
+        "compactionId": "64407474-8980-42c5-a725-464223c23288",
+        "shadowedRange": {
+          "start": 7,
+          "end": 7
+        },
+        "shadowedTokenCount": 5367,
+        "provider": "local",
+        "model": "adaptive-governor-extractive-v1",
+        "tier": 1,
+        "mode": "governor-local"
+      },
+      "modelSummaryCount": 0,
+      "quality": {
+        "strict": "12/20",
+        "loose": "16/20",
+        "strictRate": 0.6,
+        "looseRate": 0.8,
+        "unknownLines": 8
+      },
+      "cost": {
+        "uncachedInputTokens": 53943,
+        "outputTokens": 2044,
+        "cacheReadTokens": 188800,
+        "totalPromptTokens": 242743
+      }
+    }
+  },
+  "costLedger": {
+    "threeFields": [
+      "uncachedInputTokens",
+      "outputTokens",
+      "cacheReadTokens"
+    ],
+    "selectedArmModelCalls": 30,
+    "totalModelCalls": 59,
+    "cap": 60,
+    "withinBudget": true,
+    "discardedSetupOrIncompleteCalls": 29,
+    "totals": {
+      "uncachedInputTokens": 189530,
+      "outputTokens": 19969,
+      "cacheReadTokens": 681088,
+      "totalPromptTokens": 870618
+    }
+  },
+  "completion": {
+    "status": "partial",
+    "reason": "live-call budget halted before a successful P proactive compression and blind-recall query"
+  },
+  "criteria": {
+    "normalLineAtLeast80Pct": false,
+    "pressuredQualityNotWorseThanP": null,
+    "verdict": "normal-line criterion not established; use G80/G88 outcome as evidence only and do not change defaults in this measurement task"
+  },
+  "verification": {
+    "allFourArmsPresent": true,
+    "naturalPromptAuditClean": true,
+    "budgetWithinLimit": true,
+    "qualityDualRecordedOrExplicitlyUnavailable": true
+  },
+  "phase2": {
+    "schemaVersion": 1,
+    "generatedAt": "2026-08-18T06:34:01.388Z",
+    "status": "complete",
+    "phaseOneCanonicalSha256": "3dc292d1078581e126efa563437035d0da217568248edd55df56e79b40ceac60",
+    "budget": {
+      "cap": 45,
+      "used": 35,
+      "withinCap": true,
+      "zeroCallOfflineAudit": true
+    },
+    "governorArchiveAudit": {
+      "result": "results/rq5-governor-archive-audit.json",
+      "strictRate": 1,
+      "looseRate": 1,
+      "totals": {
+        "facts": 12,
+        "verbatim": 12,
+        "paraphrase": 0,
+        "lost": 0,
+        "strictRate": 1,
+        "looseRate": 1
+      },
+      "categoryDistribution": {
+        "crossref": {
+          "total": 2,
+          "verbatim": 2,
+          "paraphrase": 0,
+          "lost": 0,
+          "strictRate": 1,
+          "looseRate": 1
+        },
+        "numeric": {
+          "total": 2,
+          "verbatim": 2,
+          "paraphrase": 0,
+          "lost": 0,
+          "strictRate": 1,
+          "looseRate": 1
+        },
+        "verbatim": {
+          "total": 8,
+          "verbatim": 8,
+          "paraphrase": 0,
+          "lost": 0,
+          "strictRate": 1,
+          "looseRate": 1
+        }
+      }
+    },
+    "proactiveP": {
+      "report": "results/bench/rq5b-p.json",
+      "sessionId": "session-6f918ee4-f338-4130-8516-2eadebc2354f",
+      "calls": 10,
+      "protocol": {
+        "arcStatusCalls": 1,
+        "arcStatusBeforeFirstCompress": false,
+        "firstCompressRanges": [],
+        "driverSuppliedSequenceNumbers": false,
+        "pPlantPressure": 15201,
+        "arcStatusSuggestedRangeTablePresent": false,
+        "arcStatusOutputSha256": "3d2ed830c65a8dfa73130892a17a8a604028f4e9a4a66617bec6867a1b5b6f7e",
+        "failureReason": "arc_status returned only aggregate surface bounds, not a suggested-range table; under the no-handwritten-seq protocol the model had no permitted range to submit to compress."
+      },
+      "summaryAudit": [],
+      "blindRecall": {
+        "answerOnly": {
+          "strict": "12/20",
+          "loose": "20/20",
+          "strictRate": 0.6,
+          "looseRate": 1,
+          "unknownLines": 0
+        },
+        "benchAnswerPlusTool": {
+          "strict": "12/20",
+          "loose": "20/20",
+          "strictRate": 0.6,
+          "looseRate": 1
+        },
+        "queryToolCalls": []
+      },
+      "verification": {
+        "perSessionBudgetWithinCap": true,
+        "nPromptAuditClean": true,
+        "pAtLeastFivePlantTurns": true,
+        "pPressureInTarget": true,
+        "pArcStatusBeforeCompress": false,
+        "pModelCompressionLanded": false,
+        "pArcStatusCalled": true,
+        "pMissingSuggestedRangeTableProven": true,
+        "pSecondFailureLocated": true
+      }
+    },
+    "nExpansion": {
+      "configuration": "same as the first N arm: autoNudge=true, Governor off, 32K explicit ARC window, seed 505, 260 noise lines, four natural plant turns, three neutral turns, zero compression/context/nudge/summary terms in driver prompts",
+      "reports": [
+        {
+          "run": 1,
+          "sessionId": "session-e573f341-e626-4238-a30e-647dc1f1c18f",
+          "calls": 8,
+          "nudges": 5,
+          "promptAudit": {
+            "forbiddenPattern": "/\\b(?:compress|compression|context|nudge|summar(?:y|ize|ization))\\b|压缩|上下文|提示/iu",
+            "forbiddenMatches": [],
+            "prompts": [
+              {
+                "phase": "plant-1",
+                "chars": 21433,
+                "sha256": "6170a41048f3789f3528cd6846b6eb0bfe4ba4f2011ec9cba6b480f2cfaccc57"
+              },
+              {
+                "phase": "plant-2",
+                "chars": 21433,
+                "sha256": "04f9c1a7f29e5fe48992cd128be906ee33ea242241517bf5f1eef3389dcc187e"
+              },
+              {
+                "phase": "plant-3",
+                "chars": 21520,
+                "sha256": "ae4b6c93af3acf278c25c8380c3b94376da7db1a47143a9e91421b918e7d8f19"
+              },
+              {
+                "phase": "plant-4",
+                "chars": 21418,
+                "sha256": "df81804910d3644dba4b6e171f1e0c7d2061e789ec3461b41cc6640845baf030"
+              },
+              {
+                "phase": "ordinary-1",
+                "chars": 21,
+                "sha256": "357b59d83710e7b7c393a70e5b5cbeafeefbfb0aac133b3a49ca04327c788251"
+              },
+              {
+                "phase": "ordinary-2",
+                "chars": 21,
+                "sha256": "7b31dbe4dcce2e4098228b4891ea53e545eccd040028000a263039ee5f569bf9"
+              },
+              {
+                "phase": "ordinary-3",
+                "chars": 21,
+                "sha256": "560767f79bb5c8a7726b36598fe8ee4539eb2cb06c7e6335aa8473e133d4dcb1"
+              },
+              {
+                "phase": "blind-recall",
+                "chars": 1818,
+                "sha256": "83798e55c62c705217bb4ee2b820bb95162e6cb8e46ad5bebc48f9491e70b45c"
+              }
+            ],
+            "sameNaturalDriverAsFirstRun": true
+          },
+          "quality": {
+            "available": false,
+            "reason": "No blind-recall turn: stalled provider stream was cancelled after its durable nudge/compress evidence landed."
+          },
+          "verification": {
+            "perSessionBudgetWithinCap": true,
+            "nPromptAuditClean": true,
+            "recoveredWithoutModelCalls": true
+          }
+        },
+        {
+          "run": 2,
+          "sessionId": "session-ddd93f9a-8f07-4456-bf9c-c4c791abeb9b",
+          "calls": 10,
+          "nudges": 3,
+          "promptAudit": {
+            "forbiddenPattern": "/\\b(?:compress|compression|context|nudge|summar(?:y|ize|ization))\\b|压缩|上下文|提示/iu",
+            "forbiddenMatches": [],
+            "prompts": [
+              {
+                "phase": "plant-1",
+                "chars": 21433,
+                "sha256": "6170a41048f3789f3528cd6846b6eb0bfe4ba4f2011ec9cba6b480f2cfaccc57"
+              },
+              {
+                "phase": "plant-2",
+                "chars": 21433,
+                "sha256": "04f9c1a7f29e5fe48992cd128be906ee33ea242241517bf5f1eef3389dcc187e"
+              },
+              {
+                "phase": "plant-3",
+                "chars": 21520,
+                "sha256": "ae4b6c93af3acf278c25c8380c3b94376da7db1a47143a9e91421b918e7d8f19"
+              },
+              {
+                "phase": "plant-4",
+                "chars": 21418,
+                "sha256": "df81804910d3644dba4b6e171f1e0c7d2061e789ec3461b41cc6640845baf030"
+              },
+              {
+                "phase": "ordinary-1",
+                "chars": 21,
+                "sha256": "357b59d83710e7b7c393a70e5b5cbeafeefbfb0aac133b3a49ca04327c788251"
+              },
+              {
+                "phase": "ordinary-2",
+                "chars": 21,
+                "sha256": "7b31dbe4dcce2e4098228b4891ea53e545eccd040028000a263039ee5f569bf9"
+              },
+              {
+                "phase": "ordinary-3",
+                "chars": 21,
+                "sha256": "560767f79bb5c8a7726b36598fe8ee4539eb2cb06c7e6335aa8473e133d4dcb1"
+              },
+              {
+                "phase": "blind-recall",
+                "chars": 1818,
+                "sha256": "83798e55c62c705217bb4ee2b820bb95162e6cb8e46ad5bebc48f9491e70b45c"
+              }
+            ],
+            "sameNaturalDriverAsFirstRun": true
+          },
+          "quality": {
+            "answerOnly": {
+              "strict": "6/20",
+              "loose": "11/20",
+              "strictRate": 0.3,
+              "looseRate": 0.55,
+              "unknownLines": 8
+            },
+            "benchAnswerPlusTool": {
+              "strict": "6/20",
+              "loose": "11/20",
+              "strictRate": 0.3,
+              "looseRate": 0.55
+            },
+            "queryToolCalls": []
+          },
+          "verification": {
+            "perSessionBudgetWithinCap": true,
+            "nPromptAuditClean": true
+          }
+        },
+        {
+          "run": 3,
+          "sessionId": "session-b5987081-7cfc-48d5-b7f9-98535fd511b4",
+          "calls": 7,
+          "nudges": 3,
+          "promptAudit": {
+            "forbiddenPattern": "/\\b(?:compress|compression|context|nudge|summar(?:y|ize|ization))\\b|压缩|上下文|提示/iu",
+            "forbiddenMatches": [],
+            "prompts": [
+              {
+                "phase": "plant-1",
+                "chars": 21433,
+                "sha256": "6170a41048f3789f3528cd6846b6eb0bfe4ba4f2011ec9cba6b480f2cfaccc57"
+              },
+              {
+                "phase": "plant-2",
+                "chars": 21433,
+                "sha256": "04f9c1a7f29e5fe48992cd128be906ee33ea242241517bf5f1eef3389dcc187e"
+              },
+              {
+                "phase": "plant-3",
+                "chars": 21520,
+                "sha256": "ae4b6c93af3acf278c25c8380c3b94376da7db1a47143a9e91421b918e7d8f19"
+              },
+              {
+                "phase": "plant-4",
+                "chars": 21418,
+                "sha256": "df81804910d3644dba4b6e171f1e0c7d2061e789ec3461b41cc6640845baf030"
+              },
+              {
+                "phase": "ordinary-1",
+                "chars": 21,
+                "sha256": "357b59d83710e7b7c393a70e5b5cbeafeefbfb0aac133b3a49ca04327c788251"
+              },
+              {
+                "phase": "ordinary-2",
+                "chars": 21,
+                "sha256": "7b31dbe4dcce2e4098228b4891ea53e545eccd040028000a263039ee5f569bf9"
+              },
+              {
+                "phase": "ordinary-3",
+                "chars": 21,
+                "sha256": "560767f79bb5c8a7726b36598fe8ee4539eb2cb06c7e6335aa8473e133d4dcb1"
+              },
+              {
+                "phase": "blind-recall",
+                "chars": 1818,
+                "sha256": "83798e55c62c705217bb4ee2b820bb95162e6cb8e46ad5bebc48f9491e70b45c"
+              }
+            ],
+            "sameNaturalDriverAsFirstRun": true
+          },
+          "quality": {
+            "available": false,
+            "reason": "No blind-recall turn: stalled provider stream was cancelled after its durable nudge/compress evidence landed."
+          },
+          "verification": {
+            "perSessionBudgetWithinCap": true,
+            "nPromptAuditClean": true,
+            "recoveredWithoutModelCalls": true
+          }
+        }
+      ],
+      "eligibleNudgeCount": 9,
+      "targetAtLeast10Met": false,
+      "compliance": {
+        "normal": {
+          "eligible": 4,
+          "complied": 4,
+          "rate": 1,
+          "wilson95": {
+            "level": 0.95,
+            "low": 0.5100999795960008,
+            "high": 1
+          },
+          "crosses80Pct": true,
+          "sampleEstimateIfStillCrosses80": {
+            "total": 16,
+            "additional": 12,
+            "direction": "lower-bound-above-80pct",
+            "assumption": "observed rate remains 100.0%"
+          }
+        },
+        "emergency": {
+          "eligible": 5,
+          "complied": 5,
+          "rate": 1,
+          "wilson95": {
+            "level": 0.95,
+            "low": 0.5655085052479191,
+            "high": 1
+          }
+        }
+      },
+      "latency": {
+        "samples": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        "distribution": {
+          "0": 6,
+          "1": 3
+        },
+        "medianTurns": 0
+      }
+    },
+    "decisionTwo": {
+      "unit": "model compress tool call in N only; P-instructed calls and Governor-local blocks excluded",
+      "totalSpontaneousCalls": 4,
+      "rangeCounts": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "batchCalls": 0,
+      "partialCalls": 4,
+      "positions": {
+        "head": 4
+      },
+      "calls": [
+        {
+          "source": "first-run-N",
+          "seq": 1232,
+          "turn": 4,
+          "step": 2,
+          "rangeCount": 1,
+          "ranges": [
+            {
+              "startSeq": 7,
+              "endSeq": 91,
+              "position": "head"
+            }
+          ],
+          "argumentsParseable": true
+        },
+        {
+          "source": "phase2-N1",
+          "seq": 2547,
+          "name": "compress",
+          "turn": 3,
+          "step": 2,
+          "argumentsParseable": true,
+          "ranges": [
+            {
+              "startSeq": 7,
+              "endSeq": 49,
+              "position": "head"
+            }
+          ]
+        },
+        {
+          "source": "phase2-N2",
+          "seq": 1418,
+          "name": "compress",
+          "turn": 4,
+          "step": 2,
+          "argumentsParseable": true,
+          "ranges": [
+            {
+              "startSeq": 7,
+              "endSeq": 138,
+              "position": "head"
+            }
+          ]
+        },
+        {
+          "source": "phase2-N3",
+          "seq": 1772,
+          "name": "compress",
+          "turn": 4,
+          "step": 2,
+          "argumentsParseable": true,
+          "ranges": [
+            {
+              "startSeq": 7,
+              "endSeq": 86,
+              "position": "head"
+            }
+          ]
+        }
+      ],
+      "verdict": "partial-head-dominant",
+      "recommendation": "Partial calls concentrate at the table head; record the measured cache-loss concern and separately review a newest-safe ordering experiment.",
+      "targetAtLeast3Met": true
+    },
+    "criterionComparison": {
+      "comparisonUnit": "direct scorer audit of facts in each archive/checkpoint source range; Governor strict retention must be at least P model-summary retention within three percentage points",
+      "governorStrictRate": 1,
+      "pStrictRate": null,
+      "governorAtLeastPWithinThreePoints": false,
+      "normalComplianceCIStillCrosses80": true,
+      "branch": "P-model-summary-unavailable-arc-status-has-no-suggested-range-table",
+      "verdict": "The formal Governor-versus-P model-summary criterion is not estimable: corrected P reached 46% pressure and called arc_status first, but arc_status exposed no suggested range for a no-handwritten-seq compress call. The four offline Governor archives nonetheless retained all audited seeded facts verbatim; do not change defaults from this constrained comparison."
+    },
+    "verification": {
+      "pSucceeded": false,
+      "pSecondFailureLocated": true,
+      "pProtocolConclusionRecorded": true,
+      "threeNReportsPresent": true,
+      "allNPromptAuditsClean": true,
+      "nudgeTargetMet": false,
+      "decisionTwoTargetMet": true,
+      "liveBudgetWithinCap": true,
+      "originalFieldsPreserved": true
+    }
+  }
+}

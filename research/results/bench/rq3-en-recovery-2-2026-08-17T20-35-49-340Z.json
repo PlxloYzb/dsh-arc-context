@@ -1,0 +1,396 @@
+{
+  "arm": "en-recovery-2",
+  "locale": "en",
+  "queryMode": "recovery",
+  "seed": 2,
+  "sessionId": "session-481e695f-02fb-4984-8aed-710fbe3592f5",
+  "agentPreset": "standard",
+  "plantPressure": [
+    {
+      "stage": 1,
+      "projectedTokens": 22676,
+      "contextWindow": 1000000
+    },
+    {
+      "stage": 2,
+      "projectedTokens": 29435,
+      "contextWindow": 1000000
+    },
+    {
+      "stage": 3,
+      "projectedTokens": 36247,
+      "contextWindow": 1000000
+    },
+    {
+      "stage": 4,
+      "projectedTokens": 43330,
+      "contextWindow": 1000000
+    }
+  ],
+  "compress": {
+    "instructedRanges": [
+      {
+        "startSeq": 7,
+        "endSeq": 28
+      },
+      {
+        "startSeq": 29,
+        "endSeq": 44
+      },
+      {
+        "startSeq": 45,
+        "endSeq": 60
+      }
+    ],
+    "rangesLanded": 3,
+    "retried": false,
+    "plantTurns": 4,
+    "turnsCompressed": 3,
+    "designShadowedFractionOfPlantTurns": 0.75,
+    "ledgerShadowedTokens": 19091
+  },
+  "compactions": [
+    {
+      "compactionId": "88d7c0cc-a5c9-4e7d-a8de-999c52815730",
+      "shadowedRange": {
+        "start": 7,
+        "end": 22
+      },
+      "shadowedTokenCount": 10147,
+      "tier": 1,
+      "summaryChars": 17727,
+      "summaryHead": "Stage 1/4 work-log acknowledgment turn. Preserved f-entries (load-bearing, to be queried later), verbatim:\n- [f0] Decision: ingest calls billing asynchronously because the shadow index doubles write c"
+    },
+    {
+      "compactionId": "facbbbdb-a361-4e02-8583-c871792c6199",
+      "shadowedRange": {
+        "start": 29,
+        "end": 38
+      },
+      "shadowedTokenCount": 4443,
+      "tier": 1,
+      "summaryChars": 6101,
+      "summaryHead": "Stage 2/4 and Stage 3/4 work-log acknowledgment turns. Preserved f-entries (load-bearing, queried later), verbatim:\nStage 2:\n- [f8] XREF-85ee→f7\n- [f9] INGEST_BATCH_SIZE = 3902\n- [f10] INDEX_SHARD_COU"
+    },
+    {
+      "compactionId": "674e170b-5365-460b-b842-0e0dc3f3e2c0",
+      "shadowedRange": {
+        "start": 45,
+        "end": 54
+      },
+      "shadowedTokenCount": 4501,
+      "tier": 1,
+      "summaryChars": 6500,
+      "summaryHead": "Stage 4/4 work-log acknowledgment turn. Preserved f-entries (load-bearing, queried later), verbatim:\n- [f21] EXPORT_QUEUE_DEPTH = 1530\n- [f22] QUOTA_QUEUE_DEPTH = 1388\n- [f23] RETRY_QUEUE_DEPTH = 2209"
+    }
+  ],
+  "pressure": {
+    "preProjected": 43330,
+    "postProjected": 38058,
+    "dropped": 5272,
+    "droppedFraction": 0.12167089776136626,
+    "ledgerShadowedTokens": 19091
+  },
+  "result": {
+    "recall": "15/21",
+    "recallRate": 0.7142857142857143,
+    "trapLeaks": [],
+    "unknownLines": 0,
+    "answerOnlyRecall": "9/21",
+    "byCategory": {
+      "paraphrase": {
+        "recalled": 4,
+        "total": 4
+      },
+      "crossref": {
+        "recalled": 6,
+        "total": 6
+      },
+      "verbatim": {
+        "recalled": 4,
+        "total": 4
+      },
+      "numeric": {
+        "recalled": 1,
+        "total": 7
+      }
+    },
+    "bySurfaceCategory": {
+      "shadowed": {
+        "paraphrase": {
+          "recalled": 4,
+          "total": 4
+        },
+        "crossref": {
+          "recalled": 6,
+          "total": 6
+        },
+        "verbatim": {
+          "recalled": 4,
+          "total": 4
+        },
+        "numeric": {
+          "recalled": 0,
+          "total": 4
+        }
+      },
+      "live": {
+        "numeric": {
+          "recalled": 1,
+          "total": 3
+        }
+      }
+    },
+    "perFact": [
+      {
+        "id": "f0",
+        "category": "paraphrase",
+        "hit": true,
+        "detail": "keywords:all",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f1",
+        "category": "crossref",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f2",
+        "category": "paraphrase",
+        "hit": true,
+        "detail": "keywords:all",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f3",
+        "category": "paraphrase",
+        "hit": true,
+        "detail": "keywords:all",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f6",
+        "category": "verbatim",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f7",
+        "category": "verbatim",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f8",
+        "category": "crossref",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f9",
+        "category": "numeric",
+        "hit": false,
+        "detail": "missing:1",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f10",
+        "category": "numeric",
+        "hit": false,
+        "detail": "missing:1",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f11",
+        "category": "crossref",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f13",
+        "category": "crossref",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f14",
+        "category": "crossref",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f15",
+        "category": "verbatim",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f16",
+        "category": "paraphrase",
+        "hit": true,
+        "detail": "keywords:all",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f17",
+        "category": "numeric",
+        "hit": false,
+        "detail": "missing:1",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f18",
+        "category": "numeric",
+        "hit": false,
+        "detail": "missing:1",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f19",
+        "category": "verbatim",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f20",
+        "category": "crossref",
+        "hit": true,
+        "detail": "exact",
+        "surface": "shadowed",
+        "firstToolHit": null
+      },
+      {
+        "id": "f21",
+        "category": "numeric",
+        "hit": true,
+        "detail": "exact",
+        "surface": "live",
+        "firstToolHit": 1
+      },
+      {
+        "id": "f22",
+        "category": "numeric",
+        "hit": false,
+        "detail": "missing:1",
+        "surface": "live",
+        "firstToolHit": null
+      },
+      {
+        "id": "f23",
+        "category": "numeric",
+        "hit": false,
+        "detail": "missing:1",
+        "surface": "live",
+        "firstToolHit": null
+      }
+    ],
+    "toolCalls": {
+      "search_context": 6,
+      "decompress": 0,
+      "other": {}
+    },
+    "calls": 11,
+    "ledger": {
+      "uncachedInputTokens": 72475,
+      "outputTokens": 17540,
+      "cacheReadTokens": 347904,
+      "totalPromptTokens": 420379
+    },
+    "perCall": [
+      {
+        "turn": 1,
+        "step": 1,
+        "promptTokens": 22664,
+        "outputTokens": 10
+      },
+      {
+        "turn": 2,
+        "step": 1,
+        "promptTokens": 29423,
+        "outputTokens": 10
+      },
+      {
+        "turn": 3,
+        "step": 1,
+        "promptTokens": 36235,
+        "outputTokens": 10
+      },
+      {
+        "turn": 4,
+        "step": 1,
+        "promptTokens": 43033,
+        "outputTokens": 270
+      },
+      {
+        "turn": 5,
+        "step": 1,
+        "promptTokens": 43399,
+        "outputTokens": 928
+      },
+      {
+        "turn": 5,
+        "step": 2,
+        "promptTokens": 44437,
+        "outputTokens": 4737
+      },
+      {
+        "turn": 5,
+        "step": 3,
+        "promptTokens": 37822,
+        "outputTokens": 103
+      },
+      {
+        "turn": 6,
+        "step": 1,
+        "promptTokens": 37933,
+        "outputTokens": 63
+      },
+      {
+        "turn": 7,
+        "step": 1,
+        "promptTokens": 38005,
+        "outputTokens": 43
+      },
+      {
+        "turn": 8,
+        "step": 1,
+        "promptTokens": 38475,
+        "outputTokens": 8990
+      },
+      {
+        "turn": 8,
+        "step": 2,
+        "promptTokens": 48953,
+        "outputTokens": 2376
+      }
+    ],
+    "queryPromptTokens": 48953
+  }
+}

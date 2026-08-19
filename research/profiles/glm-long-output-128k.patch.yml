@@ -1,0 +1,3 @@
+- insert:
+    - id: explicit-output-128k-test
+      name: /absolute/path/to/dsh-arc-context/research/profiles/long-output-128k-plugin.mjs

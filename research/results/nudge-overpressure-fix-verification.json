@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-18T00:42:41.613921Z",
+  "question": "Release verification: does ARC 0.2.0-beta.6 keep nudge and arc_status on the compression-aware projectedTokens \u2212 log-rebuilt-ledger reading in a task-C-shaped isolated live session?",
+  "setup": {
+    "host": "isolated DSH_HOME verify/arc-live-rc7, web profile, local dsh web :8933; real API session",
+    "arcVersion": "0.2.0-beta.6 via bridge",
+    "patch": "modelContextLimit 32768, autoNudge true, adaptiveGovernor.enabled false",
+    "model": "scnet/GLM-5.2 (host default)",
+    "cwd": "clean /tmp/nudge-overpressure-fix-workspace (no AGENTS.md)",
+    "budget": {
+      "cap": 15,
+      "used": 13
+    },
+    "shape": "two planted work-log turns -> instructed model-written batch compression -> continued post-compression tool-loop observations including arc_status",
+    "note": "The model produced an unusually long 13-call tool loop; the service was stopped at the budget guard after arc_status had landed. The compacted session and all post-compression nudge evidence are durable in the isolated host log."
+  },
+  "compression": {
+    "count": 1,
+    "summarySeq": 2272,
+    "shadowedTokenCount": 5125,
+    "provider": "scnet",
+    "model": "GLM-5.2"
+  },
+  "postCompressionNudges": [
+    {
+      "seq": 6285,
+      "tier": "normal",
+      "pct": 84,
+      "postCompression": true,
+      "effectivePctFromLiveReader": 84,
+      "emergencyThresholdPct": 85,
+      "isTrueEmergencyPressure": false
+    },
+    {
+      "seq": 7591,
+      "tier": "emergency",
+      "pct": 92,
+      "postCompression": true,
+      "effectivePctFromLiveReader": 92,
+      "emergencyThresholdPct": 85,
+      "isTrueEmergencyPressure": true
+    },
+    {
+      "seq": 15970,
+      "tier": "emergency",
+      "pct": 100,
+      "postCompression": true,
+      "effectivePctFromLiveReader": 100,
+      "emergencyThresholdPct": 85,
+      "isTrueEmergencyPressure": true
+    },
+    {
+      "seq": 21669,
+      "tier": "emergency",
+      "pct": 100,
+      "postCompression": true,
+      "effectivePctFromLiveReader": 100,
+      "emergencyThresholdPct": 85,
+      "isTrueEmergencyPressure": true
+    },
+    {
+      "seq": 26215,
+      "tier": "emergency",
+      "pct": 100,
+      "postCompression": true,
+      "effectivePctFromLiveReader": 100,
+      "emergencyThresholdPct": 85,
+      "isTrueEmergencyPressure": true
+    },
+    {
+      "seq": 30893,
+      "tier": "emergency",
+      "pct": 100,
+      "postCompression": true,
+      "effectivePctFromLiveReader": 100,
+      "emergencyThresholdPct": 85,
+      "isTrueEmergencyPressure": true
+    },
+    {
+      "seq": 31019,
+      "tier": "emergency",
+      "pct": 100,
+      "postCompression": true,
+      "effectivePctFromLiveReader": 100,
+      "emergencyThresholdPct": 85,
+      "isTrueEmergencyPressure": true
+    }
+  ],
+  "arcStatus": {
+    "seq": 30890,
+    "output": "ARC status \u2014 session session-c5989053-be73-4fd4-9372-b64fa79613c4\n  ARC backend ownership: ACTIVE\n  resolved compaction backend: dsh-arc-context\n  blocks: 1\n  tokens compressed: 5125\n  estimated context: 73254 / 32768 (224%)\n  context window: 32768 (configured)\n  surface: 34 nodes, seqs 2273..30888\n  - 8276cbb9: seqs 7..9 (3 msgs) \u2014 Work Log Stage 1/4 \u2014 user requested recording entries verbatim in working contex",
+    "observedEffectiveTokens": 73254,
+    "effectivePctOf32768": 223.6,
+    "sameReader": "arc_status calls resolveTokenCount, the same compression-aware reader used by buildNudge"
+  },
+  "observedProjectionSamples": [
+    {
+      "point": "post-compression while the first 92% emergency nudge was active",
+      "hostProjectedTokens": 35471,
+      "ledgerShadowedTokens": 5125,
+      "effectiveProjectedTokens": 30346,
+      "effectivePctOf32768": 92.6
+    },
+    {
+      "point": "later post-compression observation",
+      "hostProjectedTokens": 69493,
+      "ledgerShadowedTokens": 5125,
+      "effectiveProjectedTokens": 64368,
+      "effectivePctOf32768": 196.4
+    }
+  ],
+  "verification": {
+    "modelCallsWithin15": true,
+    "postCompressionEmergencyNudges": 6,
+    "zeroPostCompressionEmergencyNudges": false,
+    "allPostCompressionEmergencyNudgesRemainAboveEffective85Pct": true,
+    "postCompressionNormalNudges": 1,
+    "normalNudgePercentagesUseEffectiveReading": true,
+    "arcStatusAndNudgeShareCompressionAwareReader": true,
+    "verdict": "pass: no post-compression emergency nudge is an over-pressure artifact; all six emergency readings remain above 85% after ARC-side ledger subtraction"
+  },
+  "sessionId": "session-c5989053-be73-4fd4-9372-b64fa79613c4"
+}

@@ -1,0 +1,62 @@
+{
+  "generatedAt": "2026-08-17T06:41:36.217Z",
+  "runId": "semantic-supersession-seed01-governor-v2",
+  "seed": "semantic-seed-01",
+  "model": "deepseek-v4-flash",
+  "requestHeaders": {
+    "count": 1,
+    "maxTokens": [
+      32768
+    ],
+    "adapterDefaultMaxTokens": 0
+  },
+  "sessionUsage": {
+    "uncachedInputTokens": 26970,
+    "outputTokens": 3564,
+    "cacheReadTokens": 210432,
+    "cacheWriteTokens": 0
+  },
+  "finalContextPressure": {
+    "pressureTokens": 28621,
+    "projectedTokens": 30830,
+    "contextWindow": 1000000
+  },
+  "currentState": {
+    "recalled": 12,
+    "expected": 12,
+    "missing": []
+  },
+  "rationale": {
+    "recalled": 10,
+    "expected": 10,
+    "missing": []
+  },
+  "obsoleteContamination": {
+    "count": 0,
+    "leakedPatterns": []
+  },
+  "toolCalls": {
+    "count": 0,
+    "finalTurnCount": 0
+  },
+  "compactions": [
+    {
+      "provider": "local",
+      "model": "adaptive-governor-extractive-v1",
+      "shadowedNodes": 2,
+      "shadowedTokenCount": 9806,
+      "summaryChars": 3519,
+      "usage": null
+    },
+    {
+      "provider": "local",
+      "model": "adaptive-governor-extractive-v1",
+      "shadowedNodes": 4,
+      "shadowedTokenCount": 18682,
+      "summaryChars": 1804,
+      "usage": null
+    }
+  ],
+  "errors": [],
+  "finalText": "{\"主要上线城市\":\"塔林\",\"执行负责人\":\"Noor Haddad\",\"冻结窗口\":\"星期四 04:15 UTC\",\"回滚确认短语\":\"silent harbor\",\"保留期限\":\"45 天\",\"生产消息队列\":\"cedar-lane\",\"每批账户数\":180,\"失败重试策略\":\"最多重试 4 次，每次间隔 90 秒\",\"受监管租户路径\":\"受监管租户暂时从瓦伦西亚上线，普通租户走塔林；例外持续到驻留审计完成\",\"上线审批\":\"财务负责人和 SRE 值班经理双签\",\"对外状态页\":\"ivory-status.example\",\"审计归档包\":\"ledger-indigo\",\"变更原因\":[\"主要上线城市：瓦伦西亚供应商的驻留认证已经过期\",\"冻结窗口：支付流量在星期四 04:15 UTC 时段最低\",\"生产消息队列：新生产者已经停止向 north-river 发布\",\"保留期限：监管方签发了临时法律保全令\",\"每批账户数：240 个账户同时解密会造成内存尖峰\",\"受监管租户路径：受监管租户的驻留审计尚未完成，暂时保留瓦伦西亚例外\",\"审计归档包：旧名称与另一场演练的包发生冲突\",\"执行负责人：Mira Chen 在上线周被调去处理监管问询\",\"回滚确认短语：amber violin 在公开演练录音中已经泄露\",\"失败重试策略：三次重试不足以跨过网关限流周期\"]}"
+}

@@ -1,0 +1,40 @@
+{
+  "mode": "live",
+  "generatedAt": "2026-08-17T20:31:21.926Z",
+  "budget": {
+    "cap": 100,
+    "used": 11
+  },
+  "stopped": null,
+  "sessions": [
+    {
+      "arm": "en-blind-1",
+      "recall": "16/22",
+      "calls": 11,
+      "byCategory": {
+        "paraphrase": {
+          "recalled": 7,
+          "total": 7
+        },
+        "numeric": {
+          "recalled": 2,
+          "total": 6
+        },
+        "verbatim": {
+          "recalled": 6,
+          "total": 6
+        },
+        "crossref": {
+          "recalled": 1,
+          "total": 3
+        }
+      },
+      "trapLeaks": 0,
+      "tools": {
+        "search_context": 0,
+        "decompress": 0,
+        "other": {}
+      }
+    }
+  ]
+}

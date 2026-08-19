@@ -1,0 +1,534 @@
+{
+  "generatedAt": "2026-08-16T19:59:10.541Z",
+  "source": "existing no-compaction event traces only; no API calls",
+  "limitations": [
+    "Compaction is modeled as a reversible batch reset to a target surface; exact model-written summary size is not simulated.",
+    "The model screens trigger timing and action count, not exact uncached-input cost.",
+    "Live validation remains necessary for model compliance, factual retention, and cache behavior."
+  ],
+  "observedOutputUsage": {
+    "hp-nocomp-01": {
+      "requests": 217,
+      "maxOutput": 7170,
+      "p99Output": 2349,
+      "p95Output": 960
+    },
+    "hp2-nocomp-01": {
+      "requests": 326,
+      "maxOutput": 8164,
+      "p99Output": 2261,
+      "p95Output": 674
+    },
+    "hp2-nocomp-02": {
+      "requests": 325,
+      "maxOutput": 6559,
+      "p99Output": 2097,
+      "p95Output": 989
+    }
+  },
+  "rawPeaks": {
+    "hp-nocomp-01": 495086,
+    "hp2-nocomp-01": 790086,
+    "hp2-nocomp-02": 744603
+  },
+  "topPolicies": [
+    {
+      "policy": {
+        "contextWindow": 1000000,
+        "outputReserve": 32000,
+        "safetyMargin": 32000,
+        "softTrigger": 767520,
+        "postCompactTarget": 80000,
+        "minBatch": 250000
+      },
+      "simulations": {
+        "hp-nocomp-01": {
+          "actions": [],
+          "peak": 495086,
+          "finalSurface": 495086,
+          "overflow": false
+        },
+        "hp2-nocomp-01": {
+          "actions": [
+            {
+              "seq": 65042,
+              "before": 768858,
+              "after": 80000,
+              "reclaimed": 688858
+            }
+          ],
+          "peak": 768858,
+          "finalSurface": 101228,
+          "overflow": false
+        },
+        "hp2-nocomp-02": {
+          "actions": [],
+          "peak": 744603,
+          "finalSurface": 744603,
+          "overflow": false
+        }
+      },
+      "score": 232.48000000000002
+    },
+    {
+      "policy": {
+        "contextWindow": 1000000,
+        "outputReserve": 32000,
+        "safetyMargin": 32000,
+        "softTrigger": 767520,
+        "postCompactTarget": 120000,
+        "minBatch": 250000
+      },
+      "simulations": {
+        "hp-nocomp-01": {
+          "actions": [],
+          "peak": 495086,
+          "finalSurface": 495086,
+          "overflow": false
+        },
+        "hp2-nocomp-01": {
+          "actions": [
+            {
+              "seq": 65042,
+              "before": 768858,
+              "after": 120000,
+              "reclaimed": 648858
+            }
+          ],
+          "peak": 768858,
+          "finalSurface": 141228,
+          "overflow": false
+        },
+        "hp2-nocomp-02": {
+          "actions": [],
+          "peak": 744603,
+          "finalSurface": 744603,
+          "overflow": false
+        }
+      },
+      "score": 232.48000000000002
+    },
+    {
+      "policy": {
+        "contextWindow": 1000000,
+        "outputReserve": 32000,
+        "safetyMargin": 32000,
+        "softTrigger": 767520,
+        "postCompactTarget": 180000,
+        "minBatch": 250000
+      },
+      "simulations": {
+        "hp-nocomp-01": {
+          "actions": [],
+          "peak": 495086,
+          "finalSurface": 495086,
+          "overflow": false
+        },
+        "hp2-nocomp-01": {
+          "actions": [
+            {
+              "seq": 65042,
+              "before": 768858,
+              "after": 180000,
+              "reclaimed": 588858
+            }
+          ],
+          "peak": 768858,
+          "finalSurface": 201228,
+          "overflow": false
+        },
+        "hp2-nocomp-02": {
+          "actions": [],
+          "peak": 744603,
+          "finalSurface": 744603,
+          "overflow": false
+        }
+      },
+      "score": 232.48000000000002
+    },
+    {
+      "policy": {
+        "contextWindow": 1000000,
+        "outputReserve": 48000,
+        "safetyMargin": 32000,
+        "softTrigger": 754400,
+        "postCompactTarget": 80000,
+        "minBatch": 250000
+      },
+      "simulations": {
+        "hp-nocomp-01": {
+          "actions": [],
+          "peak": 495086,
+          "finalSurface": 495086,
+          "overflow": false
+        },
+        "hp2-nocomp-01": {
+          "actions": [
+            {
+              "seq": 64807,
+              "before": 756435,
+              "after": 80000,
+              "reclaimed": 676435
+            }
+          ],
+          "peak": 756435,
+          "finalSurface": 113651,
+          "overflow": false
+        },
+        "hp2-nocomp-02": {
+          "actions": [],
+          "peak": 744603,
+          "finalSurface": 744603,
+          "overflow": false
+        }
+      },
+      "score": 245.60000000000002
+    },
+    {
+      "policy": {
+        "contextWindow": 1000000,
+        "outputReserve": 48000,
+        "safetyMargin": 32000,
+        "softTrigger": 754400,
+        "postCompactTarget": 120000,
+        "minBatch": 250000
+      },
+      "simulations": {
+        "hp-nocomp-01": {
+          "actions": [],
+          "peak": 495086,
+          "finalSurface": 495086,
+          "overflow": false
+        },
+        "hp2-nocomp-01": {
+          "actions": [
+            {
+              "seq": 64807,
+              "before": 756435,
+              "after": 120000,
+              "reclaimed": 636435
+            }
+          ],
+          "peak": 756435,
+          "finalSurface": 153651,
+          "overflow": false
+        },
+        "hp2-nocomp-02": {
+          "actions": [],
+          "peak": 744603,
+          "finalSurface": 744603,
+          "overflow": false
+        }
+      },
+      "score": 245.60000000000002
+    },
+    {
+      "policy": {
+        "contextWindow": 1000000,
+        "outputReserve": 48000,
+        "safetyMargin": 32000,
+        "softTrigger": 754400,
+        "postCompactTarget": 180000,
+        "minBatch": 250000
+      },
+      "simulations": {
+        "hp-nocomp-01": {
+          "actions": [],
+          "peak": 495086,
+          "finalSurface": 495086,
+          "overflow": false
+        },
+        "hp2-nocomp-01": {
+          "actions": [
+            {
+              "seq": 64807,
+              "before": 756435,
+              "after": 180000,
+              "reclaimed": 576435
+            }
+          ],
+          "peak": 756435,
+          "finalSurface": 213651,
+          "overflow": false
+        },
+        "hp2-nocomp-02": {
+          "actions": [],
+          "peak": 744603,
+          "finalSurface": 744603,
+          "overflow": false
+        }
+      },
+      "score": 245.60000000000002
+    },
+    {
+      "policy": {
+        "contextWindow": 1000000,
+        "outputReserve": 64000,
+        "safetyMargin": 32000,
+        "softTrigger": 741280,
+        "postCompactTarget": 80000,
+        "minBatch": 250000
+      },
+      "simulations": {
+        "hp-nocomp-01": {
+          "actions": [],
+          "peak": 495086,
+          "finalSurface": 495086,
+          "overflow": false
+        },
+        "hp2-nocomp-01": {
+          "actions": [
+            {
+              "seq": 64549,
+              "before": 743786,
+              "after": 80000,
+              "reclaimed": 663786
+            }
+          ],
+          "peak": 743786,
+          "finalSurface": 126300,
+          "overflow": false
+        },
+        "hp2-nocomp-02": {
+          "actions": [
+            {
+              "seq": 71080,
+              "before": 741787,
+              "after": 80000,
+              "reclaimed": 661787
+            }
+          ],
+          "peak": 741787,
+          "finalSurface": 82816,
+          "overflow": false
+        }
+      },
+      "score": 1258.72
+    },
+    {
+      "policy": {
+        "contextWindow": 1000000,
+        "outputReserve": 64000,
+        "safetyMargin": 32000,
+        "softTrigger": 741280,
+        "postCompactTarget": 120000,
+        "minBatch": 250000
+      },
+      "simulations": {
+        "hp-nocomp-01": {
+          "actions": [],
+          "peak": 495086,
+          "finalSurface": 495086,
+          "overflow": false
+        },
+        "hp2-nocomp-01": {
+          "actions": [
+            {
+              "seq": 64549,
+              "before": 743786,
+              "after": 120000,
+              "reclaimed": 623786
+            }
+          ],
+          "peak": 743786,
+          "finalSurface": 166300,
+          "overflow": false
+        },
+        "hp2-nocomp-02": {
+          "actions": [
+            {
+              "seq": 71080,
+              "before": 741787,
+              "after": 120000,
+              "reclaimed": 621787
+            }
+          ],
+          "peak": 741787,
+          "finalSurface": 122816,
+          "overflow": false
+        }
+      },
+      "score": 1258.72
+    },
+    {
+      "policy": {
+        "contextWindow": 1000000,
+        "outputReserve": 64000,
+        "safetyMargin": 32000,
+        "softTrigger": 741280,
+        "postCompactTarget": 180000,
+        "minBatch": 250000
+      },
+      "simulations": {
+        "hp-nocomp-01": {
+          "actions": [],
+          "peak": 495086,
+          "finalSurface": 495086,
+          "overflow": false
+        },
+        "hp2-nocomp-01": {
+          "actions": [
+            {
+              "seq": 64549,
+              "before": 743786,
+              "after": 180000,
+              "reclaimed": 563786
+            }
+          ],
+          "peak": 743786,
+          "finalSurface": 226300,
+          "overflow": false
+        },
+        "hp2-nocomp-02": {
+          "actions": [
+            {
+              "seq": 71080,
+              "before": 741787,
+              "after": 180000,
+              "reclaimed": 561787
+            }
+          ],
+          "peak": 741787,
+          "finalSurface": 182816,
+          "overflow": false
+        }
+      },
+      "score": 1258.72
+    },
+    {
+      "policy": {
+        "contextWindow": 1000000,
+        "outputReserve": 32000,
+        "safetyMargin": 32000,
+        "softTrigger": 702000,
+        "postCompactTarget": 80000,
+        "minBatch": 250000
+      },
+      "simulations": {
+        "hp-nocomp-01": {
+          "actions": [],
+          "peak": 495086,
+          "finalSurface": 495086,
+          "overflow": false
+        },
+        "hp2-nocomp-01": {
+          "actions": [
+            {
+              "seq": 61686,
+              "before": 704080,
+              "after": 80000,
+              "reclaimed": 624080
+            }
+          ],
+          "peak": 704080,
+          "finalSurface": 166006,
+          "overflow": false
+        },
+        "hp2-nocomp-02": {
+          "actions": [
+            {
+              "seq": 63961,
+              "before": 704004,
+              "after": 80000,
+              "reclaimed": 624004
+            }
+          ],
+          "peak": 704004,
+          "finalSurface": 120599,
+          "overflow": false
+        }
+      },
+      "score": 1298
+    },
+    {
+      "policy": {
+        "contextWindow": 1000000,
+        "outputReserve": 32000,
+        "safetyMargin": 32000,
+        "softTrigger": 702000,
+        "postCompactTarget": 120000,
+        "minBatch": 250000
+      },
+      "simulations": {
+        "hp-nocomp-01": {
+          "actions": [],
+          "peak": 495086,
+          "finalSurface": 495086,
+          "overflow": false
+        },
+        "hp2-nocomp-01": {
+          "actions": [
+            {
+              "seq": 61686,
+              "before": 704080,
+              "after": 120000,
+              "reclaimed": 584080
+            }
+          ],
+          "peak": 704080,
+          "finalSurface": 206006,
+          "overflow": false
+        },
+        "hp2-nocomp-02": {
+          "actions": [
+            {
+              "seq": 63961,
+              "before": 704004,
+              "after": 120000,
+              "reclaimed": 584004
+            }
+          ],
+          "peak": 704004,
+          "finalSurface": 160599,
+          "overflow": false
+        }
+      },
+      "score": 1298
+    },
+    {
+      "policy": {
+        "contextWindow": 1000000,
+        "outputReserve": 32000,
+        "safetyMargin": 32000,
+        "softTrigger": 702000,
+        "postCompactTarget": 180000,
+        "minBatch": 250000
+      },
+      "simulations": {
+        "hp-nocomp-01": {
+          "actions": [],
+          "peak": 495086,
+          "finalSurface": 495086,
+          "overflow": false
+        },
+        "hp2-nocomp-01": {
+          "actions": [
+            {
+              "seq": 61686,
+              "before": 704080,
+              "after": 180000,
+              "reclaimed": 524080
+            }
+          ],
+          "peak": 704080,
+          "finalSurface": 266006,
+          "overflow": false
+        },
+        "hp2-nocomp-02": {
+          "actions": [
+            {
+              "seq": 63961,
+              "before": 704004,
+              "after": 180000,
+              "reclaimed": 524004
+            }
+          ],
+          "peak": 704004,
+          "finalSurface": 220599,
+          "overflow": false
+        }
+      },
+      "score": 1298
+    }
+  ]
+}

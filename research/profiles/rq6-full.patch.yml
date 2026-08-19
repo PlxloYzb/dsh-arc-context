@@ -1,0 +1,10 @@
+# RQ6 A arm: full/default guidance under the same v3 experiment-only
+# protection geometry as B. This does not alter the product default.
+- id: compaction-arc-bridge
+  config:
+    modelContextLimit: 32768
+    protectedRecentMessages: 0
+    protectedRecentTokens: 1
+    autoNudge: false
+    adaptiveGovernor:
+      enabled: false

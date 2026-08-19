@@ -1,0 +1,223 @@
+{
+  "generatedAt": "2026-08-16T21:07:17.584Z",
+  "evidenceRule": "allInUsage = DSH session tokenUsage + provider-returned compaction/summary usage; no price conversion",
+  "runs": [
+    {
+      "runId": "paired-random-seed01-governor",
+      "seed": "seed-01",
+      "preset": "router-standard-acp",
+      "model": "deepseek-v4-flash",
+      "sessionUsage": {
+        "uncachedInputTokens": 163440,
+        "outputTokens": 4873,
+        "cacheReadTokens": 339456,
+        "cacheWriteTokens": 0
+      },
+      "auxiliaryCompactionUsage": {
+        "uncachedInputTokens": 0,
+        "outputTokens": 0,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 0
+      },
+      "allInUsage": {
+        "uncachedInputTokens": 163440,
+        "outputTokens": 4873,
+        "cacheReadTokens": 339456,
+        "cacheWriteTokens": 0
+      },
+      "allInCacheReadFraction": 0.6750023861792498,
+      "finalContextPressure": {
+        "pressureTokens": 63394,
+        "projectedTokens": 66444,
+        "contextWindow": 1000000
+      },
+      "exactFacts": {
+        "recalled": 30,
+        "expected": 48,
+        "missingKeys": [
+          "S1_FACT_01",
+          "S1_FACT_02",
+          "S1_FACT_03",
+          "S1_FACT_04",
+          "S1_FACT_05",
+          "S1_FACT_06",
+          "S1_FACT_07",
+          "S1_FACT_08",
+          "S1_FACT_09",
+          "S2_FACT_01",
+          "S2_FACT_02",
+          "S2_FACT_03",
+          "S2_FACT_04",
+          "S2_FACT_05",
+          "S2_FACT_06",
+          "S2_FACT_07",
+          "S2_FACT_08",
+          "S2_FACT_09"
+        ]
+      },
+      "derived": {
+        "recalled": 0,
+        "expected": 3,
+        "missing": [
+          "D1",
+          "D2",
+          "D3"
+        ]
+      },
+      "compactions": [
+        {
+          "compactionId": "e3586ed0-1a9f-4781-8bce-9c69aafc206d",
+          "provider": "local",
+          "model": "adaptive-governor-extractive-v1",
+          "shadowedNodes": 6,
+          "shadowedTokenCount": 40982,
+          "summaryChars": 2348,
+          "usage": null,
+          "llmStreamCall": null
+        }
+      ],
+      "errors": []
+    },
+    {
+      "runId": "paired-random-seed01-governor-v2",
+      "seed": "seed-01",
+      "preset": "router-standard-acp",
+      "model": "deepseek-v4-flash",
+      "sessionUsage": {
+        "uncachedInputTokens": 164010,
+        "outputTokens": 4087,
+        "cacheReadTokens": 341120,
+        "cacheWriteTokens": 0
+      },
+      "auxiliaryCompactionUsage": {
+        "uncachedInputTokens": 0,
+        "outputTokens": 0,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 0
+      },
+      "allInUsage": {
+        "uncachedInputTokens": 164010,
+        "outputTokens": 4087,
+        "cacheReadTokens": 341120,
+        "cacheWriteTokens": 0
+      },
+      "allInCacheReadFraction": 0.6753113060004355,
+      "finalContextPressure": {
+        "pressureTokens": 64098,
+        "projectedTokens": 65799,
+        "contextWindow": 1000000
+      },
+      "exactFacts": {
+        "recalled": 48,
+        "expected": 48,
+        "missingKeys": []
+      },
+      "derived": {
+        "recalled": 3,
+        "expected": 3,
+        "missing": []
+      },
+      "compactions": [
+        {
+          "compactionId": "4d0873f6-9446-46f6-8c3c-428cb69d64c1",
+          "provider": "local",
+          "model": "adaptive-governor-extractive-v1",
+          "shadowedNodes": 6,
+          "shadowedTokenCount": 40986,
+          "summaryChars": 3589,
+          "usage": null,
+          "llmStreamCall": null
+        }
+      ],
+      "errors": []
+    },
+    {
+      "runId": "paired-random-seed01-basic",
+      "seed": "seed-01",
+      "preset": "router-standard-basic-early",
+      "model": "deepseek-v4-flash",
+      "sessionUsage": {
+        "uncachedInputTokens": 220252,
+        "outputTokens": 1674,
+        "cacheReadTokens": 172800,
+        "cacheWriteTokens": 0
+      },
+      "auxiliaryCompactionUsage": {
+        "uncachedInputTokens": 84766,
+        "outputTokens": 7443,
+        "cacheReadTokens": 22144,
+        "cacheWriteTokens": 0
+      },
+      "allInUsage": {
+        "uncachedInputTokens": 305018,
+        "outputTokens": 9117,
+        "cacheReadTokens": 194944,
+        "cacheWriteTokens": 0
+      },
+      "allInCacheReadFraction": 0.38991763374016425,
+      "finalContextPressure": {
+        "pressureTokens": 36592,
+        "projectedTokens": 37039,
+        "contextWindow": 1000000
+      },
+      "exactFacts": {
+        "recalled": 48,
+        "expected": 48,
+        "missingKeys": []
+      },
+      "derived": {
+        "recalled": 3,
+        "expected": 3,
+        "missing": []
+      },
+      "compactions": [
+        {
+          "compactionId": "12555473-1701-4bf8-a23a-cb977c5b93b2",
+          "provider": "deepseek-official",
+          "model": "deepseek-v4-flash",
+          "shadowedNodes": 5,
+          "shadowedTokenCount": 20847,
+          "summaryChars": 2361,
+          "usage": {
+            "inputTokens": 27757,
+            "outputTokens": 3626,
+            "cacheReadTokens": 7296,
+            "reasoningTokens": 2846
+          },
+          "llmStreamCall": true
+        },
+        {
+          "compactionId": "d05f3eac-3122-4480-9542-60cce7715f98",
+          "provider": "deepseek-official",
+          "model": "deepseek-v4-flash",
+          "shadowedNodes": 6,
+          "shadowedTokenCount": 21426,
+          "summaryChars": 3131,
+          "usage": {
+            "inputTokens": 28371,
+            "outputTokens": 1663,
+            "cacheReadTokens": 7424,
+            "reasoningTokens": 496
+          },
+          "llmStreamCall": true
+        },
+        {
+          "compactionId": "2c31fb3d-0f5c-4e9c-b3e5-c2e13fcc9d5d",
+          "provider": "deepseek-official",
+          "model": "deepseek-v4-flash",
+          "shadowedNodes": 6,
+          "shadowedTokenCount": 21613,
+          "summaryChars": 3915,
+          "usage": {
+            "inputTokens": 28638,
+            "outputTokens": 2154,
+            "cacheReadTokens": 7424,
+            "reasoningTokens": 580
+          },
+          "llmStreamCall": true
+        }
+      ],
+      "errors": []
+    }
+  ]
+}

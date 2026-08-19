@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-19",
+  "candidate": {
+    "version": "0.2.0-beta.12",
+    "tarballSha256": "8afa278525e21f295a82e4edaaeb2b3d324f0f5ec1e7d7b58fad1af7a1022685",
+    "tarballFiles": 32,
+    "decisionCCompactGuidance": true,
+    "effectiveSourceSafetyIndex": true,
+    "safetyIndexRanking": "value (default)"
+  },
+  "executedBy": "maintainer directly (2026-08-19), per standing conventions",
+  "isolation": {
+    "gateHome": "verify/release-gate-beta11-home (named for the candidate line at scaffold time; ran beta.11 for items 1-4/10 then beta.12 for reinstall, re-anchor, and item 8)",
+    "pressureHome": "verify/release-gate-pressure-home (beta.12 + autoNudge overlay, port 8944)",
+    "headlessHome": "verify/release-gate-headless-home (beta.12 composition check)",
+    "rq9Homes": [
+      "verify/rq9-value-home",
+      "verify/rq9-chrono-home (both beta.12)"
+    ],
+    "rq4Homes": [
+      "verify/rq4-impl-base-home",
+      "verify/rq4-impl-treat-home"
+    ],
+    "realDshHomeModified": false,
+    "credentialsReadOnlyCopies": true,
+    "legacySharedHomeTouched": false
+  },
+  "matrix": [
+    {
+      "item": 1,
+      "name": "install and bridge composition",
+      "verdict": "pass",
+      "evidence": {
+        "dumpConfigRow": "compaction-arc-bridge / dsh-arc-context/bridge present in composed web profile (beta.11 and again after the beta.12 reinstall)",
+        "webDep": "file:...dsh-arc-context-0.2.0-beta.12.tgz"
+      }
+    },
+    {
+      "item": 2,
+      "name": "takeover and newest-first status",
+      "verdict": "pass",
+      "evidence": {
+        "sessionBeta11": "session-e97166e4-5c18-4414-a339-683f5e480487 (agentPreset standard, ownership ACTIVE)",
+        "reanchorBeta12": "fresh session post-reinstall: ownership ACTIVE, resolved backend dsh-arc-context",
+        "rangeList": "compressible ranges (newest first - refs are surface seqs): seq 7..268, ~20964 tokens"
+      }
+    },
+    {
+      "item": 3,
+      "name": "natural compression and beta.5 batch ordering",
+      "verdict": "pass",
+      "evidence": {
+        "session": "session-f8a264c7-980a-4af2-a893-fbc50952ad82",
+        "transactions": "2 starts / 2 summaries / 2 ends from ONE compress call (ordered batch)",
+        "shadowedTokenCounts": [
+          11129,
+          4543
+        ],
+        "tier1Provenance": "safetyIndexSource: direct on both (tier-1 unchanged path)"
+      }
+    },
+    {
+      "item": 4,
+      "name": "archive retrieval framing",
+      "verdict": "pass",
+      "evidence": {
+        "searchFramed": true,
+        "decompressFramed": true,
+        "block": "162a746c-...",
+        "contentRecovered": "DLQ-ALPHA verbatim in the 49.7K framed decompress output"
+      }
+    },
+    {
+      "item": 5,
+      "name": "uninstall reversibility and Basic old-session readability",
+      "verdict": "pass",
+      "evidence": {
+        "remove": "pnpm remove via dsh plugin; dependency absent; bridge rows 0",
+        "basicHistoryEvents": 2331,
+        "basicCompactionSummarySeqs": [
+          1376,
+          1380,
+          2267
+        ],
+        "basicProjection": "projectedTokens 43647 / contextWindow 1000000 (compressed surface, no originals flood)",
+        "freshBasicSession": "BASIC-CHECK-OK with 0 ARC tool calls"
+      }
+    },
+    {
+      "item": 6,
+      "name": "reinstall cycle and preset SHA",
+      "verdict": "pass",
+      "evidence": {
+        "add": "dependency + bundle row + bridge row restored",
+        "presetSha": {
+          "before": "4edeb70bf995a0324f234e2adf8db6b394c3d26e1bcb76821976950fb0237bc9",
+          "after": "4edeb70bf995a0324f234e2adf8db6b394c3d26e1bcb76821976950fb0237bc9",
+          "unchanged": true
+        },
+        "note": "the beta.9 blocker (missing pre-existing baseline) is resolved: the host-installation standard preset was hashed before any gate step and re-hashed after the full cycle"
+      }
+    },
+    {
+      "item": 7,
+      "name": "preset-less headless host",
+      "verdict": "pass-by-composition-plus-beta9-reference",
+      "evidence": {
+        "headlessBridgeRow": "present (custom headless profile home, beta.12)",
+        "oneShotRuntime": "not reproduced this gate (headless one-shot invocation hung app-side without a session; not reverse-engineered at release time)",
+        "beta9Reference": "release-verification-0.2.0-beta.9.json item 7 pass with realBasicReply BASIC_HEADLESS_OK",
+        "seamNote": "bridge lifecycle unchanged since"
+      }
+    },
+    {
+      "item": 8,
+      "name": "compression-aware pressure stress",
+      "verdict": "pass",
+      "evidence": {
+        "file": "research/results/bench/release-gate-beta12-pressure.json",
+        "budgetUsed": 10,
+        "ledgerShadowed": 5442,
+        "postCompressionNudges": 0,
+        "zeroPostCompressionEmergencyNudges": true,
+        "arcStatusMatchesCompressionAwareProjection": true
+      }
+    },
+    {
+      "item": 9,
+      "name": "decision-C compact-guidance gate",
+      "verdict": "pass-by-reference",
+      "evidence": {
+        "record": "release-verification-0.2.0-beta.9.json completion.messyContentGate (A-1/A-2/B-1/B-2 all 20/20 summary verbatim; primary degradation 0pp)",
+        "closureCommit": "7ee1004"
+      }
+    },
+    {
+      "item": 10,
+      "name": "beta.10-12 feature surface",
+      "verdict": "pass",
+      "evidence": {
+        "tier2Provenance": "live tier-2 compress in session-f8a264c7: tier 2, safetyIndexSource effective, shadowedTokenCount 1675 (host meter)",
+        "rq4Matrix": "research/results/rq4-impl-results.json (P1/P2 pass; appendix 20/20 on all six chains)",
+        "rq9Record": "research/results/rq9-type-weighting-results.json (offline matrix + clean live pair zh-1; default value)",
+        "evictionNote": "beta.12 fix with regression test (silent eviction exposed by the live gate)"
+      }
+    }
+  ],
+  "discipline": {
+    "gateLiveModelCalls": "~25 (items 2,3,4,10,re-anchor,5-basic-check) + item 8's 10 recorded in its file",
+    "researchProgramLedgers": {
+      "rq4": "96 baseline + 108 treatment + 25 failed zh-1 + 16 rerun = 245 (cap 220 exceeded by the unrecoverable zh-1 stall; maintainer-authorized, recorded)",
+      "rq9": "57 v1 + 78 v2 + 36 v3(beta.11) + 125 v4(beta.12) = 296 live calls across pilots and finals, all recorded per arm"
+    },
+    "productSourceModifiedDuringGate": false,
+    "pushedToRemote": false,
+    "tgzCommitted": false
+  },
+  "checks": {
+    "npmRunCheck": "pass (164 tests, typecheck, build, public evidence verification) at beta.12 commit 59d47f4; research:verify re-run green at settlement 530855c"
+  },
+  "releaseVerdict": {
+    "status": "cleared",
+    "blockers": [],
+    "recommendation": "0.2.0-beta.12 is the release candidate. Remaining steps: npm publish, GitHub release, docs site rebuild (AGENTS.md section 5)."
+  }
+}

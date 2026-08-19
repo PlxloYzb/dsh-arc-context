@@ -1,0 +1,7 @@
+# RQ5 P (proactive comparison): no automatic ARC nudge and no Governor action.
+- id: compaction-arc-bridge
+  config:
+    modelContextLimit: 32768
+    autoNudge: false
+    adaptiveGovernor:
+      enabled: false

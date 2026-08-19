@@ -1,0 +1,527 @@
+{
+  "generatedAt": "2026-08-16T20:52:33.431Z",
+  "note": "API usage is the final DSH tokenUsage projection: uncached input, output, and cache-read tokens. No price conversion.",
+  "runs": [
+    {
+      "runId": "synthetic-safe-governor-01",
+      "model": "deepseek-v4-flash",
+      "stages": 10,
+      "apiUsage": {
+        "uncachedInputTokens": 492079,
+        "outputTokens": 3106,
+        "cacheReadTokens": 5495424,
+        "cacheWriteTokens": 0
+      },
+      "cacheReadFraction": 0.9178156570443472,
+      "finalContextPressure": {
+        "pressureTokens": 456134,
+        "projectedTokens": 456608,
+        "contextWindow": 1000000
+      },
+      "recordedRequestHeaderCaps": [
+        32768,
+        32768
+      ],
+      "toolCalls": {
+        "acp_status": 1,
+        "bash": 10
+      },
+      "compactions": [],
+      "errors": {
+        "tool": 0,
+        "compaction": 0,
+        "providerOrTurn": 0
+      },
+      "finalRecall": {
+        "recalled": 30,
+        "expected": 30,
+        "missing": []
+      },
+      "maxAssistantOutputTokens": 689,
+      "stagePressure": [
+        {
+          "stage": 1,
+          "projectedTokens": 53163,
+          "usage": {
+            "uncachedInputTokens": 89705,
+            "outputTokens": 383,
+            "cacheReadTokens": 9728,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 2,
+          "projectedTokens": 97734,
+          "usage": {
+            "uncachedInputTokens": 134296,
+            "outputTokens": 637,
+            "cacheReadTokens": 160256,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 3,
+          "projectedTokens": 142393,
+          "usage": {
+            "uncachedInputTokens": 178865,
+            "outputTokens": 854,
+            "cacheReadTokens": 400128,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 4,
+          "projectedTokens": 187082,
+          "usage": {
+            "uncachedInputTokens": 223438,
+            "outputTokens": 1068,
+            "cacheReadTokens": 729344,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 5,
+          "projectedTokens": 231804,
+          "usage": {
+            "uncachedInputTokens": 268078,
+            "outputTokens": 1282,
+            "cacheReadTokens": 1147904,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 6,
+          "projectedTokens": 276557,
+          "usage": {
+            "uncachedInputTokens": 312721,
+            "outputTokens": 1494,
+            "cacheReadTokens": 1655936,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 7,
+          "projectedTokens": 321344,
+          "usage": {
+            "uncachedInputTokens": 357432,
+            "outputTokens": 1707,
+            "cacheReadTokens": 2253440,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 8,
+          "projectedTokens": 366163,
+          "usage": {
+            "uncachedInputTokens": 402149,
+            "outputTokens": 1919,
+            "cacheReadTokens": 2940544,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 9,
+          "projectedTokens": 411016,
+          "usage": {
+            "uncachedInputTokens": 446938,
+            "outputTokens": 2132,
+            "cacheReadTokens": 3717248,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 10,
+          "projectedTokens": 455901,
+          "usage": {
+            "uncachedInputTokens": 491737,
+            "outputTokens": 2344,
+            "cacheReadTokens": 4583680,
+            "cacheWriteTokens": 0
+          }
+        }
+      ]
+    },
+    {
+      "runId": "synthetic-boundary-governor-01",
+      "model": "deepseek-v4-flash",
+      "stages": 13,
+      "apiUsage": {
+        "uncachedInputTokens": 835010,
+        "outputTokens": 6197,
+        "cacheReadTokens": 9629184,
+        "cacheWriteTokens": 0
+      },
+      "cacheReadFraction": 0.9202031231454616,
+      "finalContextPressure": {
+        "pressureTokens": 71026,
+        "projectedTokens": 71485,
+        "contextWindow": 1000000
+      },
+      "recordedRequestHeaderCaps": [
+        32768,
+        32768
+      ],
+      "toolCalls": {
+        "acp_status": 2,
+        "bash": 13,
+        "compress": 1
+      },
+      "compactions": [
+        {
+          "compactionId": "73b98762-6a45-44f6-91b0-718d654a592b",
+          "provider": "deepseek-official",
+          "model": "deepseek-v4-flash",
+          "usage": null,
+          "llmStreamCall": null,
+          "shadowedRange": {
+            "start": 7,
+            "end": 2468
+          },
+          "shadowedNodes": 49,
+          "shadowedTokenCount": 603572,
+          "summaryChars": 1650
+        }
+      ],
+      "errors": {
+        "tool": 0,
+        "compaction": 0,
+        "providerOrTurn": 0
+      },
+      "finalRecall": {
+        "recalled": 39,
+        "expected": 39,
+        "missing": []
+      },
+      "maxAssistantOutputTokens": 1744,
+      "stagePressure": [
+        {
+          "stage": 1,
+          "projectedTokens": 68156,
+          "usage": {
+            "uncachedInputTokens": 119442,
+            "outputTokens": 653,
+            "cacheReadTokens": 9728,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 2,
+          "projectedTokens": 127402,
+          "usage": {
+            "uncachedInputTokens": 178639,
+            "outputTokens": 899,
+            "cacheReadTokens": 205056,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 3,
+          "projectedTokens": 186661,
+          "usage": {
+            "uncachedInputTokens": 237882,
+            "outputTokens": 1089,
+            "cacheReadTokens": 518912,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 4,
+          "projectedTokens": 245913,
+          "usage": {
+            "uncachedInputTokens": 297108,
+            "outputTokens": 1272,
+            "cacheReadTokens": 951296,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 5,
+          "projectedTokens": 305166,
+          "usage": {
+            "uncachedInputTokens": 356439,
+            "outputTokens": 1456,
+            "cacheReadTokens": 1502080,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 6,
+          "projectedTokens": 364416,
+          "usage": {
+            "uncachedInputTokens": 415617,
+            "outputTokens": 1637,
+            "cacheReadTokens": 2171520,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 7,
+          "projectedTokens": 423666,
+          "usage": {
+            "uncachedInputTokens": 474767,
+            "outputTokens": 1818,
+            "cacheReadTokens": 2959488,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 8,
+          "projectedTokens": 482916,
+          "usage": {
+            "uncachedInputTokens": 534017,
+            "outputTokens": 1999,
+            "cacheReadTokens": 3865856,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 9,
+          "projectedTokens": 542166,
+          "usage": {
+            "uncachedInputTokens": 593239,
+            "outputTokens": 2180,
+            "cacheReadTokens": 4890752,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 10,
+          "projectedTokens": 601416,
+          "usage": {
+            "uncachedInputTokens": 652433,
+            "outputTokens": 2361,
+            "cacheReadTokens": 6034176,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 11,
+          "projectedTokens": 660666,
+          "usage": {
+            "uncachedInputTokens": 711599,
+            "outputTokens": 2542,
+            "cacheReadTokens": 7296128,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 12,
+          "projectedTokens": 11475,
+          "usage": {
+            "uncachedInputTokens": 775449,
+            "outputTokens": 5012,
+            "cacheReadTokens": 9406208,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 13,
+          "projectedTokens": 70569,
+          "usage": {
+            "uncachedInputTokens": 834675,
+            "outputTokens": 5227,
+            "cacheReadTokens": 9487872,
+            "cacheWriteTokens": 0
+          }
+        }
+      ]
+    },
+    {
+      "runId": "synthetic-fallback-governor-01",
+      "model": "deepseek-v4-flash",
+      "stages": 15,
+      "apiUsage": {
+        "uncachedInputTokens": 974976,
+        "outputTokens": 6234,
+        "cacheReadTokens": 17056896,
+        "cacheWriteTokens": 0
+      },
+      "cacheReadFraction": 0.9459304058946293,
+      "finalContextPressure": {
+        "pressureTokens": 33949,
+        "projectedTokens": 34857,
+        "contextWindow": 1000000
+      },
+      "recordedRequestHeaderCaps": [
+        32768,
+        32768,
+        32768
+      ],
+      "toolCalls": {
+        "acp_status": 3,
+        "bash": 15,
+        "decompress": 1,
+        "search_context": 1
+      },
+      "compactions": [
+        {
+          "compactionId": "cde1d0de-09b0-4a0d-803c-cd90ae2a748e",
+          "provider": "local",
+          "model": "adaptive-governor-extractive-v1",
+          "usage": null,
+          "llmStreamCall": null,
+          "shadowedRange": {
+            "start": 7,
+            "end": 3681
+          },
+          "shadowedNodes": 64,
+          "shadowedTokenCount": 753933,
+          "summaryChars": 23174
+        }
+      ],
+      "errors": {
+        "tool": 0,
+        "compaction": 0,
+        "providerOrTurn": 0
+      },
+      "finalRecall": {
+        "recalled": 45,
+        "expected": 45,
+        "missing": []
+      },
+      "maxAssistantOutputTokens": 1266,
+      "stagePressure": [
+        {
+          "stage": 1,
+          "projectedTokens": 67890,
+          "usage": {
+            "uncachedInputTokens": 119210,
+            "outputTokens": 388,
+            "cacheReadTokens": 9728,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 2,
+          "projectedTokens": 127157,
+          "usage": {
+            "uncachedInputTokens": 178442,
+            "outputTokens": 621,
+            "cacheReadTokens": 204544,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 3,
+          "projectedTokens": 186409,
+          "usage": {
+            "uncachedInputTokens": 237572,
+            "outputTokens": 804,
+            "cacheReadTokens": 518016,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 4,
+          "projectedTokens": 245658,
+          "usage": {
+            "uncachedInputTokens": 296803,
+            "outputTokens": 984,
+            "cacheReadTokens": 949888,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 5,
+          "projectedTokens": 304904,
+          "usage": {
+            "uncachedInputTokens": 356001,
+            "outputTokens": 1161,
+            "cacheReadTokens": 1500288,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 6,
+          "projectedTokens": 364150,
+          "usage": {
+            "uncachedInputTokens": 415163,
+            "outputTokens": 1338,
+            "cacheReadTokens": 2169216,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 7,
+          "projectedTokens": 423396,
+          "usage": {
+            "uncachedInputTokens": 474417,
+            "outputTokens": 1515,
+            "cacheReadTokens": 2956544,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 8,
+          "projectedTokens": 482642,
+          "usage": {
+            "uncachedInputTokens": 533635,
+            "outputTokens": 1692,
+            "cacheReadTokens": 3862400,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 9,
+          "projectedTokens": 541893,
+          "usage": {
+            "uncachedInputTokens": 592822,
+            "outputTokens": 1874,
+            "cacheReadTokens": 4886784,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 10,
+          "projectedTokens": 601144,
+          "usage": {
+            "uncachedInputTokens": 651983,
+            "outputTokens": 2056,
+            "cacheReadTokens": 6029696,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 11,
+          "projectedTokens": 660390,
+          "usage": {
+            "uncachedInputTokens": 711241,
+            "outputTokens": 2233,
+            "cacheReadTokens": 7291008,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 12,
+          "projectedTokens": 719636,
+          "usage": {
+            "uncachedInputTokens": 770463,
+            "outputTokens": 2410,
+            "cacheReadTokens": 8670848,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 13,
+          "projectedTokens": 778882,
+          "usage": {
+            "uncachedInputTokens": 829649,
+            "outputTokens": 2587,
+            "cacheReadTokens": 10169216,
+            "cacheWriteTokens": 0
+          }
+        },
+        {
+          "stage": 14,
+          "projectedTokens": 838128,
+          "usage": {
+            "uncachedInputTokens": 888799,
+            "outputTokens": 2764,
+            "cacheReadTokens": 11786112,
+            "cacheWriteTokens": 0
+          }
+        }
+      ]
+    }
+  ]
+}

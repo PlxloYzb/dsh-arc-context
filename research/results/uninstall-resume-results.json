@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-18",
+  "question": "does an ARC-era session survive ARC removal without an originals flood overflowing the context window (the failure mode of ACP integrations that own the surface in memory)?",
+  "environment": {
+    "home": "verify/arc-live-rc7 (isolated; ARC removed from the web profile before this run)",
+    "host": "@deepseek-ai/dsh 0.1.0-rc.7 published npm line",
+    "backend": "official compaction-basic (no ARC installed)",
+    "session": "session-4f079ac6-80b3-420b-bf8c-5102f3292744 — written entirely under ARC 0.2.0-beta.2, 3000+ events including one tier-1 compress transaction (block 0ba849fb, seqs 7..492, 19 messages shadowed, 3772 tokens compressed)"
+  },
+  "projectionsUnderBasic": {
+    "projectedTokens": 35689,
+    "messageTokens": 23362,
+    "contextWindow": 1000000,
+    "interpretation": "the surface stays in its compacted shape — the 19 shadowed originals remain behind the checkpoint in the append-only log and are NOT projected. An originals flood would project every event (hundreds of K tokens)"
+  },
+  "resumedTurn": {
+    "prompt": "no-tool question about reference notes plus whether the early turns are visible in full or as a compressed block",
+    "completed": true,
+    "modelObserved": [
+      "the compressed block structure (reports the summary node, not the originals)",
+      "the live villa-inventory note verbatim (uncompressed content survives untouched)",
+      "correctly refused to fabricate a 'Meridian' note that was never actually sent (test-prompt error caught by the model)"
+    ],
+    "postTurnProjections": { "projectedTokens": 36127, "contextWindow": 1000000 }
+  },
+  "whyItHolds": "surface replacement is an official session-log event vocabulary (surfaceOp on compaction events, the same protocol compaction-basic itself writes). The host's deriveMessages projection honors it regardless of which backend — or none — is installed. ARC owns no in-memory surface, so removing ARC cannot resurrect the originals.",
+  "reinstallPath": "reinstalling the bundle restores decompress/search_context on the same session (verified in the 2026-08-18 add-remove-add cycle); the originals were never lost"
+}

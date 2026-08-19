@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-18T17:18:52.222Z",
+  "question": "Release verification: the ARC 0.2.0-beta.6 compression-aware pressure reader prevents post-compression emergency nudge over-pressure while preserving route-anchored context pressure.",
+  "setup": {
+    "host": "isolated DSH_HOME web profile, ARC 0.2.0-beta.6 via bridge",
+    "patch": "compaction-arc--bridge row: modelContextLimit 32768, autoNudge true, adaptiveGovernor.enabled false",
+    "model": "scnet/GLM-5.2 (host default)",
+    "cwd": "clean /tmp workspace (no AGENTS.md — fixed prompt overhead minimized so the 70% line discriminates)",
+    "windowMath": {
+      "modelContextLimit": 32768,
+      "forcedNudgeLine": 22937.6,
+      "emergencyLine": 27852.8
+    },
+    "phases": "2 plant turns -> instructed batch compress of front 1 plant range(s) -> 2 settle -> arc_status -> DONE",
+    "budget": {
+      "cap": 15,
+      "used": 10
+    }
+  },
+  "timeline": [
+    {
+      "phase": "plant-1",
+      "modelCalls": 1,
+      "projectedTokens": 16892,
+      "pressureTokens": 16574,
+      "projectionContextWindow": 1000000,
+      "projectionPctOfPatchWindow": 0.5155,
+      "realPromptTokens": 16574,
+      "lastCall": "plant-1"
+    },
+    {
+      "phase": "plant-2",
+      "modelCalls": 2,
+      "projectedTokens": 23775,
+      "pressureTokens": 23674,
+      "projectionContextWindow": 1000000,
+      "projectionPctOfPatchWindow": 0.7256,
+      "realPromptTokens": 23674,
+      "lastCall": "plant-2"
+    },
+    {
+      "phase": "compress-instructed",
+      "modelCalls": 5,
+      "projectedTokens": 25066,
+      "pressureTokens": 24953,
+      "projectionContextWindow": 1000000,
+      "projectionPctOfPatchWindow": 0.765,
+      "realPromptTokens": 24953,
+      "lastCall": "compress-instructed"
+    },
+    {
+      "phase": "settle-1",
+      "modelCalls": 6,
+      "projectedTokens": 25081,
+      "pressureTokens": 25072,
+      "projectionContextWindow": 1000000,
+      "projectionPctOfPatchWindow": 0.7654,
+      "realPromptTokens": 25072,
+      "lastCall": "settle-1"
+    },
+    {
+      "phase": "settle-2",
+      "modelCalls": 7,
+      "projectedTokens": 25096,
+      "pressureTokens": 25087,
+      "projectionContextWindow": 1000000,
+      "projectionPctOfPatchWindow": 0.7659,
+      "realPromptTokens": 25087,
+      "lastCall": "settle-2"
+    },
+    {
+      "phase": "arc-status",
+      "modelCalls": 9,
+      "projectedTokens": 25505,
+      "pressureTokens": 25352,
+      "projectionContextWindow": 1000000,
+      "projectionPctOfPatchWindow": 0.7784,
+      "realPromptTokens": 25352,
+      "lastCall": "arc-status"
+    },
+    {
+      "phase": "final-observe",
+      "modelCalls": 10,
+      "projectedTokens": 25564,
+      "pressureTokens": 25555,
+      "projectionContextWindow": 1000000,
+      "projectionPctOfPatchWindow": 0.7802,
+      "realPromptTokens": 25555,
+      "lastCall": "final-observe"
+    }
+  ],
+  "compression": {
+    "instructedRanges": [
+      {
+        "startSeq": 7,
+        "endSeq": 131
+      }
+    ],
+    "ledgerShadowedTokens": 5442,
+    "compactions": [
+      {
+        "seq": 1912,
+        "shadowedRange": {
+          "start": 7,
+          "end": 125
+        },
+        "shadowedTokenCount": 5442,
+        "tier": 1,
+        "provider": "opencode-go",
+        "model": "deepseek-v4-flash"
+      }
+    ],
+    "preCompressProjected": 23775,
+    "postCompressProjected": 25505,
+    "effectivePostCompressProjected": 20063
+  },
+  "perCallPromptTokens": [
+    {
+      "seq": 125,
+      "turn": 1,
+      "step": 1,
+      "promptTokens": 16574
+    },
+    {
+      "seq": 185,
+      "turn": 2,
+      "step": 1,
+      "promptTokens": 23674
+    },
+    {
+      "seq": 965,
+      "turn": 3,
+      "step": 1,
+      "promptTokens": 24017
+    },
+    {
+      "seq": 1909,
+      "turn": 3,
+      "step": 2,
+      "promptTokens": 26245
+    },
+    {
+      "seq": 1977,
+      "turn": 3,
+      "step": 3,
+      "promptTokens": 24953
+    },
+    {
+      "seq": 1991,
+      "turn": 4,
+      "step": 1,
+      "promptTokens": 25072
+    },
+    {
+      "seq": 2005,
+      "turn": 5,
+      "step": 1,
+      "promptTokens": 25087
+    },
+    {
+      "seq": 2027,
+      "turn": 6,
+      "step": 1,
+      "promptTokens": 25111
+    },
+    {
+      "seq": 2092,
+      "turn": 6,
+      "step": 2,
+      "promptTokens": 25352
+    },
+    {
+      "seq": 2106,
+      "turn": 7,
+      "step": 1,
+      "promptTokens": 25555
+    }
+  ],
+  "nudges": {
+    "events": [
+      {
+        "seq": 193,
+        "tier": "normal",
+        "displayedPct": 73,
+        "hostProjectedTokensBeforeNudge": 23837,
+        "ledgerShadowedAtNudge": 0,
+        "effectiveTokens": 23837,
+        "expectedPct": 73,
+        "textHead": "ARC 73% of effective input capacity — an efficiency note, not an overflow warning: consider compressing ranges you have fully consumed. Fresh refs: arc_status.\n\nContext breakdown: 0K system | 0K tool | 0K summaries | 9K code | 1K text\n+7K since last nudge\n\nSurface: 6 nodes, seqs 7..185\nCompressible ranges (newest first — the first line is the cheapest single-range cache rebuild; oldest content is usually safest to compress; refs are surface seqs):\n  - seq 7..7 — 1 messages, ~4524 tokens\nBatch di",
+        "postCompression": false
+      }
+    ],
+    "note": "session-filtered events.mux capture; each normal nudge is compared against its pre-injection contextPressure projection minus durable ledger shadowing"
+  },
+  "arcStatus": {
+    "seq": 2029,
+    "output": "ARC status — session session-ac10dbce-709e-42a2-ae75-18d69cd86b2f\n  ARC backend ownership: ACTIVE\n  resolved compaction backend: dsh-arc-context\n  blocks: 1\n  tokens compressed: 5442\n  estimated context: 19704 / 32768 (60%)\n  context window: 32768 (configured)\n  surface: 18 nodes, seqs 1913..2027\n  - 6f07b608: seqs 7..125 (4 msgs) — Work log stages 1–2 of 4 (stages 3–4 pending). User-supplied entries recorded ve\n  compressible ranges (newest first — refs are surface seqs):\n    - seq 132..1984 — 12 messages, ~5415 tokens",
+    "hostProjectedTokensBeforeStatus": 25146,
+    "ledgerShadowedAtStatus": 5442,
+    "expectedEffectiveTokens": 19704,
+    "observedEffectiveTokens": 19704
+  },
+  "verification": {
+    "zeroPostCompressionEmergencyNudges": true,
+    "allPostCompressionEmergencyNudgesRemainAboveEffective85Pct": true,
+    "noPostCompressionEmergencyOverpressureArtifacts": true,
+    "normalPercentagesMatchCompressionAwareProjection": true,
+    "arcStatusMatchesCompressionAwareProjection": true,
+    "budgetWithinLimit": true
+  },
+  "sessionId": "session-ac10dbce-709e-42a2-ae75-18d69cd86b2f"
+}

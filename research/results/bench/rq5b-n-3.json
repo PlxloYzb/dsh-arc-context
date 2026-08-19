@@ -1,0 +1,418 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-18T06:28:30.190Z",
+  "arm": "N",
+  "run": 3,
+  "sessionId": "session-b5987081-7cfc-48d5-b7f9-98535fd511b4",
+  "setup": {
+    "host": "isolated DSH_HOME web profile; fresh process per arm",
+    "model": "scnet/GLM-5.2",
+    "configuredWindow": 32768,
+    "seed": 505,
+    "noiseLines": 260,
+    "expectedPatch": "research/profiles/rq5-n.patch.yml",
+    "perSessionCallCap": 7,
+    "appliedPatchSha256": "49db50a1ef9363f9a06e414736f72bbeea230d375f6250d4f4a9e98674b6eb80"
+  },
+  "promptAudit": {
+    "forbiddenPattern": "/\\b(?:compress|compression|context|nudge|summar(?:y|ize|ization))\\b|压缩|上下文|提示/iu",
+    "forbiddenMatches": [],
+    "prompts": [
+      {
+        "phase": "plant-1",
+        "chars": 21433,
+        "sha256": "6170a41048f3789f3528cd6846b6eb0bfe4ba4f2011ec9cba6b480f2cfaccc57"
+      },
+      {
+        "phase": "plant-2",
+        "chars": 21433,
+        "sha256": "04f9c1a7f29e5fe48992cd128be906ee33ea242241517bf5f1eef3389dcc187e"
+      },
+      {
+        "phase": "plant-3",
+        "chars": 21520,
+        "sha256": "ae4b6c93af3acf278c25c8380c3b94376da7db1a47143a9e91421b918e7d8f19"
+      },
+      {
+        "phase": "plant-4",
+        "chars": 21418,
+        "sha256": "df81804910d3644dba4b6e171f1e0c7d2061e789ec3461b41cc6640845baf030"
+      },
+      {
+        "phase": "ordinary-1",
+        "chars": 21,
+        "sha256": "357b59d83710e7b7c393a70e5b5cbeafeefbfb0aac133b3a49ca04327c788251"
+      },
+      {
+        "phase": "ordinary-2",
+        "chars": 21,
+        "sha256": "7b31dbe4dcce2e4098228b4891ea53e545eccd040028000a263039ee5f569bf9"
+      },
+      {
+        "phase": "ordinary-3",
+        "chars": 21,
+        "sha256": "560767f79bb5c8a7726b36598fe8ee4539eb2cb06c7e6335aa8473e133d4dcb1"
+      },
+      {
+        "phase": "blind-recall",
+        "chars": 1818,
+        "sha256": "83798e55c62c705217bb4ee2b820bb95162e6cb8e46ad5bebc48f9491e70b45c"
+      }
+    ],
+    "sameNaturalDriverAsFirstRun": true
+  },
+  "completion": {
+    "status": "partial-budget-capped",
+    "reason": "Hard 7-call cap reached before blind recall so the N-arm expansion remains at 25 calls; durable nudge/compress events are retained and scored offline."
+  },
+  "trace": [],
+  "facts": {
+    "scorable": 20,
+    "factIds": [
+      "f0",
+      "f2",
+      "f3",
+      "f4",
+      "f5",
+      "f6",
+      "f7",
+      "f9",
+      "f10",
+      "f12",
+      "f13",
+      "f14",
+      "f15",
+      "f16",
+      "f17",
+      "f19",
+      "f20",
+      "f21",
+      "f22",
+      "f23"
+    ]
+  },
+  "nudges": [
+    {
+      "seq": 86,
+      "tier": "normal",
+      "turn": 3,
+      "textSha256": "a04612a9e3aa4f0e6fff48454ad4186adcd1f7fad3285a1fb96678f991f707ff",
+      "displayedPct": 85,
+      "tableRanges": [
+        {
+          "startSeq": 7,
+          "endSeq": 78
+        },
+        {
+          "startSeq": 7,
+          "endSeq": 7
+        }
+      ],
+      "eligibleForThreeTurns": true,
+      "firstCompressSeqWithinWindow": 1772,
+      "latencyTurns": 1,
+      "compliedWithinThreeTurns": true
+    },
+    {
+      "seq": 774,
+      "tier": "emergency",
+      "turn": 4,
+      "textSha256": "9e7ef60dc4aa12b544a15c5b29c21dc753da019eede6c335175faa0c3c4e45c9",
+      "displayedPct": 100,
+      "tableRanges": [
+        {
+          "startSeq": 7,
+          "endSeq": 766
+        },
+        {
+          "startSeq": 7,
+          "endSeq": 48
+        }
+      ],
+      "eligibleForThreeTurns": false,
+      "firstCompressSeqWithinWindow": 1772,
+      "latencyTurns": 0,
+      "compliedWithinThreeTurns": true
+    },
+    {
+      "seq": 998,
+      "tier": "emergency",
+      "turn": 4,
+      "textSha256": "2bf4b52f21bffdd1c906032666172d218e88d1d8ee116c0d60ca420544053c1e",
+      "displayedPct": 100,
+      "tableRanges": [
+        {
+          "startSeq": 7,
+          "endSeq": 995
+        },
+        {
+          "startSeq": 7,
+          "endSeq": 86
+        }
+      ],
+      "eligibleForThreeTurns": false,
+      "firstCompressSeqWithinWindow": 1772,
+      "latencyTurns": 0,
+      "compliedWithinThreeTurns": true
+    }
+  ],
+  "toolCalls": [
+    {
+      "seq": 994,
+      "name": "arc_status",
+      "turn": 4,
+      "step": 1,
+      "argumentsParseable": true,
+      "ranges": []
+    },
+    {
+      "seq": 1772,
+      "name": "compress",
+      "turn": 4,
+      "step": 2,
+      "argumentsParseable": true,
+      "ranges": [
+        {
+          "startSeq": 7,
+          "endSeq": 86,
+          "position": "head"
+        }
+      ]
+    }
+  ],
+  "compressToolCalls": [
+    {
+      "seq": 1772,
+      "name": "compress",
+      "turn": 4,
+      "step": 2,
+      "argumentsParseable": true,
+      "ranges": [
+        {
+          "startSeq": 7,
+          "endSeq": 86,
+          "position": "head"
+        }
+      ]
+    }
+  ],
+  "compactions": [
+    {
+      "seq": 1774,
+      "compactionId": "3c09de9c-ff08-4a9f-9ebb-9fe769197b4b",
+      "shadowedRange": {
+        "start": 7,
+        "end": 86
+      },
+      "shadowedSeqs": [
+        7,
+        8,
+        9,
+        48,
+        55,
+        78,
+        85,
+        86
+      ],
+      "shadowedTokenCount": 17045,
+      "provider": "scnet",
+      "model": "GLM-5.2"
+    }
+  ],
+  "summaryAudit": [
+    {
+      "seq": 1774,
+      "compactionId": "3c09de9c-ff08-4a9f-9ebb-9fe769197b4b",
+      "plantedFactIds": [
+        "f0",
+        "f2",
+        "f3",
+        "f4",
+        "f5",
+        "f6",
+        "f7",
+        "f9",
+        "f10"
+      ],
+      "strict": "9/9",
+      "loose": "9/9",
+      "strictRate": 1,
+      "looseRate": 1,
+      "perFact": [
+        {
+          "id": "f0",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact",
+          "retention": "verbatim"
+        },
+        {
+          "id": "f2",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact",
+          "retention": "verbatim"
+        },
+        {
+          "id": "f3",
+          "category": "crossref",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact",
+          "retention": "verbatim"
+        },
+        {
+          "id": "f4",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact",
+          "retention": "verbatim"
+        },
+        {
+          "id": "f5",
+          "category": "numeric",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact",
+          "retention": "verbatim"
+        },
+        {
+          "id": "f6",
+          "category": "verbatim",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "exact",
+          "retention": "verbatim"
+        },
+        {
+          "id": "f7",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all",
+          "retention": "verbatim"
+        },
+        {
+          "id": "f9",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all",
+          "retention": "verbatim"
+        },
+        {
+          "id": "f10",
+          "category": "paraphrase",
+          "hit": true,
+          "hitLoose": true,
+          "form": "full",
+          "detail": "keywords:all",
+          "retention": "verbatim"
+        }
+      ]
+    }
+  ],
+  "quality": {
+    "available": false,
+    "reason": "No blind-recall turn: stalled provider stream was cancelled after its durable nudge/compress evidence landed."
+  },
+  "costLedger": {
+    "uncachedInputTokens": 58823,
+    "outputTokens": 3865,
+    "cacheReadTokens": 175616,
+    "totalPromptTokens": 234439
+  },
+  "perCall": [
+    {
+      "seq": 48,
+      "turn": 1,
+      "step": 1,
+      "uncachedInputTokens": 12488,
+      "cacheReadTokens": 6912,
+      "outputTokens": 52,
+      "afterCompaction": false,
+      "spikeVsPrev": null
+    },
+    {
+      "seq": 78,
+      "turn": 2,
+      "step": 1,
+      "uncachedInputTokens": 8328,
+      "cacheReadTokens": 19328,
+      "outputTokens": 29,
+      "afterCompaction": false,
+      "spikeVsPrev": -4160
+    },
+    {
+      "seq": 766,
+      "turn": 3,
+      "step": 1,
+      "uncachedInputTokens": 8438,
+      "cacheReadTokens": 27648,
+      "outputTokens": 1209,
+      "afterCompaction": false,
+      "spikeVsPrev": 110
+    },
+    {
+      "seq": 993,
+      "turn": 4,
+      "step": 1,
+      "uncachedInputTokens": 9755,
+      "cacheReadTokens": 35968,
+      "outputTokens": 389,
+      "afterCompaction": false,
+      "spikeVsPrev": 1317
+    },
+    {
+      "seq": 1771,
+      "turn": 4,
+      "step": 2,
+      "uncachedInputTokens": 734,
+      "cacheReadTokens": 45696,
+      "outputTokens": 1414,
+      "afterCompaction": false,
+      "spikeVsPrev": -9021
+    },
+    {
+      "seq": 1796,
+      "turn": 4,
+      "step": 3,
+      "uncachedInputTokens": 18934,
+      "cacheReadTokens": 10624,
+      "outputTokens": 19,
+      "afterCompaction": false,
+      "spikeVsPrev": 18200
+    },
+    {
+      "seq": 2226,
+      "turn": 5,
+      "step": 1,
+      "uncachedInputTokens": 146,
+      "cacheReadTokens": 29440,
+      "outputTokens": 753,
+      "afterCompaction": false,
+      "spikeVsPrev": -18788
+    }
+  ],
+  "rawEvidence": {
+    "durableLog": "isolated host session session-b5987081-7cfc-48d5-b7f9-98535fd511b4 (not copied into repository)",
+    "nudgeSource": "user/message where source.plugin === arc-nudge",
+    "compressionSource": "tool/call name === compress; arguments parsed offline"
+  },
+  "verification": {
+    "perSessionBudgetWithinCap": true,
+    "nPromptAuditClean": true,
+    "recoveredWithoutModelCalls": true
+  }
+}
