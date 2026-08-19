@@ -4,7 +4,7 @@
 
 **ARC = Adaptive Reversible Context.** [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)를 위한 컨텍스트 거버넌스 플러그인입니다. 안전 구간에서는 조용히 유지되고, 실제 입력 용량에 가까워지면 **모델 주도·로컬 가역** 압축을 수행합니다. 정보는 절대 손실되지 않으며, 제거 시 흔적도 남기지 않습니다.
 
-> **릴리스 상태: 퍼블릭 베타, 공식 dsh 0.1.0-rc.7 추적.** 본 프로젝트와 dsh 모두 퍼블릭 베타이므로 아직 프로덕션 사용은 권장하지 않습니다. 10개 항목의 라이브 릴리스 게이트 검증 매트릭스: [`research/results/release-verification-0.2.0-beta.12.json`](research/results/release-verification-0.2.0-beta.12.json).
+> **릴리스 상태: 퍼블릭 베타, 공식 dsh 0.1.0-rc.8 추적.** 본 프로젝트와 dsh 모두 퍼블릭 베타이므로 아직 프로덕션 사용은 권장하지 않습니다. 10개 항목의 라이브 릴리스 게이트 검증 매트릭스: [`research/results/release-verification-0.2.0-beta.12.json`](research/results/release-verification-0.2.0-beta.12.json).
 
 ## 실측 강점
 

@@ -4,7 +4,7 @@
 
 **ARC = Adaptive Reversible Context.** [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) के लिए संदर्भ-प्रशासन (context governance) प्लगइन: सुरक्षा क्षेत्र में चुपचाप रहता है, और वास्तविक इनपुट क्षमता के निकट पहुँचने पर **मॉडल-चालित तथा स्थानीय रूप से प्रतिवर्ती (reversible)** संपीड़न करता है। सूचना कभी नष्ट नहीं होती; अनइंस्टॉल कोई अवशेष नहीं छोड़ता।
 
-> **रिलीज़ स्थिति: सार्वजनिक बीटा, आधिकारिक dsh 0.1.0-rc.7 का अनुसरण।** यह परियोजना और dsh दोनों सार्वजनिक बीटा में हैं — उत्पादन (production) के लिए अभी अनुशंसित नहीं। पूर्ण लाइव रिलीज़-गेट सत्यापन मैट्रिक्स (दस मदें): [`research/results/release-verification-0.2.0-beta.12.json`](research/results/release-verification-0.2.0-beta.12.json).
+> **रिलीज़ स्थिति: सार्वजनिक बीटा, आधिकारिक dsh 0.1.0-rc.8 का अनुसरण।** यह परियोजना और dsh दोनों सार्वजनिक बीटा में हैं — उत्पादन (production) के लिए अभी अनुशंसित नहीं। पूर्ण लाइव रिलीज़-गेट सत्यापन मैट्रिक्स (दस मदें): [`research/results/release-verification-0.2.0-beta.12.json`](research/results/release-verification-0.2.0-beta.12.json).
 
 ## मापे गए लाभ
 

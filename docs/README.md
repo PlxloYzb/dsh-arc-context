@@ -10,4 +10,4 @@
 - [完整科研报告](../research/reports/FINAL_RESEARCH_REPORT.md)
 - [发布准备清单](../RELEASE_CHECKLIST.md)
 
-当前版本：`0.1.0-beta.1`。公开 Beta/RC，Governor bundle 默认启用；库级配置仍支持显式关闭。
+当前版本：`0.2.0-beta.15`（宿主锚定 `@deepseek-ai/*` 0.1.0-rc.8 线，peer 范围覆盖 rc.7–rc.8）。公开 Beta/RC，Governor bundle 默认启用；库级配置仍支持显式关闭。

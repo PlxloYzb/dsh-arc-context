@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.2.0-beta.15 — unreleased
+
+- Re-anchor `@deepseek-ai/*` devDependencies to the 0.1.0-rc.8 host line (the
+  full `dsh` package family is published on npm; rc.8 is the `next` dist-tag).
+  A product-level rc.7→rc.8 diff confirmed every consumed package additive-only
+  with no engine code change; 165 tests green on the rc.8 line.
+- Keep peerDependencies on the `^0.1.0-rc.7` floor so rc.7–rc.8 hosts install
+  from one semver range.
+- README and install/design docs now state the rc.8 tracking line; the
+  release-verification artifact link is unchanged (historical 0.2.0-beta.12
+  matrix).
+- Document dual-surface installation — `dsh plugin --profile web|headless add
+  dsh-arc-context` — so ARC runs in both the web UI and the cli terminal
+  (the `headless` profile), with matching remove commands and the
+  first-class `dsh plugin` reconcile note in INSTALL.
+
 ## 0.2.0-beta.14
 
 - Documentation only: version-less release-status line in all README

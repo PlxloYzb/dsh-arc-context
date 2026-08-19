@@ -4,7 +4,7 @@
 
 **ARC = Adaptive Reversible Context.** إضافة لحوكمة السياق (context governance) لـ [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness): تبقى صامتة في منطقة الأمان، وتنفذ ضغطًا **بقيادة النموذج وقابلًا للعكس محليًا** عند الاقتراب من سعة الإدخال الفعلية. لا تُفقد المعلومات أبدًا؛ وإلغاء التثبيت لا يترك أي بقايا.
 
-> **حالة الإصدار: بيتا عامة، تتبع الإصدار الرسمي dsh 0.1.0-rc.7.** هذا المشروع و dsh كلاهما في مرحلة بيتا عامة — لا يُنصح به للإنتاج بعد. مصفوفة التحقق الحي الكاملة للإصدار (عشرة بنود): [`research/results/release-verification-0.2.0-beta.12.json`](research/results/release-verification-0.2.0-beta.12.json).
+> **حالة الإصدار: بيتا عامة، تتبع الإصدار الرسمي dsh 0.1.0-rc.8.** هذا المشروع و dsh كلاهما في مرحلة بيتا عامة — لا يُنصح به للإنتاج بعد. مصفوفة التحقق الحي الكاملة للإصدار (عشرة بنود): [`research/results/release-verification-0.2.0-beta.12.json`](research/results/release-verification-0.2.0-beta.12.json).
 
 ## مزايا مقيسة
 

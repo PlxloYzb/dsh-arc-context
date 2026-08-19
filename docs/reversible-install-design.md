@@ -13,7 +13,7 @@ One npm package exports two Cordis plugins:
 
 The Web bundle mounts only the bridge. Users still install and remove one package.
 
-## Loader contract (published 0.1.0-rc.7 surface — no host patch required)
+## Loader contract (published 0.1.0-rc.8 surface — no host patch required)
 
 The bridge uses four public behaviors of the published host:
 
@@ -49,4 +49,4 @@ The model-facing `compress` tool remains the model-authored checkpoint path; the
 
 ## Host prerequisite
 
-None beyond the published `0.1.0-rc.7` line. The earlier `Loader.registerResolver()` upstream proposal is archived under `dsh-arc-context-upstream/docs/0.1.0-beta.1/loader-resolver-upstream/`; if upstream ever ships an equivalent generic seam, the bridge can migrate onto it without changing the composition semantics described here.
+None beyond the published `0.1.0-rc.8` line. The earlier `Loader.registerResolver()` upstream proposal is archived under `dsh-arc-context-upstream/docs/0.1.0-beta.1/loader-resolver-upstream/`; if upstream ever ships an equivalent generic seam, the bridge can migrate onto it without changing the composition semantics described here.

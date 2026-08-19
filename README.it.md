@@ -4,7 +4,7 @@
 
 **ARC = Adaptive Reversible Context.** Un plugin di governance del contesto per il [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness): silenzioso nella zona di sicurezza, esegue una compressione **guidata dal modello e localmente reversibile** quando la capacità di ingresso reale si avvicina. Nessuna informazione va persa; la disinstallazione non lascia residui.
 
-> **Stato di rilascio: beta pubblica, segue l'ufficiale dsh 0.1.0-rc.7.** Sia questo progetto che dsh sono in beta pubblica — non ancora consigliato per la produzione. Matrice completa di verifica live del rilascio (dieci punti): [`research/results/release-verification-0.2.0-beta.12.json`](research/results/release-verification-0.2.0-beta.12.json).
+> **Stato di rilascio: beta pubblica, segue l'ufficiale dsh 0.1.0-rc.8.** Sia questo progetto che dsh sono in beta pubblica — non ancora consigliato per la produzione. Matrice completa di verifica live del rilascio (dieci punti): [`research/results/release-verification-0.2.0-beta.12.json`](research/results/release-verification-0.2.0-beta.12.json).
 
 ## Vantaggi misurati
 
