@@ -4,7 +4,7 @@
 
 **ARC = Adaptive Reversible Context.** A context-governance plugin for the [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness): silent in the safe zone, **model-driven and locally reversible** compression as the real input capacity approaches. Information is never lost; uninstall leaves zero residue.
 
-> **Release status: public beta, tracking official dsh 0.1.0-rc.7.** Both this project and dsh are public beta — not recommended for production yet. The full ten-item live release-gate matrix: [`research/results/release-verification-0.2.0-beta.12.json`](research/results/release-verification-0.2.0-beta.12.json).
+> **Release status: public beta, tracking official dsh 0.1.0-rc.8.** Both this project and dsh are public beta — not recommended for production yet. The full ten-item live release-gate matrix: [`research/results/release-verification-0.2.0-beta.12.json`](research/results/release-verification-0.2.0-beta.12.json).
 
 ## Measured advantages
 
@@ -34,8 +34,13 @@ A 4x quality gap at lower cost: input −47.6%, output −24.9%, total prompt �
 
 ## Install
 
+Enable both the web UI and the cli terminal (the cli terminal lives in the
+`headless` profile; `dsh plugin --profile <name> ...` generalizes to any
+profile):
+
 ```bash
-dsh plugin --profile web add dsh-arc-context
+dsh plugin --profile web add dsh-arc-context        # web UI
+dsh plugin --profile headless add dsh-arc-context   # cli terminal
 ```
 
 Restart the host. The bundle installs the host-plane Preset Bridge automatically: ARC swaps the official Basic row inside the standard preset's own compaction isolation realm, and **preset files stay byte-identical**; commands, pruners, isolation, and every other preset row are preserved.
@@ -65,7 +70,8 @@ Full configuration (context window, nudge thresholds, protection zone, Governor,
 ## Uninstall — clean, complete, live-verified
 
 ```bash
-dsh plugin --profile web remove dsh-arc-context
+dsh plugin --profile web remove dsh-arc-context        # web UI
+dsh plugin --profile headless remove dsh-arc-context   # cli terminal
 ```
 
 After a host restart:
@@ -76,6 +82,19 @@ After a host restart:
 - new sessions register no ARC tools or commands.
 
 Reinstallation works at any time and behaves exactly like the first install (the install → uninstall → reinstall cycle is verified item by item in the release-gate matrix).
+
+## Upgrade
+
+After a new release, update in each installed profile:
+
+```bash
+dsh plugin --profile web up dsh-arc-context
+dsh plugin --profile headless up dsh-arc-context
+```
+
+`up` (pnpm update) moves the declared dependency range to the newest allowed version (e.g. 0.2.0-beta.14 → 0.2.0-beta.15); `dsh plugin`'s reconcile keeps `dsh.profile.bundles` in sync, and a restart activates the new version.
+
+`add` differs: it re-resolves by package name and writes the dependency — use it for a first install, or to switch a local tarball/`file:` spec back to the registry version. It reconciles the bundle layer the same way. For routine bumps inside an existing range, `up` is enough.
 
 ## Evidence and documentation
 

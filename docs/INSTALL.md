@@ -3,14 +3,36 @@
 ## 前提
 
 - Node.js 20+
-- DeepSeek Harness `0.1.0-rc.7`（已发布 npm 线；不需要宿主补丁或未发布 seam）
+- DeepSeek Harness `0.1.0-rc.8`（已发布 npm 线；不需要宿主补丁或未发布 seam）
 - 同一 Cordis realm 中只能有一个 `ctx.compaction` provider
 
 ## Bundle 安装
 
+同时启用 web 界面与 cli 终端（cli 终端对应 `headless` profile；`dsh
+plugin --profile <name> ...` 可推广到任意 profile）：
+
 ```bash
-dsh plugin --profile web add dsh-arc-context
+dsh plugin --profile web add dsh-arc-context        # web 界面
+dsh plugin --profile headless add dsh-arc-context   # cli 终端
 ```
+
+`dsh plugin` 把参数转发给对应 profile 里的 pnpm，装包后自动 reconcile
+`dsh.profile.bundles`：凡是声明 `dsh.bundle` 的依赖包都会加入该 profile 的
+bundle 层栈，卸载时同步移出（参见 `dsh plugin` 的 reconcile 逻辑）。
+
+`add` 的效果：按包名重新解析并写入依赖（首次安装、或把本地
+tarball/`file:` 依赖切回 npm 注册表版本时用 `add`），随后 reconcile 自动把
+ARC 加入 bundle 层，重启即挂载 bridge。`up`（pnpm update）则只在已声明的
+范围内更新到允许的最新版，同样触发 reconcile。
+
+## 升级
+
+```bash
+dsh plugin --profile web up dsh-arc-context
+dsh plugin --profile headless up dsh-arc-context
+```
+
+重启后新版本生效。
 
 package bundle 插入 `dsh-arc-context/bridge`。Bridge 把引擎类注册进 Loader
 公共 builtin registry，并在每个 `agent/created` 后对该 agent 的 standing
@@ -25,7 +47,8 @@ command、tool-result-pruner）自动绑定到 ARC。全程零文件写入。
 npm ci
 npm run check
 npm pack
-npm install --prefix ~/.dsh/profiles/web ./dsh-arc-context-0.2.0-beta.1.tgz
+npm install --prefix ~/.dsh/profiles/web ./dsh-arc-context-0.2.0-beta.15.tgz
+npx @deepseek-ai/dsh --profile web add ./dsh-arc-context-0.2.0-beta.15.tgz   # 或经 dsh plugin 按 tarball 安装
 ```
 
 不要把 `research/` 作为运行时依赖；它不会进入 npm tarball。

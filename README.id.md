@@ -4,7 +4,7 @@
 
 **ARC = Adaptive Reversible Context.** Plugin tata kelola konteks untuk [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness): senyap di zona aman, dan melakukan kompresi **yang dikendalikan model serta dapat dibalik secara lokal** saat kapasitas masukan nyata hampir tercapai. Informasi tidak pernah hilang; pencopotan pemasangan tidak meninggalkan residu.
 
-> **Status rilis: beta publik, mengikuti dsh resmi 0.1.0-rc.7.** Proyek ini maupun dsh keduanya dalam beta publik — belum disarankan untuk produksi. Matriks verifikasi rilis live lengkap (sepuluh butir): [`research/results/release-verification-0.2.0-beta.12.json`](research/results/release-verification-0.2.0-beta.12.json).
+> **Status rilis: beta publik, mengikuti dsh resmi 0.1.0-rc.8.** Proyek ini maupun dsh keduanya dalam beta publik — belum disarankan untuk produksi. Matriks verifikasi rilis live lengkap (sepuluh butir): [`research/results/release-verification-0.2.0-beta.12.json`](research/results/release-verification-0.2.0-beta.12.json).
 
 ## Keunggulan terukur
 

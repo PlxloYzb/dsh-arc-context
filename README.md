@@ -4,7 +4,7 @@
 
 **ARC = Adaptive Reversible Context。** 面向 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 的上下文治理插件:在安全区保持静默,在接近真实输入容量时执行**模型驱动、本地可逆**的压缩,信息永不丢失,卸载零残留。
 
-> **发布状态:公开 Beta,跟随 dsh 官方 0.1.0-rc.7。** 本项目与 dsh 均处公开 beta,暂不建议用于生产。完整发布门实机验证矩阵(十项)见 [`research/results/release-verification-0.2.0-beta.12.json`](research/results/release-verification-0.2.0-beta.12.json)。
+> **发布状态:公开 Beta,跟随 dsh 官方 0.1.0-rc.8。** 本项目与 dsh 均处公开 beta,暂不建议用于生产。完整发布门实机验证矩阵(十项)见 [`research/results/release-verification-0.2.0-beta.12.json`](research/results/release-verification-0.2.0-beta.12.json)。
 
 ## 实测优势
 
@@ -34,8 +34,11 @@
 
 ## 安装
 
+同时启用 web 界面与 cli 终端（cli 终端对应 `headless` profile；`dsh plugin --profile <name> ...` 可推广到任意 profile）：
+
 ```bash
-dsh plugin --profile web add dsh-arc-context
+dsh plugin --profile web add dsh-arc-context        # web 界面
+dsh plugin --profile headless add dsh-arc-context   # cli 终端
 ```
 
 重启 dsh 即生效。bundle 自动安装 host-plane Preset Bridge:ARC 在 standard preset 自己的 compaction 隔离域内替换官方 Basic 行,**preset 文件逐字节不变**;命令、pruner、isolation 及其他 preset 行全部保留。
@@ -65,7 +68,8 @@ dsh plugin --profile web add dsh-arc-context
 ## 卸载 — 干净、彻底、实机可验证
 
 ```bash
-dsh plugin --profile web remove dsh-arc-context
+dsh plugin --profile web remove dsh-arc-context        # web 界面
+dsh plugin --profile headless remove dsh-arc-context   # cli 终端
 ```
 
 重启 dsh 后:
@@ -76,6 +80,19 @@ dsh plugin --profile web remove dsh-arc-context
 - 新会话不再注册任何 ARC 工具或命令。
 
 重装随时可行,行为与首次安装一致(安装 → 卸载 → 重装循环在发布门矩阵中逐项验证)。
+
+## 升级
+
+发布新版本后,在每个已安装的 profile 里更新即可:
+
+```bash
+dsh plugin --profile web up dsh-arc-context
+dsh plugin --profile headless up dsh-arc-context
+```
+
+`up`(pnpm update)把 profile `package.json` 里已声明的依赖范围更新到允许的最新版(例如 `0.2.0-beta.14` → `0.2.0-beta.15`);`dsh plugin` 的 reconcile 会保持 `dsh.profile.bundles` 同步,重启后新版本生效。
+
+`add` 与 `up` 的区别:`add` 按包名重新解析并写入依赖,首次安装、或把本地 tarball/`file:` 依赖切回 npm 注册表版本时用它;它同样自动 reconcile bundle 层。日常在已有范围内小步升级用 `up` 即可。
 
 ## 证据与文档
 
